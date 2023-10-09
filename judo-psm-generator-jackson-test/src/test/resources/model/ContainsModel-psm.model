@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<namespace:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:data="http://blackbelt.hu/judo/meta/psm/data" xmlns:namespace="http://blackbelt.hu/judo/meta/psm/namespace" xmlns:service="http://blackbelt.hu/judo/meta/psm/service" xmlns:type="http://blackbelt.hu/judo/meta/psm/type" xsi:schemaLocation="http://blackbelt.hu/judo/meta/psm/data http://blackbelt.hu/judo/meta/psm#//data http://blackbelt.hu/judo/meta/psm/namespace http://blackbelt.hu/judo/meta/psm#//namespace http://blackbelt.hu/judo/meta/psm/service http://blackbelt.hu/judo/meta/psm#//service http://blackbelt.hu/judo/meta/psm/type http://blackbelt.hu/judo/meta/psm#//type" xmi:id="(jsl/ContainsModel)/CreateRootModel" name="ContainsModel">
+  <packages xmi:id="(jsl/ContainsModel/ContainsModel)/CreateModelPackages" name="ContainsModel">
+    <elements xsi:type="type:StringType" xmi:id="(jsl/ContainsModel/ContainsModel/String)/CreateStringType" name="String" maxLength="255"/>
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/ContainsModel/ContainsModel/B)/CreateEntityType" name="_B" defaultRepresentation="(jsl/ContainsModel/ContainsModel/B)/CreateEntityDefaultTransferObjectType">
+      <attributes xmi:id="(jsl/ContainsModel/ContainsModel/B/name)/CreateAttributeFromField" name="name" dataType="(jsl/ContainsModel/ContainsModel/String)/CreateStringType"/>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/ContainsModel/ContainsModel/B)/CreateEntityDefaultTransferObjectType" name="B" entityType="(jsl/ContainsModel/ContainsModel/B)/CreateEntityType">
+      <attributes xmi:id="(jsl/ContainsModel/ContainsModel/B/name)/CreateTransferAttributeForDefaultTransferObjectType" name="name" dataType="(jsl/ContainsModel/ContainsModel/String)/CreateStringType" binding="(jsl/ContainsModel/ContainsModel/B/name)/CreateAttributeFromField"/>
+    </elements>
+    <elements xsi:type="type:BooleanType" xmi:id="(jsl/ContainsModel/ContainsModel/Boolean)/CreateBooleanType" name="Boolean"/>
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/ContainsModel/ContainsModel/A)/CreateEntityType" name="_A" defaultRepresentation="(jsl/ContainsModel/ContainsModel/A)/CreateEntityDefaultTransferObjectType">
+      <relations xsi:type="data:AssociationEnd" xmi:id="(jsl/ContainsModel/ContainsModel/A/bs)/CreateDeclaredAssociationEnd" name="bs" target="(jsl/ContainsModel/ContainsModel/B)/CreateEntityType">
+        <cardinality xmi:id="(jsl/ContainsModel/ContainsModel/A/bs)/CreateDeclaredAssociationEnd/cardinality" upper="-1"/>
+      </relations>
+      <relations xsi:type="data:AssociationEnd" xmi:id="(jsl/ContainsModel/ContainsModel/A/b)/CreateDeclaredAssociationEnd" name="b" target="(jsl/ContainsModel/ContainsModel/B)/CreateEntityType">
+        <cardinality xmi:id="(jsl/ContainsModel/ContainsModel/A/b)/CreateDeclaredAssociationEnd/cardinality"/>
+      </relations>
+      <dataProperties xmi:id="(jsl/ContainsModel/ContainsModel/A/containsTest)/CreateDataProperty" name="containsTest" dataType="(jsl/ContainsModel/ContainsModel/Boolean)/CreateBooleanType">
+        <getterExpression xmi:id="(jsl/ContainsModel/ContainsModel/A/containsTest)/CreateGetterExpressionForDataType" expression="self.bs!contains(self.b)"/>
+      </dataProperties>
+      <dataProperties xmi:id="(jsl/ContainsModel/ContainsModel/A/containsTest1)/CreateDataProperty" name="containsTest1" dataType="(jsl/ContainsModel/ContainsModel/Boolean)/CreateBooleanType">
+        <getterExpression xmi:id="(jsl/ContainsModel/ContainsModel/A/containsTest1)/CreateGetterExpressionForDataType" expression="self.bs!contains(ContainsModel::ContainsModel::_B!filter(b | b.name == &quot;test&quot;)!any())"/>
+      </dataProperties>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/ContainsModel/ContainsModel/A)/CreateEntityDefaultTransferObjectType" name="A" entityType="(jsl/ContainsModel/ContainsModel/A)/CreateEntityType">
+      <relations xmi:id="(jsl/ContainsModel/ContainsModel/A/bs)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType" name="bs" binding="(jsl/ContainsModel/ContainsModel/A/bs)/CreateDeclaredAssociationEnd" target="(jsl/ContainsModel/ContainsModel/B)/CreateEntityDefaultTransferObjectType" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
+        <cardinality xmi:id="(jsl/ContainsModel/ContainsModel/A/bs)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType/cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(jsl/ContainsModel/ContainsModel/A/b)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType" name="b" binding="(jsl/ContainsModel/ContainsModel/A/b)/CreateDeclaredAssociationEnd" target="(jsl/ContainsModel/ContainsModel/B)/CreateEntityDefaultTransferObjectType" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
+        <cardinality xmi:id="(jsl/ContainsModel/ContainsModel/A/b)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType/cardinality"/>
+      </relations>
+      <attributes xmi:id="(jsl/ContainsModel/ContainsModel/A/containsTest)/CreateDerivedTransferAttributeForDefaultTransferObjectType" name="containsTest" dataType="(jsl/ContainsModel/ContainsModel/Boolean)/CreateBooleanType" binding="(jsl/ContainsModel/ContainsModel/A/containsTest)/CreateDataProperty"/>
+      <attributes xmi:id="(jsl/ContainsModel/ContainsModel/A/containsTest1)/CreateDerivedTransferAttributeForDefaultTransferObjectType" name="containsTest1" dataType="(jsl/ContainsModel/ContainsModel/Boolean)/CreateBooleanType" binding="(jsl/ContainsModel/ContainsModel/A/containsTest1)/CreateDataProperty"/>
+    </elements>
+  </packages>
+</namespace:Model>

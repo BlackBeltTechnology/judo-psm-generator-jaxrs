@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<namespace:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:data="http://blackbelt.hu/judo/meta/psm/data" xmlns:namespace="http://blackbelt.hu/judo/meta/psm/namespace" xmlns:service="http://blackbelt.hu/judo/meta/psm/service" xmlns:type="http://blackbelt.hu/judo/meta/psm/type" xsi:schemaLocation="http://blackbelt.hu/judo/meta/psm/data http://blackbelt.hu/judo/meta/psm#//data http://blackbelt.hu/judo/meta/psm/namespace http://blackbelt.hu/judo/meta/psm#//namespace http://blackbelt.hu/judo/meta/psm/service http://blackbelt.hu/judo/meta/psm#//service http://blackbelt.hu/judo/meta/psm/type http://blackbelt.hu/judo/meta/psm#//type" xmi:id="(jsl/TaskModel)/CreateRootModel" name="TaskModel">
+  <packages xmi:id="(jsl/TaskModel/TaskModel)/CreateModelPackages" name="TaskModel">
+    <elements xsi:type="type:StringType" xmi:id="(jsl/TaskModel/TaskModel/String)/CreateStringType" name="String" maxLength="4000"/>
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/TaskModel/TaskModel/Person)/CreateEntityType" name="_Person" defaultRepresentation="(jsl/TaskModel/TaskModel/Person)/CreateEntityDefaultTransferObjectType">
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/Person/firstName)/CreateAttributeFromField" name="firstName" dataType="(jsl/TaskModel/TaskModel/String)/CreateStringType"/>
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/Person/lastName)/CreateAttributeFromField" name="lastName" dataType="(jsl/TaskModel/TaskModel/String)/CreateStringType"/>
+      <relations xsi:type="data:AssociationEnd" xmi:id="(jsl/TaskModel/TaskModel/Person/workplace)/CreateDeclaredAssociationEnd" name="workplace" target="(jsl/TaskModel/TaskModel/Workplace)/CreateEntityType" partner="(jsl/TaskModel/TaskModel/Workplace/persons)/CreateDeclaredAssociationEnd">
+        <cardinality xmi:id="(jsl/TaskModel/TaskModel/Person/workplace)/CreateDeclaredAssociationEnd/cardinality"/>
+      </relations>
+      <relations xsi:type="data:AssociationEnd" xmi:id="(jsl/TaskModel/TaskModel/Person/tasks)/CreateDeclaredAssociationEnd" name="tasks" target="(jsl/TaskModel/TaskModel/Task)/CreateEntityType">
+        <cardinality xmi:id="(jsl/TaskModel/TaskModel/Person/tasks)/CreateDeclaredAssociationEnd/cardinality" upper="-1"/>
+      </relations>
+      <dataProperties xmi:id="(jsl/TaskModel/TaskModel/Person/fullName)/CreateDataProperty" name="fullName" dataType="(jsl/TaskModel/TaskModel/String)/CreateStringType">
+        <getterExpression xmi:id="(jsl/TaskModel/TaskModel/Person/fullName)/CreateGetterExpressionForDataType" expression="self.firstName + &quot; &quot; + self.lastName"/>
+      </dataProperties>
+      <dataProperties xmi:id="(jsl/TaskModel/TaskModel/Person/allTaskLong)/CreateDataProperty" name="allTaskLong" dataType="(jsl/TaskModel/TaskModel/Integer)/CreateNumericType">
+        <getterExpression xmi:id="(jsl/TaskModel/TaskModel/Person/allTaskLong)/CreateGetterExpressionForDataType" expression="self.tasks!sum(l | l.taskTimeInDay)"/>
+      </dataProperties>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/TaskModel/TaskModel/Person)/CreateEntityDefaultTransferObjectType" name="Person" entityType="(jsl/TaskModel/TaskModel/Person)/CreateEntityType">
+      <relations xmi:id="(jsl/TaskModel/TaskModel/Person/workplace)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType" name="workplace" binding="(jsl/TaskModel/TaskModel/Person/workplace)/CreateDeclaredAssociationEnd" target="(jsl/TaskModel/TaskModel/Workplace)/CreateEntityDefaultTransferObjectType" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
+        <cardinality xmi:id="(jsl/TaskModel/TaskModel/Person/workplace)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType/cardinality"/>
+      </relations>
+      <relations xmi:id="(jsl/TaskModel/TaskModel/Person/tasks)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType" name="tasks" binding="(jsl/TaskModel/TaskModel/Person/tasks)/CreateDeclaredAssociationEnd" target="(jsl/TaskModel/TaskModel/Task)/CreateEntityDefaultTransferObjectType" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
+        <cardinality xmi:id="(jsl/TaskModel/TaskModel/Person/tasks)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType/cardinality" upper="-1"/>
+      </relations>
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/Person/firstName)/CreateTransferAttributeForDefaultTransferObjectType" name="firstName" dataType="(jsl/TaskModel/TaskModel/String)/CreateStringType" binding="(jsl/TaskModel/TaskModel/Person/firstName)/CreateAttributeFromField"/>
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/Person/lastName)/CreateTransferAttributeForDefaultTransferObjectType" name="lastName" dataType="(jsl/TaskModel/TaskModel/String)/CreateStringType" binding="(jsl/TaskModel/TaskModel/Person/lastName)/CreateAttributeFromField"/>
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/Person/fullName)/CreateDerivedTransferAttributeForDefaultTransferObjectType" name="fullName" dataType="(jsl/TaskModel/TaskModel/String)/CreateStringType" binding="(jsl/TaskModel/TaskModel/Person/fullName)/CreateDataProperty"/>
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/Person/allTaskLong)/CreateDerivedTransferAttributeForDefaultTransferObjectType" name="allTaskLong" dataType="(jsl/TaskModel/TaskModel/Integer)/CreateNumericType" binding="(jsl/TaskModel/TaskModel/Person/allTaskLong)/CreateDataProperty"/>
+    </elements>
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/TaskModel/TaskModel/Workplace)/CreateEntityType" name="_Workplace" defaultRepresentation="(jsl/TaskModel/TaskModel/Workplace)/CreateEntityDefaultTransferObjectType">
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/Workplace/name)/CreateAttributeFromField" name="name" dataType="(jsl/TaskModel/TaskModel/String)/CreateStringType" required="true"/>
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/Workplace/address)/CreateAttributeFromIdentifier" name="address" dataType="(jsl/TaskModel/TaskModel/String)/CreateStringType" identifier="true"/>
+      <relations xsi:type="data:AssociationEnd" xmi:id="(jsl/TaskModel/TaskModel/Workplace/persons)/CreateDeclaredAssociationEnd" name="persons" target="(jsl/TaskModel/TaskModel/Person)/CreateEntityType" partner="(jsl/TaskModel/TaskModel/Person/workplace)/CreateDeclaredAssociationEnd">
+        <cardinality xmi:id="(jsl/TaskModel/TaskModel/Workplace/persons)/CreateDeclaredAssociationEnd/cardinality" upper="-1"/>
+      </relations>
+      <dataProperties xmi:id="(jsl/TaskModel/TaskModel/Workplace/allTime)/CreateDataProperty" name="allTime" dataType="(jsl/TaskModel/TaskModel/Integer)/CreateNumericType">
+        <getterExpression xmi:id="(jsl/TaskModel/TaskModel/Workplace/allTime)/CreateGetterExpressionForDataType" expression="self.persons!sum(p | p.allTaskLong)"/>
+      </dataProperties>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/TaskModel/TaskModel/Workplace)/CreateEntityDefaultTransferObjectType" name="Workplace" entityType="(jsl/TaskModel/TaskModel/Workplace)/CreateEntityType">
+      <relations xmi:id="(jsl/TaskModel/TaskModel/Workplace/persons)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType" name="persons" binding="(jsl/TaskModel/TaskModel/Workplace/persons)/CreateDeclaredAssociationEnd" target="(jsl/TaskModel/TaskModel/Person)/CreateEntityDefaultTransferObjectType" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
+        <cardinality xmi:id="(jsl/TaskModel/TaskModel/Workplace/persons)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType/cardinality" upper="-1"/>
+      </relations>
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/Workplace/name)/CreateTransferAttributeForDefaultTransferObjectType" name="name" required="true" dataType="(jsl/TaskModel/TaskModel/String)/CreateStringType" binding="(jsl/TaskModel/TaskModel/Workplace/name)/CreateAttributeFromField"/>
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/Workplace/address)/CreateIdentifierTransferAttributeForDefaultTransferObjectType" name="address" dataType="(jsl/TaskModel/TaskModel/String)/CreateStringType" binding="(jsl/TaskModel/TaskModel/Workplace/address)/CreateAttributeFromIdentifier"/>
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/Workplace/allTime)/CreateDerivedTransferAttributeForDefaultTransferObjectType" name="allTime" dataType="(jsl/TaskModel/TaskModel/Integer)/CreateNumericType" binding="(jsl/TaskModel/TaskModel/Workplace/allTime)/CreateDataProperty"/>
+    </elements>
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/TaskModel/TaskModel/Task)/CreateEntityType" name="_Task" defaultRepresentation="(jsl/TaskModel/TaskModel/Task)/CreateEntityDefaultTransferObjectType">
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/Task/name)/CreateAttributeFromField" name="name" dataType="(jsl/TaskModel/TaskModel/String)/CreateStringType" required="true"/>
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/Task/taskTimeInDay)/CreateAttributeFromField" name="taskTimeInDay" dataType="(jsl/TaskModel/TaskModel/Integer)/CreateNumericType" required="true"/>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/TaskModel/TaskModel/Task)/CreateEntityDefaultTransferObjectType" name="Task" entityType="(jsl/TaskModel/TaskModel/Task)/CreateEntityType">
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/Task/name)/CreateTransferAttributeForDefaultTransferObjectType" name="name" required="true" dataType="(jsl/TaskModel/TaskModel/String)/CreateStringType" binding="(jsl/TaskModel/TaskModel/Task/name)/CreateAttributeFromField"/>
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/Task/taskTimeInDay)/CreateTransferAttributeForDefaultTransferObjectType" name="taskTimeInDay" required="true" dataType="(jsl/TaskModel/TaskModel/Integer)/CreateNumericType" binding="(jsl/TaskModel/TaskModel/Task/taskTimeInDay)/CreateAttributeFromField"/>
+    </elements>
+    <elements xsi:type="type:NumericType" xmi:id="(jsl/TaskModel/TaskModel/Integer)/CreateNumericType" name="Integer" precision="5"/>
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/TaskModel/TaskModel/SalesPerson)/CreateEntityType" name="_SalesPerson" defaultRepresentation="(jsl/TaskModel/TaskModel/SalesPerson)/CreateEntityDefaultTransferObjectType">
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/SalesPerson/num)/CreateAttributeFromField" name="num" dataType="(jsl/TaskModel/TaskModel/Integer)/CreateNumericType"/>
+      <relations xsi:type="data:AssociationEnd" xmi:id="(jsl/TaskModel/TaskModel/SalesPerson/workplace)/CreateDeclaredAssociationEnd" name="workplace" target="(jsl/TaskModel/TaskModel/MarketPlace)/CreateEntityType" partner="(jsl/TaskModel/TaskModel/MarketPlace/salesPersons)/CreateDeclaredAssociationEnd">
+        <cardinality xmi:id="(jsl/TaskModel/TaskModel/SalesPerson/workplace)/CreateDeclaredAssociationEnd/cardinality"/>
+      </relations>
+      <dataProperties xmi:id="(jsl/TaskModel/TaskModel/SalesPerson/allTaskLong)/CreateDataProperty" name="allTaskLong" dataType="(jsl/TaskModel/TaskModel/Integer)/CreateNumericType">
+        <getterExpression xmi:id="(jsl/TaskModel/TaskModel/SalesPerson/allTaskLong)/CreateGetterExpressionForDataType" expression="1"/>
+      </dataProperties>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/TaskModel/TaskModel/SalesPerson)/CreateEntityDefaultTransferObjectType" name="SalesPerson" entityType="(jsl/TaskModel/TaskModel/SalesPerson)/CreateEntityType">
+      <relations xmi:id="(jsl/TaskModel/TaskModel/SalesPerson/workplace)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType" name="workplace" binding="(jsl/TaskModel/TaskModel/SalesPerson/workplace)/CreateDeclaredAssociationEnd" target="(jsl/TaskModel/TaskModel/MarketPlace)/CreateEntityDefaultTransferObjectType" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
+        <cardinality xmi:id="(jsl/TaskModel/TaskModel/SalesPerson/workplace)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType/cardinality"/>
+      </relations>
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/SalesPerson/num)/CreateTransferAttributeForDefaultTransferObjectType" name="num" dataType="(jsl/TaskModel/TaskModel/Integer)/CreateNumericType" binding="(jsl/TaskModel/TaskModel/SalesPerson/num)/CreateAttributeFromField"/>
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/SalesPerson/allTaskLong)/CreateDerivedTransferAttributeForDefaultTransferObjectType" name="allTaskLong" dataType="(jsl/TaskModel/TaskModel/Integer)/CreateNumericType" binding="(jsl/TaskModel/TaskModel/SalesPerson/allTaskLong)/CreateDataProperty"/>
+    </elements>
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/TaskModel/TaskModel/MarketPlace)/CreateEntityType" name="_MarketPlace" defaultRepresentation="(jsl/TaskModel/TaskModel/MarketPlace)/CreateEntityDefaultTransferObjectType">
+      <relations xsi:type="data:AssociationEnd" xmi:id="(jsl/TaskModel/TaskModel/MarketPlace/salesPersons)/CreateDeclaredAssociationEnd" name="salesPersons" target="(jsl/TaskModel/TaskModel/SalesPerson)/CreateEntityType" partner="(jsl/TaskModel/TaskModel/SalesPerson/workplace)/CreateDeclaredAssociationEnd">
+        <cardinality xmi:id="(jsl/TaskModel/TaskModel/MarketPlace/salesPersons)/CreateDeclaredAssociationEnd/cardinality" upper="-1"/>
+      </relations>
+      <dataProperties xmi:id="(jsl/TaskModel/TaskModel/MarketPlace/allTime)/CreateDataProperty" name="allTime" dataType="(jsl/TaskModel/TaskModel/Integer)/CreateNumericType">
+        <getterExpression xmi:id="(jsl/TaskModel/TaskModel/MarketPlace/allTime)/CreateGetterExpressionForDataType" expression="self.salesPersons!sum(p | p.allTaskLong)"/>
+      </dataProperties>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/TaskModel/TaskModel/MarketPlace)/CreateEntityDefaultTransferObjectType" name="MarketPlace" entityType="(jsl/TaskModel/TaskModel/MarketPlace)/CreateEntityType">
+      <relations xmi:id="(jsl/TaskModel/TaskModel/MarketPlace/salesPersons)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType" name="salesPersons" binding="(jsl/TaskModel/TaskModel/MarketPlace/salesPersons)/CreateDeclaredAssociationEnd" target="(jsl/TaskModel/TaskModel/SalesPerson)/CreateEntityDefaultTransferObjectType" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
+        <cardinality xmi:id="(jsl/TaskModel/TaskModel/MarketPlace/salesPersons)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType/cardinality" upper="-1"/>
+      </relations>
+      <attributes xmi:id="(jsl/TaskModel/TaskModel/MarketPlace/allTime)/CreateDerivedTransferAttributeForDefaultTransferObjectType" name="allTime" dataType="(jsl/TaskModel/TaskModel/Integer)/CreateNumericType" binding="(jsl/TaskModel/TaskModel/MarketPlace/allTime)/CreateDataProperty"/>
+    </elements>
+    <elements xsi:type="type:DateType" xmi:id="(jsl/TaskModel/TaskModel/Date)/CreateDateType" name="Date"/>
+    <elements xsi:type="type:TimeType" xmi:id="(jsl/TaskModel/TaskModel/Time)/CreateTimeType" name="Time"/>
+    <elements xsi:type="type:TimestampType" xmi:id="(jsl/TaskModel/TaskModel/Timestamp)/CreateTimestampType" name="Timestamp"/>
+    <elements xsi:type="type:EnumerationType" xmi:id="(jsl/TaskModel/TaskModel/Behaviours)/CreateEnumerationType" name="Behaviours">
+      <members xmi:id="(jsl/TaskModel/TaskModel/Behaviours/NATURAL)/CreateEnumerationMember" name="NATURAL" ordinal="1"/>
+      <members xmi:id="(jsl/TaskModel/TaskModel/Behaviours/AGGRESSIVE)/CreateEnumerationMember" name="AGGRESSIVE" ordinal="2"/>
+      <members xmi:id="(jsl/TaskModel/TaskModel/Behaviours/FRIENDLY)/CreateEnumerationMember" name="FRIENDLY" ordinal="3"/>
+    </elements>
+    <elements xsi:type="type:BooleanType" xmi:id="(jsl/TaskModel/TaskModel/Boolean)/CreateBooleanType" name="Boolean"/>
+  </packages>
+</namespace:Model>

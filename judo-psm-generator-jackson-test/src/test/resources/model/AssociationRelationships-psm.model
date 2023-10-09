@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<namespace:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:data="http://blackbelt.hu/judo/meta/psm/data" xmlns:namespace="http://blackbelt.hu/judo/meta/psm/namespace" xmlns:service="http://blackbelt.hu/judo/meta/psm/service" xmlns:type="http://blackbelt.hu/judo/meta/psm/type" xsi:schemaLocation="http://blackbelt.hu/judo/meta/psm/data http://blackbelt.hu/judo/meta/psm#//data http://blackbelt.hu/judo/meta/psm/namespace http://blackbelt.hu/judo/meta/psm#//namespace http://blackbelt.hu/judo/meta/psm/service http://blackbelt.hu/judo/meta/psm#//service http://blackbelt.hu/judo/meta/psm/type http://blackbelt.hu/judo/meta/psm#//type" xmi:id="(jsl/AssociationRelationships)/CreateRootModel" name="AssociationRelationships">
+  <packages xmi:id="(jsl/judo_types/judo)/CreateModelPackages" name="judo">
+    <packages xmi:id="(jsl/judo_types/types)/CreateModelPackages" name="types">
+      <elements xsi:type="type:NumericType" xmi:id="(jsl/AssociationRelationships/judo/types/Integer)/CreateNumericType" name="Integer" precision="9"/>
+    </packages>
+  </packages>
+  <packages xmi:id="(jsl/AssociationRelationships/AssociationRelationships)/CreateModelPackages" name="AssociationRelationships">
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityA)/CreateEntityType" name="_EntityA" defaultRepresentation="(jsl/AssociationRelationships/AssociationRelationships/EntityA)/CreateEntityDefaultTransferObjectType">
+      <relations xsi:type="data:AssociationEnd" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityA/singleConA)/CreateDeclaredAssociationEnd" name="singleConA" target="(jsl/AssociationRelationships/AssociationRelationships/EntityC)/CreateEntityType">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityA/singleConA)/CreateDeclaredAssociationEnd/cardinality"/>
+      </relations>
+      <relations xsi:type="data:AssociationEnd" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityA/singleRequiredConA)/CreateDeclaredAssociationEnd" name="singleRequiredConA" target="(jsl/AssociationRelationships/AssociationRelationships/EntityC)/CreateEntityType" partner="(jsl/AssociationRelationships/AssociationRelationships/EntityC/twoWayMultipleAonC)/CreateDeclaredAssociationEnd">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityA/singleRequiredConA)/CreateDeclaredAssociationEnd/cardinality" lower="1"/>
+      </relations>
+      <relations xsi:type="data:AssociationEnd" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityA/multipleDonA)/CreateDeclaredAssociationEnd" name="multipleDonA" target="(jsl/AssociationRelationships/AssociationRelationships/EntityD)/CreateEntityType" partner="(jsl/AssociationRelationships/AssociationRelationships/EntityD/multipleAonD)/CreateDeclaredAssociationEnd">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityA/multipleDonA)/CreateDeclaredAssociationEnd/cardinality" upper="-1"/>
+      </relations>
+      <dataProperties xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityA/countD)/CreateDataProperty" name="countD" dataType="(jsl/AssociationRelationships/judo/types/Integer)/CreateNumericType">
+        <getterExpression xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityA/countD)/CreateGetterExpressionForDataType" expression="self.multipleDonA!count()"/>
+      </dataProperties>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityA)/CreateEntityDefaultTransferObjectType" name="EntityA" entityType="(jsl/AssociationRelationships/AssociationRelationships/EntityA)/CreateEntityType">
+      <relations xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityA/singleConA)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType" name="singleConA" binding="(jsl/AssociationRelationships/AssociationRelationships/EntityA/singleConA)/CreateDeclaredAssociationEnd" target="(jsl/AssociationRelationships/AssociationRelationships/EntityC)/CreateEntityDefaultTransferObjectType" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityA/singleConA)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType/cardinality"/>
+      </relations>
+      <relations xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityA/singleRequiredConA)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType" name="singleRequiredConA" binding="(jsl/AssociationRelationships/AssociationRelationships/EntityA/singleRequiredConA)/CreateDeclaredAssociationEnd" target="(jsl/AssociationRelationships/AssociationRelationships/EntityC)/CreateEntityDefaultTransferObjectType" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityA/singleRequiredConA)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType/cardinality" lower="1"/>
+      </relations>
+      <relations xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityA/multipleDonA)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType" name="multipleDonA" binding="(jsl/AssociationRelationships/AssociationRelationships/EntityA/multipleDonA)/CreateDeclaredAssociationEnd" target="(jsl/AssociationRelationships/AssociationRelationships/EntityD)/CreateEntityDefaultTransferObjectType" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityA/multipleDonA)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType/cardinality" upper="-1"/>
+      </relations>
+      <attributes xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityA/countD)/CreateDerivedTransferAttributeForDefaultTransferObjectType" name="countD" dataType="(jsl/AssociationRelationships/judo/types/Integer)/CreateNumericType" binding="(jsl/AssociationRelationships/AssociationRelationships/EntityA/countD)/CreateDataProperty"/>
+    </elements>
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityD)/CreateEntityType" name="_EntityD" defaultRepresentation="(jsl/AssociationRelationships/AssociationRelationships/EntityD)/CreateEntityDefaultTransferObjectType">
+      <relations xsi:type="data:AssociationEnd" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityD/multipleAonD)/CreateDeclaredAssociationEnd" name="multipleAonD" target="(jsl/AssociationRelationships/AssociationRelationships/EntityA)/CreateEntityType" partner="(jsl/AssociationRelationships/AssociationRelationships/EntityA/multipleDonA)/CreateDeclaredAssociationEnd">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityD/multipleAonD)/CreateDeclaredAssociationEnd/cardinality" upper="-1"/>
+      </relations>
+      <dataProperties xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityD/countA)/CreateDataProperty" name="countA" dataType="(jsl/AssociationRelationships/judo/types/Integer)/CreateNumericType">
+        <getterExpression xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityD/countA)/CreateGetterExpressionForDataType" expression="self.multipleAonD!count()"/>
+      </dataProperties>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityD)/CreateEntityDefaultTransferObjectType" name="EntityD" entityType="(jsl/AssociationRelationships/AssociationRelationships/EntityD)/CreateEntityType">
+      <relations xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityD/multipleAonD)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType" name="multipleAonD" binding="(jsl/AssociationRelationships/AssociationRelationships/EntityD/multipleAonD)/CreateDeclaredAssociationEnd" target="(jsl/AssociationRelationships/AssociationRelationships/EntityA)/CreateEntityDefaultTransferObjectType" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityD/multipleAonD)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType/cardinality" upper="-1"/>
+      </relations>
+      <attributes xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityD/countA)/CreateDerivedTransferAttributeForDefaultTransferObjectType" name="countA" dataType="(jsl/AssociationRelationships/judo/types/Integer)/CreateNumericType" binding="(jsl/AssociationRelationships/AssociationRelationships/EntityD/countA)/CreateDataProperty"/>
+    </elements>
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityB)/CreateEntityType" name="_EntityB" abstract="true" defaultRepresentation="(jsl/AssociationRelationships/AssociationRelationships/EntityB)/CreateEntityDefaultTransferObjectType">
+      <relations xsi:type="data:AssociationEnd" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityB/multipleAonB)/CreateDeclaredAssociationEnd" name="multipleAonB" target="(jsl/AssociationRelationships/AssociationRelationships/EntityA)/CreateEntityType">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityB/multipleAonB)/CreateDeclaredAssociationEnd/cardinality" upper="-1"/>
+      </relations>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityB)/CreateEntityDefaultTransferObjectType" name="EntityB" entityType="(jsl/AssociationRelationships/AssociationRelationships/EntityB)/CreateEntityType">
+      <relations xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityB/multipleAonB)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType" name="multipleAonB" binding="(jsl/AssociationRelationships/AssociationRelationships/EntityB/multipleAonB)/CreateDeclaredAssociationEnd" target="(jsl/AssociationRelationships/AssociationRelationships/EntityA)/CreateEntityDefaultTransferObjectType">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityB/multipleAonB)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType/cardinality" upper="-1"/>
+      </relations>
+    </elements>
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityC)/CreateEntityType" name="_EntityC" superEntityTypes="(jsl/AssociationRelationships/AssociationRelationships/EntityB)/CreateEntityType" defaultRepresentation="(jsl/AssociationRelationships/AssociationRelationships/EntityC)/CreateEntityDefaultTransferObjectType">
+      <relations xsi:type="data:AssociationEnd" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityC/twoWayMultipleAonC)/CreateDeclaredAssociationEnd" name="twoWayMultipleAonC" target="(jsl/AssociationRelationships/AssociationRelationships/EntityA)/CreateEntityType" partner="(jsl/AssociationRelationships/AssociationRelationships/EntityA/singleRequiredConA)/CreateDeclaredAssociationEnd">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityC/twoWayMultipleAonC)/CreateDeclaredAssociationEnd/cardinality" upper="-1"/>
+      </relations>
+      <relations xsi:type="data:AssociationEnd" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityC/multipleDonC)/CreateDeclaredAssociationEnd" name="multipleDonC" target="(jsl/AssociationRelationships/AssociationRelationships/EntityD)/CreateEntityType">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityC/multipleDonC)/CreateDeclaredAssociationEnd/cardinality" upper="-1"/>
+      </relations>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityC)/CreateEntityDefaultTransferObjectType" name="EntityC" entityType="(jsl/AssociationRelationships/AssociationRelationships/EntityC)/CreateEntityType">
+      <relations xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityC)/CreateEntityDefaultTransferObjectType--(jsl/AssociationRelationships/AssociationRelationships/EntityB/multipleAonB)/CloneTransferObjectAssociatedRelationForDefaultTransferObjectType" name="multipleAonB" binding="(jsl/AssociationRelationships/AssociationRelationships/EntityB/multipleAonB)/CreateDeclaredAssociationEnd" target="(jsl/AssociationRelationships/AssociationRelationships/EntityA)/CreateEntityDefaultTransferObjectType">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityC)/CreateEntityDefaultTransferObjectType--(jsl/AssociationRelationships/AssociationRelationships/EntityB/multipleAonB)/CloneTransferObjectAssociatedRelationForDefaultTransferObjectType/cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityC/multipleDonC)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType" name="multipleDonC" binding="(jsl/AssociationRelationships/AssociationRelationships/EntityC/multipleDonC)/CreateDeclaredAssociationEnd" target="(jsl/AssociationRelationships/AssociationRelationships/EntityD)/CreateEntityDefaultTransferObjectType" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityC/multipleDonC)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType/cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityC/twoWayMultipleAonC)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType" name="twoWayMultipleAonC" binding="(jsl/AssociationRelationships/AssociationRelationships/EntityC/twoWayMultipleAonC)/CreateDeclaredAssociationEnd" target="(jsl/AssociationRelationships/AssociationRelationships/EntityA)/CreateEntityDefaultTransferObjectType" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityC/twoWayMultipleAonC)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType/cardinality" upper="-1"/>
+      </relations>
+    </elements>
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityE)/CreateEntityType" name="_EntityE" defaultRepresentation="(jsl/AssociationRelationships/AssociationRelationships/EntityE)/CreateEntityDefaultTransferObjectType">
+      <relations xsi:type="data:AssociationEnd" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityE/multipleFOnE)/CreateDeclaredAssociationEnd" name="multipleFOnE" target="(jsl/AssociationRelationships/AssociationRelationships/EntityF)/CreateEntityType" partner="(jsl/AssociationRelationships/AssociationRelationships/EntityE/multipleFOnE/opposite-add/singleEAdded)/CreateNamedOppositeAssociationEnd">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityE/multipleFOnE)/CreateDeclaredAssociationEnd/cardinality" upper="-1"/>
+      </relations>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityE)/CreateEntityDefaultTransferObjectType" name="EntityE" entityType="(jsl/AssociationRelationships/AssociationRelationships/EntityE)/CreateEntityType">
+      <relations xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityE/multipleFOnE)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType" name="multipleFOnE" binding="(jsl/AssociationRelationships/AssociationRelationships/EntityE/multipleFOnE)/CreateDeclaredAssociationEnd" target="(jsl/AssociationRelationships/AssociationRelationships/EntityF)/CreateEntityDefaultTransferObjectType" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityE/multipleFOnE)/CreateTransferObjectAssociatedRelationForDefaultTransferObjectType/cardinality" upper="-1"/>
+      </relations>
+    </elements>
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityF)/CreateEntityType" name="_EntityF" defaultRepresentation="(jsl/AssociationRelationships/AssociationRelationships/EntityF)/CreateEntityDefaultTransferObjectType">
+      <relations xsi:type="data:AssociationEnd" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityE/multipleFOnE/opposite-add/singleEAdded)/CreateNamedOppositeAssociationEnd" name="singleEAdded" target="(jsl/AssociationRelationships/AssociationRelationships/EntityE)/CreateEntityType" partner="(jsl/AssociationRelationships/AssociationRelationships/EntityE/multipleFOnE)/CreateDeclaredAssociationEnd">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityE/multipleFOnE/opposite-add/singleEAdded)/CreateNamedOppositeAssociationEnd/cardinality"/>
+      </relations>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityF)/CreateEntityDefaultTransferObjectType" name="EntityF" entityType="(jsl/AssociationRelationships/AssociationRelationships/EntityF)/CreateEntityType">
+      <relations xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityE/multipleFOnE/opposite-add/singleEAdded)/CreateTransferObjectAssociatedOppositeRelationForDefaultTransferObjectType" name="singleEAdded" binding="(jsl/AssociationRelationships/AssociationRelationships/EntityE/multipleFOnE/opposite-add/singleEAdded)/CreateNamedOppositeAssociationEnd" target="(jsl/AssociationRelationships/AssociationRelationships/EntityE)/CreateEntityDefaultTransferObjectType" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
+        <cardinality xmi:id="(jsl/AssociationRelationships/AssociationRelationships/EntityE/multipleFOnE/opposite-add/singleEAdded)/CreateTransferObjectAssociatedOppositeRelationForDefaultTransferObjectType/cardinality"/>
+      </relations>
+    </elements>
+  </packages>
+</namespace:Model>

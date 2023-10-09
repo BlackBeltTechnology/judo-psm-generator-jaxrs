@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<namespace:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:data="http://blackbelt.hu/judo/meta/psm/data" xmlns:namespace="http://blackbelt.hu/judo/meta/psm/namespace" xmlns:service="http://blackbelt.hu/judo/meta/psm/service" xmlns:type="http://blackbelt.hu/judo/meta/psm/type" xsi:schemaLocation="http://blackbelt.hu/judo/meta/psm/data http://blackbelt.hu/judo/meta/psm#//data http://blackbelt.hu/judo/meta/psm/namespace http://blackbelt.hu/judo/meta/psm#//namespace http://blackbelt.hu/judo/meta/psm/service http://blackbelt.hu/judo/meta/psm#//service http://blackbelt.hu/judo/meta/psm/type http://blackbelt.hu/judo/meta/psm#//type" xmi:id="(jsl/AbstractModel)/CreateRootModel" name="AbstractModel">
+  <packages xmi:id="(jsl/AbstractModel/AbstractModel)/CreateModelPackages" name="AbstractModel">
+    <elements xsi:type="type:StringType" xmi:id="(jsl/AbstractModel/AbstractModel/String)/CreateStringType" name="String" maxLength="128"/>
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/AbstractModel/AbstractModel/Person)/CreateEntityType" name="_Person" abstract="true" defaultRepresentation="(jsl/AbstractModel/AbstractModel/Person)/CreateEntityDefaultTransferObjectType">
+      <attributes xmi:id="(jsl/AbstractModel/AbstractModel/Person/name)/CreateAttributeFromField" name="name" dataType="(jsl/AbstractModel/AbstractModel/String)/CreateStringType"/>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/AbstractModel/AbstractModel/Person)/CreateEntityDefaultTransferObjectType" name="Person" entityType="(jsl/AbstractModel/AbstractModel/Person)/CreateEntityType">
+      <attributes xmi:id="(jsl/AbstractModel/AbstractModel/Person/name)/CreateTransferAttributeForDefaultTransferObjectType" name="name" dataType="(jsl/AbstractModel/AbstractModel/String)/CreateStringType" binding="(jsl/AbstractModel/AbstractModel/Person/name)/CreateAttributeFromField"/>
+    </elements>
+  </packages>
+</namespace:Model>

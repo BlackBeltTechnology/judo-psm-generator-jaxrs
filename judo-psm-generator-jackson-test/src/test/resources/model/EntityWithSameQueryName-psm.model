@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<namespace:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:data="http://blackbelt.hu/judo/meta/psm/data" xmlns:namespace="http://blackbelt.hu/judo/meta/psm/namespace" xmlns:service="http://blackbelt.hu/judo/meta/psm/service" xmlns:type="http://blackbelt.hu/judo/meta/psm/type" xsi:schemaLocation="http://blackbelt.hu/judo/meta/psm/data http://blackbelt.hu/judo/meta/psm#//data http://blackbelt.hu/judo/meta/psm/namespace http://blackbelt.hu/judo/meta/psm#//namespace http://blackbelt.hu/judo/meta/psm/service http://blackbelt.hu/judo/meta/psm#//service http://blackbelt.hu/judo/meta/psm/type http://blackbelt.hu/judo/meta/psm#//type" xmi:id="(jsl/EntityWithSameQueryName)/CreateRootModel" name="EntityWithSameQueryName">
+  <packages xmi:id="(jsl/EntityWithSameQueryName/EntityWithSameQueryName)/CreateModelPackages" name="EntityWithSameQueryName">
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/ReferenceEntity)/CreateEntityType" name="_ReferenceEntity" defaultRepresentation="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/ReferenceEntity)/CreateEntityDefaultTransferObjectType">
+      <attributes xmi:id="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/ReferenceEntity/name)/CreateAttributeFromField" name="name" dataType="(jsl/EntityWithSameQueryName/judo/types/String)/CreateStringType"/>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/ReferenceEntity)/CreateEntityDefaultTransferObjectType" name="ReferenceEntity" entityType="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/ReferenceEntity)/CreateEntityType">
+      <attributes xmi:id="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/ReferenceEntity/name)/CreateTransferAttributeForDefaultTransferObjectType" name="name" dataType="(jsl/EntityWithSameQueryName/judo/types/String)/CreateStringType" binding="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/ReferenceEntity/name)/CreateAttributeFromField"/>
+    </elements>
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/entityA)/CreateEntityType" name="_entityA" defaultRepresentation="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/entityA)/CreateEntityDefaultTransferObjectType">
+      <navigationProperties xmi:id="(jsl/_4FELpRDvEe6sQLl8PrfQYg)/CreateNavigationPropertyForEntityQuery" name="querySameName" target="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/ReferenceEntity)/CreateEntityType">
+        <cardinality xmi:id="(jsl/_4FELpRDvEe6sQLl8PrfQYg)/CreateNavigationPropertyForEntityQuery/cardinality"/>
+        <getterExpression xmi:id="(jsl/_4FELpRDvEe6sQLl8PrfQYg)/CreateGetterExpressionForEntityQueryParametrizedReferenceType" expression="EntityWithSameQueryName::EntityWithSameQueryName::_ReferenceEntity!any()" parameterType="(jsl/_4FELpRDvEe6sQLl8PrfQYg)/CreateUnmappedTransferObjectForEntityQuery"/>
+      </navigationProperties>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/entityA)/CreateEntityDefaultTransferObjectType" name="entityA" entityType="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/entityA)/CreateEntityType">
+      <relations xmi:id="(jsl/_4FELpRDvEe6sQLl8PrfQYg)/CreateTransferObjectEntityQueryRelationForDefaultTransferObjectType" name="querySameName" binding="(jsl/_4FELpRDvEe6sQLl8PrfQYg)/CreateNavigationPropertyForEntityQuery" target="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/ReferenceEntity)/CreateEntityDefaultTransferObjectType">
+        <cardinality xmi:id="(jsl/_4FELpRDvEe6sQLl8PrfQYg)/CreateTransferObjectEntityQueryRelationForDefaultTransferObjectType/cardinality"/>
+      </relations>
+    </elements>
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/entityB)/CreateEntityType" name="_entityB" defaultRepresentation="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/entityB)/CreateEntityDefaultTransferObjectType">
+      <navigationProperties xmi:id="(jsl/_4FELrBDvEe6sQLl8PrfQYg)/CreateNavigationPropertyForEntityQuery" name="querySameName" target="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/ReferenceEntity)/CreateEntityType">
+        <cardinality xmi:id="(jsl/_4FELrBDvEe6sQLl8PrfQYg)/CreateNavigationPropertyForEntityQuery/cardinality"/>
+        <getterExpression xmi:id="(jsl/_4FELrBDvEe6sQLl8PrfQYg)/CreateGetterExpressionForEntityQueryParametrizedReferenceType" expression="EntityWithSameQueryName::EntityWithSameQueryName::_ReferenceEntity!any()" parameterType="(jsl/_4FELrBDvEe6sQLl8PrfQYg)/CreateUnmappedTransferObjectForEntityQuery"/>
+      </navigationProperties>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/entityB)/CreateEntityDefaultTransferObjectType" name="entityB" entityType="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/entityB)/CreateEntityType">
+      <relations xmi:id="(jsl/_4FELrBDvEe6sQLl8PrfQYg)/CreateTransferObjectEntityQueryRelationForDefaultTransferObjectType" name="querySameName" binding="(jsl/_4FELrBDvEe6sQLl8PrfQYg)/CreateNavigationPropertyForEntityQuery" target="(jsl/EntityWithSameQueryName/EntityWithSameQueryName/ReferenceEntity)/CreateEntityDefaultTransferObjectType">
+        <cardinality xmi:id="(jsl/_4FELrBDvEe6sQLl8PrfQYg)/CreateTransferObjectEntityQueryRelationForDefaultTransferObjectType/cardinality"/>
+      </relations>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(jsl/_4FELpRDvEe6sQLl8PrfQYg)/CreateUnmappedTransferObjectForEntityQuery" name="_entityA_querySameName_Parameters">
+      <annotations xmi:id="(jsl/_4FELpRDvEe6sQLl8PrfQYg)/CreateOriginalNameAnnotationForEntityQuery" name="OriginalSource">
+        <details xmi:id="(jsl/_4FELpRDvEe6sQLl8PrfQYg)/CreateOriginalNameAnnotationDetailForEntityQuery" name="Name" value="entityA::querySameName"/>
+      </annotations>
+      <annotations xmi:id="(jsl/_4FELpRDvEe6sQLl8PrfQYg)/CreateParameterObjectAnnotationForEntityQuery" name="ParameterObject"/>
+      <attributes xmi:id="(jsl/_4FELpxDvEe6sQLl8PrfQYg)/CreateTransferObjectForEntityQueryParameterDeclaration" name="name" dataType="(jsl/EntityWithSameQueryName/judo/types/String)/CreateStringType"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(jsl/_4FELrBDvEe6sQLl8PrfQYg)/CreateUnmappedTransferObjectForEntityQuery" name="_entityB_querySameName_Parameters">
+      <annotations xmi:id="(jsl/_4FELrBDvEe6sQLl8PrfQYg)/CreateOriginalNameAnnotationForEntityQuery" name="OriginalSource">
+        <details xmi:id="(jsl/_4FELrBDvEe6sQLl8PrfQYg)/CreateOriginalNameAnnotationDetailForEntityQuery" name="Name" value="entityB::querySameName"/>
+      </annotations>
+      <annotations xmi:id="(jsl/_4FELrBDvEe6sQLl8PrfQYg)/CreateParameterObjectAnnotationForEntityQuery" name="ParameterObject"/>
+      <attributes xmi:id="(jsl/_4FELrhDvEe6sQLl8PrfQYg)/CreateTransferObjectForEntityQueryParameterDeclaration" name="name" dataType="(jsl/EntityWithSameQueryName/judo/types/String)/CreateStringType"/>
+    </elements>
+  </packages>
+  <packages xmi:id="(jsl/judo_types/judo)/CreateModelPackages" name="judo">
+    <packages xmi:id="(jsl/judo_types/types)/CreateModelPackages" name="types">
+      <elements xsi:type="type:StringType" xmi:id="(jsl/EntityWithSameQueryName/judo/types/String)/CreateStringType" name="String" maxLength="4000"/>
+    </packages>
+  </packages>
+</namespace:Model>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<namespace:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:data="http://blackbelt.hu/judo/meta/psm/data" xmlns:derived="http://blackbelt.hu/judo/meta/psm/derived" xmlns:namespace="http://blackbelt.hu/judo/meta/psm/namespace" xmlns:service="http://blackbelt.hu/judo/meta/psm/service" xmlns:type="http://blackbelt.hu/judo/meta/psm/type" xsi:schemaLocation="http://blackbelt.hu/judo/meta/psm/data http://blackbelt.hu/judo/meta/psm#//data http://blackbelt.hu/judo/meta/psm/derived http://blackbelt.hu/judo/meta/psm#//derived http://blackbelt.hu/judo/meta/psm/namespace http://blackbelt.hu/judo/meta/psm#//namespace http://blackbelt.hu/judo/meta/psm/service http://blackbelt.hu/judo/meta/psm#//service http://blackbelt.hu/judo/meta/psm/type http://blackbelt.hu/judo/meta/psm#//type" xmi:id="(jsl/QueryModel)/CreateRootModel" name="QueryModel">
+  <packages xmi:id="(jsl/QueryModel/QueryModel)/CreateModelPackages" name="QueryModel">
+    <elements xsi:type="type:NumericType" xmi:id="(jsl/QueryModel/QueryModel/Integer)/CreateNumericType" name="Integer" precision="9"/>
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/QueryModel/QueryModel/Lead)/CreateEntityType" name="_Lead" defaultRepresentation="(jsl/QueryModel/QueryModel/Lead)/CreateEntityDefaultTransferObjectType">
+      <attributes xmi:id="(jsl/QueryModel/QueryModel/Lead/value)/CreateAttributeFromField" name="value" dataType="(jsl/QueryModel/QueryModel/Integer)/CreateNumericType"/>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/QueryModel/QueryModel/Lead)/CreateEntityDefaultTransferObjectType" name="Lead" entityType="(jsl/QueryModel/QueryModel/Lead)/CreateEntityType">
+      <attributes xmi:id="(jsl/QueryModel/QueryModel/Lead/value)/CreateTransferAttributeForDefaultTransferObjectType" name="value" dataType="(jsl/QueryModel/QueryModel/Integer)/CreateNumericType" binding="(jsl/QueryModel/QueryModel/Lead/value)/CreateAttributeFromField"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesCountAllLeadsBetween)/CreateUnmappedTransferObjectForEntityQuery" name="_Queries_queriesCountAllLeadsBetween_Parameters">
+      <annotations xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesCountAllLeadsBetween)/CreateOriginalNameAnnotationForEntityQuery" name="OriginalSource">
+        <details xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesCountAllLeadsBetween)/CreateOriginalNameAnnotationDetailForEntityQuery" name="Name" value="queriesCountAllLeadsBetween"/>
+      </annotations>
+      <annotations xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesCountAllLeadsBetween)/CreateParameterObjectAnnotationForEntityQuery" name="ParameterObject"/>
+      <attributes xmi:id="(jsl/_q-nXA3e4Ee2uqalcDSP9Iw)/CreateTransferObjectForEntityQueryDeclarationParameter" name="min" dataType="(jsl/QueryModel/QueryModel/Integer)/CreateNumericType"/>
+      <attributes xmi:id="(jsl/_q-nXBXe4Ee2uqalcDSP9Iw)/CreateTransferObjectForEntityQueryDeclarationParameter" name="max" dataType="(jsl/QueryModel/QueryModel/Integer)/CreateNumericType"/>
+    </elements>
+    <elements xsi:type="data:EntityType" xmi:id="(jsl/QueryModel/QueryModel/Queries)/CreateEntityType" name="_Queries" defaultRepresentation="(jsl/QueryModel/QueryModel/Queries)/CreateEntityDefaultTransferObjectType">
+      <dataProperties xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesCountAllLeadsBetween)/CreateDataPropertyForEntityQuery" name="queriesCountAllLeadsBetween" dataType="(jsl/QueryModel/QueryModel/Integer)/CreateNumericType">
+        <getterExpression xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesCountAllLeadsBetween)/CreateGetterExpressionForEntityQueryParametrizedDataType" expression="QueryModel::QueryModel::_Lead!filter(l | l.value > (input.min!isDefined() ? input.min : 0) and l.value &lt; (input.max!isDefined() ? input.max : 100))!count()" parameterType="(jsl/QueryModel/QueryModel/Queries/queriesCountAllLeadsBetween)/CreateUnmappedTransferObjectForEntityQuery"/>
+      </dataProperties>
+      <navigationProperties xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesAllLeadsBetween)/NavigationProperty" name="queriesAllLeadsBetween" target="(jsl/QueryModel/QueryModel/Lead)/CreateEntityType">
+        <cardinality xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesAllLeadsBetween)/NavigationProperty/cardinality" upper="-1"/>
+        <getterExpression xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesAllLeadsBetween)/CreateGetterExpressionForEntityQueryParametrizedReferenceType" expression="QueryModel::QueryModel::_Lead!filter(l | l.value > (input.min!isDefined() ? input.min : 0) and l.value &lt; (input.max!isDefined() ? input.max : 100))" parameterType="(jsl/QueryModel/QueryModel/Queries/queriesAllLeadsBetween)/CreateUnmappedTransferObjectForEntityQuery"/>
+      </navigationProperties>
+      <navigationProperties xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesAllLeads)/NavigationProperty" name="queriesAllLeads" target="(jsl/QueryModel/QueryModel/Lead)/CreateEntityType">
+        <cardinality xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesAllLeads)/NavigationProperty/cardinality" upper="-1"/>
+        <getterExpression xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesAllLeads)/CreateGetterExpressionForEntityQueryParametrizedReferenceType" expression="QueryModel::QueryModel::_Lead"/>
+      </navigationProperties>
+      <navigationProperties xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesOneLead)/NavigationProperty" name="queriesOneLead" target="(jsl/QueryModel/QueryModel/Lead)/CreateEntityType">
+        <cardinality xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesOneLead)/NavigationProperty/cardinality"/>
+        <getterExpression xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesOneLead)/CreateGetterExpressionForEntityQueryParametrizedReferenceType" expression="QueryModel::QueryModel::_Lead!any()"/>
+      </navigationProperties>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(jsl/QueryModel/QueryModel/Queries)/CreateEntityDefaultTransferObjectType" name="Queries" entityType="(jsl/QueryModel/QueryModel/Queries)/CreateEntityType">
+      <relations xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesAllLeadsBetween)/CreateTransferObjectEntityQueryRelationForDefaultTransferObjectType" name="queriesAllLeadsBetween" binding="(jsl/QueryModel/QueryModel/Queries/queriesAllLeadsBetween)/NavigationProperty" target="(jsl/QueryModel/QueryModel/Lead)/CreateEntityDefaultTransferObjectType">
+        <cardinality xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesAllLeadsBetween)/CreateTransferObjectEntityQueryRelationForDefaultTransferObjectType/cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesAllLeads)/CreateTransferObjectEntityQueryRelationForDefaultTransferObjectType" name="queriesAllLeads" binding="(jsl/QueryModel/QueryModel/Queries/queriesAllLeads)/NavigationProperty" target="(jsl/QueryModel/QueryModel/Lead)/CreateEntityDefaultTransferObjectType">
+        <cardinality xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesAllLeads)/CreateTransferObjectEntityQueryRelationForDefaultTransferObjectType/cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesOneLead)/CreateTransferObjectEntityQueryRelationForDefaultTransferObjectType" name="queriesOneLead" binding="(jsl/QueryModel/QueryModel/Queries/queriesOneLead)/NavigationProperty" target="(jsl/QueryModel/QueryModel/Lead)/CreateEntityDefaultTransferObjectType">
+        <cardinality xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesOneLead)/CreateTransferObjectEntityQueryRelationForDefaultTransferObjectType/cardinality"/>
+      </relations>
+      <attributes xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesCountAllLeadsBetween)/CreateEntityQueryTransferAttributeForDefaultTransferObjectType" name="queriesCountAllLeadsBetween" dataType="(jsl/QueryModel/QueryModel/Integer)/CreateNumericType" binding="(jsl/QueryModel/QueryModel/Queries/queriesCountAllLeadsBetween)/CreateDataPropertyForEntityQuery"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesAllLeadsBetween)/CreateUnmappedTransferObjectForEntityQuery" name="_Queries_queriesAllLeadsBetween_Parameters">
+      <annotations xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesAllLeadsBetween)/CreateOriginalNameAnnotationForEntityQuery" name="OriginalSource">
+        <details xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesAllLeadsBetween)/CreateOriginalNameAnnotationDetailForEntityQuery" name="Name" value="queriesAllLeadsBetween"/>
+      </annotations>
+      <annotations xmi:id="(jsl/QueryModel/QueryModel/Queries/queriesAllLeadsBetween)/CreateParameterObjectAnnotationForEntityQuery" name="ParameterObject"/>
+      <attributes xmi:id="(jsl/_q-nW7ne4Ee2uqalcDSP9Iw)/CreateTransferObjectForEntityQueryDeclarationParameter" name="min" dataType="(jsl/QueryModel/QueryModel/Integer)/CreateNumericType"/>
+      <attributes xmi:id="(jsl/_q-nW8He4Ee2uqalcDSP9Iw)/CreateTransferObjectForEntityQueryDeclarationParameter" name="max" dataType="(jsl/QueryModel/QueryModel/Integer)/CreateNumericType"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(jsl/QueryModel/QueryModel/rootAllLeadsBetween)/CreateUnmappedTransferObjectForStaticQuery" name="_QueryModel_rootAllLeadsBetween_Parameters">
+      <annotations xmi:id="(jsl/QueryModel/QueryModel/rootAllLeadsBetween)/CreateOriginalNameAnnotationForStaticQuery" name="OriginalSource">
+        <details xmi:id="(jsl/QueryModel/QueryModel/rootAllLeadsBetween)/CreateOriginalNameAnnotationDetailForStaticQuery" name="Name" value="rootAllLeadsBetween"/>
+      </annotations>
+      <annotations xmi:id="(jsl/QueryModel/QueryModel/rootAllLeadsBetween)/CreateParameterObjectAnnotationForStaticQuery" name="ParameterObject"/>
+      <attributes xmi:id="(jsl/_q-nWtXe4Ee2uqalcDSP9Iw)/CreateTransferObjectForStaticQueryDeclarationParameter" name="min" dataType="(jsl/QueryModel/QueryModel/Integer)/CreateNumericType"/>
+      <attributes xmi:id="(jsl/_q-nWt3e4Ee2uqalcDSP9Iw)/CreateTransferObjectForStaticQueryDeclarationParameter" name="max" dataType="(jsl/QueryModel/QueryModel/Integer)/CreateNumericType"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(jsl/QueryModel/QueryModel/rootCountAllLeadsBetween)/CreateUnmappedTransferObjectForStaticQuery" name="_QueryModel_rootCountAllLeadsBetween_Parameters">
+      <annotations xmi:id="(jsl/QueryModel/QueryModel/rootCountAllLeadsBetween)/CreateOriginalNameAnnotationForStaticQuery" name="OriginalSource">
+        <details xmi:id="(jsl/QueryModel/QueryModel/rootCountAllLeadsBetween)/CreateOriginalNameAnnotationDetailForStaticQuery" name="Name" value="rootCountAllLeadsBetween"/>
+      </annotations>
+      <annotations xmi:id="(jsl/QueryModel/QueryModel/rootCountAllLeadsBetween)/CreateParameterObjectAnnotationForStaticQuery" name="ParameterObject"/>
+      <attributes xmi:id="(jsl/_q-nWyne4Ee2uqalcDSP9Iw)/CreateTransferObjectForStaticQueryDeclarationParameter" name="min" dataType="(jsl/QueryModel/QueryModel/Integer)/CreateNumericType"/>
+      <attributes xmi:id="(jsl/_q-nWzHe4Ee2uqalcDSP9Iw)/CreateTransferObjectForStaticQueryDeclarationParameter" name="max" dataType="(jsl/QueryModel/QueryModel/Integer)/CreateNumericType"/>
+    </elements>
+    <elements xsi:type="derived:StaticData" xmi:id="(jsl/QueryModel/QueryModel/rootCountAllLeadsBetween)/CreateStaticDataForStaticQuery" name="rootCountAllLeadsBetween" dataType="(jsl/QueryModel/QueryModel/Integer)/CreateNumericType">
+      <getterExpression xmi:id="(jsl/QueryModel/QueryModel/rootCountAllLeadsBetween)/CreateGetterExpressionForStaticQueryParametrizedDataType" expression="QueryModel::QueryModel::_Lead!filter(l | l.value > (input.min!isDefined() ? input.min : 0) and l.value &lt; (input.max!isDefined() ? input.max : 100))!count()" parameterType="(jsl/QueryModel/QueryModel/rootCountAllLeadsBetween)/CreateUnmappedTransferObjectForStaticQuery"/>
+    </elements>
+    <elements xsi:type="derived:StaticData" xmi:id="(jsl/QueryModel/QueryModel/totalNumberOfLeads)/CreateStaticDataForStaticQuery" name="totalNumberOfLeads" dataType="(jsl/QueryModel/QueryModel/Integer)/CreateNumericType">
+      <getterExpression xmi:id="(jsl/QueryModel/QueryModel/totalNumberOfLeads)/CreateGetterExpressionForStaticQueryParametrizedDataType" expression="QueryModel::QueryModel::_Lead!count()"/>
+    </elements>
+    <elements xsi:type="derived:StaticNavigation" xmi:id="(jsl/QueryModel/QueryModel/rootAllLeadsBetween)/CreateStaticNavigationForStaticQuery" name="rootAllLeadsBetween" target="(jsl/QueryModel/QueryModel/Lead)/CreateEntityType">
+      <cardinality xmi:id="(jsl/QueryModel/QueryModel/rootAllLeadsBetween)/CreateStaticNavigationForStaticQuery/cardinality" upper="-1"/>
+      <getterExpression xmi:id="(jsl/QueryModel/QueryModel/rootAllLeadsBetween)/CreateGetterExpressionForStaticQueryParametrizedReferenceType" expression="QueryModel::QueryModel::_Lead!filter(l | l.value > (input.min!isDefined() ? input.min : 0) and l.value &lt; (input.max!isDefined() ? input.max : 100))" parameterType="(jsl/QueryModel/QueryModel/rootAllLeadsBetween)/CreateUnmappedTransferObjectForStaticQuery"/>
+    </elements>
+    <elements xsi:type="derived:StaticNavigation" xmi:id="(jsl/QueryModel/QueryModel/rootAllLeads)/CreateStaticNavigationForStaticQuery" name="rootAllLeads" target="(jsl/QueryModel/QueryModel/Lead)/CreateEntityType">
+      <cardinality xmi:id="(jsl/QueryModel/QueryModel/rootAllLeads)/CreateStaticNavigationForStaticQuery/cardinality" upper="-1"/>
+      <getterExpression xmi:id="(jsl/QueryModel/QueryModel/rootAllLeads)/CreateGetterExpressionForStaticQueryParametrizedReferenceType" expression="QueryModel::QueryModel::_Lead"/>
+    </elements>
+    <elements xsi:type="derived:StaticNavigation" xmi:id="(jsl/QueryModel/QueryModel/rootOneLead)/CreateStaticNavigationForStaticQuery" name="rootOneLead" target="(jsl/QueryModel/QueryModel/Lead)/CreateEntityType">
+      <cardinality xmi:id="(jsl/QueryModel/QueryModel/rootOneLead)/CreateStaticNavigationForStaticQuery/cardinality"/>
+      <getterExpression xmi:id="(jsl/QueryModel/QueryModel/rootOneLead)/CreateGetterExpressionForStaticQueryParametrizedReferenceType" expression="QueryModel::QueryModel::_Lead!any()"/>
+    </elements>
+  </packages>
+</namespace:Model>
