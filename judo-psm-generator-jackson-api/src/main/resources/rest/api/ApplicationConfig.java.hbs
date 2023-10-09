@@ -1,0 +1,11 @@
+{{> fragment.header.hbs }}
+
+package {{ namedElementApiPackageName self }};
+
+public interface {{ self.applicationClassName }} {
+
+    public java.util.Map<java.lang.String, java.lang.Object> getProperties();
+
+    public void setContext(java.lang.Object context);
+
+}

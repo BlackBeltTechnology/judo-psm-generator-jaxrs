@@ -20,6 +20,7 @@ package hu.blackbelt.judo.psm.generator.jackson.impl;
  * #L%
  */
 
+import com.github.jknack.handlebars.internal.lang3.StringUtils;
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.ThreadLocalContextHolder;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
@@ -49,6 +50,10 @@ public class JavaImplHelper extends StaticMethodValueResolver {
 
     public static String namedElementImplPackageName(NamedElement namedElement) {
         return implPackageName() + namedElementPackageName(namedElement);
+    }
+
+    public static String applicationImplClassName(TransferObjectType transferObjectType) {
+        return StringUtils.capitalize(safeName(transferObjectType.getName())+ "ApplicationConfigImpl" );
     }
 
 }

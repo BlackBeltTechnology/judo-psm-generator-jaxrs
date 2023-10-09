@@ -22,6 +22,7 @@ package hu.blackbelt.judo.psm.generator.jackson.api;
 
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
+import hu.blackbelt.judo.meta.psm.accesspoint.ActorType;
 import hu.blackbelt.judo.meta.psm.derived.StaticData;
 import hu.blackbelt.judo.meta.psm.derived.StaticNavigation;
 import hu.blackbelt.judo.meta.psm.namespace.*;
@@ -65,7 +66,6 @@ public class ModelHelper extends StaticMethodValueResolver {
     public static List<TransferObjectType> allTransferObjectType(Model model) {
         return modelWrapper(model).getStreamOfPsmServiceTransferObjectType().collect(Collectors.toList());
     }
-
 
     public static List<StaticNavigation> allStaticNavigation(Model model) {
         return modelWrapper(model).getStreamOfPsmDerivedStaticNavigation()
@@ -115,6 +115,10 @@ public class ModelHelper extends StaticMethodValueResolver {
         return modelWrapper(model).getStreamOfPsmServiceTransferOperation()
                 .filter(o -> o.getBehaviour() == null)
                 .collect(Collectors.toList());
+    }
+
+    public static List<TransferOperation> allActorTypeOperation(Model model) {
+        return modelWrapper(model).getStreamOfPsmServiceTransferOperation().toList();
     }
 
 }

@@ -88,6 +88,11 @@
             <version>7.0.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.1.1</version>
+        </dependency>
 
     </dependencies>
     <build>
@@ -148,272 +153,6 @@
                     </execution>
 
                     <execution>
-                        <id>execute-psm-test-model-from-artifact-AbstractModel</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/AbstractModel-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/AbstractModel</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-EntityWithSameQueryName</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/EntityWithSameQueryName-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/EntityWithSameQueryNameModel</destination>
-                        </configuration>
-                    </execution>
-
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-AssociationRelationships</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/AssociationRelationships-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/AssociationRelationships</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-CompositionRelationships</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/CompositionRelationships-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/CompositionRelationships</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-ContainerDerived</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/ContainerDerived-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/ContainerDerived</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-ContainsModel</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/ContainsModel-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/ContainsModel</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-Functions</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/Functions-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/Functions</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-FunctionsExternals</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/FunctionsExternals-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/FunctionsExternals</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-NavigationTest</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/NavigationTest-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/NavigationTest</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-Operators</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/Operators-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/Operators</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-Primitives</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/Primitives-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/Primitives</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-QueryModel</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/QueryModel-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/QueryModel</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-SalesModel</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/SalesModel-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/SalesModel</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-SalesModel2</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/SalesModel2-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/SalesModel2</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-SalesModel3</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/SalesModel3-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/SalesModel3</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-SalesModelContract</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/SalesModelContract-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/SalesModelContract</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-TaskModel</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/TaskModel-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/TaskModel</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-TernaryTest</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/TernaryTest-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/TernaryTest</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-CastingFunctionsModel</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/CastingFunctionsModel-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/CastingFunctionsModel</destination>
-                        </configuration>
-                    </execution>
-                    <execution>
                         <id>execute-psm-test-model-from-artifact-Northwind-Esm</id>
                         <phase>generate-sources</phase>
                         <goals>
@@ -468,20 +207,20 @@
                             <destination>${basedir}/target/generated-sources/psm/jackson/FormsTest</destination>
                         </configuration>
                     </execution>
+
                     <execution>
-                        <id>execute-psm-test-model-from-artifact-TestTransferObjectConstructor</id>
+                        <id>execute-psm-test-model-from-artifact-CardsAndLabelsTest</id>
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
                             <psm>
-                                ${basedir}/src/test/resources/model/TestTransferObjectConstructor-psm.model
+                                ${basedir}/src/test/resources/model/CardsAndLabelsTest-psm.model
                             </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jackson/TestTransferObjectConstructor</destination>
+                            <destination>${basedir}/target/generated-sources/psm/jackson/CardsAndLabelsTest</destination>
                         </configuration>
                     </execution>
-
                 </executions>
             </plugin>
 
@@ -518,29 +257,11 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${basedir}/target/generated-sources/psm/jackson/AbstractModel</source>
-                                <source>${basedir}/target/generated-sources/psm/jackson/AssociationRelationships</source>
-                                <source>${basedir}/target/generated-sources/psm/jackson/CompositionRelationships</source>
-                                <source>${basedir}/target/generated-sources/psm/jackson/ContainerDerived</source>
-                                <source>${basedir}/target/generated-sources/psm/jackson/ContainsModel</source>
-                                <source>${basedir}/target/generated-sources/psm/jackson/Functions</source>
-                                <source>${basedir}/target/generated-sources/psm/jackson/FunctionsExternals</source>
-                                <source>${basedir}/target/generated-sources/psm/jackson/NavigationTest</source>
-                                <source>${basedir}/target/generated-sources/psm/jackson/northwind</source>
-                                <source>${basedir}/target/generated-sources/psm/jackson/Operators</source>
-                                <source>${basedir}/target/generated-sources/psm/jackson/Primitives</source>
-                                <source>${basedir}/target/generated-sources/psm/jackson/QueryModel</source>
-                                <source>${basedir}/target/generated-sources/psm/jackson/SalesModel</source>
-                                <source>${basedir}/target/generated-sources/psm/jackson/SalesModel2</source>
-                                <source>${basedir}/target/generated-sources/psm/jackson/SalesModel3</source>
-                                <source>${basedir}/target/generated-sources/psm/jackson/SalesModelContract</source>
-                                <source>${basedir}/target/generated-sources/psm/jackson/TaskModel</source>
-                                <source>${basedir}/target/generated-sources/psm/jackson/TernaryTest</source>
                                 <source>${basedir}/target/generated-sources/psm/jackson/Northwind-Esm</source>
                                 <source>${basedir}/target/generated-sources/psm/jackson/BinaryTypeTest</source>
                                 <source>${basedir}/target/generated-sources/psm/jackson/ParameterizedQueryTest</source>
                                 <source>${basedir}/target/generated-sources/psm/jackson/FormsTest</source>
-                                <source>${basedir}/target/generated-sources/psm/jackson/TestTransferObjectConstructor</source>
+                                <source>${basedir}/target/generated-sources/psm/jackson/CardsAndLabelsTest</source>
                             </sources>
                         </configuration>
                     </execution>

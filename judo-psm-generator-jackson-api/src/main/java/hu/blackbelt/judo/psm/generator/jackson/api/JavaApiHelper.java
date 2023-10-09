@@ -22,6 +22,7 @@ package hu.blackbelt.judo.psm.generator.jackson.api;
 
 import com.github.jknack.handlebars.internal.lang3.StringUtils;
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
+import hu.blackbelt.judo.generator.commons.ThreadLocalContextHolder;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
 import hu.blackbelt.judo.meta.psm.PsmUtils;
 import hu.blackbelt.judo.meta.psm.derived.PrimitiveAccessor;
@@ -32,6 +33,7 @@ import hu.blackbelt.judo.meta.psm.namespace.*;
 import hu.blackbelt.judo.meta.psm.service.TransferAttribute;
 import hu.blackbelt.judo.meta.psm.service.TransferObjectRelation;
 import hu.blackbelt.judo.meta.psm.service.TransferObjectType;
+import hu.blackbelt.judo.meta.psm.service.TransferOperation;
 import hu.blackbelt.judo.meta.psm.type.*;
 
 import java.util.*;
@@ -68,5 +70,19 @@ public class JavaApiHelper extends StaticMethodValueResolver {
     public static String namedElementApiParentPath(NamedElement namedElement) {
         return apiPackageName().replaceAll("\\.", "/" ) + namedElementParentPath(namedElement);
     }
+
+
+    public static String applicationClassName(TransferObjectType transferObjectType) {
+        return StringUtils.capitalize(safeName(transferObjectType.getName())+ "ApplicationConfig" );
+    }
+
+    public static String ClassName(TransferObjectType transferObjectType) {
+        return StringUtils.capitalize(safeName(transferObjectType.getName()));
+    }
+
+    public static String applicationFqName(TransferObjectType transferObjectType) {
+        return namedElementApiPackageName(transferObjectType) + "." +applicationClassName(transferObjectType);
+    }
+
 
 }
