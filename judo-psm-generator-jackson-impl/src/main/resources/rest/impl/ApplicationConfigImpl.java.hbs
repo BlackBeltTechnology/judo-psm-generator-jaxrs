@@ -1,0 +1,19 @@
+{{> fragment.header.hbs }}
+
+package {{ namedElementImplPackageName self }};
+
+@javax.ws.rs.ApplicationPath("{{ namedElementImplParentPath self }}/{{ClassName self}}")
+public class {{ applicationImplClassName self }} extends javax.ws.rs.core.Application implements {{ applicationFqName self }} {
+
+    @Override
+    public java.util.Map<java.lang.String, java.lang.Object> getProperties() {
+        return null;
+    }
+
+    @Override
+    public void setContext(java.lang.Object context) {
+
+    }
+
+}
+

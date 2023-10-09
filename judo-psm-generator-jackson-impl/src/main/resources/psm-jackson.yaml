@@ -1,0 +1,5 @@
+templates:
+  - name: ApplicationConfigImpl.java
+    pathExpression: "'/' + #namedElementImplParentPath(#self) + '/' + #applicationImplClassName(#self) + '.java'"
+    templateName: rest/impl/ApplicationConfigImpl.java.hbs
+    actorTypeBased: true

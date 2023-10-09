@@ -1,0 +1,5 @@
+templates:
+  - name: ApplicationConfig.java
+    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #applicationClassName(#self) + '.java'"
+    templateName: rest/api/ApplicationConfig.java.hbs
+    actorTypeBased: true
