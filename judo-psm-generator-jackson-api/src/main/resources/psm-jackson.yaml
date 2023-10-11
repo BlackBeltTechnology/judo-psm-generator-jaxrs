@@ -1,0 +1,11 @@
+templates:
+  - name: ApplicationConfig.java
+    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #applicationClassName(#self) + '.java'"
+    templateName: rest/api/ApplicationConfig.java.hbs
+    actorTypeBased: true
+
+  - name: RestService.java
+    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #className(#self) + '.java'"
+    templateName: rest/api/RestService.java.hbs
+    factoryExpression: "#allExposedTransferObjectWithOperation(#model)"
+    actorTypeBased: false

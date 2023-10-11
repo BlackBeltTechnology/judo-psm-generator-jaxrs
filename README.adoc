@@ -1,0 +1,78 @@
+# judo-psm-generator-jackson
+
+PSM based JUDO Jackson REST Java generator
+
+It can be used as:
+
+[code, xml]
+----
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>hu.blackbelt.judo.archetype</groupId>
+    <artifactId>judo-psm-generator-jackson-example</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+
+    <name>JUDO PSM Generator Jackson REST test</name>
+    <description>JUDO PSM Jackson REST Generator Example.</description>
+
+    <properties>
+        <revision>1.0.0-SNAPSHOT</revision>
+        <maven>3.9.4</maven>
+
+        <judo-psm-archetype-version>1.0.0</judo-psm-archetype-version>
+        <judo-psm-generator-jackson>1.0.0</judo-psm-generator-jackson>
+        <judo-meta-psm-version>1.1.0</judo-meta-psm-version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>hu.blackbelt.judo.archetype</groupId>
+                <artifactId>judo-psm-archetype-maven-plugin</artifactId>
+                <version>${judo-psm-archetype-version}</version>
+                <executions>
+                    <execution>
+                        <id>execute-psm-test-model-from-artifact</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <uris>
+                                <uri>${basedir}/src/main/resources</uri>
+                            </uris>
+                            <helpers>
+                                <helper>hu.blackbelt.judo.psm.generator.jackson.PsmModelHelper</helper>
+                            </helpers>
+                            <type>psm-jackson</type>
+                            <psm>
+                                mvn:your.psm.model.group.id:your.psm.model.artifact.id:your.psm.model.version!model-name-in-jar.model
+                            </psm>
+                            <destination>${basedir}/target/generated-test-classes/psm/jackson</destination>
+                        </configuration>
+                    </execution>
+                </executions>
+
+                <dependencies>
+                    <dependency>
+                        <groupId>hu.blackbelt.judo.meta</groupId>
+                        <artifactId>hu.blackbelt.judo.meta.psm.model.northwind</artifactId>
+                        <version>${judo-meta-psm-version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+----
+
+This example generates a complete project setup into `target/classes` directory.
+In a project this generation can be placed in the model project as a
+profile.
+
+The `judo-psm-archetype-maven-plugin` documentation is placed inside
+the plugin documentation itself. https://github.com/BlackBeltTechnology/judo-psm-archetype
+
+

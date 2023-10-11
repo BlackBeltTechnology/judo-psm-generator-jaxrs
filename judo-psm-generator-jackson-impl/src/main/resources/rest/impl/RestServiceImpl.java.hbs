@@ -1,0 +1,37 @@
+{{> fragment.header.hbs }}
+
+package {{ namedElementImplPackageName self }};
+
+@javax.ws.rs.ApplicationPath("/")
+public class {{ implClassName self }} extends javax.ws.rs.core.Application implements {{ namedElementApiFqName self }} {
+
+
+    java.util.Optional<hu.blackbelt.judo.dispatcher.api.Dispatcher> __dispatcher = java.util.Optional.empty();
+
+    @Override
+    public void __bindDispatcher(hu.blackbelt.judo.dispatcher.api.Dispatcher dispatcher) {
+        this.__dispatcher = java.util.Optional.of(dispatcher);
+    }
+
+    @Override
+    public void __unbindDispatcher(hu.blackbelt.judo.dispatcher.api.Dispatcher dispatcher) {
+        this.__dispatcher = java.util.Optional.empty();
+    }
+
+    {{# each self.operations as | operation | }}
+
+        {{# if operation.isStatelessAndHasNoInputParameter }}
+        @javax.ws.rs.GET
+        @javax.ws.rs.Produces ( "application/json" )
+        {{ else }}
+        @javax.ws.rs.POST
+        @javax.ws.rs.Produces ( "application/json" )
+        @javax.ws.rs.Consumes ( "application/json" )
+        {{/ if}}
+        @javax.ws.rs.Path("/{{operation.toJAXRSPath}}")
+        public javax.ws.rs.core.Response {{ operation.name }}() { return null;}
+
+    {{/ each}}
+
+}
+
