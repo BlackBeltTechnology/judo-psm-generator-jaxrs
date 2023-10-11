@@ -28,6 +28,7 @@ import hu.blackbelt.judo.meta.psm.derived.StaticData;
 import hu.blackbelt.judo.meta.psm.derived.StaticNavigation;
 import hu.blackbelt.judo.meta.psm.namespace.*;
 import hu.blackbelt.judo.meta.psm.namespace.Package;
+import hu.blackbelt.judo.meta.psm.service.TransferObjectRelation;
 import org.eclipse.emf.ecore.ENamedElement;
 
 import javax.swing.*;
@@ -132,4 +133,8 @@ public class JavaNamespaceHelper extends StaticMethodValueResolver {
         return safeName(StringUtils.uncapitalize(namedElement.getName()));
     }
 
+    public static String transferObjectRelationParentPath(NamedElement namedElement) {
+        return safeNamedElementOriginalNameForClassNames((NamedElement) namedElement.eContainer()) +
+                '/' + namedElement.getName();
+    }
 }

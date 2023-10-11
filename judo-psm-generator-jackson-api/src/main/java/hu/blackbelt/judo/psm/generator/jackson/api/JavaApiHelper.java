@@ -71,17 +71,16 @@ public class JavaApiHelper extends StaticMethodValueResolver {
         return apiPackageName().replaceAll("\\.", "/" ) + namedElementParentPath(namedElement);
     }
 
-
     public static String applicationClassName(TransferObjectType transferObjectType) {
-        return StringUtils.capitalize(safeName(transferObjectType.getName())+ "ApplicationConfig" );
+        return StringUtils.capitalize(safeName(transferObjectType.getName()) + "ApplicationConfig" );
     }
 
-    public static String ClassName(TransferObjectType transferObjectType) {
+    public static String className(TransferObjectType transferObjectType) {
         return StringUtils.capitalize(safeName(transferObjectType.getName()));
     }
 
     public static String applicationFqName(TransferObjectType transferObjectType) {
-        return namedElementApiPackageName(transferObjectType) + "." +applicationClassName(transferObjectType);
+        return namedElementApiPackageName(transferObjectType) + "." + applicationClassName(transferObjectType);
     }
 
 

@@ -22,6 +22,7 @@ package hu.blackbelt.judo.psm.generator.jackson.api;
 
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
+import hu.blackbelt.judo.meta.psm.PsmUtils;
 import hu.blackbelt.judo.meta.psm.accesspoint.ActorType;
 import hu.blackbelt.judo.meta.psm.derived.StaticData;
 import hu.blackbelt.judo.meta.psm.derived.StaticNavigation;
@@ -29,10 +30,16 @@ import hu.blackbelt.judo.meta.psm.namespace.*;
 import hu.blackbelt.judo.meta.psm.service.*;
 import hu.blackbelt.judo.meta.psm.support.PsmModelResourceSupport;
 import hu.blackbelt.judo.meta.psm.type.*;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EReference;
 
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static hu.blackbelt.judo.psm.generator.jackson.api.JavaNamespaceHelper.*;
 
 @TemplateHelper
 public class ModelHelper extends StaticMethodValueResolver {
@@ -117,8 +124,104 @@ public class ModelHelper extends StaticMethodValueResolver {
                 .collect(Collectors.toList());
     }
 
-    public static List<TransferOperation> allActorTypeOperation(Model model) {
-        return modelWrapper(model).getStreamOfPsmServiceTransferOperation().toList();
+    public static Set<TransferObjectType> getAllExposedTransferObjectTypesFromAccessPointWithOperation(
+            final TransferObjectType accessPoint) {
+
+        final Set<TransferObjectType> foundTransferObjectTypes = new HashSet<>();
+        if(!accessPoint.getOperations().isEmpty()) {
+            foundTransferObjectTypes.add(accessPoint);
+        }
+        addExposedTransferObjectTypesWithOperation(accessPoint, foundTransferObjectTypes);
+        return foundTransferObjectTypes;
+    }
+
+    private static void addExposedTransferObjectTypesWithOperation(final TransferObjectType type,
+                                                                          final Set<TransferObjectType> foundTransferObjectTypes) {
+        final Set<TransferObjectType> newTransferObjectTypes =
+                type.getRelations().stream()
+                        .map(TransferObjectRelation::getTarget).filter(t -> !foundTransferObjectTypes.contains(t))
+                        .collect(Collectors.toSet());
+        foundTransferObjectTypes.addAll(newTransferObjectTypes.stream().filter(t -> !t.getOperations().isEmpty()).collect(Collectors.toSet()));
+        newTransferObjectTypes.forEach(t -> addExposedTransferObjectTypesWithOperation(t, foundTransferObjectTypes));
+    }
+
+    public static Set<TransferOperation> getAllExposedOperationsFromAccessPoint(
+            final TransferObjectType accessPoint) {
+        Set<TransferObjectType> types = getAllExposedTransferObjectTypesFromAccessPointWithOperation(accessPoint);
+        return types.stream().flatMap(t -> getAllOperations(t).stream()).collect(Collectors.toSet());
+    }
+
+    public static EList<TransferOperation> getAllOperations(final TransferObjectType transferObjectType) {
+        final EList<TransferOperation> operationsCollected = new BasicEList<>();
+        operationsCollected.addAll(transferObjectType.getOperations());
+        return operationsCollected;
+    }
+
+    public static Set<TransferObjectType> allExposedTransferObjectWithOperation(Model model) {
+        return modelWrapper(model).getStreamOfPsmAccesspointActorType().flatMap(access -> getAllExposedTransferObjectTypesFromAccessPointWithOperation(access).stream()).collect(Collectors.toSet());
+    }
+
+    public static Boolean isStateful(TransferOperation transferOperation) {
+        if (transferOperation.getImplementation() != null) {
+            return transferOperation.getImplementation().isStateful();
+        }
+        if (transferOperation.getBehaviour() == null) {
+            return true;
+        }
+        if (transferOperation.getBehaviour() != null) {
+            TransferOperationBehaviourType behaviourType = transferOperation.getBehaviour().getBehaviourType();
+            if (behaviourType == TransferOperationBehaviourType.VALIDATE_CREATE) {
+                return false;
+            } else if (behaviourType == TransferOperationBehaviourType.VALIDATE_UPDATE) {
+                return false;
+            } else if (behaviourType == TransferOperationBehaviourType.LIST) {
+                return false;
+            } else if (behaviourType == TransferOperationBehaviourType.GET_RANGE) {
+                return false;
+            }else if (behaviourType == TransferOperationBehaviourType.GET_TEMPLATE) {
+                return false;
+            }else if (behaviourType == TransferOperationBehaviourType.GET_PRINCIPAL) {
+                return false;
+            }else if (behaviourType == TransferOperationBehaviourType.GET_METADATA) {
+                return false;
+            }else {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static Boolean isStateless(TransferOperation transferOperation) {
+        return !isStateful(transferOperation);
+    }
+
+    public static Boolean isStatelessAndHasNoInputParameter(TransferOperation transferOperation) {
+        return isStateless(transferOperation) && transferOperation.getInput() == null;
+    }
+
+    public static String toJAXRSPath(TransferOperation transferOperation) {
+        String path = "";
+        TransferOperationBehaviour behaviour = transferOperation.getBehaviour();
+
+        if(behaviour != null && behaviour.getBehaviourType() != null){
+            NamedElement owner = behaviour.getOwner();
+
+            TransferOperationBehaviourType behaviourType = behaviour.getBehaviourType();
+            if (behaviourType == TransferOperationBehaviourType.LIST) {
+                if( owner instanceof TransferObjectRelation) {
+                    if(((TransferObjectRelation) owner).getCardinality().getUpper() == -1) {
+                        path = transferObjectRelationParentPath(owner) + "/~list";
+                    } else {
+                        path = transferObjectRelationParentPath(owner) + "/~get";
+                    }
+                }
+            } else if (behaviourType == TransferOperationBehaviourType.CREATE_INSTANCE) {
+
+            }
+
+        }
+
+        return path;
     }
 
 }

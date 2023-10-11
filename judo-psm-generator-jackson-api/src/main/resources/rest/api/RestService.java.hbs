@@ -1,0 +1,15 @@
+{{> fragment.header.hbs }}
+
+package {{ namedElementApiPackageName self }};
+
+public interface {{ self.className }} {
+
+    public void __bindDispatcher(hu.blackbelt.judo.dispatcher.api.Dispatcher dispatcher);
+
+    public void __unbindDispatcher(hu.blackbelt.judo.dispatcher.api.Dispatcher dispatcher);
+    {{#each self.operations as | operation | }}
+
+    public javax.ws.rs.core.Response {{ operation.name }} ();
+    {{/each}}
+
+}

@@ -2,8 +2,21 @@
 
 package {{ namedElementImplPackageName self }};
 
-@javax.ws.rs.ApplicationPath("{{ namedElementImplParentPath self }}/{{ClassName self}}")
+@javax.ws.rs.ApplicationPath("{{ namedElementImplParentPath self }}/{{className self}}")
 public class {{ applicationImplClassName self }} extends javax.ws.rs.core.Application implements {{ applicationFqName self }} {
+
+{{#each self.getAllExposedTransferObjectTypesFromAccessPointWithOperation as | to | }}
+    {{namedElementImplPackageName to}}.{{implClassName to}} {{variableName to}};
+{{/each}}
+
+    @Override
+    public java.util.Set getSingletons() {
+        return new java.util.HashSet(java.util.Arrays.asList(
+        {{#each self.getAllExposedTransferObjectTypesFromAccessPointWithOperation as | to | }}
+            {{variableName to}}{{# unless @last }},{{/unless}}
+        {{/each}}
+        ));
+    }
 
     @Override
     public java.util.Map<java.lang.String, java.lang.Object> getProperties() {

@@ -53,7 +53,15 @@ public class JavaImplHelper extends StaticMethodValueResolver {
     }
 
     public static String applicationImplClassName(TransferObjectType transferObjectType) {
-        return StringUtils.capitalize(safeName(transferObjectType.getName())+ "ApplicationConfigImpl" );
+        return StringUtils.capitalize(safeName(transferObjectType.getName()) + "ApplicationConfigImpl" );
+    }
+
+    public static String implClassName(TransferObjectType transferObjectType) {
+        return StringUtils.capitalize(safeName(transferObjectType.getName()) + "Impl");
+    }
+
+    public static String variableName(TransferObjectType transferObjectType) {
+        return (namedElementPackageName(transferObjectType) + implClassName(transferObjectType)).replaceAll("\\.","_") ;
     }
 
 }
