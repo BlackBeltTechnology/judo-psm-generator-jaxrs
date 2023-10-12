@@ -45,6 +45,8 @@ import static hu.blackbelt.judo.psm.generator.jackson.api.ModelHelper.*;
 @TemplateHelper
 public class JavaApiHelper extends StaticMethodValueResolver {
 
+    public static final String REST = "rest";
+
     public static String namespaceElementApiFqPath(NamespaceElement namespaceElement) {
         return ((StoredVariableHelper.getApiPrefixLocal().equals("")
                     ? ""
@@ -71,6 +73,19 @@ public class JavaApiHelper extends StaticMethodValueResolver {
         return apiPackageName().replaceAll("\\.", "/" ) + namedElementParentPath(namedElement);
     }
 
+    public static String namedElementApiRestPackageName(NamedElement namedElement) {
+        return apiPackageName() + REST + "." + namedElementPackageName(namedElement);
+    }
+
+    public static String namedElementApiRestFqName(NamedElement namedElement) {
+        return apiPackageName() + REST + "." + namedElementPackageName(namedElement) +
+                "." + safeNamedElementOriginalNameForClassNames(namedElement);
+    }
+
+    public static String namedElementApiRestParentPath(NamedElement namedElement) {
+        return apiPackageName().replaceAll("\\.", "/" ) + REST + "/" + namedElementParentPath(namedElement);
+    }
+
     public static String applicationClassName(TransferObjectType transferObjectType) {
         return StringUtils.capitalize(safeName(transferObjectType.getName()) + "ApplicationConfig" );
     }
@@ -82,6 +97,5 @@ public class JavaApiHelper extends StaticMethodValueResolver {
     public static String applicationFqName(TransferObjectType transferObjectType) {
         return namedElementApiPackageName(transferObjectType) + "." + applicationClassName(transferObjectType);
     }
-
 
 }

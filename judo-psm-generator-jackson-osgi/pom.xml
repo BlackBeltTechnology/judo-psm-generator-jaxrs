@@ -11,7 +11,7 @@
     <artifactId>judo-psm-generator-jackson-osgi</artifactId>
     <packaging>bundle</packaging>
 
-    <name>JUDO PSM Generator Jackson REST API</name>
+    <name>JUDO PSM Generator Jackson REST OSGI</name>
     <description>JUDO PSM Jackson REST Generator OSGi descriptor, helpers and templates</description>
 
     <dependencies>

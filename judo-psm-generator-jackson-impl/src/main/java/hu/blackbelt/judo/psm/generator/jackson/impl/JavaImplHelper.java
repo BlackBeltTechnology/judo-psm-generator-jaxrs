@@ -52,6 +52,19 @@ public class JavaImplHelper extends StaticMethodValueResolver {
         return implPackageName() + namedElementPackageName(namedElement);
     }
 
+    public static String namedElementImplRestPackageName(NamedElement namedElement) {
+        return implPackageName() + REST + "." + namedElementPackageName(namedElement);
+    }
+
+    public static String namedElementImplRestFqName(NamedElement namedElement) {
+        return implPackageName() + REST + "." + namedElementPackageName(namedElement) +
+                "." + safeNamedElementOriginalNameForClassNames(namedElement);
+    }
+
+    public static String namedElementImplRestParentPath(NamedElement namedElement) {
+        return implPackageName().replaceAll("\\.", "/" ) + REST + "/" + namedElementParentPath(namedElement);
+    }
+
     public static String applicationImplClassName(TransferObjectType transferObjectType) {
         return StringUtils.capitalize(safeName(transferObjectType.getName()) + "ApplicationConfigImpl" );
     }
@@ -61,7 +74,7 @@ public class JavaImplHelper extends StaticMethodValueResolver {
     }
 
     public static String variableName(TransferObjectType transferObjectType) {
-        return (namedElementPackageName(transferObjectType) + implClassName(transferObjectType)).replaceAll("\\.","_") ;
+        return (namedElementPackageName(transferObjectType) + "_" + implClassName(transferObjectType)).replaceAll("\\.","_") ;
     }
 
 }

@@ -29,6 +29,8 @@ import hu.blackbelt.judo.meta.psm.derived.StaticNavigation;
 import hu.blackbelt.judo.meta.psm.namespace.*;
 import hu.blackbelt.judo.meta.psm.namespace.Package;
 import hu.blackbelt.judo.meta.psm.service.TransferObjectRelation;
+import hu.blackbelt.judo.meta.psm.service.TransferObjectType;
+import hu.blackbelt.judo.meta.psm.service.TransferOperation;
 import org.eclipse.emf.ecore.ENamedElement;
 
 import javax.swing.*;
@@ -36,6 +38,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.github.jknack.handlebars.internal.lang3.StringUtils.capitalize;
+import static hu.blackbelt.judo.psm.generator.jackson.api.ObjectTypeHelper.getEntity;
+import static hu.blackbelt.judo.psm.generator.jackson.api.ObjectTypeHelper.isEntity;
 
 @TemplateHelper
 public class JavaNamespaceHelper extends StaticMethodValueResolver {
@@ -107,13 +111,11 @@ public class JavaNamespaceHelper extends StaticMethodValueResolver {
     }
 
     public static String namedElementPackageName(NamedElement namedElement) {
-        return fqName((Namespace) namedElement.eContainer(), ".", true).toLowerCase() +
-                '.' + safeNamedElementOriginalNameWithSeparator(namedElement, ".");
+        return fqName((Namespace) namedElement.eContainer(), ".", true).toLowerCase();
     }
 
     public static String namedElementParentPath(NamedElement namedElement) {
-        return fqName((Namespace) namedElement.eContainer(), "/", true).toLowerCase() +
-                '/' + safeNamedElementOriginalNameWithSeparator(namedElement, "/");
+        return fqName((Namespace) namedElement.eContainer(), "/", true).toLowerCase();
     }
 
     public static String namedElementLogicalName(NamedElement namedElement) {
@@ -137,4 +139,26 @@ public class JavaNamespaceHelper extends StaticMethodValueResolver {
         return safeNamedElementOriginalNameForClassNames((NamedElement) namedElement.eContainer()) +
                 '/' + namedElement.getName();
     }
+
+    public static String fqNames(NamedElement namedElement) {
+        return fqName((Namespace) namedElement.eContainer(), ".", false) + '.' + namedElement.getName();
+    }
+
+
+    public static String relationAsmFqName(TransferObjectRelation transferObjectRelation) {
+        TransferObjectType transferObjectType = (TransferObjectType) transferObjectRelation.eContainer();
+        return fqName((Namespace) transferObjectType.eContainer(), ".", false) + '.' + transferObjectType.getName() + "#" + transferObjectRelation.getName();
+    }
+
+    public static String classifierAsmFqName(NamedElement namedElement) {
+        TransferObjectType transferObjectType = (TransferObjectType) namedElement.eContainer();
+        NamedElement namedElement1 = transferObjectType;
+        if (isEntity(transferObjectType)) {
+            namedElement1 = getEntity(transferObjectType);
+        }
+        return fqName((Namespace) namedElement1.eContainer(), ".", false) + '.' + namedElement.getName() + "#" + namedElement.getName();
+    }
+
+
+
 }

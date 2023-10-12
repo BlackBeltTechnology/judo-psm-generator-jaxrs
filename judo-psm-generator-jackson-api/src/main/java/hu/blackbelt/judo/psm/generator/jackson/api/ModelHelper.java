@@ -24,12 +24,14 @@ import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
 import hu.blackbelt.judo.meta.psm.PsmUtils;
 import hu.blackbelt.judo.meta.psm.accesspoint.ActorType;
+import hu.blackbelt.judo.meta.psm.data.BoundOperation;
 import hu.blackbelt.judo.meta.psm.derived.StaticData;
 import hu.blackbelt.judo.meta.psm.derived.StaticNavigation;
 import hu.blackbelt.judo.meta.psm.namespace.*;
 import hu.blackbelt.judo.meta.psm.service.*;
 import hu.blackbelt.judo.meta.psm.support.PsmModelResourceSupport;
 import hu.blackbelt.judo.meta.psm.type.*;
+import jdk.dynalink.Operation;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -128,7 +130,7 @@ public class ModelHelper extends StaticMethodValueResolver {
             final TransferObjectType accessPoint) {
 
         final Set<TransferObjectType> foundTransferObjectTypes = new HashSet<>();
-        if(!accessPoint.getOperations().isEmpty()) {
+        if (!accessPoint.getOperations().isEmpty()) {
             foundTransferObjectTypes.add(accessPoint);
         }
         addExposedTransferObjectTypesWithOperation(accessPoint, foundTransferObjectTypes);
@@ -136,7 +138,7 @@ public class ModelHelper extends StaticMethodValueResolver {
     }
 
     private static void addExposedTransferObjectTypesWithOperation(final TransferObjectType type,
-                                                                          final Set<TransferObjectType> foundTransferObjectTypes) {
+                                                                   final Set<TransferObjectType> foundTransferObjectTypes) {
         final Set<TransferObjectType> newTransferObjectTypes =
                 type.getRelations().stream()
                         .map(TransferObjectRelation::getTarget).filter(t -> !foundTransferObjectTypes.contains(t))
@@ -161,67 +163,14 @@ public class ModelHelper extends StaticMethodValueResolver {
         return modelWrapper(model).getStreamOfPsmAccesspointActorType().flatMap(access -> getAllExposedTransferObjectTypesFromAccessPointWithOperation(access).stream()).collect(Collectors.toSet());
     }
 
-    public static Boolean isStateful(TransferOperation transferOperation) {
-        if (transferOperation.getImplementation() != null) {
-            return transferOperation.getImplementation().isStateful();
-        }
-        if (transferOperation.getBehaviour() == null) {
-            return true;
-        }
-        if (transferOperation.getBehaviour() != null) {
-            TransferOperationBehaviourType behaviourType = transferOperation.getBehaviour().getBehaviourType();
-            if (behaviourType == TransferOperationBehaviourType.VALIDATE_CREATE) {
-                return false;
-            } else if (behaviourType == TransferOperationBehaviourType.VALIDATE_UPDATE) {
-                return false;
-            } else if (behaviourType == TransferOperationBehaviourType.LIST) {
-                return false;
-            } else if (behaviourType == TransferOperationBehaviourType.GET_RANGE) {
-                return false;
-            }else if (behaviourType == TransferOperationBehaviourType.GET_TEMPLATE) {
-                return false;
-            }else if (behaviourType == TransferOperationBehaviourType.GET_PRINCIPAL) {
-                return false;
-            }else if (behaviourType == TransferOperationBehaviourType.GET_METADATA) {
-                return false;
-            }else {
-                return true;
+    public static Model getModel(EObject element) {
+        EObject container = element;
+        while (container != null) {
+            if (container instanceof Model) {
+                return (Model) container;
             }
+            container = container.eContainer();
         }
-        return false;
+        return null;
     }
-
-    public static Boolean isStateless(TransferOperation transferOperation) {
-        return !isStateful(transferOperation);
-    }
-
-    public static Boolean isStatelessAndHasNoInputParameter(TransferOperation transferOperation) {
-        return isStateless(transferOperation) && transferOperation.getInput() == null;
-    }
-
-    public static String toJAXRSPath(TransferOperation transferOperation) {
-        String path = "";
-        TransferOperationBehaviour behaviour = transferOperation.getBehaviour();
-
-        if(behaviour != null && behaviour.getBehaviourType() != null){
-            NamedElement owner = behaviour.getOwner();
-
-            TransferOperationBehaviourType behaviourType = behaviour.getBehaviourType();
-            if (behaviourType == TransferOperationBehaviourType.LIST) {
-                if( owner instanceof TransferObjectRelation) {
-                    if(((TransferObjectRelation) owner).getCardinality().getUpper() == -1) {
-                        path = transferObjectRelationParentPath(owner) + "/~list";
-                    } else {
-                        path = transferObjectRelationParentPath(owner) + "/~get";
-                    }
-                }
-            } else if (behaviourType == TransferOperationBehaviourType.CREATE_INSTANCE) {
-
-            }
-
-        }
-
-        return path;
-    }
-
 }
