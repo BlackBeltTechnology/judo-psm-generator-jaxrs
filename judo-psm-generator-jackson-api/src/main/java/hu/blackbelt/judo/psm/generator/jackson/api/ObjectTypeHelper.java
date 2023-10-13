@@ -101,21 +101,6 @@ public class ObjectTypeHelper extends StaticMethodValueResolver {
         return transferObjectType.getOperations().stream().filter(OperationHelper::isCustomOperation).count() > 0;
     }
 
-
-/*
-    public static void collectOperations(TransferObjectType transferObjectType, Set<TransferOperation> operations) {
-
-        operations.addAll(transferObjectType.getOperations());
-        if (isMapped(transferObjectType)) {
-            MappedTransferObjectType mappedTransferObjectType = (MappedTransferObjectType) transferObjectType;
-            EntityType entityType = mappedTransferObjectType.getEntityType();
-            for (EntityType superType : entityType.getSuperEntityTypes()) {
-            }
-        }
-        if (transferObjectType.)
-    }
-*/
-
     public static List<TransferOperation> allOperations(TransferObjectType transferObjectType) {
         return transferObjectType.getOperations().stream()
                 .filter(o -> o.getBehaviour() == null)

@@ -45,7 +45,7 @@ public class JavaImplHelper extends StaticMethodValueResolver {
     }
 
     public static String namedElementImplParentPath(NamedElement namedElement) {
-        return implPackageName().replaceAll("\\.", "/" ) + namedElementParentPath(namedElement);
+        return implPackageName().replaceAll("\\.", "/") + namedElementParentPath(namedElement);
     }
 
     public static String namedElementImplPackageName(NamedElement namedElement) {
@@ -56,25 +56,28 @@ public class JavaImplHelper extends StaticMethodValueResolver {
         return implPackageName() + REST + "." + namedElementPackageName(namedElement);
     }
 
-    public static String namedElementImplRestFqName(NamedElement namedElement) {
-        return implPackageName() + REST + "." + namedElementPackageName(namedElement) +
-                "." + safeNamedElementOriginalNameForClassNames(namedElement);
-    }
-
     public static String namedElementImplRestParentPath(NamedElement namedElement) {
-        return implPackageName().replaceAll("\\.", "/" ) + REST + "/" + namedElementParentPath(namedElement);
+        return implPackageName().replaceAll("\\.", "/") + REST + "/" + namedElementParentPath(namedElement);
     }
 
-    public static String applicationImplClassName(TransferObjectType transferObjectType) {
-        return StringUtils.capitalize(safeName(transferObjectType.getName()) + "ApplicationConfigImpl" );
+    public static String applicationImplClassName(NamedElement namedElement) {
+        return StringUtils.capitalize(safeName(namedElement.getName()) + "ApplicationConfigImpl");
     }
 
-    public static String implClassName(TransferObjectType transferObjectType) {
-        return StringUtils.capitalize(safeName(transferObjectType.getName()) + "Impl");
+    public static String implClassName(NamedElement namedElement) {
+        return StringUtils.capitalize(safeName(namedElement.getName()) + "Impl");
     }
 
-    public static String variableName(TransferObjectType transferObjectType) {
-        return (namedElementPackageName(transferObjectType) + "_" + implClassName(transferObjectType)).replaceAll("\\.","_") ;
+    public static String variableName(NamedElement namedElement) {
+        return (namedElementPackageName(namedElement) + "_" + implClassName(namedElement)).replaceAll("\\.", "_");
+    }
+
+    public static String applicationImplFqName(NamedElement namedElement) {
+        return namedElementImplPackageName(namedElement) + "." + applicationImplClassName(namedElement);
+    }
+
+    public static String namedElementImplRestFqName(NamedElement namedElement) {
+        return namedElementImplRestPackageName(namedElement) + "." + implClassName(namedElement);
     }
 
 }

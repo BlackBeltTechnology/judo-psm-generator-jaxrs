@@ -64,7 +64,6 @@ public class OperationHelper extends StaticMethodValueResolver {
         return transferOperation.getFaults().size() > 0;
     }
 
-
     public static String operationAsmFqName(TransferOperation transferOperation) {
         TransferObjectType transferObjectType = (TransferObjectType) transferOperation.eContainer();
         NamedElement namedElement = transferObjectType;
@@ -130,63 +129,62 @@ public class OperationHelper extends StaticMethodValueResolver {
                 }
             } else if (behaviourType == TransferOperationBehaviourType.CREATE_INSTANCE) {
                 if (isBoundOperation(transferOperation)) {
-                    path = transferObjectRelationParentPath((NamedElement) owner.eContainer()) + "/~update/" + owner.getName() + "/~create";
+                    path = classifierAsmFqName((TransferObjectType) owner.eContainer()) + "/~update/" + owner.getName() + "/~create";
                 } else {
                     path = relationAsmFqName((TransferObjectRelation) owner) + "/~create/";
                 }
             } else if (behaviourType == TransferOperationBehaviourType.VALIDATE_CREATE) {
                 if (isBoundOperation(transferOperation)) {
-                    path = transferObjectRelationParentPath((NamedElement) owner.eContainer()) + "/~update/" + owner.getName() + "/~validate";
+                    path = classifierAsmFqName((TransferObjectType) owner.eContainer()) + "/~update/" + owner.getName() + "/~validate";
                 } else {
                     path = relationAsmFqName((TransferObjectRelation) owner) + "/~create/";
                 }
             } else if (behaviourType == TransferOperationBehaviourType.REFRESH) {
-                path = transferObjectRelationParentPath(owner) + "/~get/";
+                path = classifierAsmFqName((TransferObjectType) owner) + "/~get/";
             } else if (behaviourType == TransferOperationBehaviourType.UPDATE_INSTANCE) {
-                path = transferObjectRelationParentPath(owner) + "/~update/";
+                path = classifierAsmFqName((TransferObjectType) owner) + "/~update/";
             } else if (behaviourType == TransferOperationBehaviourType.VALIDATE_UPDATE) {
-                path = transferObjectRelationParentPath(owner) + "/~validate/";
+                path = classifierAsmFqName((TransferObjectType) owner) + "/~validate/";
             } else if (behaviourType == TransferOperationBehaviourType.DELETE_INSTANCE) {
-                path = transferObjectRelationParentPath(owner) + "/~delete/";
+                path = classifierAsmFqName((TransferObjectType) owner) + "/~delete/";
             } else if (behaviourType == TransferOperationBehaviourType.SET_REFERENCE) {
-                path = transferObjectRelationParentPath((NamedElement) owner.eContainer()) + "/~update/" + owner.getName() + "/~set";
+                path = classifierAsmFqName((TransferObjectType) owner.eContainer()) + "/~update/" + owner.getName() + "/~set";
             } else if (behaviourType == TransferOperationBehaviourType.UNSET_REFERENCE) {
-                path = transferObjectRelationParentPath((NamedElement) owner.eContainer()) + "/~update/" + owner.getName() + "/~unset";
+                path = classifierAsmFqName((TransferObjectType) owner.eContainer()) + "/~update/" + owner.getName() + "/~unset";
             } else if (behaviourType == TransferOperationBehaviourType.ADD_REFERENCE) {
-                path = transferObjectRelationParentPath((NamedElement) owner.eContainer()) + "/~update/" + owner.getName() + "/~add";
+                path = classifierAsmFqName((TransferObjectType) owner.eContainer()) + "/~update/" + owner.getName() + "/~add";
             } else if (behaviourType == TransferOperationBehaviourType.REMOVE_REFERENCE) {
-                path = transferObjectRelationParentPath((NamedElement) owner.eContainer()) + "/~update/" + owner.getName() + "/~remove";
+                path = classifierAsmFqName((TransferObjectType) owner.eContainer()) + "/~update/" + owner.getName() + "/~remove";
             } else if (behaviourType == TransferOperationBehaviourType.GET_RANGE) {
-                if(owner instanceof TransferObjectRelation) {
+                if (owner instanceof TransferObjectRelation) {
                     path = relationAsmFqName((TransferObjectRelation) owner) + "/~range/";
-                }else {
+                } else {
                     path = operationAsmFqName((TransferOperation) owner) + "/~range/";
                 }
-                path = transferObjectRelationParentPath(owner) + "/~range/";
             } else if (behaviourType == TransferOperationBehaviourType.GET_TEMPLATE) {
-                path = transferObjectRelationParentPath(owner) + "/~template/";
+                path = classifierAsmFqName((TransferObjectType) owner) + "/~template/";
             } else if (behaviourType == TransferOperationBehaviourType.GET_PRINCIPAL) {
-                path = transferObjectRelationParentPath(owner) + "/~principal/";
+                path = classifierAsmFqName((TransferObjectType) owner) + "/~principal/";
             } else if (behaviourType == TransferOperationBehaviourType.GET_METADATA) {
-                path = transferObjectRelationParentPath(owner) + "/~meta/";
+                path = classifierAsmFqName((TransferObjectType) owner) + "/~meta/";
             } else if (behaviourType == TransferOperationBehaviourType.GET_UPLOAD_TOKEN) {
-                path = transferObjectRelationParentPath(owner) + "/~upload-token/";
+                path = attributeAsmFqName((TransferAttribute) owner) + "/~upload-token/";
             }
 
         }
 
-        return path.replaceAll("^" + model.getName(),"").replaceAll("\\.","/").replaceAll("#","/");
+        return path.replaceAll("^" + model.getName() + "\\.", "").replaceAll("\\.", "/").replaceAll("#", "/").replaceAll("_default_transferobjecttypes/", "");
     }
 
-    public  static  Boolean isMany(Parameter parameter) {
+    public static Boolean isMany(Parameter parameter) {
         return parameter.getCardinality().getUpper() == -1;
     }
 
-    public  static  Boolean operationOutputTypeDefined(TransferOperation transferOperation) {
-        if(!hasReturn(transferOperation)) {
+    public static Boolean operationOutputTypeDefined(TransferOperation transferOperation) {
+        if (!hasReturn(transferOperation)) {
             return false;
         }
-        return transferOperation.getOutput().getType() !=null;
+        return transferOperation.getOutput().getType() != null;
     }
 
 }

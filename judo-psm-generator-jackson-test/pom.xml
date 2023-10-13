@@ -235,6 +235,20 @@
                             <destination>${basedir}/target/generated-sources/psm/jackson/ActionGroupTest</destination>
                         </configuration>
                     </execution>
+
+                    <execution>
+                        <id>execute-psm-test-model-from-artifact-ApplicationSelectionTest</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <psm>
+                                ${basedir}/src/test/resources/model/ApplicationSelectionTest-psm.model
+                            </psm>
+                            <destination>${basedir}/target/generated-sources/psm/jackson/ApplicationSelectionTest</destination>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
 
@@ -271,12 +285,14 @@
                         </goals>
                         <configuration>
                             <sources>
-<!--                                <source>${basedir}/target/generated-sources/psm/jackson/Northwind-Esm</source>-->
-<!--                                <source>${basedir}/target/generated-sources/psm/jackson/BinaryTypeTest</source>-->
-<!--                                <source>${basedir}/target/generated-sources/psm/jackson/ParameterizedQueryTest</source>-->
-<!--                                <source>${basedir}/target/generated-sources/psm/jackson/FormsTest</source>-->
-<!--                                <source>${basedir}/target/generated-sources/psm/jackson/CardsAndLabelsTest</source>-->
+                                <source>${basedir}/target/generated-sources/psm/jackson/Northwind-Esm</source>
+                                <source>${basedir}/target/generated-sources/psm/jackson/Northwind</source>
+                                <source>${basedir}/target/generated-sources/psm/jackson/BinaryTypeTest</source>
+                                <source>${basedir}/target/generated-sources/psm/jackson/ParameterizedQueryTest</source>
+                                <source>${basedir}/target/generated-sources/psm/jackson/FormsTest</source>
+                                <source>${basedir}/target/generated-sources/psm/jackson/CardsAndLabelsTest</source>
                                 <source>${basedir}/target/generated-sources/psm/jackson/ActionGroupTest</source>
+                                <source>${basedir}/target/generated-sources/psm/jackson/ApplicationSelectionTest</source>
                             </sources>
                         </configuration>
                     </execution>

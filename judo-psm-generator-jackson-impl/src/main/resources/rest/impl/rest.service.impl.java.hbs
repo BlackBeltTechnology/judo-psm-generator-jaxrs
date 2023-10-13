@@ -37,9 +37,9 @@ public class {{ implClassName self }} extends javax.ws.rs.core.Application imple
         {{/if}}
         {{#if operation.hasParam}}
         {{#if operation.input.isMany }}
-        , java.util.List<java.util.Map<java.lang.String, java.lang.Object>> {{operation.input.name}}
+        , java.util.List<java.util.Map<java.lang.String, java.lang.Object>> {{operation.input.name.firstToLower}}
         {{else}}
-        , java.util.Map<java.lang.String, java.lang.Object> {{operation.input.name}}
+        , java.util.Map<java.lang.String, java.lang.Object> {{operation.input.name.firstToLower}}
         {{/if}}
         {{/if}}
     ) {
@@ -58,8 +58,8 @@ public class {{ implClassName self }} extends javax.ws.rs.core.Application imple
             parameters.put("__principal", securityContext.getUserPrincipal());
         }
         {{#if operation.input}}
-        if ( {{ operation.input.name }} != null ) {
-        parameters.put("{{operation.input.name}}", {{operation.input.name}});
+        if ( {{ operation.input.name.firstToLower }} != null ) {
+        parameters.put("{{operation.input.name}}", {{operation.input.name.firstToLower}});
         }
         {{/if}}
         java.util.Map<java.lang.String, java.lang.Object> result = __dispatcher.get().callOperation("{{operation.operationAsmFqName}}", parameters);
@@ -78,4 +78,3 @@ public class {{ implClassName self }} extends javax.ws.rs.core.Application imple
 {{/ each}}
 
 }
-

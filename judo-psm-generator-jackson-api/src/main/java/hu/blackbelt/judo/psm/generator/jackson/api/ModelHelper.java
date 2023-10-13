@@ -23,7 +23,9 @@ package hu.blackbelt.judo.psm.generator.jackson.api;
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
 import hu.blackbelt.judo.meta.psm.PsmUtils;
+import hu.blackbelt.judo.meta.psm.accesspoint.AbstractActorType;
 import hu.blackbelt.judo.meta.psm.accesspoint.ActorType;
+import hu.blackbelt.judo.meta.psm.accesspoint.MappedActorType;
 import hu.blackbelt.judo.meta.psm.data.BoundOperation;
 import hu.blackbelt.judo.meta.psm.derived.StaticData;
 import hu.blackbelt.judo.meta.psm.derived.StaticNavigation;
@@ -40,6 +42,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static hu.blackbelt.judo.psm.generator.jackson.api.JavaNamespaceHelper.*;
 
@@ -160,17 +163,11 @@ public class ModelHelper extends StaticMethodValueResolver {
     }
 
     public static Set<TransferObjectType> allExposedTransferObjectWithOperation(Model model) {
-        return modelWrapper(model).getStreamOfPsmAccesspointActorType().flatMap(access -> getAllExposedTransferObjectTypesFromAccessPointWithOperation(access).stream()).collect(Collectors.toSet());
+        return modelWrapper(model).getStreamOfPsmAccesspointAbstractActorType().flatMap(access -> getAllExposedTransferObjectTypesFromAccessPointWithOperation(access).stream()).collect(Collectors.toSet());
     }
 
-    public static Model getModel(EObject element) {
-        EObject container = element;
-        while (container != null) {
-            if (container instanceof Model) {
-                return (Model) container;
-            }
-            container = container.eContainer();
-        }
-        return null;
+    public static List<AbstractActorType> allAccessPointActor(Model model) {
+        return modelWrapper(model).getStreamOfPsmAccesspointAbstractActorType().toList();
     }
+
 }

@@ -53,7 +53,27 @@ public class JavaOsgiHelper extends StaticMethodValueResolver {
         return osgiPackageName() + namedElementPackageName(namedElement);
     }
 
+    public static String namedElementOsgiRestPackageName(NamedElement namedElement) {
+        return osgiPackageName() + REST + "." + namedElementPackageName(namedElement);
+    }
+
+    public static String namedElementOsgiRestFqName(NamedElement namedElement) {
+        return osgiPackageName() + REST + "." + namedElementPackageName(namedElement) +
+                "." + safeNamedElementOriginalNameForClassNames(namedElement);
+    }
+
     public static String namedElementOsgiFqName(NamedElement namedElement) {
         return namedElementOsgiPackageName(namedElement) + "." + safeName(namedElement.getName());
     }
+
+
+    public static String applicationOsgiClassName(NamedElement namedElement) {
+        return applicationClassName(namedElement) + "Component" ;
+    }
+
+    public static String osgiClassName(NamedElement namedElement) {
+        return StringUtils.capitalize(safeName(namedElement.getName()) + "Component");
+    }
+
+
 }
