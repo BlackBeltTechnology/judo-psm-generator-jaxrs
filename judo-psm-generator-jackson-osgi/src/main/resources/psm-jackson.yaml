@@ -1,0 +1,6 @@
+templates:
+  - name: application.config.osgi.java
+    pathExpression: "'/' + #namedElementOsgiParentPath(#self) + '/' + #applicationOsgiClassName(#self) + '.java'"
+    templateName: osgi/application.config.osgi.java.hbs
+    factoryExpression: "#allAccessPointActor(#model)"
+    actorTypeBased: false

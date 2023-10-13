@@ -1,0 +1,34 @@
+{{> fragment.header.hbs }}
+
+package {{ namedElementImplPackageName self }};
+
+@javax.ws.rs.ApplicationPath("{{ namedElementImplParentPath self }}/{{className self}}")
+public class {{ applicationImplClassName self }} extends javax.ws.rs.core.Application implements {{ applicationFqName self }} {
+
+    private final java.util.Map<java.lang.String, java.lang.Object> properties = new java.util.TreeMap();
+
+{{#each self.getAllExposedTransferObjectTypesFromAccessPointWithOperation as | to | }}
+    {{namedElementImplRestFqName}} {{variableName to}};
+{{/each}}
+
+    @Override
+    public java.util.Set getSingletons() {
+        return new java.util.HashSet(java.util.Arrays.asList(
+        {{#each self.getAllExposedTransferObjectTypesFromAccessPointWithOperation as | to | }}
+            {{variableName to}}{{# unless @last }},{{/unless}}
+        {{/each}}
+        ));
+    }
+
+    @Override
+    public java.util.Map<java.lang.String, java.lang.Object> getProperties() {
+        return java.util.Collections.unmodifiableMap(this.properties);
+    }
+
+    @Override
+    public void setContext(java.lang.Object context) {
+        properties.put("context", context);
+    }
+
+}
+
