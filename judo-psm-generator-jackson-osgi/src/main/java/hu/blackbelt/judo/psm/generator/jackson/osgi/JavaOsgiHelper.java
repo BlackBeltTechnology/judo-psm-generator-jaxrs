@@ -62,6 +62,10 @@ public class JavaOsgiHelper extends StaticMethodValueResolver {
                 "." + safeNamedElementOriginalNameForClassNames(namedElement);
     }
 
+    public static String namedElementOsgiRestParentPath(NamedElement namedElement) {
+        return osgiPackageName().replaceAll("\\.", "/" ) + REST + "/" + namedElementParentPath(namedElement);
+    }
+
     public static String namedElementOsgiFqName(NamedElement namedElement) {
         return namedElementOsgiPackageName(namedElement) + "." + safeName(namedElement.getName());
     }

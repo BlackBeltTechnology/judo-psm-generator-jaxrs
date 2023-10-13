@@ -1,6 +1,6 @@
 templates:
-  - name: application.config.osgi.java
-    pathExpression: "'/' + #namedElementOsgiParentPath(#self) + '/' + #applicationOsgiClassName(#self) + '.java'"
-    templateName: osgi/application.config.osgi.java.hbs
-    factoryExpression: "#allAccessPointActor(#model)"
+  - name: rest.service.osgi.java
+    pathExpression: "'/' + #namedElementOsgiRestParentPath(#self) + '/' + #osgiClassName(#self) + '.java'"
+    templateName: osgi/rest.service.osgi.java.hbs
+    factoryExpression: "#allExposedTransferObjectWithOperation(#model)"
     actorTypeBased: false

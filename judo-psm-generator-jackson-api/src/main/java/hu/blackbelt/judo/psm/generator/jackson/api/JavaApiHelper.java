@@ -77,11 +77,6 @@ public class JavaApiHelper extends StaticMethodValueResolver {
         return apiPackageName() + REST + "." + namedElementPackageName(namedElement);
     }
 
-    public static String namedElementApiRestFqName(NamedElement namedElement) {
-        return apiPackageName() + REST + "." + namedElementPackageName(namedElement) +
-                "." + safeNamedElementOriginalNameForClassNames(namedElement);
-    }
-
     public static String namedElementApiRestParentPath(NamedElement namedElement) {
         return apiPackageName().replaceAll("\\.", "/" ) + REST + "/" + namedElementParentPath(namedElement);
     }
@@ -100,6 +95,11 @@ public class JavaApiHelper extends StaticMethodValueResolver {
 
     public static String applicationFqName(NamedElement namedElement) {
         return namedElementApiPackageName(namedElement) + "." + applicationClassName(namedElement);
+    }
+
+    public static String namedElementApiRestFqName(NamedElement namedElement) {
+        return apiPackageName() + REST + "." + namedElementPackageName(namedElement) +
+                "." + className(namedElement);
     }
 
 }

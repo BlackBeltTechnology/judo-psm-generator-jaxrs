@@ -1,8 +1,0 @@
-
-
-{{#each self.allExposedTransferObjectWithOperation as | transfer | }}
-    {{ transfer.namedElementLogicalName}}
-    {{#each transfer.getAllOperations as | operation | }}
-         {{operation.behaviour.behaviourType}}-{{ toJAXRSPath operation model}}
-    {{/each}}
-{{/each}}
