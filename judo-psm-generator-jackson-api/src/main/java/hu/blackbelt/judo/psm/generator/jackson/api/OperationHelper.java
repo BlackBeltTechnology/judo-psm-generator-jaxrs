@@ -96,9 +96,8 @@ public class OperationHelper extends StaticMethodValueResolver {
                 return false;
             } else if (behaviourType == TransferOperationBehaviourType.GET_METADATA) {
                 return false;
-            } else {
-                return true;
             }
+            return true;
         }
         return false;
     }

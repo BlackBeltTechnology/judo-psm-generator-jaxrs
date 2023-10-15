@@ -2,8 +2,8 @@
 
 package {{ namedElementImplRestPackageName self }};
 
-@javax.ws.rs.ApplicationPath("/")
-public class {{ implClassName self }} extends javax.ws.rs.core.Application implements {{ namedElementApiRestFqName self }} {
+@javax.ws.rs.Path("/")
+public class {{ implClassName self }} implements {{ namedElementApiRestFqName self }} {
 
 
     java.util.Optional<hu.blackbelt.judo.dispatcher.api.Dispatcher> __dispatcher = java.util.Optional.empty();

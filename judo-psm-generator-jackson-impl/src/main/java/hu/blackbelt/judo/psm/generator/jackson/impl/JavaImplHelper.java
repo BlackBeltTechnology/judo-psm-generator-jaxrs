@@ -61,11 +61,11 @@ public class JavaImplHelper extends StaticMethodValueResolver {
     }
 
     public static String applicationImplClassName(NamedElement namedElement) {
-        return StringUtils.capitalize(safeName(namedElement.getName()) + "ApplicationConfigImpl");
+        return applicationClassName(namedElement) + "Impl";
     }
 
     public static String implClassName(NamedElement namedElement) {
-        return StringUtils.capitalize(safeName(namedElement.getName()) + "Impl");
+        return className(namedElement) + "Impl";
     }
 
     public static String variableName(NamedElement namedElement) {
