@@ -93,6 +93,11 @@
             <artifactId>javax.ws.rs-api</artifactId>
             <version>2.1.1</version>
         </dependency>
+        <dependency>
+            <groupId>hu.blackbelt.cxf</groupId>
+            <artifactId>cxf-jaxrs-application-manager</artifactId>
+            <version>0.7.1.20230914_110111_1c9ad225_develop</version>
+        </dependency>
 
     </dependencies>
     <build>

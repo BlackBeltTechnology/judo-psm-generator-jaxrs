@@ -44,6 +44,8 @@ import static hu.blackbelt.judo.psm.generator.jackson.api.ObjectTypeHelper.*;
 @TemplateHelper
 public class JavaNamespaceHelper extends StaticMethodValueResolver {
 
+    public static final String DEFAULT_TRANSFER_OBJECT_TYPES = "_default_transferobjecttypes";
+
     public static String safeName(String str) {
         if (Arrays.asList(
                 "abstract", "assert", "boolean", "break", "byte", "case", "catch", "char",
@@ -111,11 +113,11 @@ public class JavaNamespaceHelper extends StaticMethodValueResolver {
     }
 
     public static String namedElementPackageName(NamedElement namedElement) {
-        return fqName((Namespace) namedElement.eContainer(), ".", true).toLowerCase().replaceAll("_default_transferobjecttypes/", "");
+        return Arrays.stream(fqName((Namespace) namedElement.eContainer(), ".", true).toLowerCase().split("\\.")).filter(name -> !DEFAULT_TRANSFER_OBJECT_TYPES.equals(name)).collect(Collectors.joining("."));
     }
 
     public static String namedElementParentPath(NamedElement namedElement) {
-        return fqName((Namespace) namedElement.eContainer(), "/", true).toLowerCase().replaceAll("_default_transferobjecttypes/", "");
+        return Arrays.stream(fqName((Namespace) namedElement.eContainer(), "/", true).toLowerCase().split("/")).filter(name -> !DEFAULT_TRANSFER_OBJECT_TYPES.equals(name)).collect(Collectors.joining("/"));
     }
 
     public static String namedElementLogicalName(NamedElement namedElement) {

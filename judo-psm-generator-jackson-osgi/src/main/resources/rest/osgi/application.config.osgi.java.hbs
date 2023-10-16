@@ -1,6 +1,6 @@
 {{> fragment.header.hbs }}
 
-package {{ namedElementOsgiRestPackageName self }};
+package {{ namedElementOsgiPackageName self }};
 
 {{# if (hasDocumentation self) }}
     /**
@@ -11,21 +11,22 @@ package {{ namedElementOsgiRestPackageName self }};
 @org.osgi.service.component.annotations.Component(immediate = true)
 @org.osgi.annotation.bundle.Capability(
 namespace=org.osgi.namespace.service.ServiceNamespace.SERVICE_NAMESPACE,
-attribute="objectClass={{ namedElementApiRestFqName self }}")
-public class {{ osgiClassName self }} {
+attribute="objectClass={{ applicationFqName self }}")
+public class {{ applicationOsgiClassName self }} {
 
-    private volatile {{ namedElementImplRestFqName self }} impl;
-    private volatile hu.blackbelt.judo.dispatcher.api.Dispatcher dispatcher = null;
+    private volatile {{ applicationImplFqName self }} impl;
+    private volatile hu.blackbelt.jaxrs.CxfContext context = null;
+
 
     private org.osgi.framework.ServiceRegistration serviceRegistration = null;
 
     @org.osgi.service.component.annotations.Activate
     public void activate(org.osgi.service.component.ComponentContext componentContext) {
-        impl = new {{ namedElementImplRestFqName self }}();
-        impl.__bindDispatcher(dispatcher);
+        impl = new {{ applicationImplFqName self }}();
+        impl.setContext(context);
 
         serviceRegistration = componentContext.getBundleContext().registerService(
-            {{ namedElementApiRestFqName self }}.class,
+            {{ applicationImplFqName self }}.class,
             impl,
             componentContext.getProperties());
     }
@@ -34,29 +35,27 @@ public class {{ osgiClassName self }} {
     public void deactivate() {
         if (serviceRegistration != null) {
             try {
-                serviceRegistration.unregister();
+            serviceRegistration.unregister();
             } catch (Exception e) {
             }
         }
     }
 
-
     @org.osgi.service.component.annotations.Reference(
-        policy = org.osgi.service.component.annotations.ReferencePolicy.DYNAMIC,
         policyOption = org.osgi.service.component.annotations.ReferencePolicyOption.GREEDY,
+        cardinality = org.osgi.service.component.annotations.ReferenceCardinality.OPTIONAL,
         target = "(judo.model.name={{ model.name }})",
-        bind = "setDispatcher"
+        bind = "setContext"
     )
-    public void setDispatcher(hu.blackbelt.judo.dispatcher.api.Dispatcher dispatcher) {
-        this.dispatcher = dispatcher;
+    public void setContext(hu.blackbelt.jaxrs.CxfContext context) {
+        this.context = context;
         if (impl != null) {
-            impl.__bindDispatcher(dispatcher);
+            impl.setContext(context);
         }
     }
 
-    public void unsetDispatcher(hu.blackbelt.judo.dispatcher.api.Dispatcher dispatcher) {
-        this.dispatcher = null;
+    public void unsetContext(hu.blackbelt.jaxrs.CxfContext context) {
+        this.context = null;
     }
-
 
 }

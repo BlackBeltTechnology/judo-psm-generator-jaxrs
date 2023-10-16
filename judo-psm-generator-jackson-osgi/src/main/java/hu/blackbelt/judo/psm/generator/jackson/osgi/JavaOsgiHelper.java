@@ -70,6 +70,10 @@ public class JavaOsgiHelper extends StaticMethodValueResolver {
         return namedElementOsgiPackageName(namedElement) + "." + safeName(namedElement.getName());
     }
 
+    public static String applicationOsgiClassName(NamedElement namedElement) {
+        return applicationClassName(namedElement) + "Component" ;
+    }
+
     public static String osgiClassName(NamedElement namedElement) {
         return className(namedElement) + "Component";
     }
