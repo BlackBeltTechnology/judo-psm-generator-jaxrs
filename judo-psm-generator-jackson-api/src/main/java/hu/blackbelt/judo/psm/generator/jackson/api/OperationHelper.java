@@ -48,10 +48,6 @@ public class OperationHelper extends StaticMethodValueResolver {
                 transferOperation.getImplementation().isCustomImplementation();
     }
 
-    public static boolean hasFaults(TransferOperation transferOperation) {
-        return transferOperation.getFaults().size() > 0;
-    }
-
     public static String operationAsmFqName(TransferOperation transferOperation) {
         TransferObjectType transferObjectType = (TransferObjectType) transferOperation.eContainer();
         NamedElement namedElement = transferObjectType;

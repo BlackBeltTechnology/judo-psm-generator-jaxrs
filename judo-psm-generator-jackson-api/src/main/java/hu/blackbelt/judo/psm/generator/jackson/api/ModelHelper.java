@@ -71,29 +71,6 @@ public class ModelHelper extends StaticMethodValueResolver {
         return null;
     }
 
-    public static List<TransferObjectType> allUnmappedTransferObjectType(Model model) {
-        return modelWrapper(model).getStreamOfPsmServiceUnmappedTransferObjectType().collect(Collectors.toList());
-    }
-
-    public static List<TransferObjectType> allTransferObjectType(Model model) {
-        return modelWrapper(model).getStreamOfPsmServiceTransferObjectType().collect(Collectors.toList());
-    }
-
-    public static List<StaticNavigation> allStaticNavigation(Model model) {
-        return modelWrapper(model).getStreamOfPsmDerivedStaticNavigation()
-                .collect(Collectors.toList());
-    }
-
-    public static List<StaticData> allStaticData(Model model) {
-        return modelWrapper(model).getStreamOfPsmDerivedStaticData()
-                .collect(Collectors.toList());
-    }
-
-    public static List<EnumerationType> allEnumType(Model model) {
-        return modelWrapper(model).getStreamOfPsmTypeEnumerationType()
-                .collect(Collectors.toList());
-    }
-
     public static String documentation(NamedElement namedElement) {
         return namedElement.getDocumentation();
     }
@@ -104,29 +81,6 @@ public class ModelHelper extends StaticMethodValueResolver {
         }
         return namedElement.getDocumentation() != null &&
                 namedElement.getDocumentation().trim().length() > 0;
-    }
-
-    public static String jclImplementation(TransferOperation transferOperation) {
-        return transferOperation.getImplementation().getBody();
-    }
-
-    public static boolean hasJclImplementation(TransferOperation operation) {
-        if (operation == null) {
-            return false;
-        }
-
-        return operation.getImplementation().getBody() != null &&
-                operation.getImplementation().getBody().trim().length() > 0;
-    }
-
-    public static List<TransferObjectType> allMappedTransferObjectType(Model model) {
-        return modelWrapper(model).getStreamOfPsmServiceMappedTransferObjectType().collect(Collectors.toList());
-    }
-
-    public static List<TransferOperation> allCustomizableOperations(Model model) {
-        return modelWrapper(model).getStreamOfPsmServiceTransferOperation()
-                .filter(o -> o.getBehaviour() == null)
-                .collect(Collectors.toList());
     }
 
     public static Set<TransferObjectType> getAllExposedTransferObjectTypesFromAccessPointWithOperation(

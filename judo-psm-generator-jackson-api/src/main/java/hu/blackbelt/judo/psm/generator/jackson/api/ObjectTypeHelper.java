@@ -68,19 +68,6 @@ public class ObjectTypeHelper extends StaticMethodValueResolver {
     }
 
 
-    public static boolean isMapped(TransferObjectType transferObjectType) {
-        return (transferObjectType instanceof MappedTransferObjectType);
-    }
-
-    public static boolean hasOperation(TransferObjectType transferObjectType) {
-        return transferObjectType.getOperations().size() > 0;
-    }
-
-    public static boolean hasAttribute(TransferObjectType transferObjectType) {
-        return transferObjectType.getAttributes().size() > 0;
-    }
-
-
     public static boolean hasCustomOperation(TransferObjectType transferObjectType) {
         return transferObjectType.getOperations().stream().filter(OperationHelper::isCustomOperation).count() > 0;
     }
