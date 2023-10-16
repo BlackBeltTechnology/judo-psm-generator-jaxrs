@@ -1,0 +1,62 @@
+{{> fragment.header.hbs }}
+
+package {{ namedElementOsgiRestPackageName self }};
+
+{{# if (hasDocumentation self) }}
+    /**
+    * {{ self.documentation.decorateWithAsterisks }}
+    */
+{{/ if  }}
+
+@org.osgi.service.component.annotations.Component(immediate = true)
+@org.osgi.annotation.bundle.Capability(
+namespace=org.osgi.namespace.service.ServiceNamespace.SERVICE_NAMESPACE,
+attribute="objectClass={{ namedElementApiRestFqName self }}")
+public class {{ osgiClassName self }} {
+
+    private volatile {{ namedElementImplRestFqName self }} impl;
+    private volatile hu.blackbelt.judo.dispatcher.api.Dispatcher dispatcher = null;
+
+    private org.osgi.framework.ServiceRegistration serviceRegistration = null;
+
+    @org.osgi.service.component.annotations.Activate
+    public void activate(org.osgi.service.component.ComponentContext componentContext) {
+        impl = new {{ namedElementImplRestFqName self }}();
+        impl.__bindDispatcher(dispatcher);
+
+        serviceRegistration = componentContext.getBundleContext().registerService(
+            {{ namedElementApiRestFqName self }}.class,
+            impl,
+            componentContext.getProperties());
+    }
+
+    @org.osgi.service.component.annotations.Deactivate
+    public void deactivate() {
+        if (serviceRegistration != null) {
+            try {
+                serviceRegistration.unregister();
+            } catch (Exception e) {
+            }
+        }
+    }
+
+
+    @org.osgi.service.component.annotations.Reference(
+        policy = org.osgi.service.component.annotations.ReferencePolicy.DYNAMIC,
+        policyOption = org.osgi.service.component.annotations.ReferencePolicyOption.GREEDY,
+        target = "(judo.model.name={{ model.name }})",
+        bind = "setDispatcher"
+    )
+    public void setDispatcher(hu.blackbelt.judo.dispatcher.api.Dispatcher dispatcher) {
+        this.dispatcher = dispatcher;
+        if (impl != null) {
+            impl.__bindDispatcher(dispatcher);
+        }
+    }
+
+    public void unsetDispatcher(hu.blackbelt.judo.dispatcher.api.Dispatcher dispatcher) {
+        this.dispatcher = null;
+    }
+
+
+}

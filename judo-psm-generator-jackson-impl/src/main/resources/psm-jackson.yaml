@@ -1,0 +1,12 @@
+templates:
+  - name: application.config.impl.java
+    pathExpression: "'/' + #namedElementImplParentPath(#self) + '/' + #applicationImplClassName(#self) + '.java'"
+    templateName: rest/impl/application.config.impl.java.hbs
+    factoryExpression: "#allAccessPointActor(#model)"
+    actorTypeBased: false
+
+  - name: rest.service.impl.java
+    pathExpression: "'/' + #namedElementImplRestParentPath(#self) + '/' + #implClassName(#self) + '.java'"
+    templateName: rest/impl/rest.service.impl.java.hbs
+    factoryExpression: "#allExposedTransferObjectWithOperation(#model)"
+    actorTypeBased: false
