@@ -1,0 +1,61 @@
+{{> fragment.header.hbs }}
+
+package {{ namedElementOsgiPackageName self }};
+
+{{# if (hasDocumentation self) }}
+    /**
+    * {{ self.documentation.decorateWithAsterisks }}
+    */
+{{/ if  }}
+
+@org.osgi.service.component.annotations.Component(immediate = true)
+@org.osgi.annotation.bundle.Capability(
+namespace=org.osgi.namespace.service.ServiceNamespace.SERVICE_NAMESPACE,
+attribute="objectClass={{ applicationFqName self }}")
+public class {{ applicationOsgiClassName self }} {
+
+    private volatile {{ applicationImplFqName self }} impl;
+    private volatile hu.blackbelt.jaxrs.CxfContext context = null;
+
+
+    private org.osgi.framework.ServiceRegistration serviceRegistration = null;
+
+    @org.osgi.service.component.annotations.Activate
+    public void activate(org.osgi.service.component.ComponentContext componentContext) {
+        impl = new {{ applicationImplFqName self }}();
+        impl.setContext(context);
+
+        serviceRegistration = componentContext.getBundleContext().registerService(
+            {{ applicationImplFqName self }}.class,
+            impl,
+            componentContext.getProperties());
+    }
+
+    @org.osgi.service.component.annotations.Deactivate
+    public void deactivate() {
+        if (serviceRegistration != null) {
+            try {
+            serviceRegistration.unregister();
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    @org.osgi.service.component.annotations.Reference(
+        policyOption = org.osgi.service.component.annotations.ReferencePolicyOption.GREEDY,
+        cardinality = org.osgi.service.component.annotations.ReferenceCardinality.OPTIONAL,
+        target = "(judo.model.name={{ model.name }})",
+        bind = "setContext"
+    )
+    public void setContext(hu.blackbelt.jaxrs.CxfContext context) {
+        this.context = context;
+        if (impl != null) {
+            impl.setContext(context);
+        }
+    }
+
+    public void unsetContext(hu.blackbelt.jaxrs.CxfContext context) {
+        this.context = null;
+    }
+
+}
