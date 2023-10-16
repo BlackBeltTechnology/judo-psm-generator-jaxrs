@@ -1,0 +1,80 @@
+{{> fragment.header.hbs }}
+
+package {{ namedElementImplRestPackageName self }};
+
+@javax.ws.rs.Path("/")
+public class {{ implClassName self }} implements {{ namedElementApiRestFqName self }} {
+
+
+    java.util.Optional<hu.blackbelt.judo.dispatcher.api.Dispatcher> __dispatcher = java.util.Optional.empty();
+
+    @Override
+    public void __bindDispatcher(hu.blackbelt.judo.dispatcher.api.Dispatcher dispatcher) {
+        this.__dispatcher = java.util.Optional.of(dispatcher);
+    }
+
+    @Override
+    public void __unbindDispatcher(hu.blackbelt.judo.dispatcher.api.Dispatcher dispatcher) {
+        this.__dispatcher = java.util.Optional.empty();
+    }
+
+{{# each self.operations as | operation | }}
+
+    {{# if operation.isStatelessAndHasNoInputParameter }}
+    @javax.ws.rs.GET
+    @javax.ws.rs.Produces("application/json")
+    {{ else }}
+    @javax.ws.rs.POST
+    @javax.ws.rs.Produces("application/json")
+    @javax.ws.rs.Consumes("application/json")
+    {{/ if }}
+    @javax.ws.rs.Path("/{{ toJAXRSPath operation model }}")
+    @hu.blackbelt.judo.dispatcher.api.JudoOperation("{{ operation.operationAsmFqName }}")
+    public javax.ws.rs.core.Response {{ operation.name }}(
+        @javax.ws.rs.core.Context javax.ws.rs.core.SecurityContext securityContext, @javax.ws.rs.HeaderParam("X-Judo-CountRecords") java.lang.String __countRecords
+        {{# if operation.isBoundOperation }}
+        , @javax.ws.rs.HeaderParam("X-Judo-SignedIdentifier") java.lang.String __signedIdentifier
+        {{/ if }}
+        {{# if operation.hasParam }}
+        {{# if operation.input.isMany }}
+        , java.util.List<java.util.Map<java.lang.String, java.lang.Object>> {{ operation.input.name.firstToLower }}
+        {{ else }}
+        , java.util.Map<java.lang.String, java.lang.Object> {{ operation.input.name.firstToLower }}
+        {{/ if }}
+        {{/ if }}
+    ) {
+        if (!__dispatcher.isPresent()) {
+            return javax.ws.rs.core.Response.status(javax.ws.rs.core.Response.Status.SERVICE_UNAVAILABLE).build();
+        }
+        java.util.Map<java.lang.String, java.lang.Object> parameters = new java.util.HashMap();
+        parameters.put("__exposed", Boolean.TRUE);
+        if (__countRecords != null && __countRecords.trim().length() > 0) {
+            parameters.put("__countRecords", Boolean.TRUE);
+        }
+        {{# if operation.isBoundOperation }}
+        parameters.put("__signedIdentifier", __signedIdentifier);
+        {{/ if }}
+        if (securityContext != null) {
+            parameters.put("__principal", securityContext.getUserPrincipal());
+        }
+        {{# if operation.input }}
+        if ( {{ operation.input.name.firstToLower }} != null ) {
+        parameters.put("{{ operation.input.name }}", {{ operation.input.name.firstToLower }});
+        }
+        {{/ if }}
+        java.util.Map<java.lang.String, java.lang.Object> result = __dispatcher.get().callOperation("{{ operation.operationAsmFqName }}", parameters);
+        {{# if operation.operationOutputTypeDefined }}
+        javax.ws.rs.core.Response.ResponseBuilder responseBuilder = result != null && result.containsKey("{{ operation.output.name }}") ? javax.ws.rs.core.Response.ok(result.get("{{ operation.output.name }}")) : javax.ws.rs.core.Response.ok();
+        {{ else }}
+        javax.ws.rs.core.Response.ResponseBuilder responseBuilder = javax.ws.rs.core.Response.status(javax.ws.rs.core.Response.Status.NO_CONTENT);
+        {{/ if }}
+        if (result != null && result.containsKey(hu.blackbelt.judo.dispatcher.api.Dispatcher.HEADERS_KEY)) {
+            ((java.util.Map<java.lang.String, java.lang.Object>) result.get(hu.blackbelt.judo.dispatcher.api.Dispatcher.HEADERS_KEY)).forEach((k, v) -> responseBuilder.header(k, v));
+        }
+        return responseBuilder.build();
+    }
+
+
+{{/ each }}
+
+}
