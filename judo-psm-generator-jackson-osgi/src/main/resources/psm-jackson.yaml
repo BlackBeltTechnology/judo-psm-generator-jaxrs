@@ -1,0 +1,7 @@
+templates:
+  - name: rest.service.osgi.java
+    pathExpression: "'/' + #namedElementOsgiRestParentPath(#self) + '/' + #osgiClassName(#self) + '.java'"
+    templateName: rest/osgi/rest.service.osgi.java.hbs
+    factoryExpression: "#allExposedTransferObjectWithOperation(#model)"
+    actorTypeBased: false
+    
