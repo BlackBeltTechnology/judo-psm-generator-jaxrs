@@ -54,14 +54,6 @@ public class ObjectTypeHelper extends StaticMethodValueResolver {
         return transferObjectType.getActorType() != null;
     }
 
-    public static boolean isOptional(TransferObjectType transferObjectType) {
-        return transferObjectType.isOptional();
-    }
-
-    public static boolean isQueryCustomizer(TransferObjectType transferObjectType) {
-        return transferObjectType.isQueryCustomizer();
-    }
-
     public static EntityType getEntity(TransferObjectType transferObjectType) {
         Model model = getSpecifiedContainer(transferObjectType, Model.class);
         return modelWrapper(model).getStreamOfPsmDataEntityType()
@@ -75,14 +67,6 @@ public class ObjectTypeHelper extends StaticMethodValueResolver {
                 .filter(e -> e.getDefaultRepresentation() == transferObjectType).findFirst().isPresent();
     }
 
-    public static boolean isFaultType(TransferObjectType transferObjectType) {
-        Model model = getSpecifiedContainer(transferObjectType, Model.class);
-        return modelWrapper(model)
-                .getStreamOfPsmServiceTransferOperation()
-                .anyMatch(o ->
-                        o.getFaults().stream().map(f -> f.getType()).filter(t -> t == transferObjectType).findAny().isPresent()
-                );
-    }
 
     public static boolean isMapped(TransferObjectType transferObjectType) {
         return (transferObjectType instanceof MappedTransferObjectType);

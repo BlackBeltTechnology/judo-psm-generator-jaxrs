@@ -15,7 +15,7 @@ public interface {{ self.className }} {
     {{# if operation.isBoundOperation }}
     , @javax.ws.rs.HeaderParam("X-Judo-SignedIdentifier") java.lang.String __signedIdentifier
     {{/ if }}
-    {{# if operation.hasParam }}
+    {{# if operation.input }}
     {{# if operation.input.isMany }}
     , java.util.List<java.util.Map<java.lang.String, java.lang.Object>> {{ operation.input.name.firstToLower }}
     {{ else }}

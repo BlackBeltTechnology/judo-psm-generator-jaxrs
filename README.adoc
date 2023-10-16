@@ -58,7 +58,7 @@ It can be used as:
                 <dependencies>
                     <dependency>
                         <groupId>hu.blackbelt.judo.meta</groupId>
-                        <artifactId>hu.blackbelt.judo.meta.psm.model.northwind</artifactId>
+                        <artifactId>hu.blackbelt.judo.meta.psm.model.[ModelName]</artifactId>
                         <version>${judo-meta-psm-version}</version>
                     </dependency>
                 </dependencies>

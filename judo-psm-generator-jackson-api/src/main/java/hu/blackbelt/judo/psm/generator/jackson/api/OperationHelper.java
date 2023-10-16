@@ -39,14 +39,6 @@ import static hu.blackbelt.judo.psm.generator.jackson.api.ObjectTypeHelper.isEnt
 @TemplateHelper
 public class OperationHelper extends StaticMethodValueResolver {
 
-    public static Boolean hasReturn(TransferOperation transferOperation) {
-        return transferOperation.getOutput() != null;
-    }
-
-    public static String operationName(TransferOperation transferOperation) {
-        return transferOperation.getName();
-    }
-
     public static Boolean isBoundOperation(TransferOperation transferOperation) {
         return transferOperation instanceof BoundTransferOperation;
     }
@@ -54,10 +46,6 @@ public class OperationHelper extends StaticMethodValueResolver {
     public static Boolean isCustomOperation(TransferOperation transferOperation) {
         return transferOperation.getImplementation() != null &&
                 transferOperation.getImplementation().isCustomImplementation();
-    }
-
-    public static Boolean hasParam(TransferOperation transferOperation) {
-        return transferOperation.getInput() != null;
     }
 
     public static boolean hasFaults(TransferOperation transferOperation) {
@@ -179,7 +167,7 @@ public class OperationHelper extends StaticMethodValueResolver {
     }
 
     public static Boolean operationOutputTypeDefined(TransferOperation transferOperation) {
-        if (!hasReturn(transferOperation)) {
+        if (transferOperation.getOutput() == null) {
             return false;
         }
         return transferOperation.getOutput().getType() != null;

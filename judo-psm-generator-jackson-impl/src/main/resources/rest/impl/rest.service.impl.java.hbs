@@ -22,12 +22,11 @@ public class {{ implClassName self }} implements {{ namedElementApiRestFqName se
 
     {{# if operation.isStatelessAndHasNoInputParameter }}
     @javax.ws.rs.GET
-    @javax.ws.rs.Produces("application/json")
     {{ else }}
     @javax.ws.rs.POST
-    @javax.ws.rs.Produces("application/json")
     @javax.ws.rs.Consumes("application/json")
     {{/ if }}
+    @javax.ws.rs.Produces("application/json")
     @javax.ws.rs.Path("/{{ toJAXRSPath operation model }}")
     @hu.blackbelt.judo.dispatcher.api.JudoOperation("{{ operation.operationAsmFqName }}")
     public javax.ws.rs.core.Response {{ operation.name }}(
@@ -35,7 +34,7 @@ public class {{ implClassName self }} implements {{ namedElementApiRestFqName se
         {{# if operation.isBoundOperation }}
         , @javax.ws.rs.HeaderParam("X-Judo-SignedIdentifier") java.lang.String __signedIdentifier
         {{/ if }}
-        {{# if operation.hasParam }}
+        {{# if operation.input }}
         {{# if operation.input.isMany }}
         , java.util.List<java.util.Map<java.lang.String, java.lang.Object>> {{ operation.input.name.firstToLower }}
         {{ else }}
