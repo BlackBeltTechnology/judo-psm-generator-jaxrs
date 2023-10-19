@@ -58,7 +58,7 @@
         <judo-dispatcher-api-version>1.0.3.20230826_230134_1ce94d88_develop</judo-dispatcher-api-version>
 
         <!-- Code Quality-->
-        <sonar-maven-plugin-version>3.9.1.2184</sonar-maven-plugin-version>
+        <sonar-maven-plugin-version>3.10.0.2594</sonar-maven-plugin-version>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.language>java</sonar.language>
