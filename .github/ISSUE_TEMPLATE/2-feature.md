@@ -7,7 +7,7 @@ labels: "type: feature"
 <!-- Please do your best to fill out all of the sections below! -->
 <!-- Use this issue type for concrete suggestions, otherwise, open a discussion type issue instead. -->
 
-- [ ] I'd be willing to implement this feature ([contributing guide](https://github.com/BlackBeltTechnology/judo-psm-generator-jackson/blob/develop/CONTRIBUTING.adoc))
+- [ ] I'd be willing to implement this feature ([contributing guide](https://github.com/BlackBeltTechnology/judo-psm-generator-jaxrs/blob/develop/CONTRIBUTING.adoc))
 
 ## Description
 
