@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>hu.blackbelt.judo.generator</groupId>
+        <artifactId>judo-psm-generator-jaxrs</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>judo-psm-generator-jaxrs-osgi</artifactId>
+    <packaging>bundle</packaging>
+
+    <name>JUDO PSM Generator Jakarta RESTful Web Services OSGI</name>
+    <description>JUDO PSM Jakarta RESTful Web Services Generator OSGi descriptor, helpers and templates</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>hu.blackbelt.judo.generator</groupId>
+            <artifactId>judo-psm-generator-jaxrs-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>hu.blackbelt.judo.generator</groupId>
+            <artifactId>judo-psm-generator-jaxrs-impl</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
