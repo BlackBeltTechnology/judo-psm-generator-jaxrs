@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>hu.blackbelt.judo.generator</groupId>
-    <artifactId>judo-psm-generator-jackson</artifactId>
+    <artifactId>judo-psm-generator-jaxrs</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
 
-    <name>JUDO PSM Generator Jackson REST</name>
-    <description>JUDO PSM Jackson REST Generator helpers and templates</description>
+    <name>JUDO PSM Generator Jakarta RESTful Web Services</name>
+    <description>JUDO PSM Jakarta RESTful Web Services Generator helpers and templates</description>
 
     <developers>
         <developer>
@@ -31,8 +31,8 @@
         <revision>1.0.0-SNAPSHOT</revision>
         <maven>3.9.4</maven>
 
-        <project-shortname>judo-psm-generator-jackson</project-shortname>
-        <project-repositoryId>BlackBeltTechnology/judo-psm-generator-jackson</project-repositoryId>
+        <project-shortname>judo-psm-generator-jaxrs</project-shortname>
+        <project-repositoryId>BlackBeltTechnology/judo-psm-generator-jaxrs</project-repositoryId>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <timestamp>${maven.build.timestamp}</timestamp>
@@ -160,31 +160,31 @@
         <dependencies>
             <dependency>
                 <groupId>hu.blackbelt.judo.generator</groupId>
-                <artifactId>judo-psm-generator-jackson-common</artifactId>
+                <artifactId>judo-psm-generator-jaxrs-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>hu.blackbelt.judo.generator</groupId>
-                <artifactId>judo-psm-generator-jackson-api</artifactId>
+                <artifactId>judo-psm-generator-jaxrs-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>hu.blackbelt.judo.generator</groupId>
-                <artifactId>judo-psm-generator-jackson-impl</artifactId>
+                <artifactId>judo-psm-generator-jaxrs-impl</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>hu.blackbelt.judo.generator</groupId>
-                <artifactId>judo-psm-generator-jackson-osgi</artifactId>
+                <artifactId>judo-psm-generator-jaxrs-osgi</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>hu.blackbelt.judo.generator</groupId>
-                <artifactId>judo-psm-generator-jackson-test</artifactId>
+                <artifactId>judo-psm-generator-jaxrs-test</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -373,7 +373,7 @@
                         <Include-Resource>
                             target/classes
                         </Include-Resource>
-                        <Export-Package>hu.blackbelt.judo.psm.generator.jackson</Export-Package>
+                        <Export-Package>hu.blackbelt.judo.psm.generator.jaxrs</Export-Package>
                     </instructions>
                 </configuration>
             </plugin>
@@ -416,11 +416,11 @@
                 </property>
             </activation>
             <modules>
-                <module>judo-psm-generator-jackson-common</module>
-                <module>judo-psm-generator-jackson-api</module>
-                <module>judo-psm-generator-jackson-impl</module>
-                <module>judo-psm-generator-jackson-osgi</module>
-                <module>judo-psm-generator-jackson-test</module>
+                <module>judo-psm-generator-jaxrs-common</module>
+                <module>judo-psm-generator-jaxrs-api</module>
+                <module>judo-psm-generator-jaxrs-impl</module>
+                <module>judo-psm-generator-jaxrs-osgi</module>
+                <module>judo-psm-generator-jaxrs-test</module>
             </modules>
         </profile>
 
