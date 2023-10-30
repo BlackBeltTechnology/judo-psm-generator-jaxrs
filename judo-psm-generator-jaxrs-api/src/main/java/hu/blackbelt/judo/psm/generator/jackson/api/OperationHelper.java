@@ -116,22 +116,22 @@ public class OperationHelper extends StaticMethodValueResolver {
             if (isBoundOperation(transferOperation)) {
                 path = classifierAsmFqName((TransferObjectType) owner.eContainer()) + "/~update/" + owner.getName() + "/~create";
             } else {
-                path = relationAsmFqName((TransferObjectRelation) owner) + "/~create/";
+                path = relationAsmFqName((TransferObjectRelation) owner) + "/~create";
             }
         } else if (behaviourType == TransferOperationBehaviourType.VALIDATE_CREATE) {
             if (isBoundOperation(transferOperation)) {
                 path = classifierAsmFqName((TransferObjectType) owner.eContainer()) + "/~update/" + owner.getName() + "/~validate";
             } else {
-                path = relationAsmFqName((TransferObjectRelation) owner) + "/~validate/";
+                path = relationAsmFqName((TransferObjectRelation) owner) + "/~validate";
             }
         } else if (behaviourType == TransferOperationBehaviourType.REFRESH) {
-            path = classifierAsmFqName((TransferObjectType) owner) + "/~get/";
+            path = classifierAsmFqName((TransferObjectType) owner) + "/~get";
         } else if (behaviourType == TransferOperationBehaviourType.UPDATE_INSTANCE) {
-            path = classifierAsmFqName((TransferObjectType) owner) + "/~update/";
+            path = classifierAsmFqName((TransferObjectType) owner) + "/~update";
         } else if (behaviourType == TransferOperationBehaviourType.VALIDATE_UPDATE) {
-            path = classifierAsmFqName((TransferObjectType) owner) + "/~validate/";
+            path = classifierAsmFqName((TransferObjectType) owner) + "/~validate";
         } else if (behaviourType == TransferOperationBehaviourType.DELETE_INSTANCE) {
-            path = classifierAsmFqName((TransferObjectType) owner) + "/~delete/";
+            path = classifierAsmFqName((TransferObjectType) owner) + "/~delete";
         } else if (behaviourType == TransferOperationBehaviourType.SET_REFERENCE) {
             path = classifierAsmFqName((TransferObjectType) owner.eContainer()) + "/~update/" + owner.getName() + "/~set";
         } else if (behaviourType == TransferOperationBehaviourType.UNSET_REFERENCE) {
@@ -142,18 +142,18 @@ public class OperationHelper extends StaticMethodValueResolver {
             path = classifierAsmFqName((TransferObjectType) owner.eContainer()) + "/~update/" + owner.getName() + "/~remove";
         } else if (behaviourType == TransferOperationBehaviourType.GET_RANGE) {
             if (owner instanceof TransferObjectRelation) {
-                path = relationAsmFqName((TransferObjectRelation) owner) + "/~range/";
+                path = relationAsmFqName((TransferObjectRelation) owner) + "/~range";
             } else {
-                path = operationAsmFqName((TransferOperation) owner) + "/~range/";
+                path = operationAsmFqName((TransferOperation) owner) + "/~range";
             }
         } else if (behaviourType == TransferOperationBehaviourType.GET_TEMPLATE) {
-            path = classifierAsmFqName((TransferObjectType) owner) + "/~template/";
+            path = classifierAsmFqName((TransferObjectType) owner) + "/~template";
         } else if (behaviourType == TransferOperationBehaviourType.GET_PRINCIPAL) {
-            path = classifierAsmFqName((TransferObjectType) owner) + "/~principal/";
+            path = classifierAsmFqName((TransferObjectType) owner) + "/~principal";
         } else if (behaviourType == TransferOperationBehaviourType.GET_METADATA) {
-            path = classifierAsmFqName((TransferObjectType) owner) + "/~meta/";
+            path = classifierAsmFqName((TransferObjectType) owner) + "/~meta";
         } else if (behaviourType == TransferOperationBehaviourType.GET_UPLOAD_TOKEN) {
-            path = attributeAsmFqName((TransferAttribute) owner) + "/~upload-token/";
+            path = attributeAsmFqName((TransferAttribute) owner) + "/~upload-token";
         }
         return path;
     }

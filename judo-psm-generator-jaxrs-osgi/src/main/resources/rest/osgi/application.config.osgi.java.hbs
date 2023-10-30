@@ -20,7 +20,7 @@ public class {{ applicationOsgiClassName self }} {
 
     private org.osgi.framework.ServiceRegistration serviceRegistration = null;
 
-{{# each self.getAllExposedTransferObjectTypesFromAccessPointWithOperation as | to | }}
+{{# each self.getAllExposedTransferObjectTypesFromAccessPoint as | to | }}
     @org.osgi.service.component.annotations.Reference(
         policyOption = org.osgi.service.component.annotations.ReferencePolicyOption.GREEDY,
         cardinality = org.osgi.service.component.annotations.ReferenceCardinality.MANDATORY
@@ -34,7 +34,7 @@ public class {{ applicationOsgiClassName self }} {
         impl = new {{ applicationImplFqName self }}();
         impl.setContext(context);
 
-        {{# each self.getAllExposedTransferObjectTypesFromAccessPointWithOperation as | to | }}
+        {{# each self.getAllExposedTransferObjectTypesFromAccessPoint as | to | }}
         impl.set_{{ variableName to }}(this.{{ variableName to }});
         {{/ each }}
 
