@@ -84,33 +84,6 @@ public class ModelHelper extends StaticMethodValueResolver {
                 namedElement.getDocumentation().trim().length() > 0;
     }
 
-    public static Set<TransferObjectType> getAllExposedTransferObjectTypesFromAccessPointWithOperation(
-            final TransferObjectType accessPoint) {
-
-        final Set<TransferObjectType> foundTransferObjectTypes = new HashSet<>();
-        if (!accessPoint.getOperations().isEmpty()) {
-            foundTransferObjectTypes.add(accessPoint);
-        }
-        addExposedTransferObjectTypesWithOperation(accessPoint, foundTransferObjectTypes);
-        return foundTransferObjectTypes;
-    }
-
-    private static void addExposedTransferObjectTypesWithOperation(final TransferObjectType type,
-                                                                   final Set<TransferObjectType> foundTransferObjectTypes) {
-        final Set<TransferObjectType> newTransferObjectTypes =
-                type.getRelations().stream()
-                        .map(TransferObjectRelation::getTarget).filter(t -> !foundTransferObjectTypes.contains(t))
-                        .collect(Collectors.toSet());
-        foundTransferObjectTypes.addAll(newTransferObjectTypes.stream().filter(t -> !t.getOperations().isEmpty()).collect(Collectors.toSet()));
-        newTransferObjectTypes.forEach(t -> addExposedTransferObjectTypesWithOperation(t, foundTransferObjectTypes));
-    }
-
-    public static Set<TransferOperation> getAllExposedOperationsFromAccessPoint(
-            final TransferObjectType accessPoint) {
-        Set<TransferObjectType> types = getAllExposedTransferObjectTypesFromAccessPointWithOperation(accessPoint);
-        return types.stream().flatMap(t -> getAllOperations(t).stream()).collect(Collectors.toSet());
-    }
-
     public static boolean isDerivedRelation(TransferObjectRelation transferObjectRelation) {
         return transferObjectRelation.getBinding() != null && transferObjectRelation.getBinding() instanceof ReferenceAccessor;
     }
