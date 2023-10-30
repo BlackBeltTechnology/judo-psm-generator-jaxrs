@@ -20,15 +20,33 @@ public class {{ applicationOsgiClassName self }} {
 
     private org.osgi.framework.ServiceRegistration serviceRegistration = null;
 
+{{# each self.getAllExposedTransferObjectTypesFromAccessPoint as | to | }}
+    @org.osgi.service.component.annotations.Reference(
+        policyOption = org.osgi.service.component.annotations.ReferencePolicyOption.GREEDY,
+        cardinality = org.osgi.service.component.annotations.ReferenceCardinality.MANDATORY
+    )
+    {{ namedElementApiRestFqName to }} {{ variableName to }};
+{{/ each }}
+
+
     @org.osgi.service.component.annotations.Activate
     public void activate(org.osgi.service.component.ComponentContext componentContext) {
         impl = new {{ applicationImplFqName self }}();
         impl.setContext(context);
 
+        {{# each self.getAllExposedTransferObjectTypesFromAccessPoint as | to | }}
+        impl.set_{{ variableName to }}(this.{{ variableName to }});
+        {{/ each }}
+
+        java.util.Dictionary properties = new java.util.Hashtable();
+        properties.put("judo.model.name", "{{ model.name }}");
+        properties.put("applicationPath", "{{ namedElementRestPath self }}/{{ className self }}");
+        properties.put("jaxrs.application.name", "{{ namedElementPackageName self }}.{{ className self }}");
+
         serviceRegistration = componentContext.getBundleContext().registerService(
-            {{ applicationImplFqName self }}.class,
+            javax.ws.rs.core.Application.class,
             impl,
-            componentContext.getProperties());
+            properties);
     }
 
     @org.osgi.service.component.annotations.Deactivate

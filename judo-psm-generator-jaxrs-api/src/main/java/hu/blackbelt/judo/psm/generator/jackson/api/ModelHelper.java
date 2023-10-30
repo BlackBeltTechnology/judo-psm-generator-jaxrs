@@ -27,6 +27,7 @@ import hu.blackbelt.judo.meta.psm.accesspoint.AbstractActorType;
 import hu.blackbelt.judo.meta.psm.accesspoint.ActorType;
 import hu.blackbelt.judo.meta.psm.accesspoint.MappedActorType;
 import hu.blackbelt.judo.meta.psm.data.BoundOperation;
+import hu.blackbelt.judo.meta.psm.derived.ReferenceAccessor;
 import hu.blackbelt.judo.meta.psm.derived.StaticData;
 import hu.blackbelt.judo.meta.psm.derived.StaticNavigation;
 import hu.blackbelt.judo.meta.psm.namespace.*;
@@ -83,31 +84,53 @@ public class ModelHelper extends StaticMethodValueResolver {
                 namedElement.getDocumentation().trim().length() > 0;
     }
 
-    public static Set<TransferObjectType> getAllExposedTransferObjectTypesFromAccessPointWithOperation(
+    public static boolean isDerivedRelation(TransferObjectRelation transferObjectRelation) {
+        return transferObjectRelation.getBinding() != null && transferObjectRelation.getBinding() instanceof ReferenceAccessor;
+    }
+
+    public static boolean isMapped(TransferObjectType transferObjectType) {
+        return (transferObjectType instanceof MappedTransferObjectType);
+    }
+
+    public static Set<TransferObjectType> getAllExposedTransferObjectTypesFromAccessPoint(
             final TransferObjectType accessPoint) {
 
         final Set<TransferObjectType> foundTransferObjectTypes = new HashSet<>();
         if (!accessPoint.getOperations().isEmpty()) {
             foundTransferObjectTypes.add(accessPoint);
         }
-        addExposedTransferObjectTypesWithOperation(accessPoint, foundTransferObjectTypes);
-        return foundTransferObjectTypes;
+        addTransferObjectTypesExposedByTransferObjectType(accessPoint, foundTransferObjectTypes);
+        return foundTransferObjectTypes.stream().filter(t -> !t.getOperations().isEmpty()).collect(Collectors.toSet());
     }
 
-    private static void addExposedTransferObjectTypesWithOperation(final TransferObjectType type,
-                                                                   final Set<TransferObjectType> foundTransferObjectTypes) {
-        final Set<TransferObjectType> newTransferObjectTypes =
-                type.getRelations().stream()
-                        .map(TransferObjectRelation::getTarget).filter(t -> !foundTransferObjectTypes.contains(t))
+    private static void addTransferObjectTypesExposedByTransferObjectType(final TransferObjectType type,
+                                                                          final Set<TransferObjectType> foundTransferObjectTypes) {
+        final Set<TransferObjectType> newTransferObjectTypes = type.getRelations().stream()
+                .filter(r -> !(!isMapped(r.getTarget()) && !r.isEmbedded() && isDerivedRelation(r)))
+                .map(r -> (TransferObjectType) r.getTarget())
+                .filter(t -> !foundTransferObjectTypes.contains(t))
+                .collect(Collectors.toSet());
+        foundTransferObjectTypes.addAll(newTransferObjectTypes);
+
+        final Set<TransferObjectType> newTransferObjectTypesFromOperationsInput =
+                type.getOperations().stream()
+                        .filter(o -> o.getInput() != null)
+                        .map(o -> (TransferObjectType) o.getInput().getType())
+                        .filter(t -> !foundTransferObjectTypes.contains(t))
                         .collect(Collectors.toSet());
-        foundTransferObjectTypes.addAll(newTransferObjectTypes.stream().filter(t -> !t.getOperations().isEmpty()).collect(Collectors.toSet()));
-        newTransferObjectTypes.forEach(t -> addExposedTransferObjectTypesWithOperation(t, foundTransferObjectTypes));
-    }
+        newTransferObjectTypes.addAll(newTransferObjectTypesFromOperationsInput);
+        foundTransferObjectTypes.addAll(newTransferObjectTypesFromOperationsInput);
 
-    public static Set<TransferOperation> getAllExposedOperationsFromAccessPoint(
-            final TransferObjectType accessPoint) {
-        Set<TransferObjectType> types = getAllExposedTransferObjectTypesFromAccessPointWithOperation(accessPoint);
-        return types.stream().flatMap(t -> getAllOperations(t).stream()).collect(Collectors.toSet());
+        final Set<TransferObjectType> newTransferObjectTypesFromOperationsOutput =
+                type.getOperations().stream()
+                        .filter(o -> o.getOutput() != null)
+                        .map(o -> (TransferObjectType) o.getOutput().getType())
+                        .filter(t -> !foundTransferObjectTypes.contains(t))
+                        .collect(Collectors.toSet());
+        newTransferObjectTypes.addAll(newTransferObjectTypesFromOperationsOutput);
+        foundTransferObjectTypes.addAll(newTransferObjectTypesFromOperationsOutput);
+
+        newTransferObjectTypes.forEach(t -> addTransferObjectTypesExposedByTransferObjectType(t, foundTransferObjectTypes));
     }
 
     public static EList<TransferOperation> getAllOperations(final TransferObjectType transferObjectType) {
@@ -117,7 +140,7 @@ public class ModelHelper extends StaticMethodValueResolver {
     }
 
     public static Set<TransferObjectType> allExposedTransferObjectWithOperation(Model model) {
-        return modelWrapper(model).getStreamOfPsmAccesspointAbstractActorType().flatMap(access -> getAllExposedTransferObjectTypesFromAccessPointWithOperation(access).stream()).collect(Collectors.toSet());
+        return modelWrapper(model).getStreamOfPsmAccesspointAbstractActorType().flatMap(access -> getAllExposedTransferObjectTypesFromAccessPoint(access).stream()).collect(Collectors.toSet());
     }
 
     public static List<AbstractActorType> allAccessPointActor(Model model) {
