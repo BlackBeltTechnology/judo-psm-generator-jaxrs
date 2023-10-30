@@ -48,6 +48,10 @@ public class JavaImplHelper extends StaticMethodValueResolver {
         return implPackageName().replaceAll("\\.", "/") + namedElementParentPath(namedElement);
     }
 
+    public static String namedElementRestPath(NamedElement namedElement) {
+        return namedElementParentPath(namedElement);
+    }
+
     public static String namedElementImplPackageName(NamedElement namedElement) {
         return implPackageName() + namedElementPackageName(namedElement);
     }

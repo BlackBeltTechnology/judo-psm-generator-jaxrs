@@ -2,19 +2,25 @@
 
 package {{ namedElementImplPackageName self }};
 
-@javax.ws.rs.ApplicationPath("{{ namedElementImplParentPath self }}/{{ className self }}")
+@javax.ws.rs.ApplicationPath("{{ namedElementRestPath self }}/{{ className self }}")
 public class {{ applicationImplClassName self }} extends javax.ws.rs.core.Application implements {{ applicationFqName self }} {
 
     private final java.util.Map<java.lang.String, java.lang.Object> properties = new java.util.TreeMap();
 
-{{# each self.getAllExposedTransferObjectTypesFromAccessPointWithOperation as | to | }}
-    {{ namedElementImplRestFqName }} {{ variableName to }};
+{{# each self.getAllExposedTransferObjectTypesFromAccessPoint as | to | }}
+    {{ namedElementApiRestFqName }} {{ variableName to }};
+{{/ each }}
+
+{{# each self.getAllExposedTransferObjectTypesFromAccessPoint as | to | }}
+    public void set_{{ variableName to }}({{ namedElementApiRestFqName to }} instance) {
+        this.{{ variableName to }} = instance;
+    }
 {{/ each }}
 
     @Override
     public java.util.Set getSingletons() {
         return new java.util.HashSet(java.util.Arrays.asList(
-        {{# each self.getAllExposedTransferObjectTypesFromAccessPointWithOperation as | to | }}
+        {{# each self.getAllExposedTransferObjectTypesFromAccessPoint as | to | }}
             {{ variableName to }}{{# unless @last }},{{/ unless }}
         {{/ each }}
         ));
