@@ -102,7 +102,10 @@ public class OperationHelper extends StaticMethodValueResolver {
             path = getJAXRSPath(transferOperation, behaviour.getBehaviourType(), behaviour.getOwner(), path);
         }
 
-        return path.replaceAll("^" + model.getName() + "\\.", "").replaceAll("\\.", "/").replaceAll("#", "/").replaceAll(DEFAULT_TRANSFER_OBJECT_TYPES + "/", "");
+        return path.replaceAll("^" + model.getName() + "\\.", "")
+                .replaceAll("\\.", "/")
+                .replaceAll("#", "/")
+                .replaceAll(DEFAULT_TRANSFER_OBJECT_TYPES + "/", "");
     }
 
     private static String getJAXRSPath(TransferOperation transferOperation, TransferOperationBehaviourType behaviourType, NamedElement owner, String path) {
