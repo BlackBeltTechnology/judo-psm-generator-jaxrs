@@ -27,9 +27,14 @@ import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
 import hu.blackbelt.judo.meta.psm.derived.StaticData;
 import hu.blackbelt.judo.meta.psm.derived.StaticNavigation;
 import hu.blackbelt.judo.meta.psm.namespace.NamedElement;
+import hu.blackbelt.judo.meta.psm.namespace.Namespace;
 import hu.blackbelt.judo.meta.psm.service.TransferObjectRelation;
 import hu.blackbelt.judo.meta.psm.service.TransferObjectType;
 import hu.blackbelt.judo.meta.psm.service.TransferOperation;
+
+import java.util.Arrays;
+import java.util.Locale;
+import java.util.stream.Collectors;
 
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaApiHelper.*;
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaNamespaceHelper.*;
@@ -76,6 +81,14 @@ public class JavaOsgiHelper extends StaticMethodValueResolver {
 
     public static String osgiClassName(NamedElement namedElement) {
         return className(namedElement) + "Component";
+    }
+
+    public static String namedElementOsgiApplicationPath(NamedElement namedElement) {
+        return Arrays.stream(fqName((Namespace) namedElement.eContainer(), "/", true).toLowerCase().split("/")).filter(name -> !DEFAULT_TRANSFER_OBJECT_TYPES.equals(name)).collect(Collectors.joining("/")) + "/" + className(namedElement);
+    }
+
+    public static String namedElementOsgiApplicationName(NamedElement namedElement) {
+        return Arrays.stream(fqName((Namespace) namedElement.eContainer(), "/", false).split("/")).filter(name -> !DEFAULT_TRANSFER_OBJECT_TYPES.equals(name)).collect(Collectors.joining(".")) + "." + className(namedElement);
     }
 
 

@@ -40,8 +40,8 @@ public class {{ applicationOsgiClassName self }} {
 
         java.util.Dictionary properties = new java.util.Hashtable();
         properties.put("judo.model.name", "{{ model.name }}");
-        properties.put("applicationPath", "{{ namedElementRestPath self }}/{{ className self }}");
-        properties.put("jaxrs.application.name", "{{ namedElementPackageName self }}.{{ className self }}");
+        properties.put("applicationPath", "{{ namedElementOsgiApplicationPath self }}");
+        properties.put("jaxrs.application.name", "{{ namedElementOsgiApplicationName self }}");
 
         serviceRegistration = componentContext.getBundleContext().registerService(
             javax.ws.rs.core.Application.class,
