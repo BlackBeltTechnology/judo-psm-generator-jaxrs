@@ -84,7 +84,7 @@ public class JavaOsgiHelper extends StaticMethodValueResolver {
     }
 
     public static String namedElementOsgiApplicationPath(NamedElement namedElement) {
-        return Arrays.stream(fqName((Namespace) namedElement.eContainer(), "/", true).toLowerCase().split("/")).filter(name -> !DEFAULT_TRANSFER_OBJECT_TYPES.equals(name)).collect(Collectors.joining("/")) + "/" + className(namedElement);
+        return Arrays.stream(fqName((Namespace) namedElement.eContainer(), "/", false).split("/")).filter(name -> !DEFAULT_TRANSFER_OBJECT_TYPES.equals(name)).collect(Collectors.joining("/")) + "/" + className(namedElement);
     }
 
     public static String namedElementOsgiApplicationName(NamedElement namedElement) {
