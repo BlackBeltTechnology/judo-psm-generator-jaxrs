@@ -27,8 +27,12 @@ import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
 import hu.blackbelt.judo.meta.psm.derived.StaticData;
 import hu.blackbelt.judo.meta.psm.derived.StaticNavigation;
 import hu.blackbelt.judo.meta.psm.namespace.NamedElement;
+import hu.blackbelt.judo.meta.psm.namespace.Namespace;
 import hu.blackbelt.judo.meta.psm.service.TransferObjectRelation;
 import hu.blackbelt.judo.meta.psm.service.TransferObjectType;
+
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaApiHelper.*;
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaNamespaceHelper.*;
@@ -49,7 +53,7 @@ public class JavaImplHelper extends StaticMethodValueResolver {
     }
 
     public static String namedElementRestPath(NamedElement namedElement) {
-        return namedElementParentPath(namedElement);
+        return Arrays.stream(fqName((Namespace) namedElement.eContainer(), "/", false).split("/")).filter(name -> !DEFAULT_TRANSFER_OBJECT_TYPES.equals(name)).collect(Collectors.joining("/"));
     }
 
     public static String namedElementImplPackageName(NamedElement namedElement) {
