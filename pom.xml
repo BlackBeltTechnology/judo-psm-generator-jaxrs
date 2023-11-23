@@ -59,7 +59,7 @@
         <cxf-jaxrs-application-manager-version>0.7.1.20230914_110111_1c9ad225_develop</cxf-jaxrs-application-manager-version>
 
         <!-- Code Quality-->
-        <sonar-maven-plugin-version>3.9.1.2184</sonar-maven-plugin-version>
+        <sonar-maven-plugin-version>3.10.0.2594</sonar-maven-plugin-version>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.language>java</sonar.language>
