@@ -51,9 +51,6 @@ public class OperationHelper extends StaticMethodValueResolver {
     public static String operationAsmFqName(TransferOperation transferOperation) {
         TransferObjectType transferObjectType = (TransferObjectType) transferOperation.eContainer();
         NamedElement namedElement = transferObjectType;
-        if (isEntity(transferObjectType) && isBoundOperation(transferOperation)) {
-            namedElement = getEntity(transferObjectType);
-        }
         return fqName((Namespace) namedElement.eContainer(), ".", false) + '.' + namedElement.getName() + "#" + transferOperation.getName();
     }
 
