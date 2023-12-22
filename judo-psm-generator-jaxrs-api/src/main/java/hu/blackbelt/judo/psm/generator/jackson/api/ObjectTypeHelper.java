@@ -20,9 +20,9 @@ package hu.blackbelt.judo.psm.generator.jaxrs.api;
  * #L%
  */
 
+import hu.blackbelt.judo.dao.api.DAO;
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
-import hu.blackbelt.judo.meta.psm.accesspoint.AbstractActorType;
 import hu.blackbelt.judo.meta.psm.data.EntityType;
 import hu.blackbelt.judo.meta.psm.namespace.Model;
 import hu.blackbelt.judo.meta.psm.service.*;
@@ -31,11 +31,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
-import static hu.blackbelt.judo.psm.generator.jaxrs.api.ModelHelper.getSpecifiedContainer;
-import static hu.blackbelt.judo.psm.generator.jaxrs.api.ModelHelper.modelWrapper;
-
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.ModelHelper.*;
+import hu.blackbelt.judo.psm.generator.jaxrs.api.OperationHelper;
 
 @TemplateHelper
 public class ObjectTypeHelper extends StaticMethodValueResolver {
@@ -72,10 +70,28 @@ public class ObjectTypeHelper extends StaticMethodValueResolver {
         return transferObjectType.getOperations().stream().filter(OperationHelper::isCustomOperation).count() > 0;
     }
 
-    public static List<TransferOperation> allOperations(TransferObjectType transferObjectType) {
-        return transferObjectType.getOperations().stream()
-                .filter(o -> o.getBehaviour() == null)
-                .collect(Collectors.toList());
+    public static List<TransferObjectType> allQueryCustomizer(Model model) {
+        return allTransferObjectType(model).stream()
+                .filter(transferObjectType -> transferObjectType.isQueryCustomizer())
+                .toList();
     }
+
+    public static boolean isGetRangeInputType(TransferObjectType transferObjectType) {
+        Model model = getSpecifiedContainer(transferObjectType, Model.class);
+        return modelWrapper(model)
+                .getStreamOfPsmServiceTransferOperation()
+                .anyMatch(o ->
+                        o.getBehaviour() != null
+                                && o.getBehaviour().getBehaviourType() == TransferOperationBehaviourType.GET_RANGE
+                                && o.getInput() != null
+                                && o.getInput().getType().equals(transferObjectType)
+                );
+    }
+
+    public static boolean isSeek(TransferObjectType transferObjectType) {
+        return transferObjectType.isQueryCustomizer()
+                && transferObjectType.getName().startsWith("_Seek");
+    }
+
 
 }

@@ -1,0 +1,27 @@
+package {{ namedElementApiPackageName self }};
+
+{{# if (hasDocumentation self) }}
+/**
+ * {{ self.documentation.decorateWithAsterisks }}
+ */
+{{/ if  }}
+public interface {{ className self }}ForCreate {
+
+    {{# each (allEmbeddedMappedRelation self) as | relation | }}
+    {{# if (relationIsEmbeddedAndMappedRelationIsAssociation relation)}}
+    {{# if relation.required }}
+    @io.swagger.v3.oas.annotations.media.Schema(required = true)
+    {{/ if }}
+    {{{ relationTargetTypeDefinition relation }}} get{{ relation.name.firstToUpperCase }}();
+    {{/ if }}
+    {{/ each }}
+
+    {{# each self.attributes as | attribute | }}
+    {{# unless (isQueryOrDefaultValueOrDataPropertyAttribute attribute) }}
+    {{# if attribute.required }}
+    @io.swagger.v3.oas.annotations.media.Schema(required = true)
+    {{/ if }}
+    {{{ attributeTargetTypeDefinition attribute }}} get{{ attribute.name.firstToUpperCase }}();
+    {{/ unless }}
+    {{/ each }}
+}
