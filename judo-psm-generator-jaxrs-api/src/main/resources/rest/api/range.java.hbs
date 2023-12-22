@@ -1,0 +1,17 @@
+package {{ namedElementApiPackageName self }};
+
+{{# if (hasDocumentation self) }}
+/**
+ * {{ self.documentation.decorateWithAsterisks }}
+ */
+{{/ if  }}
+public interface {{ className self }} {
+
+    {{# each (allRelation self) as | relation | }}
+    {{{ relationTargetTypeDefinition relation }}} get{{ relation.name.firstToUpperCase }}();
+    {{/ each }}
+
+    {{# each self.attributes as | attribute | }}
+    {{{ attributeTargetTypeDefinition attribute }}} get{{ attribute.name.firstToUpperCase }}();
+    {{/ each }}
+}
