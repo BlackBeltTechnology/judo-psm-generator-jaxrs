@@ -10,3 +10,33 @@ templates:
     templateName: rest/api/rest.service.java.hbs
     factoryExpression: "#allExposedTransferObjectWithOperation(#model)"
     actorTypeBased: false
+
+  - name: dto.java
+    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #className(#self) + '.java'"
+    templateName: rest/api/dto.java.hbs
+    factoryExpression: "#allExposedTransferObjectWithOperation(#model)"
+    actorTypeBased: false
+
+  - name: dtoForCreate.java
+    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #className(#self) + 'ForCreate.java'"
+    templateName: rest/api/dtoForCreate.java.hbs
+    factoryExpression: "#allExposedTransferObjectWithOperation(#model)"
+    actorTypeBased: false
+
+  - name: range.java
+    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #className(#self) + '.java'"
+    templateName: rest/api/range.java.hbs
+    factoryExpression: "#allRange(#model)"
+    actorTypeBased: false
+
+  - name: enum.java
+    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #enumName(#self) + '.java'"
+    templateName: rest/api/enum.java.hbs
+    factoryExpression: "#allEnumType(#model)"
+    actorTypeBased: false
+
+  - name: querycustomizer.java
+    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #queryCustomizerName(#self) + '.java'"
+    templateName: rest/api/querycustomizer.java.hbs
+    factoryExpression: "#allQueryCustomizer(#model)"
+    actorTypeBased: false

@@ -22,30 +22,17 @@ package hu.blackbelt.judo.psm.generator.jaxrs.api;
 
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
-import hu.blackbelt.judo.meta.psm.PsmUtils;
 import hu.blackbelt.judo.meta.psm.accesspoint.AbstractActorType;
-import hu.blackbelt.judo.meta.psm.accesspoint.ActorType;
-import hu.blackbelt.judo.meta.psm.accesspoint.MappedActorType;
-import hu.blackbelt.judo.meta.psm.data.BoundOperation;
 import hu.blackbelt.judo.meta.psm.derived.ReferenceAccessor;
-import hu.blackbelt.judo.meta.psm.derived.StaticData;
-import hu.blackbelt.judo.meta.psm.derived.StaticNavigation;
 import hu.blackbelt.judo.meta.psm.namespace.*;
 import hu.blackbelt.judo.meta.psm.service.*;
 import hu.blackbelt.judo.meta.psm.support.PsmModelResourceSupport;
 import hu.blackbelt.judo.meta.psm.type.*;
-import jdk.dynalink.Operation;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EReference;
-
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaNamespaceHelper.*;
 
 @TemplateHelper
 public class ModelHelper extends StaticMethodValueResolver {
@@ -145,6 +132,15 @@ public class ModelHelper extends StaticMethodValueResolver {
 
     public static List<AbstractActorType> allAccessPointActor(Model model) {
         return modelWrapper(model).getStreamOfPsmAccesspointAbstractActorType().toList();
+    }
+
+    public static List<TransferObjectType> allTransferObjectType(Model model) {
+        return modelWrapper(model).getStreamOfPsmServiceTransferObjectType().collect(Collectors.toList());
+    }
+
+    public static List<EnumerationType> allEnumType(Model model) {
+        return modelWrapper(model).getStreamOfPsmTypeEnumerationType()
+                .collect(Collectors.toList());
     }
 
 }

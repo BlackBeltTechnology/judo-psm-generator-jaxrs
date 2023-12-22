@@ -1,0 +1,45 @@
+package {{ namedElementApiPackageName self }};
+
+{{# if (hasDocumentation self) }}
+/**
+ * {{ self.documentation.decorateWithAsterisks }}
+ */
+{{/ if  }}
+public interface {{ className self }} {
+
+    {{# each (allEmbeddedMappedRelation self) as | relation | }}
+    {{# if (relationIsAggregation relation)}}
+    {{# if relation.required }}
+    @io.swagger.v3.oas.annotations.media.Schema(required = true)
+    {{/ if }}
+    {{{ relationTargetTypeDefinition relation }}} get{{ relation.name.firstToUpperCase }}();
+    {{/ if }}
+    {{/ each }}
+
+    {{# each self.attributes as | attribute | }}
+    {{# unless (isQueryOrDefaultValueOrNotAttributeAttribute attribute) }}
+    {{# if attribute.required }}
+    @io.swagger.v3.oas.annotations.media.Schema(required = true)
+    {{/ if }}
+    {{{ attributeTargetTypeDefinition attribute }}} get{{ attribute.name.firstToUpperCase }}();
+    {{/ unless }}
+    {{/ each }}
+
+    @io.swagger.v3.oas.annotations.media.Schema(name = "__deleteable")
+    boolean get__deleteable();
+
+    @io.swagger.v3.oas.annotations.media.Schema(name = "__updateable")
+    boolean get__updateable();
+
+    @io.swagger.v3.oas.annotations.media.Schema(name = "__entityType")
+    String get__entityType();
+
+    @io.swagger.v3.oas.annotations.media.Schema(name = "__identifier")
+    String get__identifier();
+
+    @io.swagger.v3.oas.annotations.media.Schema(name = "__signedIdentifier")
+    String get__signedIdentifier();
+
+    @io.swagger.v3.oas.annotations.media.Schema(name = "__version")
+    int get__version();
+}

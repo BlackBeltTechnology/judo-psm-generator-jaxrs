@@ -39,7 +39,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.github.jknack.handlebars.internal.lang3.StringUtils.capitalize;
-import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.*;
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.getEntity;
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.isEntity;
 
 @TemplateHelper
 public class JavaNamespaceHelper extends StaticMethodValueResolver {
