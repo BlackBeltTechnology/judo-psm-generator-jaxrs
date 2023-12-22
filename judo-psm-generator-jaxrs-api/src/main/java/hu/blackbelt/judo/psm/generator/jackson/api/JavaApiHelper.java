@@ -21,21 +21,15 @@ package hu.blackbelt.judo.psm.generator.jaxrs.api;
  */
 
 import com.github.jknack.handlebars.internal.lang3.StringUtils;
-import hu.blackbelt.judo.dao.api.DAO;
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
-import hu.blackbelt.judo.meta.psm.data.Attribute;
 import hu.blackbelt.judo.meta.psm.derived.DataProperty;
-import hu.blackbelt.judo.meta.psm.derived.PrimitiveAccessor;
-import hu.blackbelt.judo.meta.psm.derived.ReferenceAccessor;
 import hu.blackbelt.judo.meta.psm.measure.MeasuredType;
 import hu.blackbelt.judo.meta.psm.namespace.*;
 import hu.blackbelt.judo.meta.psm.service.TransferAttribute;
-import hu.blackbelt.judo.meta.psm.service.TransferObjectRelation;
 import hu.blackbelt.judo.meta.psm.service.TransferObjectType;
 import hu.blackbelt.judo.meta.psm.type.*;
 import hu.blackbelt.judo.psm.generator.jaxrs.api.StoredVariableHelper;
-import org.eclipse.emf.common.util.EList;
 
 import java.util.Optional;
 
@@ -47,7 +41,7 @@ public class JavaApiHelper extends StaticMethodValueResolver {
     public static final String REST = "rest";
 
     public static String namespaceElementApiFqPath(NamespaceElement namespaceElement) {
-        return ((hu.blackbelt.judo.psm.generator.jaxrs.api.StoredVariableHelper.getApiPrefixLocal().equals("")
+        return ((StoredVariableHelper.getApiPrefixLocal().equals("")
                     ? ""
                     : StoredVariableHelper.getApiPrefixLocal() + ".")).replaceAll(".", "/")
                 + fqName(namespaceElement.getNamespace(), "/", true);
@@ -101,39 +95,6 @@ public class JavaApiHelper extends StaticMethodValueResolver {
                 "." + className(namedElement);
     }
 
-    public static String relationTargetTypeDefinition(TransferObjectRelation transferObjectRelation) {
-        String relatedType = relationTargetBareTypeDefinition(transferObjectRelation);
-        if (relatedType.contains("._optional_transferobjecttypes")) {
-            relatedType = relatedType.replaceAll("._optional_transferobjecttypes", "");
-        }
-        if (transferObjectRelation.isCollection()) {
-            relatedType = "java.util.List<" + relatedType + ">";
-        } else if (isRelationOptionalType(transferObjectRelation)) {
-            relatedType = "java.util.Optional<" + relatedType + ">";
-        }
-        return relatedType;
-    }
-
-    public static String relationTargetBareTypeDefinition(TransferObjectRelation transferObjectRelation) {
-        return namedElementApiFqName(transferObjectRelation.getTarget());
-    }
-
-    public static boolean isRelationOptionalType(TransferObjectRelation transferObjectRelation) {
-        return StoredVariableHelper.isGenerateOptionalTypes() && !transferObjectRelation.isRequired();
-    }
-
-    public static String attributeTargetTypeDefinition(TransferAttribute transferAttribute) {
-        String relatedType = attributeTargetBareTypeDefinition(transferAttribute);
-        if (isOptionalAttribute(transferAttribute)) {
-            relatedType = "java.util.Optional<" + relatedType + ">";
-        }
-        return relatedType;
-    }
-
-    public static String attributeTargetBareTypeDefinition(TransferAttribute transferAttribute) {
-        return primitiveDataTypeDefinition(transferAttribute.getDataType());
-    }
-
     public static String primitiveDataTypeDefinition(Primitive dataType) {
         if (dataType instanceof StringType) {
             return "java.lang.String";
@@ -180,10 +141,6 @@ public class JavaApiHelper extends StaticMethodValueResolver {
         return "java.lang.Object";
     }
 
-    public static boolean isOptionalAttribute(TransferAttribute transferAttribute) {
-        return StoredVariableHelper.isGenerateOptionalTypes() && !transferAttribute.isRequired();
-    }
-
     public static String enumFqName(EnumerationType enumerationType) {
         return enumPackageName(enumerationType) + "." + safeName(enumerationType.getName());
     }
@@ -196,48 +153,6 @@ public class JavaApiHelper extends StaticMethodValueResolver {
         return safeName(enumerationType.getName());
     }
 
-    public static boolean isParameterizedRelation(TransferObjectRelation transferObjectRelation) {
-        return transferObjectRelation.getBinding() != null
-                && (transferObjectRelation.getBinding() instanceof ReferenceAccessor)
-                && ((ReferenceAccessor) transferObjectRelation.getBinding()).getGetterExpression().getParameterType() != null;
-    }
-
-    public static boolean isQueryOrDefaultValueOrNotAttributeAttribute(TransferAttribute transferAttribute) {
-        return (isParametrizedAttribute(transferAttribute)
-                || hasQueryWithoutParamAnnotation(transferAttribute)
-                || hasDefaultValueAnnotation(transferAttribute))
-                || isDefaultValueAttribute(transferAttribute)
-                || isDataProperty(transferAttribute);
-    }
-
-    public static boolean isParametrizedAttribute(TransferAttribute transferAttribute) {
-        return transferAttribute.getBinding() != null
-                && (transferAttribute.getBinding() instanceof PrimitiveAccessor)
-                && ((PrimitiveAccessor) transferAttribute.getBinding()).getGetterExpression().getParameterType() != null;
-    }
-
-    public static boolean hasQueryWithoutParamAnnotation(TransferAttribute transferAttribute) {
-        return transferAttribute.getBinding() != null
-                && (transferAttribute.getBinding() instanceof PrimitiveAccessor)
-                && hasAnnotation(transferAttribute.getBinding().getAnnotations(), "QueryWithoutParameter");
-    }
-
-    public static boolean isDefaultValueAttribute(TransferAttribute transferAttribute) {
-        return transferAttribute.getName().contains("_default_");
-    }
-
-    public static boolean hasDefaultValueAnnotation(TransferAttribute transferAttribute) {
-        return transferAttribute.getBinding() != null
-                && (transferAttribute.getBinding() instanceof PrimitiveAccessor)
-                && hasAnnotation(transferAttribute.getBinding().getAnnotations(), "DefaultValue")
-                || hasAnnotation(transferAttribute.getAnnotations(), "TransferObjectAttributeWithDefaultValue");
-    }
-
-    public static boolean hasAnnotation(EList<Annotation> annotations, String name){
-        return annotations.stream().anyMatch(ann -> name.equals(ann.getName()));
-    }
-
-    // TODO: add new name
     public static boolean isDataProperty(TransferAttribute transferAttribute) {
         return transferAttribute.getBinding() != null
                 && transferAttribute.getBinding() instanceof DataProperty;
@@ -260,11 +175,6 @@ public class JavaApiHelper extends StaticMethodValueResolver {
 
     public static String queryCustomizerName(TransferObjectType transferObjectType) {
         return StringUtils.capitalize(safeName(transferObjectType.getName()));
-    }
-
-    public static boolean isSeek(TransferObjectType transferObjectType) {
-        return transferObjectType.isQueryCustomizer()
-                && transferObjectType.getName().startsWith("_Seek");
     }
 
 }

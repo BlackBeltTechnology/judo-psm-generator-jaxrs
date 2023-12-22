@@ -170,18 +170,6 @@ public class OperationHelper extends StaticMethodValueResolver {
         return transferOperation.getOutput().getType() != null;
     }
 
-    public static String getDTOFQName(TransferObjectRelation transferObjectType) {
-        String className = className(transferObjectType);
-        if (className.contains("_optional_transferobjecttypes")) {
-            className = className.replaceAll("_optional_transferobjecttypes", "");
-        }
-        String fqName = namedElementApiParentPath(transferObjectType) + "." + className;
-        if (fqName.charAt(0) == '_') {
-            fqName = fqName.substring(1);
-        }
-        return fqName.replaceAll("/", ".");
-    }
-
     public static String getOperationFQName(TransferOperation transferOperation) {
         TransferObjectType transferObjectType = transferOperation.getInput().getType();
         String className = className(transferObjectType);
@@ -196,13 +184,8 @@ public class OperationHelper extends StaticMethodValueResolver {
         return transferOperation.getName().startsWith("_createInstance");
     }
 
-    public static String getCreateOperationClassFQName(TransferOperation transferOperation) {
+    public static String createOperationClassFQName(TransferOperation transferOperation) {
         return getOperationFQName(transferOperation) + "ForCreate";
-    }
-
-    public static boolean relationIsAggregation(TransferObjectRelation transferObjectRelation) {
-        return transferObjectRelation.isEmbedded()
-                && (transferObjectRelation.getBinding() instanceof AssociationEnd);
     }
 
 }

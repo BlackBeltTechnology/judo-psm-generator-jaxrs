@@ -34,6 +34,8 @@ import org.eclipse.emf.ecore.EObject;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.isGetRangeInputType;
+
 @TemplateHelper
 public class ModelHelper extends StaticMethodValueResolver {
 
@@ -141,6 +143,12 @@ public class ModelHelper extends StaticMethodValueResolver {
     public static List<EnumerationType> allEnumType(Model model) {
         return modelWrapper(model).getStreamOfPsmTypeEnumerationType()
                 .collect(Collectors.toList());
+    }
+
+    public static List<TransferObjectType> allRange(Model model) {
+        return allTransferObjectType(model).stream()
+                .filter(transferObjectType -> isGetRangeInputType(transferObjectType))
+                .toList();
     }
 
 }

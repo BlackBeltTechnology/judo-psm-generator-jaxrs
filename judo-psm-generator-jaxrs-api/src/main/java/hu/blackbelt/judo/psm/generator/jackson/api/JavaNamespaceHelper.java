@@ -31,10 +31,7 @@ import hu.blackbelt.judo.meta.psm.namespace.Package;
 import hu.blackbelt.judo.meta.psm.service.TransferAttribute;
 import hu.blackbelt.judo.meta.psm.service.TransferObjectRelation;
 import hu.blackbelt.judo.meta.psm.service.TransferObjectType;
-import hu.blackbelt.judo.meta.psm.service.TransferOperation;
-import org.eclipse.emf.ecore.ENamedElement;
 
-import javax.swing.*;
 import java.util.*;
 import java.util.stream.Collectors;
 

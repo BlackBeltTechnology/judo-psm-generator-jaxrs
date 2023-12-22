@@ -31,9 +31,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
-import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaApiHelper.isParameterizedRelation;
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.ModelHelper.*;
 import hu.blackbelt.judo.psm.generator.jaxrs.api.OperationHelper;
 
@@ -72,42 +70,9 @@ public class ObjectTypeHelper extends StaticMethodValueResolver {
         return transferObjectType.getOperations().stream().filter(OperationHelper::isCustomOperation).count() > 0;
     }
 
-    public static List<TransferOperation> allOperations(TransferObjectType transferObjectType) {
-        return transferObjectType.getOperations().stream()
-                .filter(o -> o.getBehaviour() == null)
-                .collect(Collectors.toList());
-    }
-
-    public static List<TransferObjectRelation> allEmbeddedMappedRelation(TransferObjectType transferObjectType) {
-        return transferObjectType.getRelations().stream()
-                .filter(r -> r.isEmbedded()
-                        && !isParameterizedRelation(r)
-                        && isMapped(r.getTarget()))
-                .collect(Collectors.toList());
-    }
-
-    public static List<TransferObjectRelation> allRelation(TransferObjectType transferObjectType) {
-        return transferObjectType.getRelations();
-    }
-
-    public static List<TransferObjectRelation> allSingleEmbeddedMappedRelation(TransferObjectType transferObjectType) {
-        return transferObjectType.getRelations().stream()
-                .filter(r -> r.isEmbedded()
-                        && !isParameterizedRelation(r)
-                        && isMapped(r.getTarget())
-                        && !r.isCollection())
-                .collect(Collectors.toList());
-    }
-
     public static List<TransferObjectType> allQueryCustomizer(Model model) {
         return allTransferObjectType(model).stream()
                 .filter(transferObjectType -> transferObjectType.isQueryCustomizer())
-                .toList();
-    }
-
-    public static List<TransferObjectType> allRange(Model model) {
-        return allTransferObjectType(model).stream()
-                .filter(transferObjectType -> isGetRangeInputType(transferObjectType))
                 .toList();
     }
 
@@ -122,5 +87,11 @@ public class ObjectTypeHelper extends StaticMethodValueResolver {
                                 && o.getInput().getType().equals(transferObjectType)
                 );
     }
+
+    public static boolean isSeek(TransferObjectType transferObjectType) {
+        return transferObjectType.isQueryCustomizer()
+                && transferObjectType.getName().startsWith("_Seek");
+    }
+
 
 }

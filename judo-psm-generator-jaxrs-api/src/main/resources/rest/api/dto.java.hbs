@@ -8,7 +8,7 @@ package {{ namedElementApiPackageName self }};
 public interface {{ className self }} {
 
     {{# each (allEmbeddedMappedRelation self) as | relation | }}
-    {{# if (relationIsAggregation relation)}}
+    {{# if (relationIsEmbeddedAndMappedRelationIsAssociation relation)}}
     {{# if relation.required }}
     @io.swagger.v3.oas.annotations.media.Schema(required = true)
     {{/ if }}
@@ -17,7 +17,7 @@ public interface {{ className self }} {
     {{/ each }}
 
     {{# each self.attributes as | attribute | }}
-    {{# unless (isQueryOrDefaultValueOrNotAttributeAttribute attribute) }}
+    {{# unless (isQueryOrDefaultValueOrDataPropertyAttribute attribute) }}
     {{# if attribute.required }}
     @io.swagger.v3.oas.annotations.media.Schema(required = true)
     {{/ if }}
