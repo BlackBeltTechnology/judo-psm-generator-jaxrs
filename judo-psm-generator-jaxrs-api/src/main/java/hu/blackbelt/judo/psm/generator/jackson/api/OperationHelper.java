@@ -49,7 +49,8 @@ public class OperationHelper extends StaticMethodValueResolver {
     }
 
     public static String operationAsmFqName(TransferOperation transferOperation) {
-        return fqName((Namespace) transferOperation.eContainer().eContainer(), ".", false) + '.' + ((TransferObjectType) transferOperation.eContainer()).getName() + "#" + transferOperation.getName();
+        TransferObjectType transferObjectType = (TransferObjectType) transferOperation.eContainer();
+        return fqName((Namespace) transferObjectType.eContainer(), ".", false) + '.' + transferObjectType.getName() + "#" + transferOperation.getName();
     }
 
     public static Boolean isStateful(TransferOperation transferOperation) {
