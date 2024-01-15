@@ -170,22 +170,21 @@ public class OperationHelper extends StaticMethodValueResolver {
         return transferOperation.getOutput().getType() != null;
     }
 
-    public static String getOperationFQName(TransferOperation transferOperation) {
+    public static String getOperationInputFQName(TransferOperation transferOperation) {
         TransferObjectType transferObjectType = transferOperation.getInput().getType();
         String className = className(transferObjectType);
         String fqName = namedElementApiParentPath(transferObjectType) + "." + className;
-        if (fqName.charAt(0) == '_') {
-            fqName = fqName.substring(1);
-        }
+        return fqName.replaceAll("/", ".");
+    }
+
+    public static String getOperationOutputFQName(TransferOperation transferOperation) {
+        TransferObjectType transferObjectType = transferOperation.getOutput().getType();
+        String className = className(transferObjectType);
+        String fqName = namedElementApiParentPath(transferObjectType) + "." + className;
         return fqName.replaceAll("/", ".");
     }
 
     public static boolean isCreateOperation(TransferOperation transferOperation) {
         return transferOperation.getName().startsWith("_createInstance");
     }
-
-    public static String createOperationClassFQName(TransferOperation transferOperation) {
-        return getOperationFQName(transferOperation) + "ForCreate";
-    }
-
 }

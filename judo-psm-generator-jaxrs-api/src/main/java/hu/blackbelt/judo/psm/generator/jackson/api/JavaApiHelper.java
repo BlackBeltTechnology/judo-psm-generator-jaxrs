@@ -153,11 +153,6 @@ public class JavaApiHelper extends StaticMethodValueResolver {
         return safeName(enumerationType.getName());
     }
 
-    public static boolean isDataProperty(TransferAttribute transferAttribute) {
-        return transferAttribute.getBinding() != null
-                && transferAttribute.getBinding() instanceof DataProperty;
-    }
-
     public static String queryCustomizerPackageName(TransferObjectType transferObjectType) {
         return apiPackageName() + namedElementPackageName(transferObjectType);
     }
@@ -177,4 +172,11 @@ public class JavaApiHelper extends StaticMethodValueResolver {
         return StringUtils.capitalize(safeName(transferObjectType.getName()));
     }
 
+    public static String apiDefaultPathName(Model model) {
+        return StoredVariableHelper.getApiPrefixLocal().replaceAll("\\.", "/" ) + "/" + model.getName().toLowerCase();
+    }
+
+    public static String apiDefaultPackageName(Model model) {
+        return StoredVariableHelper.getApiPrefixLocal() + "." + model.getName().toLowerCase();
+    }
 }

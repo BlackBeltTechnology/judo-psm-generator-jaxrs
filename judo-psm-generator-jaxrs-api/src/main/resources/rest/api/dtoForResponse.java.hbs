@@ -7,17 +7,15 @@ package {{ namedElementApiPackageName self }};
  * {{ self.documentation.decorateWithAsterisks }}
  */
 {{/ if  }}
-public interface {{ className self }} {
+public interface {{ className self }}ForResponse {
 
     {{# each (allEmbeddedOrMappedRelation self) as | relation | }}
 
+    {{# if (isMapped relation.target) }}
     {{# if relation.required }}
-    @io.swagger.v3.oas.annotations.media.Schema(required = true)
+        @io.swagger.v3.oas.annotations.media.Schema(required = true)
     {{/ if }}
-    {{# if (mappedRelationIsAssociation relation)}}
-    {{{ relationTargetTypeDefinition relation true }}} get{{ relation.name.firstToUpperCase }}();
-    {{ else }}
-    {{{ relationTargetTypeDefinition relation false }}} get{{ relation.name.firstToUpperCase }}();
+    {{{ relationTargetTypeDefinitionForResponse relation }}} get{{ relation.name.firstToUpperCase }}();
     {{/ if }}
     {{/ each }}
 

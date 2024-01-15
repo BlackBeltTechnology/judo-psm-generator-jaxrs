@@ -20,20 +20,18 @@ package hu.blackbelt.judo.psm.generator.jaxrs.api;
  * #L%
  */
 
-import hu.blackbelt.judo.dao.api.DAO;
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
 import hu.blackbelt.judo.meta.psm.data.EntityType;
 import hu.blackbelt.judo.meta.psm.namespace.Model;
 import hu.blackbelt.judo.meta.psm.service.*;
+import hu.blackbelt.judo.psm.generator.jaxrs.api.OperationHelper;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.ModelHelper.*;
-import hu.blackbelt.judo.psm.generator.jaxrs.api.OperationHelper;
 
 @TemplateHelper
 public class ObjectTypeHelper extends StaticMethodValueResolver {
@@ -65,18 +63,11 @@ public class ObjectTypeHelper extends StaticMethodValueResolver {
                 .filter(e -> e.getDefaultRepresentation() == transferObjectType).findFirst().isPresent();
     }
 
-
     public static boolean hasCustomOperation(TransferObjectType transferObjectType) {
         return transferObjectType.getOperations().stream().filter(OperationHelper::isCustomOperation).count() > 0;
     }
 
-    public static List<TransferObjectType> allQueryCustomizer(Model model) {
-        return allTransferObjectType(model).stream()
-                .filter(transferObjectType -> transferObjectType.isQueryCustomizer())
-                .toList();
-    }
-
-    public static boolean isGetRangeInputType(TransferObjectType transferObjectType) {
+    public static boolean isRangeInputType(TransferObjectType transferObjectType) {
         Model model = getSpecifiedContainer(transferObjectType, Model.class);
         return modelWrapper(model)
                 .getStreamOfPsmServiceTransferOperation()
@@ -92,6 +83,4 @@ public class ObjectTypeHelper extends StaticMethodValueResolver {
         return transferObjectType.isQueryCustomizer()
                 && transferObjectType.getName().startsWith("_Seek");
     }
-
-
 }

@@ -160,7 +160,6 @@
                 <groupId>hu.blackbelt.judo.meta</groupId>
                 <artifactId>judo-psm-generator-maven-plugin</artifactId>
                 <executions>
-                    <!--
                     <execution>
                         <id>execute-psm-test-model-from-artifact-northwind</id>
                         <phase>generate-sources</phase>
@@ -174,7 +173,6 @@
                             <destination>${basedir}/target/generated-sources/psm/jaxrs/northwind</destination>
                         </configuration>
                     </execution>
-                    -->
                     <execution>
                         <id>execute-psm-test-model-from-artifact-Northwind-Esm</id>
                         <phase>generate-sources</phase>

@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.EObject;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.isGetRangeInputType;
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.isRangeInputType;
 
 @TemplateHelper
 public class ModelHelper extends StaticMethodValueResolver {
@@ -129,15 +129,20 @@ public class ModelHelper extends StaticMethodValueResolver {
     }
 
     public static Set<TransferObjectType> allExposedTransferObjectWithOperation(Model model) {
-        return modelWrapper(model).getStreamOfPsmAccesspointAbstractActorType().flatMap(access -> getAllExposedTransferObjectTypesFromAccessPoint(access).stream()).collect(Collectors.toSet());
+        return modelWrapper(model).getStreamOfPsmAccesspointAbstractActorType()
+                .flatMap(access -> getAllExposedTransferObjectTypesFromAccessPoint(access).stream())
+                .collect(Collectors.toSet());
     }
 
     public static List<AbstractActorType> allAccessPointActor(Model model) {
         return modelWrapper(model).getStreamOfPsmAccesspointAbstractActorType().toList();
     }
 
-    public static List<TransferObjectType> allTransferObjectType(Model model) {
-        return modelWrapper(model).getStreamOfPsmServiceTransferObjectType().collect(Collectors.toList());
+    public static List<TransferObjectType> allTransferObject(Model model) {
+        return modelWrapper(model)
+                .getStreamOfPsmServiceTransferObjectType()
+                .filter(transferObjectType -> !transferObjectType.isQueryCustomizer() && !isRangeInputType(transferObjectType))
+                .collect(Collectors.toList());
     }
 
     public static List<EnumerationType> allEnumType(Model model) {
@@ -146,9 +151,15 @@ public class ModelHelper extends StaticMethodValueResolver {
     }
 
     public static List<TransferObjectType> allRange(Model model) {
-        return allTransferObjectType(model).stream()
-                .filter(transferObjectType -> isGetRangeInputType(transferObjectType))
+        return modelWrapper(model).getStreamOfPsmServiceTransferObjectType()
+                .filter(transferObjectType -> isRangeInputType(transferObjectType))
                 .toList();
     }
 
+    public static List<TransferObjectType> allQueryCustomizer(Model model) {
+        return modelWrapper(model)
+                .getStreamOfPsmServiceTransferObjectType()
+                .filter(transferObjectType -> transferObjectType.isQueryCustomizer())
+                .toList();
+    }
 }

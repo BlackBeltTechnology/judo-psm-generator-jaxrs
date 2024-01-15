@@ -5,14 +5,16 @@ package {{ namedElementApiPackageName self }};
  * {{ self.documentation.decorateWithAsterisks }}
  */
 {{/ if  }}
-public interface {{ className self }}ForCreate {
+public interface {{ className self }}NotStored {
 
-    {{# each (allEmbeddedMappedRelation self) as | relation | }}
-    {{# if (relationIsEmbeddedAndMappedRelationIsAssociation relation)}}
+    {{# each (allEmbeddedOrMappedRelation self) as | relation | }}
     {{# if relation.required }}
     @io.swagger.v3.oas.annotations.media.Schema(required = true)
     {{/ if }}
-    {{{ relationTargetTypeDefinition relation }}} get{{ relation.name.firstToUpperCase }}();
+    {{# if (mappedRelationIsAssociation relation)}}
+    {{{ relationTargetTypeDefinition relation true }}} get{{ relation.name.firstToUpperCase }}();
+    {{ else }}
+    {{{ relationTargetTypeDefinition relation false }}} get{{ relation.name.firstToUpperCase }}();
     {{/ if }}
     {{/ each }}
 
