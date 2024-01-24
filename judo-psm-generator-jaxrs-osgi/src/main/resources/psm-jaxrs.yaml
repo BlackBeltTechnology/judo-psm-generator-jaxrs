@@ -10,7 +10,4 @@ templates:
     templateName: rest/osgi/rest.service.osgi.java.hbs
     factoryExpression: "#allExposedTransferObjectWithOperation(#model)"
     actorTypeBased: false
-    templateContext:
-      - name: actor
-        expression: "#actor"
 
