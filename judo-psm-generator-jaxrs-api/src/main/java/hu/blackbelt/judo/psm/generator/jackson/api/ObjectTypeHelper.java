@@ -22,6 +22,7 @@ package hu.blackbelt.judo.psm.generator.jaxrs.api;
 
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
+import hu.blackbelt.judo.meta.psm.accesspoint.AbstractActorType;
 import hu.blackbelt.judo.meta.psm.data.EntityType;
 import hu.blackbelt.judo.meta.psm.namespace.Model;
 import hu.blackbelt.judo.meta.psm.service.*;
@@ -47,7 +48,11 @@ public class ObjectTypeHelper extends StaticMethodValueResolver {
     }
 
     public static boolean isActorType(TransferObjectType transferObjectType) {
-        return transferObjectType.getActorType() != null;
+        return transferObjectType instanceof AbstractActorType;
+    }
+
+    public static String getRealm(AbstractActorType actorType) {
+        return actorType.getRealm();
     }
 
     public static EntityType getEntity(TransferObjectType transferObjectType) {
