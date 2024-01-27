@@ -51,7 +51,7 @@
         <judo-dao-api-version>1.0.4.20240116_081641_d19eb198_develop</judo-dao-api-version>
         <judo-sdk-common-version>1.0.4.20240126_094755_2d3031da_develop</judo-sdk-common-version>
 
-        <judo-meta-psm-version>1.3.0.20240123_155324_29ade13f_develop</judo-meta-psm-version>
+        <judo-meta-psm-version>1.3.0.20240127_122224_4f1de775_develop</judo-meta-psm-version>
         <judo-generator-commons-version>1.0.0.20231009_184136_321053b3_develop</judo-generator-commons-version>
         <structured-map-proxy-version>2.0.0.20231122_182717_c1fe065e_develop</structured-map-proxy-version>
 
