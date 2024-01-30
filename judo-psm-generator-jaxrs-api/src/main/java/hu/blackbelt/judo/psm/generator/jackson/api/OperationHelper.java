@@ -65,6 +65,8 @@ public class OperationHelper extends StaticMethodValueResolver {
                 return false;
             } else if (behaviourType == TransferOperationBehaviourType.VALIDATE_UPDATE) {
                 return false;
+            } else if (behaviourType == TransferOperationBehaviourType.VALIDATE_OPERATION_INPUT) {
+                return false;
             } else if (behaviourType == TransferOperationBehaviourType.LIST) {
                 return false;
             } else if (behaviourType == TransferOperationBehaviourType.GET_RANGE) {
@@ -146,6 +148,8 @@ public class OperationHelper extends StaticMethodValueResolver {
             } else {
                 path = operationAsmFqName((TransferOperation) owner) + "/~range";
             }
+        } else if (behaviourType == TransferOperationBehaviourType.VALIDATE_OPERATION_INPUT) {
+            path = operationAsmFqName((TransferOperation) owner) + "/~validate";
         } else if (behaviourType == TransferOperationBehaviourType.GET_TEMPLATE) {
             path = classifierAsmFqName((TransferObjectType) owner) + "/~template";
         } else if (behaviourType == TransferOperationBehaviourType.GET_PRINCIPAL) {
