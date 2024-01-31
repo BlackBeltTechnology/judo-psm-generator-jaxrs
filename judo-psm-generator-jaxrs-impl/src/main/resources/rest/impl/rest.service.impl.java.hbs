@@ -26,7 +26,7 @@ public class {{ implClassName self }} implements {{ namedElementApiRestFqName se
     @javax.ws.rs.POST
     @javax.ws.rs.Consumes("application/json")
     {{/ if }}
-    @javax.ws.rs.Produces("application/json")
+    @javax.ws.rs.Produces({{# if operation.isExportOperation }}javax.ws.rs.core.MediaType.APPLICATION_OCTET_STREAM{{ else }}"application/json"{{/ if }})
     @javax.ws.rs.Path("/{{ toJAXRSPath operation model }}")
     @hu.blackbelt.judo.dispatcher.api.JudoOperation("{{ operation.operationAsmFqName }}")
     public javax.ws.rs.core.Response {{ operation.name }}(
@@ -63,7 +63,24 @@ public class {{ implClassName self }} implements {{ namedElementApiRestFqName se
         {{/ if }}
         java.util.Map<java.lang.String, java.lang.Object> result = __dispatcher.get().callOperation("{{ operation.operationAsmFqName }}", parameters);
         {{# if operation.operationOutputTypeDefined }}
+        {{# if operation.isExportOperation }}
+
+        java.io.File tmpdir = new java.io.File(System.getProperty("java.io.tmpdir"));
+        java.io.File file = new java.io.File(tmpdir, java.util.UUID.randomUUID().toString() + ".xlsx");
+        file.deleteOnExit();
+
+        try(java.io.InputStream is = ((java.io.InputStream) result.get("output")); java.io.OutputStream os = new java.io.FileOutputStream(file)) {
+            is.transferTo(os);
+        } catch (java.io.IOException e) {
+            throw new java.lang.RuntimeException(e);
+        }
+
+        javax.ws.rs.core.Response.ResponseBuilder responseBuilder = javax.ws.rs.core.Response.ok(file, javax.ws.rs.core.MediaType.APPLICATION_OCTET_STREAM)
+            .header("Access-Control-Expose-Headers", "Content-Disposition")
+            .header("Content-Disposition", "attachment; filename=\"" + file.getName() + "\"");
+        {{ else }}
         javax.ws.rs.core.Response.ResponseBuilder responseBuilder = result != null && result.containsKey("{{ operation.output.name }}") ? javax.ws.rs.core.Response.ok(result.get("{{ operation.output.name }}")) : javax.ws.rs.core.Response.ok();
+        {{/ if }}
         {{ else }}
         javax.ws.rs.core.Response.ResponseBuilder responseBuilder = javax.ws.rs.core.Response.status(javax.ws.rs.core.Response.Status.NO_CONTENT);
         {{/ if }}

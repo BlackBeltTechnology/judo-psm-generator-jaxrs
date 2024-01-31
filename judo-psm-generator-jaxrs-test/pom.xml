@@ -254,7 +254,21 @@
                             <destination>${basedir}/target/generated-sources/psm/jaxrs/ApplicationSelectionTest</destination>
                         </configuration>
                     </execution>
-                </executions>
+
+                <execution>
+                    <id>execute-psm-test-model-from-artifact-CRUD_Object_Export</id>
+                    <phase>generate-sources</phase>
+                    <goals>
+                        <goal>generate</goal>
+                    </goals>
+                    <configuration>
+                        <psm>
+                            ${basedir}/src/test/resources/model/CRUD_Object_Export-psm.model
+                        </psm>
+                        <destination>${basedir}/target/generated-sources/psm/jaxrs/CRUD_Object_Export</destination>
+                    </configuration>
+                </execution>
+            </executions>
             </plugin>
 
             <!--
@@ -298,6 +312,7 @@
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/CardsAndLabelsTest</source>
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/ActionGroupTest</source>
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/ApplicationSelectionTest</source>
+                                <source>${basedir}/target/generated-sources/psm/jaxrs/CRUD_Object_Export</source>
                             </sources>
                         </configuration>
                     </execution>
