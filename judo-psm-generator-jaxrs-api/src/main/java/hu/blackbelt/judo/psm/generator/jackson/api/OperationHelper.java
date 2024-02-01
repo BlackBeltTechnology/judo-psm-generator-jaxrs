@@ -50,9 +50,7 @@ public class OperationHelper extends StaticMethodValueResolver {
     }
 
     public static String operationAsmFqName(TransferOperation transferOperation) {
-        TransferObjectType transferObjectType = (TransferObjectType) transferOperation.eContainer();
-        NamedElement namedElement = transferObjectType;
-        return fqName((Namespace) namedElement.eContainer(), ".", false) + '.' + namedElement.getName() + "#" + transferOperation.getName();
+        return fqName((Namespace) transferOperation.eContainer().eContainer(), ".", false) + '.' + ((TransferObjectType) transferOperation.eContainer()).getName() + "#" + transferOperation.getName();
     }
 
     public static Boolean isStateful(TransferOperation transferOperation) {
@@ -67,6 +65,8 @@ public class OperationHelper extends StaticMethodValueResolver {
             if (behaviourType == TransferOperationBehaviourType.VALIDATE_CREATE) {
                 return false;
             } else if (behaviourType == TransferOperationBehaviourType.VALIDATE_UPDATE) {
+                return false;
+            } else if (behaviourType == TransferOperationBehaviourType.VALIDATE_OPERATION_INPUT) {
                 return false;
             } else if (behaviourType == TransferOperationBehaviourType.LIST) {
                 return false;
@@ -147,6 +147,8 @@ public class OperationHelper extends StaticMethodValueResolver {
             } else {
                 path = operationAsmFqName((TransferOperation) owner) + "/~range";
             }
+        } else if (behaviourType == TransferOperationBehaviourType.VALIDATE_OPERATION_INPUT) {
+            path = operationAsmFqName((TransferOperation) owner) + "/~validate";
         } else if (behaviourType == TransferOperationBehaviourType.GET_TEMPLATE) {
             path = classifierAsmFqName((TransferObjectType) owner) + "/~template";
         } else if (behaviourType == TransferOperationBehaviourType.GET_PRINCIPAL) {
