@@ -3,38 +3,6 @@
 package {{ namedElementImplRestPackageName self }};
 
 @javax.ws.rs.Path("/")
-@io.swagger.v3.oas.annotations.OpenAPIDefinition(
-    info = @io.swagger.v3.oas.annotations.info.Info(
-            title = "{{ model.name }} API",
-            version = "1.0.0"
-    ),
-    servers = {
-    @io.swagger.v3.oas.annotations.servers.Server(
-        description = "server 1",
-        url = "https://tatami-tests.judo.technology/api/{{ model.name }}/{{ actor.name }}"
-    )
-    }
-{{# if (isActorType self) }}
-{{# if (getRealm self) }},
-    security = {
-        @io.swagger.v3.oas.annotations.security.SecurityRequirement(name = "{{ self.name }}", scopes = {"openid", "email", "profile"}),
-    }
-{{/ if }}
-{{/ if }}
-)
-{{# if (isActorType self) }}
-{{# if (getRealm self) }}
-@io.swagger.v3.oas.annotations.security.SecuritySchemes(
-    value = {
-        @io.swagger.v3.oas.annotations.security.SecurityScheme(
-            type = io.swagger.v3.oas.annotations.enums.SecuritySchemeType.OPENIDCONNECT,
-            name = "{{ self.name }}",
-            openIdConnectUrl = "https://auth.tatami-tests.judo.technology/auth/realms/{{ getRealm self }}/.well-known/openid-configuration"
-        )
-    }
-)
-{{/ if }}
-{{/ if }}
 public class {{ implClassName self }} implements {{ namedElementApiRestFqName self }} {
 
 

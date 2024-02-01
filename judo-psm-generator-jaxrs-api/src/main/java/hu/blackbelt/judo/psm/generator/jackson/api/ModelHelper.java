@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.EObject;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.isRangeInputType;
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.*;
 
 @TemplateHelper
 public class ModelHelper extends StaticMethodValueResolver {
@@ -136,6 +136,13 @@ public class ModelHelper extends StaticMethodValueResolver {
 
     public static List<AbstractActorType> allAccessPointActor(Model model) {
         return modelWrapper(model).getStreamOfPsmAccesspointAbstractActorType().toList();
+    }
+
+    public static List<AbstractActorType> allAccessPointActorWithRealm(Model model) {
+        return modelWrapper(model)
+                .getStreamOfPsmAccesspointAbstractActorType()
+                .filter(actorType -> getRealm(actorType) != null)
+                .toList();
     }
 
     public static List<TransferObjectType> allTransferObject(Model model) {
