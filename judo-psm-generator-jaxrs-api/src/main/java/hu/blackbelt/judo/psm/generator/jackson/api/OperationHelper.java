@@ -24,17 +24,18 @@ package hu.blackbelt.judo.psm.generator.jaxrs.api;
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
 
-import hu.blackbelt.judo.meta.psm.PsmUtils;
+import hu.blackbelt.judo.meta.psm.data.AssociationEnd;
+import hu.blackbelt.judo.meta.psm.data.EntityType;
+import hu.blackbelt.judo.meta.psm.data.Relation;
 import hu.blackbelt.judo.meta.psm.namespace.Model;
 import hu.blackbelt.judo.meta.psm.namespace.NamedElement;
 import hu.blackbelt.judo.meta.psm.namespace.Namespace;
 import hu.blackbelt.judo.meta.psm.service.*;
-import hu.blackbelt.judo.meta.psm.type.Cardinality;
 
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaApiHelper.className;
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaApiHelper.namedElementApiParentPath;
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaNamespaceHelper.*;
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.getEntity;
-import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.isEntity;
-
 
 @TemplateHelper
 public class OperationHelper extends StaticMethodValueResolver {
@@ -171,4 +172,21 @@ public class OperationHelper extends StaticMethodValueResolver {
         return transferOperation.getOutput().getType() != null;
     }
 
+    public static String getOperationInputFQName(TransferOperation transferOperation) {
+        TransferObjectType transferObjectType = transferOperation.getInput().getType();
+        String className = className(transferObjectType);
+        String fqName = namedElementApiParentPath(transferObjectType) + "." + className;
+        return fqName.replaceAll("/", ".");
+    }
+
+    public static String getOperationOutputFQName(TransferOperation transferOperation) {
+        TransferObjectType transferObjectType = transferOperation.getOutput().getType();
+        String className = className(transferObjectType);
+        String fqName = namedElementApiParentPath(transferObjectType) + "." + className;
+        return fqName.replaceAll("/", ".");
+    }
+
+    public static boolean isCreateOperation(TransferOperation transferOperation) {
+        return transferOperation.getName().startsWith("_createInstance");
+    }
 }

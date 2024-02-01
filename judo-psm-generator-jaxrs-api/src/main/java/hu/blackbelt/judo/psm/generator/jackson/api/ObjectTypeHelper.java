@@ -26,16 +26,13 @@ import hu.blackbelt.judo.meta.psm.accesspoint.AbstractActorType;
 import hu.blackbelt.judo.meta.psm.data.EntityType;
 import hu.blackbelt.judo.meta.psm.namespace.Model;
 import hu.blackbelt.judo.meta.psm.service.*;
+import hu.blackbelt.judo.psm.generator.jaxrs.api.OperationHelper;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
-import static hu.blackbelt.judo.psm.generator.jaxrs.api.ModelHelper.getSpecifiedContainer;
-import static hu.blackbelt.judo.psm.generator.jaxrs.api.ModelHelper.modelWrapper;
-
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.ModelHelper.*;
 
 @TemplateHelper
 public class ObjectTypeHelper extends StaticMethodValueResolver {
@@ -51,7 +48,11 @@ public class ObjectTypeHelper extends StaticMethodValueResolver {
     }
 
     public static boolean isActorType(TransferObjectType transferObjectType) {
-        return transferObjectType.getActorType() != null;
+        return transferObjectType instanceof AbstractActorType;
+    }
+
+    public static String getRealm(AbstractActorType actorType) {
+        return actorType.getRealm();
     }
 
     public static EntityType getEntity(TransferObjectType transferObjectType) {
@@ -67,15 +68,24 @@ public class ObjectTypeHelper extends StaticMethodValueResolver {
                 .filter(e -> e.getDefaultRepresentation() == transferObjectType).findFirst().isPresent();
     }
 
-
     public static boolean hasCustomOperation(TransferObjectType transferObjectType) {
         return transferObjectType.getOperations().stream().filter(OperationHelper::isCustomOperation).count() > 0;
     }
 
-    public static List<TransferOperation> allOperations(TransferObjectType transferObjectType) {
-        return transferObjectType.getOperations().stream()
-                .filter(o -> o.getBehaviour() == null)
-                .collect(Collectors.toList());
+    public static boolean isRangeInputType(TransferObjectType transferObjectType) {
+        Model model = getSpecifiedContainer(transferObjectType, Model.class);
+        return modelWrapper(model)
+                .getStreamOfPsmServiceTransferOperation()
+                .anyMatch(o ->
+                        o.getBehaviour() != null
+                                && o.getBehaviour().getBehaviourType() == TransferOperationBehaviourType.GET_RANGE
+                                && o.getInput() != null
+                                && o.getInput().getType().equals(transferObjectType)
+                );
     }
 
+    public static boolean isSeek(TransferObjectType transferObjectType) {
+        return transferObjectType.isQueryCustomizer()
+                && transferObjectType.getName().startsWith("_Seek");
+    }
 }
