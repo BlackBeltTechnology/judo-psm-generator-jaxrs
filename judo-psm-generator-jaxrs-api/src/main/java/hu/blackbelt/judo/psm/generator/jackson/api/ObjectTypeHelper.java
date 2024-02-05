@@ -83,9 +83,4 @@ public class ObjectTypeHelper extends StaticMethodValueResolver {
                                 && o.getInput().getType().equals(transferObjectType)
                 );
     }
-
-    public static boolean isSeek(TransferObjectType transferObjectType) {
-        return transferObjectType.isQueryCustomizer()
-                && transferObjectType.getName().startsWith("_Seek");
-    }
 }

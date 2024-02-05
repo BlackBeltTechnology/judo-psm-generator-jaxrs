@@ -160,7 +160,6 @@
                 <groupId>hu.blackbelt.judo.meta</groupId>
                 <artifactId>judo-psm-generator-maven-plugin</artifactId>
                 <executions>
-                    <!--
                     <execution>
                         <id>execute-psm-test-model-from-artifact-northwind</id>
                         <phase>generate-sources</phase>
@@ -284,20 +283,6 @@
                             <destination>${basedir}/target/generated-sources/psm/jaxrs/ActionGroupTest</destination>
                         </configuration>
                     </execution>
-                    -->
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-ApplicationSelectionTest</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/ApplicationSelectionTest-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jaxrs/ApplicationSelectionTest</destination>
-                        </configuration>
-                    </execution>
 
                 </executions>
             </plugin>
@@ -335,7 +320,6 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <!--
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/Northwind-Esm</source>
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/Northwind</source>
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/BinaryTypeTest</source>
@@ -344,37 +328,12 @@
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/CardsAndLabelsTest</source>
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/AuthenticationTest</source>
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/ActionGroupTest</source>
-                                -->
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/ApplicationSelectionTest</source>
                             </sources>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-            <!--
-            <plugin>
-                <groupId>io.swagger.core.v3</groupId>
-                <artifactId>swagger-maven-plugin</artifactId>
-                <version>2.2.19</version>
-                <configuration>
-                    <outputFileName>openapi</outputFileName>
-                    <outputPath>${project.build.directory}/generatedtest</outputPath>
-                    <outputFormat>JSONANDYAML</outputFormat>
-                    <resourcePackages>
-                        <package>hu.blackbelt.judo.psm.generator.jaxrs.test</package>
-                    </resourcePackages>
-                    <prettyPrint>TRUE</prettyPrint>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>resolve</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            -->
             <plugin>
                 <groupId>io.swagger.core.v3</groupId>
                 <artifactId>swagger-maven-plugin</artifactId>

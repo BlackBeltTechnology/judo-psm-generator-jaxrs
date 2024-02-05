@@ -7,10 +7,8 @@ package {{ queryCustomizerPackageName self }};
  */
 public interface {{ queryCustomizerName self }} {
     {{# each self.relations as | relation | }}
-    {{# unless (isSeek self)}}
     @io.swagger.v3.oas.annotations.media.Schema(name = "{{ relation.name }}")
     {{{ relationTargetTypeDefinition relation false }}} get{{ relation.name.firstToUpperCase }}();
-    {{/ unless }}
     {{/ each }}
 
     {{# each self.attributes as | attribute | }}
