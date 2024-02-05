@@ -10,3 +10,51 @@ templates:
     templateName: rest/api/rest.service.java.hbs
     factoryExpression: "#allExposedTransferObjectWithOperation(#model)"
     actorTypeBased: false
+
+  - name: dtoNotStored.java
+    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #className(#self) + 'NotStored.java'"
+    templateName: rest/api/dtoNotStored.java.hbs
+    factoryExpression: "#allTransferObject(#model)"
+    actorTypeBased: false
+
+  - name: dtoForResponse.java
+    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #className(#self) + 'ForResponse.java'"
+    templateName: rest/api/dtoForResponse.java.hbs
+    factoryExpression: "#allTransferObject(#model)"
+    actorTypeBased: false
+
+  - name: dto.java
+    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #className(#self) + '.java'"
+    templateName: rest/api/dto.java.hbs
+    factoryExpression: "#allTransferObject(#model)"
+    actorTypeBased: false
+
+  - name: range.java
+    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #className(#self) + '.java'"
+    templateName: rest/api/range.java.hbs
+    factoryExpression: "#allRange(#model)"
+    actorTypeBased: false
+
+  - name: enum.java
+    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #enumName(#self) + '.java'"
+    templateName: rest/api/enum.java.hbs
+    factoryExpression: "#allEnumType(#model)"
+    actorTypeBased: false
+
+  - name: querycustomizer.java
+    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #queryCustomizerName(#self) + '.java'"
+    templateName: rest/api/querycustomizer.java.hbs
+    factoryExpression: "#allQueryCustomizer(#model)"
+    actorTypeBased: false
+
+  - name: detail.java
+    pathExpression: "'/' + #apiDefaultPathName(#model) + '/Detail.java'"
+    templateName: rest/api/detail.java.hbs
+    factoryExpression: "#model"
+    actorTypeBased: false
+
+  - name: error.java
+    pathExpression: "'/' + #apiDefaultPathName(#model) + '/Error.java'"
+    templateName: rest/api/error.java.hbs
+    factoryExpression: "#model"
+    actorTypeBased: false

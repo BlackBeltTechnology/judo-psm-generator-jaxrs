@@ -1,0 +1,50 @@
+{{> fragment.header.hbs }}
+
+package {{ enumPackageName self }};
+
+{{# if (hasDocumentation self) }}
+/**
+ * {{ self.documentation.decorateWithAsterisks }}
+ */
+{{/ if }}
+public enum {{ enumName self }} implements hu.blackbelt.judo.sdk.Enumeration {
+    {{# each self.members as | member | }}
+        {{# if (hasDocumentation self) }}
+    /**
+     * {{ member.documentation.decorateWithAsterisks }}
+     */
+        {{/ if }}
+    {{ safeName member.name }}({{ member.ordinal }}, "{{ member.name }}"){{#unless @last}}, {{/unless}}
+    {{/ each }};
+
+    private int __ordinal;
+    private String __name;
+
+    {{ enumName self }}(int __ordinal, String __name) {
+        this.__ordinal = __ordinal;
+        this.__name = __name;
+    }
+
+    public static {{ enumName self }} getByOrdinal(java.lang.Integer ordinal) {
+        if (ordinal == null) {
+            throw new java.lang.IllegalArgumentException("Invalid ordinal: null");
+        }
+        return switch (ordinal) {
+        {{# each self.members as | member | }}
+            case {{ member.ordinal }} -> {{ safeName member.name }};
+        {{/each}}
+            default -> throw new java.lang.IllegalArgumentException("Invalid ordinal: " + ordinal);
+        };
+    }
+
+    @Override
+    public String getName() { return __name; }
+
+    @Override
+    public int getOrdinal() { return __ordinal; }
+
+    @Override
+    public String getFqName() {
+        return "{{ namedElementLogicalName self }}#" + getName();
+    }
+}

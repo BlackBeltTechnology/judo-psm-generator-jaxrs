@@ -1,0 +1,19 @@
+{{> fragment.header.hbs }}
+
+package {{ queryCustomizerPackageName self }};
+
+/**
+ * Query customizer for searching {@link {{ classFqName self }} } instances.
+ */
+public interface {{ queryCustomizerName self }} {
+    {{# each self.relations as | relation | }}
+    @io.swagger.v3.oas.annotations.media.Schema(name = "{{ relation.name }}")
+    {{{ relationTargetTypeDefinition relation false }}} get{{ relation.name.firstToUpperCase }}();
+    {{/ each }}
+
+    {{# each self.attributes as | attribute | }}
+    @io.swagger.v3.oas.annotations.media.Schema(name = "{{ attribute.name }}")
+    {{{ attributeTargetTypeDefinition attribute }}} get{{ attribute.name.firstToUpperCase }}();
+    {{/ each }}
+
+}
