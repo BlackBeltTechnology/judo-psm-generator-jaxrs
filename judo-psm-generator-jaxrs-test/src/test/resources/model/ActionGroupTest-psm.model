@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<namespace:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:accesspoint="http://blackbelt.hu/judo/meta/psm/accesspoint" xmlns:data="http://blackbelt.hu/judo/meta/psm/data" xmlns:derived="http://blackbelt.hu/judo/meta/psm/derived" xmlns:measure="http://blackbelt.hu/judo/meta/psm/measure" xmlns:namespace="http://blackbelt.hu/judo/meta/psm/namespace" xmlns:service="http://blackbelt.hu/judo/meta/psm/service" xmlns:type="http://blackbelt.hu/judo/meta/psm/type" xsi:schemaLocation="http://blackbelt.hu/judo/meta/psm/accesspoint http://blackbelt.hu/judo/meta/psm#//accesspoint http://blackbelt.hu/judo/meta/psm/data http://blackbelt.hu/judo/meta/psm#//data http://blackbelt.hu/judo/meta/psm/derived http://blackbelt.hu/judo/meta/psm#//derived http://blackbelt.hu/judo/meta/psm/measure http://blackbelt.hu/judo/meta/psm#//measure http://blackbelt.hu/judo/meta/psm/namespace http://blackbelt.hu/judo/meta/psm#//namespace http://blackbelt.hu/judo/meta/psm/service http://blackbelt.hu/judo/meta/psm#//service http://blackbelt.hu/judo/meta/psm/type http://blackbelt.hu/judo/meta/psm#//type" xmi:id="(esm/_nhZUUOOjEeuTFeBuQgBSDg)/Model" name="ActionGroupTest" version="1.0.0.20231009_124341_SNAPSHOT">
+<namespace:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:accesspoint="http://blackbelt.hu/judo/meta/psm/accesspoint" xmlns:data="http://blackbelt.hu/judo/meta/psm/data" xmlns:derived="http://blackbelt.hu/judo/meta/psm/derived" xmlns:measure="http://blackbelt.hu/judo/meta/psm/measure" xmlns:namespace="http://blackbelt.hu/judo/meta/psm/namespace" xmlns:service="http://blackbelt.hu/judo/meta/psm/service" xmlns:type="http://blackbelt.hu/judo/meta/psm/type" xsi:schemaLocation="http://blackbelt.hu/judo/meta/psm/accesspoint http://blackbelt.hu/judo/meta/psm#//accesspoint http://blackbelt.hu/judo/meta/psm/data http://blackbelt.hu/judo/meta/psm#//data http://blackbelt.hu/judo/meta/psm/derived http://blackbelt.hu/judo/meta/psm#//derived http://blackbelt.hu/judo/meta/psm/measure http://blackbelt.hu/judo/meta/psm#//measure http://blackbelt.hu/judo/meta/psm/namespace http://blackbelt.hu/judo/meta/psm#//namespace http://blackbelt.hu/judo/meta/psm/service http://blackbelt.hu/judo/meta/psm#//service http://blackbelt.hu/judo/meta/psm/type http://blackbelt.hu/judo/meta/psm#//type" xmi:id="(esm/_nhZUUOOjEeuTFeBuQgBSDg)/Model" name="ActionGroupTest" version="1.0.0.20240126_154936_SNAPSHOT">
   <elements xsi:type="data:EntityType" xmi:id="(esm/_uTdeAOOjEeuTFeBuQgBSDg)/EntityType" name="Galaxy" defaultRepresentation="(esm/_uTdeAOOjEeuTFeBuQgBSDg)/DefaultMappedTransferObjectTypeForEntity">
     <attributes xmi:id="(esm/_vBdzgOOjEeuTFeBuQgBSDg)/Attribute" name="name" dataType="(esm/_nhZUUuOjEeuTFeBuQgBSDg)/StringType" required="true"/>
     <attributes xmi:id="(esm/_1QfU0FjDEeyV2_3ibolaNQ)/Attribute" name="constellation" dataType="(esm/_nhZUUuOjEeuTFeBuQgBSDg)/StringType" required="true"/>
@@ -219,6 +219,14 @@
     <operations xmi:id="(esm/_EgV6QE7sEeycO-gUAWxcVg)/RemoveReferenceOperationForRelationFeature" name="_removeReferenceMatterForActionGroupTest_View_Galaxy" instanceRepresentation="(esm/_YTkpoE7rEeycO-gUAWxcVg)/MappedTransferObjectType">
       <input xmi:id="(esm/_EgV6QE7sEeycO-gUAWxcVg)/RemoveReferenceOperationForRelationFeature/Input" name="input" type="(esm/_D0eC0Oq_EeuMzos2n42msw)/MappedTransferObjectType">
         <cardinality xmi:id="(esm/_EgV6QE7sEeycO-gUAWxcVg)/RemoveReferenceOperationForRelationFeature/Input/Cardinality" lower="1" upper="-1"/>
+      </input>
+    </operations>
+    <operations xmi:id="(esm/_B7jpUE7sEeycO-gUAWxcVg)/ExportOperationForRelation" name="_exportStarsForActionGroupTest_View_Galaxy" instanceRepresentation="(esm/_YTkpoE7rEeycO-gUAWxcVg)/MappedTransferObjectType">
+      <output xmi:id="(esm/_B7jpUE7sEeycO-gUAWxcVg)/ExportOperationForRelation/Output" name="output" type="(esm/_ePJ3QE7rEeycO-gUAWxcVg)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_B7jpUE7sEeycO-gUAWxcVg)/ExportOperationForRelation/Output/Cardinality" upper="-1"/>
+      </output>
+      <input xmi:id="(esm/_B7jpUE7sEeycO-gUAWxcVg)/ExportOperationForRelation/Input" name="input" type="(esm/_ePJ3QE7rEeycO-gUAWxcVg)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_B7jpUE7sEeycO-gUAWxcVg)/ExportOperationForRelation/Input/Cardinality"/>
       </input>
     </operations>
   </elements>
@@ -899,6 +907,15 @@
         <cardinality xmi:id="(esm/_MuBBIF2kEeyQjYf9d33o_w)/ValidateCreateUnboundOperationForAccess/Input/Cardinality" lower="1"/>
       </input>
       <behaviour xmi:id="(esm/_MuBBIF2kEeyQjYf9d33o_w)/ValidateCreateUnboundOperationForAccess/Behaviour" behaviourType="VALIDATE_CREATE" owner="(esm/_MuBBIF2kEeyQjYf9d33o_w)/AccessTransferObjectRelationWithBinding"/>
+    </operations>
+    <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_MbCVkOOkEeuTFeBuQgBSDg)/ExportUnboundOperation" name="_exportGalaxies">
+      <output xmi:id="(esm/_MbCVkOOkEeuTFeBuQgBSDg)/ExportUnboundOperation/Output" name="output" type="(esm/_YTkpoE7rEeycO-gUAWxcVg)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_MbCVkOOkEeuTFeBuQgBSDg)/ExportUnboundOperation/Output/Cardinality" upper="-1"/>
+      </output>
+      <input xmi:id="(esm/_MbCVkOOkEeuTFeBuQgBSDg)/ExportUnboundOperation/Input" name="input" type="(esm/_YTkpoE7rEeycO-gUAWxcVg)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_MbCVkOOkEeuTFeBuQgBSDg)/ExportUnboundOperation/Input/Cardinality"/>
+      </input>
+      <behaviour xmi:id="(esm/_MbCVkOOkEeuTFeBuQgBSDg)/ExportUnboundOperation/Behaviour" behaviourType="EXPORT" owner="(esm/_MbCVkOOkEeuTFeBuQgBSDg)/AccessTransferObjectRelationWithoutBinding"/>
     </operations>
   </elements>
   <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_tQBrEOOjEeuTFeBuQgBSDg)/MetadataType" name="_MetadataForGod">
@@ -2116,6 +2133,15 @@
           <cardinality xmi:id="(esm/_YTkpoE7rEeycO-gUAWxcVg)/GetTemplateTransferOperation/Output/Cardinality"/>
         </output>
         <behaviour xmi:id="(esm/_YTkpoE7rEeycO-gUAWxcVg)/GetTemplateTransferOperation/Behaviour" owner="(esm/_YTkpoE7rEeycO-gUAWxcVg)/MappedTransferObjectType"/>
+      </operations>
+      <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_B7jpUE7sEeycO-gUAWxcVg)/ExportTransferOperationForRelation" name="_exportStars" binding="(esm/_B7jpUE7sEeycO-gUAWxcVg)/ExportOperationForRelation">
+        <output xmi:id="(esm/_B7jpUE7sEeycO-gUAWxcVg)/ExportTransferOperationForRelation/Output" name="output" type="(esm/_ePJ3QE7rEeycO-gUAWxcVg)/MappedTransferObjectType">
+          <cardinality xmi:id="(esm/_B7jpUE7sEeycO-gUAWxcVg)/ExportTransferOperationForRelation/Output/Cardinality" upper="-1"/>
+        </output>
+        <input xmi:id="(esm/_B7jpUE7sEeycO-gUAWxcVg)/ExportTransferOperationForRelation/Input" name="input" type="(esm/_ePJ3QE7rEeycO-gUAWxcVg)/QueryCustomizerType">
+          <cardinality xmi:id="(esm/_B7jpUE7sEeycO-gUAWxcVg)/ExportTransferOperationForRelation/Input/Cardinality"/>
+        </input>
+        <behaviour xmi:id="(esm/_B7jpUE7sEeycO-gUAWxcVg)/ExportTransferOperationForRelation/Behaviour" behaviourType="EXPORT" owner="(esm/_B7jpUE7sEeycO-gUAWxcVg)/TransferObjectRelationFromBoundToStoredOneWayRelationMember"/>
       </operations>
     </elements>
     <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_czqz0IpLEey5y6LC5xJDPg)/MappedTransferObjectType" name="Sign" entityType="(esm/_WD0QoIpLEey5y6LC5xJDPg)/EntityType">

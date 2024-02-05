@@ -254,7 +254,7 @@
                             <destination>${basedir}/target/generated-sources/psm/jaxrs/ApplicationSelectionTest</destination>
                         </configuration>
                     </execution>
-                </executions>
+            </executions>
             </plugin>
 
             <!--
