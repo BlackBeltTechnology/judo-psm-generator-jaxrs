@@ -113,6 +113,8 @@ public class OperationHelper extends StaticMethodValueResolver {
             } else {
                 path = relationAsmFqName((TransferObjectRelation) owner) + "/~get";
             }
+        } else if (behaviourType == TransferOperationBehaviourType.EXPORT) {
+            path = relationAsmFqName((TransferObjectRelation) owner) + "/~export";
         } else if (behaviourType == TransferOperationBehaviourType.CREATE_INSTANCE) {
             if (isBoundOperation(transferOperation)) {
                 path = classifierAsmFqName((TransferObjectType) owner.eContainer()) + "/~update/" + owner.getName() + "/~create";
@@ -189,4 +191,10 @@ public class OperationHelper extends StaticMethodValueResolver {
     public static boolean isCreateOperation(TransferOperation transferOperation) {
         return transferOperation.getName().startsWith("_createInstance");
     }
+
+    public static boolean isExportOperation(TransferOperation transferOperation) {
+        return transferOperation.getBehaviour() != null
+                && transferOperation.getBehaviour().getBehaviourType() == TransferOperationBehaviourType.EXPORT;
+    }
+
 }

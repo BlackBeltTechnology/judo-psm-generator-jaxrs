@@ -283,8 +283,7 @@
                             <destination>${basedir}/target/generated-sources/psm/jaxrs/ActionGroupTest</destination>
                         </configuration>
                     </execution>
-
-                </executions>
+            </executions>
             </plugin>
 
             <!--
