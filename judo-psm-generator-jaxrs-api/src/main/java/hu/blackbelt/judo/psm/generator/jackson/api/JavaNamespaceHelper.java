@@ -31,15 +31,13 @@ import hu.blackbelt.judo.meta.psm.namespace.Package;
 import hu.blackbelt.judo.meta.psm.service.TransferAttribute;
 import hu.blackbelt.judo.meta.psm.service.TransferObjectRelation;
 import hu.blackbelt.judo.meta.psm.service.TransferObjectType;
-import hu.blackbelt.judo.meta.psm.service.TransferOperation;
-import org.eclipse.emf.ecore.ENamedElement;
 
-import javax.swing.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.github.jknack.handlebars.internal.lang3.StringUtils.capitalize;
-import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.*;
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.getEntity;
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.isEntity;
 
 @TemplateHelper
 public class JavaNamespaceHelper extends StaticMethodValueResolver {

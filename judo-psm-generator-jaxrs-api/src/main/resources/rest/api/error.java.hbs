@@ -1,0 +1,11 @@
+package {{ apiDefaultPackageName model }};
+
+public interface Error {
+    String getCode();
+
+    String getLevel();
+
+    String getLocation();
+
+    Detail getDetails();
+}
