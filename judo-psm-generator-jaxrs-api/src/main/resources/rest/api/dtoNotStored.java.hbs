@@ -7,7 +7,7 @@ package {{ namedElementApiPackageName self }};
 {{/ if  }}
 public interface {{ className self }}NotStored {
 
-    {{# each (allEmbeddedOrMappedRelation self) as | relation | }}
+    {{# each (allEmbeddedOrMappedRelationForNotStoredDTO self) as | relation | }}
     {{# if relation.required }}
     @io.swagger.v3.oas.annotations.media.Schema(required = true)
     {{/ if }}

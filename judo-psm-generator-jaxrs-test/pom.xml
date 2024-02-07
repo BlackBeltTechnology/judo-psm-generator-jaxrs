@@ -173,6 +173,7 @@
                             <destination>${basedir}/target/generated-sources/psm/jaxrs/northwind</destination>
                         </configuration>
                     </execution>
+
                     <execution>
                         <id>execute-psm-test-model-from-artifact-Northwind-Esm</id>
                         <phase>generate-sources</phase>
@@ -242,6 +243,7 @@
                             <destination>${basedir}/target/generated-sources/psm/jaxrs/CardsAndLabelsTest</destination>
                         </configuration>
                     </execution>
+
                     <execution>
                         <id>execute-psm-test-model-from-artifact-ApplicationSelectionTest</id>
                         <phase>generate-sources</phase>
@@ -326,13 +328,14 @@
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/FormsTest</source>
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/CardsAndLabelsTest</source>
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/AuthenticationTest</source>
-                                <source>${basedir}/target/generated-sources/psm/jaxrs/ActionGroupTest</source>
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/ApplicationSelectionTest</source>
+                                <source>${basedir}/target/generated-sources/psm/jaxrs/ActionGroupTest</source>
                             </sources>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+            <!--
             <plugin>
                 <groupId>io.swagger.core.v3</groupId>
                 <artifactId>swagger-maven-plugin</artifactId>
@@ -355,6 +358,7 @@
                     </execution>
                 </executions>
             </plugin>
+            -->
         </plugins>
     </build>
 </project>
