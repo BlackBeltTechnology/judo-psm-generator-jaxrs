@@ -29,6 +29,70 @@ public class {{ implClassName self }} implements {{ namedElementApiRestFqName se
     @javax.ws.rs.Produces({{# if operation.isExportOperation }}javax.ws.rs.core.MediaType.APPLICATION_OCTET_STREAM{{ else }}"application/json"{{/ if }})
     @javax.ws.rs.Path("/{{ toJAXRSPath operation model }}")
     @hu.blackbelt.judo.dispatcher.api.JudoOperation("{{ operation.operationAsmFqName }}")
+    {{# if operation.output }}
+    {{# if operation.output.isMany }}
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Successful operation",
+        content = @io.swagger.v3.oas.annotations.media.Content(
+                array =
+                    @io.swagger.v3.oas.annotations.media.ArraySchema(
+                      schema = @io.swagger.v3.oas.annotations.media.Schema(
+                        implementation = {{ getOperationOutputFQName operation }}ForResponse.class
+                    )
+                )
+        )
+    )
+    {{ else }}
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Successful operation",
+        content = @io.swagger.v3.oas.annotations.media.Content(
+                schema = @io.swagger.v3.oas.annotations.media.Schema(
+                        implementation = {{ getOperationOutputFQName operation }}ForResponse.class
+                )
+        )
+    )
+    {{/ if }}
+    {{ else }}
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "204", description = "Successful operation")
+    {{/ if }}
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(
+                                                            responseCode = "400",
+                                                            content = @io.swagger.v3.oas.annotations.media.Content(
+                                                                array = @io.swagger.v3.oas.annotations.media.ArraySchema(
+                                                                    schema = @io.swagger.v3.oas.annotations.media.Schema(
+                                                                        implementation = {{ apiDefaultPackageName model }}.Error.class
+                                                                    )
+                                                                )
+                                                            ),
+                                                            description = "Missing object ID of operation" +
+                                                                                         "\t\nToo few items in parameter." +
+                                                                                         "\t\nNull item is not supported." +
+                                                                                         "\t\nMissing required parameter." +
+                                                                                         "\t\nConversion failed." +
+                                                                                         "\t\nToo few items in relation." +
+                                                                                         "\t\nToo many items in relation." +
+                                                                                         "\t\nNull item is not supported." +
+                                                                                         "\t\nInvalid content." +
+                                                                                         "\t\nMissing requered relation." +
+                                                                                         "\t\nMissing requered attribute." +
+                                                                                         "\t\nValue is too long." +
+                                                                                         "\t\nValue does not match pattern." +
+                                                                                         "\t\nToo many digits." +
+                                                                                         "\t\nInvalid scale." +
+                                                                                         "\t\nInvalid identifier." +
+                                                                                         "\t\nInvalid file token." +
+                                                                                         "\t\nInvalid reference." +
+                                                                                         "\t\nIdentifier attribute is not unique." +
+                                                                                         "\t\nInvalid query mask." +
+                                                                                         "\t\nInvalid identifier in query customizer." +
+                                                                                         "\t\nEntity not found."
+                                                        )
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Authentication required." +
+                                                                                              "\t\nToken expired.")
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "403", description = "Access denied." +
+                                                                                              "\t\nUser not exists or disabled." +
+                                                                                              "\t\nPermission denied.")
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "404", description = "Not found.")
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "422", description = "Business fault")
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description = "Internal server error.")
     public javax.ws.rs.core.Response {{ operation.name }}(
         @javax.ws.rs.core.Context javax.ws.rs.core.SecurityContext securityContext, @javax.ws.rs.HeaderParam("X-Judo-CountRecords") java.lang.String __countRecords
         {{# if operation.isBoundOperation }}
@@ -36,9 +100,36 @@ public class {{ implClassName self }} implements {{ namedElementApiRestFqName se
         {{/ if }}
         {{# if operation.input }}
         {{# if operation.input.isMany }}
-        , java.util.List<java.util.Map<java.lang.String, java.lang.Object>> {{ operation.input.name.firstToLower }}
+        ,
+         @io.swagger.v3.oas.annotations.parameters.RequestBody(
+                 content = @io.swagger.v3.oas.annotations.media.Content(
+                    array =
+                        @io.swagger.v3.oas.annotations.media.ArraySchema(
+                            schema = @io.swagger.v3.oas.annotations.media.Schema(
+                                {{# if operation.isCreateOperation}}
+                                    implementation = {{ getOperationInputFQName operation }}NotStored.class
+                                {{ else }}
+                                    implementation = {{ getOperationInputFQName operation }}.class
+                                {{/ if }}
+                            )
+                        )
+                 )
+         )
+         java.util.List<java.util.Map<java.lang.String, java.lang.Object>> {{ operation.input.name.firstToLower }}
         {{ else }}
-        , java.util.Map<java.lang.String, java.lang.Object> {{ operation.input.name.firstToLower }}
+        ,
+        @io.swagger.v3.oas.annotations.parameters.RequestBody(
+                content = @io.swagger.v3.oas.annotations.media.Content(
+                        schema = @io.swagger.v3.oas.annotations.media.Schema(
+                                 {{# if operation.isCreateOperation}}
+                                 implementation = {{ getOperationInputFQName operation }}NotStored.class
+                                 {{ else }}
+                                 implementation = {{ getOperationInputFQName operation }}.class
+                                 {{/ if }}
+                        )
+                )
+        )
+        java.util.Map<java.lang.String, java.lang.Object> {{ operation.input.name.firstToLower }}
         {{/ if }}
         {{/ if }}
     ) {

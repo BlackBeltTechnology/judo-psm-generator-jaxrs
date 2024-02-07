@@ -3,6 +3,44 @@
 package {{ namedElementImplPackageName self }};
 
 @javax.ws.rs.ApplicationPath("{{ namedElementRestPath self }}/{{ className self }}")
+@io.swagger.v3.oas.annotations.OpenAPIDefinition(
+    info = @io.swagger.v3.oas.annotations.info.Info(
+        title = "{{ model.name }} API",
+        version = "1.0.0"
+    ),
+    servers = {
+    {{# each (allAccessPointActor model) as |actor| }}
+        @io.swagger.v3.oas.annotations.servers.Server(
+            description = "{{ actor.name }}",
+            url = "https://tatami-tests.judo.technology/api/{{ namedElementRestPath actor }}/{{ className actor }}"
+        ),
+    {{/ each }}
+    }
+{{# if (isActorType self) }}
+    {{# if (getRealm self) }},
+    security = {
+    {{# each (allAccessPointActorWithRealm model) as |actor| }}
+        @io.swagger.v3.oas.annotations.security.SecurityRequirement(name = "{{ actor.name }}", scopes = {"openid", "email", "profile"}),
+    {{/ each }}
+    }
+    {{/ if }}
+{{/ if }}
+)
+{{# if (isActorType self) }}
+    {{# if (getRealm self) }}
+        @io.swagger.v3.oas.annotations.security.SecuritySchemes(
+            value = {
+            {{# each (allAccessPointActorWithRealm model) as |actor| }}
+                @io.swagger.v3.oas.annotations.security.SecurityScheme(
+                    type = io.swagger.v3.oas.annotations.enums.SecuritySchemeType.OPENIDCONNECT,
+                    name = "{{ actor.name }}",
+                    openIdConnectUrl = "https://auth.tatami-tests.judo.technology/auth/realms/{{ getRealm actor }}/.well-known/openid-configuration"
+                ),
+            {{/ each }}
+            }
+        )
+    {{/ if }}
+{{/ if }}
 public class {{ applicationImplClassName self }} extends javax.ws.rs.core.Application implements {{ applicationFqName self }} {
 
     private final java.util.Map<java.lang.String, java.lang.Object> properties = new java.util.TreeMap();

@@ -98,6 +98,23 @@
             <artifactId>cxf-jaxrs-application-manager</artifactId>
             <version>${cxf-jaxrs-application-manager-version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-jaxrs2</artifactId>
+            <version>2.2.19</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
 
     </dependencies>
     <build>
@@ -228,20 +245,6 @@
                     </execution>
 
                     <execution>
-                        <id>execute-psm-test-model-from-artifact-ActionGroupTest</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/ActionGroupTest-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jaxrs/ActionGroupTest</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
                         <id>execute-psm-test-model-from-artifact-ApplicationSelectionTest</id>
                         <phase>generate-sources</phase>
                         <goals>
@@ -252,6 +255,34 @@
                                 ${basedir}/src/test/resources/model/ApplicationSelectionTest-psm.model
                             </psm>
                             <destination>${basedir}/target/generated-sources/psm/jaxrs/ApplicationSelectionTest</destination>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>execute-psm-test-model-from-artifact-AuthenticationTest</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <psm>
+                                ${basedir}/src/test/resources/model/AuthenticationTest-psm.model
+                            </psm>
+                            <destination>${basedir}/target/generated-sources/psm/jaxrs/AuthenticationTest</destination>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>execute-psm-test-model-from-artifact-ActionGroupTest</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <psm>
+                                ${basedir}/src/test/resources/model/ActionGroupTest-psm.model
+                            </psm>
+                            <destination>${basedir}/target/generated-sources/psm/jaxrs/ActionGroupTest</destination>
                         </configuration>
                     </execution>
             </executions>
@@ -296,13 +327,38 @@
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/ParameterizedQueryTest</source>
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/FormsTest</source>
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/CardsAndLabelsTest</source>
-                                <source>${basedir}/target/generated-sources/psm/jaxrs/ActionGroupTest</source>
+                                <source>${basedir}/target/generated-sources/psm/jaxrs/AuthenticationTest</source>
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/ApplicationSelectionTest</source>
+                                <source>${basedir}/target/generated-sources/psm/jaxrs/ActionGroupTest</source>
                             </sources>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+            <!--
+            <plugin>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-maven-plugin</artifactId>
+                <version>2.2.19</version>
+                <executions>
+                    <execution>
+                        <configuration>
+                            <outputFileName>openapi</outputFileName>
+                            <outputPath>${project.build.directory}/generatedtest</outputPath>
+                            <outputFormat>JSONANDYAML</outputFormat>
+                            <resourcePackages>
+                                <package>hu.blackbelt.judo.psm.generator.jaxrs.test</package>
+                            </resourcePackages>
+                            <prettyPrint>TRUE</prettyPrint>
+                        </configuration>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>resolve</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            -->
         </plugins>
     </build>
 </project>

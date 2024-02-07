@@ -48,4 +48,8 @@ public class StoredVariableHelper extends StaticMethodValueResolver {
         return Boolean.parseBoolean((String) ThreadLocalContextHolder.getVariable("debugPrint"));
     }
 
+    public static synchronized Boolean isGenerateOptionalTypes() {
+        return Boolean.parseBoolean((String) ThreadLocalContextHolder.getVariable("generateOptionalTypes"));
+    }
+
 }
