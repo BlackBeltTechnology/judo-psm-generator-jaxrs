@@ -93,7 +93,7 @@ public class {{ implClassName self }} implements {{ namedElementApiRestFqName se
     @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "404", description = "Not found.")
     @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "422", description = "Business fault")
     @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description = "Internal server error.")
-    public javax.ws.rs.core.Response {{ operation.name }}(
+    public javax.ws.rs.core.Response {{ safeName operation.name }}(
         @javax.ws.rs.core.Context javax.ws.rs.core.SecurityContext securityContext, @javax.ws.rs.HeaderParam("X-Judo-CountRecords") java.lang.String __countRecords
         {{# if operation.isBoundOperation }}
         , @javax.ws.rs.HeaderParam("X-Judo-SignedIdentifier") java.lang.String __signedIdentifier
@@ -115,7 +115,7 @@ public class {{ implClassName self }} implements {{ namedElementApiRestFqName se
                         )
                  )
          )
-         java.util.List<java.util.Map<java.lang.String, java.lang.Object>> {{ operation.input.name.firstToLower }}
+         java.util.List<java.util.Map<java.lang.String, java.lang.Object>> {{ safeName operation.input.name.firstToLower }}
         {{ else }}
         ,
         @io.swagger.v3.oas.annotations.parameters.RequestBody(
@@ -129,7 +129,7 @@ public class {{ implClassName self }} implements {{ namedElementApiRestFqName se
                         )
                 )
         )
-        java.util.Map<java.lang.String, java.lang.Object> {{ operation.input.name.firstToLower }}
+        java.util.Map<java.lang.String, java.lang.Object> {{ safeName operation.input.name.firstToLower }}
         {{/ if }}
         {{/ if }}
     ) {
