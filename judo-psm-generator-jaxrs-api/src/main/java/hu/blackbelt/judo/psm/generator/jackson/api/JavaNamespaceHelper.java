@@ -53,7 +53,7 @@ public class JavaNamespaceHelper extends StaticMethodValueResolver {
                 "public", "requires", "return", "short", "static", "strictfp", "super",
                 "switch", "synchronized", "this", "throw", "throws", "transient", "try",
                 "void", "volatile", "while", "true", "null", "false", "var", "const", "goto",
-                "class", "Class", "int", "interface").contains(str)) {
+                "class", "Class", "int", "interface", "default").contains(str)) {
             return str + "_";
         } else {
             return str;
