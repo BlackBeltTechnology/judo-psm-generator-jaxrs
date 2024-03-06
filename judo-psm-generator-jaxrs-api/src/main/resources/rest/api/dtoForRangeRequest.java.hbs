@@ -1,0 +1,38 @@
+package {{ namedElementApiPackageName self }};
+
+{{# if (hasDocumentation self) }}
+/**
+ * {{ self.documentation.decorateWithAsterisks }}
+ */
+{{/ if  }}
+@com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+@io.swagger.v3.oas.annotations.media.Schema(name = "{{ classNameLogicalFullNameForRangeRequest self }}")
+public class {{ classNameForRangeRequest self }} {
+
+    {{# each self.relations as | relation | }}
+    @io.swagger.v3.oas.annotations.media.Schema(name = "{{ relation.name }}"{{# if relation.required }}, required = true{{/ if }})
+    private {{{ relationTargetTypeDefinitionForRequest relation }}} {{ safeName relation.name }};
+
+    public {{{ relationTargetTypeDefinitionForRequest relation  }}} get{{ relation.name.firstToUpperCase }}() {
+        return this.{{ safeName relation.name }};
+    }
+
+    public void set{{ relation.name.firstToUpperCase }}({{{ relationTargetTypeDefinitionForRequest relation }}} {{ safeName relation.name }}) {
+        this.{{ safeName relation.name }} = {{ safeName relation.name }};
+    }
+    {{/ each }}
+
+    {{# each self.attributes as | attribute | }}
+
+    private {{{ attributeTargetTypeDefinition attribute }}} {{ safeName attribute.name }};
+
+    @io.swagger.v3.oas.annotations.media.Schema(name = "{{ attribute.name }}"{{# if attribute.required }}, required = true{{/ if }})
+    public {{{ attributeTargetTypeDefinition attribute }}} get{{ attribute.name.firstToUpperCase }}() {
+        return this.{{ safeName attribute.name }};
+    };
+    public void set{{ attribute.name.firstToUpperCase }}({{{ attributeTargetTypeDefinition attribute }}} {{ safeName attribute.name }}) {
+        this.{{ safeName attribute.name }} = {{ safeName attribute.name }};
+    };
+    {{/ each }}
+
+}

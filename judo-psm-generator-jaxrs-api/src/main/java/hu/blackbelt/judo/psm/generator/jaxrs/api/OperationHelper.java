@@ -21,6 +21,7 @@ package hu.blackbelt.judo.psm.generator.jaxrs.api;
  */
 
 
+import com.github.jknack.handlebars.internal.lang3.StringUtils;
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
 
@@ -32,10 +33,12 @@ import hu.blackbelt.judo.meta.psm.namespace.NamedElement;
 import hu.blackbelt.judo.meta.psm.namespace.Namespace;
 import hu.blackbelt.judo.meta.psm.service.*;
 
-import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaApiHelper.className;
-import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaApiHelper.namedElementApiParentPath;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaApiHelper.*;
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaNamespaceHelper.*;
-import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.getEntity;
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.*;
 
 @TemplateHelper
 public class OperationHelper extends StaticMethodValueResolver {
@@ -174,9 +177,26 @@ public class OperationHelper extends StaticMethodValueResolver {
         return transferOperation.getOutput().getType() != null;
     }
 
-    public static String getOperationInputFQName(TransferOperation transferOperation) {
+    public static String getOperationInputFQNameForCreateRequest(TransferOperation transferOperation) {
         TransferObjectType transferObjectType = transferOperation.getInput().getType();
-        String className = className(transferObjectType);
+        String className = classNameForCreateRequest(transferObjectType);
+        String fqName = namedElementApiParentPath(transferObjectType) + "." + className;
+        return fqName.replaceAll("/", ".");
+    }
+
+    public static String getOperationInputFQNameForRequest(TransferOperation transferOperation) {
+        if (transferOperation.getBehaviour() != null && transferOperation.getBehaviour().getBehaviourType().equals(TransferOperationBehaviourType.GET_RANGE)) {
+            return getOperationInputFQNameForRangeRequest(transferOperation);
+        }
+        TransferObjectType transferObjectType = transferOperation.getInput().getType();
+        String className = classNameForRequest(transferObjectType);
+        String fqName = namedElementApiParentPath(transferObjectType) + "." + className;
+        return fqName.replaceAll("/", ".");
+    }
+
+    public static String getOperationInputFQNameForRangeRequest(TransferOperation transferOperation) {
+        TransferObjectType transferObjectType = transferOperation.getInput().getType();
+        String className = classNameForRangeRequest(transferObjectType);
         String fqName = namedElementApiParentPath(transferObjectType) + "." + className;
         return fqName.replaceAll("/", ".");
     }
@@ -188,6 +208,13 @@ public class OperationHelper extends StaticMethodValueResolver {
         return fqName.replaceAll("/", ".");
     }
 
+    public static String getOperationOutputFQNameForResponse(TransferOperation transferOperation) {
+        TransferObjectType transferObjectType = transferOperation.getOutput().getType();
+        String className = classNameForResponse(transferObjectType);
+        String fqName = namedElementApiParentPath(transferObjectType) + "." + className;
+        return fqName.replaceAll("/", ".");
+    }
+
     public static boolean isCreateOperation(TransferOperation transferOperation) {
         return transferOperation.getName().startsWith("_createInstance");
     }
@@ -195,6 +222,24 @@ public class OperationHelper extends StaticMethodValueResolver {
     public static boolean isExportOperation(TransferOperation transferOperation) {
         return transferOperation.getBehaviour() != null
                 && transferOperation.getBehaviour().getBehaviourType() == TransferOperationBehaviourType.EXPORT;
+    }
+
+    public static String getOperationInputLogicalFullName(TransferOperation transferOperation) {
+        TransferObjectType transferObjectType = transferOperation.getInput().getType();
+        if (transferOperation.getBehaviour() != null && transferOperation.getBehaviour().getBehaviourType().equals(TransferOperationBehaviourType.GET_RANGE)) {
+            return logicalFullName(transferObjectType) + classNameForRangeRequestPostfix(transferObjectType);
+        }
+        return logicalFullName(transferObjectType) + classNameForRequestPostfix(transferObjectType);
+    }
+
+    public static String getOperationOutputLogicalFullName(TransferOperation transferOperation) {
+        TransferObjectType transferObjectType = transferOperation.getOutput().getType();
+        return logicalFullName(transferObjectType) + classNameForResponsePostfix(transferObjectType);
+    }
+
+    public static String getOperationTagName(TransferOperation transferOperation) {
+        TransferObjectType transferObjectType = (TransferObjectType) transferOperation.eContainer();
+        return logicalFullName(transferObjectType);
     }
 
 }

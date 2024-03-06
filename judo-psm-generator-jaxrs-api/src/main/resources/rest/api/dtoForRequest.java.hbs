@@ -8,30 +8,27 @@ package {{ namedElementApiPackageName self }};
  */
 {{/ if  }}
 @com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
-@io.swagger.v3.oas.annotations.media.Schema(name = "{{ classNameLogicalFullNameForResponse self }}")
-public class {{ classNameForResponse self }} {
-
-{{# if (isMapped self) }}
-{{/ if }}
+@io.swagger.v3.oas.annotations.media.Schema(name = "{{ classNameLogicalFullNameForRequest self }}")
+public class {{ classNameForRequest self }} {
 
     {{# each (allEmbeddedOrMappedRelation self) as | relation | }}
     {{# unless (mappedRelationIsAssociation relation)}}
+    @io.swagger.v3.oas.annotations.media.Schema(name = "{{ relation.name }}"{{# if relation.required }}, required = true{{/ if }})
+    private {{{ relationTargetTypeDefinitionForRequest relation }}} {{ safeName relation.name }};
 
-    private {{{ relationTargetTypeDefinitionForResponse relation }}} {{ safeName relation.name }};
-
-    @io.swagger.v3.oas.annotations.media.Schema(name = "{{ attribute.name }}"{{# if relation.required }}, required = true{{/ if }})
-    public {{{ relationTargetTypeDefinitionForResponse relation }}} get{{ safeName relation.name.firstToUpperCase }}() {
+    public {{{ relationTargetTypeDefinitionForRequest relation  }}} get{{ relation.name.firstToUpperCase }}() {
         return this.{{ safeName relation.name }};
     }
 
-    public void set{{ relation.name.firstToUpperCase }}({{{ relationTargetTypeDefinitionForResponse relation true }}} {{ safeName relation.name }}) {
+    public void set{{ relation.name.firstToUpperCase }}({{{ relationTargetTypeDefinitionForRequest relation }}} {{ safeName relation.name }}) {
         this.{{ safeName relation.name }} = {{ safeName relation.name }};
     }
     {{/ unless }}
     {{/ each }}
 
     {{# each self.attributes as | attribute | }}
-    {{# unless (isResponseAttribute attribute) }}
+    {{# unless (isRequestAttribute attribute) }}
+
     private {{{ attributeTargetTypeDefinition attribute }}} {{ safeName attribute.name }};
 
     @io.swagger.v3.oas.annotations.media.Schema(name = "{{ attribute.name }}"{{# if attribute.required }}, required = true{{/ if }})
@@ -41,43 +38,12 @@ public class {{ classNameForResponse self }} {
     public void set{{ attribute.name.firstToUpperCase }}({{{ attributeTargetTypeDefinition attribute }}} {{ safeName attribute.name }}) {
         this.{{ safeName attribute.name }} = {{ safeName attribute.name }};
     };
+
     {{/ unless }}
     {{/ each }}
 
 {{# if (isMapped self) }}
 
-    private Boolean __deleteable;
-
-    @io.swagger.v3.oas.annotations.media.Schema(name = "__deleteable")
-    public Boolean get__deleteable() {
-        return this.__deleteable;
-    }
-
-    public void set__deleteable(boolean __deleteable) {
-        this.__deleteable = __deleteable;
-    }
-
-    private Boolean __updateable;
-
-    @io.swagger.v3.oas.annotations.media.Schema(name = "__updateable")
-    public Boolean get__updateable() {
-        return this.__updateable;
-    }
-
-    public void set__updateable(boolean __updateable) {
-        this.__updateable = __updateable;
-    }
-
-    private String __entityType;
-
-    @io.swagger.v3.oas.annotations.media.Schema(name = "__entityType")
-    public String get__entityType() {
-        return this.__entityType;
-    }
-
-    public void set__entityType(String __entityType) {
-        this.__entityType = __entityType;
-    }
 
     private String __identifier;
 
@@ -101,17 +67,6 @@ public class {{ classNameForResponse self }} {
         this.__signedIdentifier = __signedIdentifier;
     }
 
-    private Integer __version;
-
-    @io.swagger.v3.oas.annotations.media.Schema(name = "__version")
-    public Integer get__version() {
-        return this.__version;
-    }
-
-    public void set__version(Integer __version) {
-        this.__version = __version;
-    }
-
     private String __referenceId;
 
     @io.swagger.v3.oas.annotations.media.Schema(name = "__referenceId")
@@ -124,4 +79,20 @@ public class {{ classNameForResponse self }} {
     }
 
 {{/ if }}
+
+    public java.util.Map<String, Object> toMap() {
+        java.util.Map ret = new java.util.HashMap();
+        {{# each self.attributes as | attribute | }}
+        {{# unless (isQueryOrDefaultValueOrDataPropertyAttribute attribute) }}
+        if (this.{{ safeName attribute.name }} != null) {
+            {{# if isOptionalAttribute attribute }}
+            ret.put("{{ safeName attribute.name }}", this.{{ safeName attribute.name }}.orElse(null));
+            {{ else }}
+            ret.put("{{ safeName attribute.name }}", this.{{ safeName attribute.name }});
+            {{/ if }}
+        }
+        {{/ unless }}
+        {{/ each }}
+        return ret;
+    }
 }

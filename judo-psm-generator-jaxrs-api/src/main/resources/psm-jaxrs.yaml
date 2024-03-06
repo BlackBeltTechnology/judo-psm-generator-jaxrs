@@ -11,27 +11,27 @@ templates:
     factoryExpression: "#allExposedTransferObjectWithOperation(#model)"
     actorTypeBased: false
 
-  - name: dtoNotStored.java
-    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #className(#self) + 'NotStored.java'"
-    templateName: rest/api/dtoNotStored.java.hbs
+  - name: dtoForCreateRequest.java
+    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #classNameForCreateRequest(#self) + '.java'"
+    templateName: rest/api/dtoForCreateRequest.java.hbs
     factoryExpression: "#allTransferObject(#model)"
     actorTypeBased: false
 
   - name: dtoForResponse.java
-    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #className(#self) + 'ForResponse.java'"
+    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #classNameForResponse(#self) + '.java'"
     templateName: rest/api/dtoForResponse.java.hbs
     factoryExpression: "#allTransferObject(#model)"
     actorTypeBased: false
 
-  - name: dto.java
-    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #className(#self) + '.java'"
-    templateName: rest/api/dto.java.hbs
+  - name: dtoForRequest.java
+    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #classNameForRequest(#self) + '.java'"
+    templateName: rest/api/dtoForRequest.java.hbs
     factoryExpression: "#allTransferObject(#model)"
     actorTypeBased: false
 
   - name: range.java
-    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #className(#self) + '.java'"
-    templateName: rest/api/range.java.hbs
+    pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #classNameForRangeRequest(#self) + '.java'"
+    templateName: rest/api/dtoForRangeRequest.java.hbs
     factoryExpression: "#allRange(#model)"
     actorTypeBased: false
 
@@ -43,7 +43,7 @@ templates:
 
   - name: querycustomizer.java
     pathExpression: "'/' + #namedElementApiParentPath(#self) + '/' + #queryCustomizerName(#self) + '.java'"
-    templateName: rest/api/querycustomizer.java.hbs
+    templateName: rest/api/dtoForQueryCustomizer.java.hbs
     factoryExpression: "#allQueryCustomizer(#model)"
     actorTypeBased: false
 

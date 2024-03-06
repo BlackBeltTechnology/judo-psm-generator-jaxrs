@@ -1,0 +1,66 @@
+package {{ namedElementApiPackageName self }};
+
+{{# if (hasDocumentation self) }}
+/**
+ * {{ self.documentation.decorateWithAsterisks }}
+ */
+{{/ if  }}
+@com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+@io.swagger.v3.oas.annotations.media.Schema(name = "{{ classNameLogicalFullNameForCreateRequest self }}")
+public class {{ classNameForCreateRequest self }} {
+
+{{# if (isMapped self) }}
+
+    private String __referenceId;
+
+    @io.swagger.v3.oas.annotations.media.Schema(name = "__referenceId")
+    public String get__referenceId() {
+        return this.__referenceId;
+    }
+
+    public void set__referenceId(String __referenceId) {
+        this.__referenceId = __referenceId;
+    }
+{{/ if }}
+
+    {{# each (allEmbeddedOrMappedRelationForCreate self) as | relation | }}
+    @io.swagger.v3.oas.annotations.media.Schema(name = "{{ relation.name }}"{{# if relation.required }}, required = true{{/ if }})
+    {{# if (mappedRelationIsAssociation relation)}}
+    private {{{ relationTargetTypeDefinitionForCreateRequest relation}}} {{ safeName relation.name }};
+
+    public {{{ relationTargetTypeDefinitionForCreateRequest relation }}} get{{ relation.name.firstToUpperCase }}() {
+        return this.{{ safeName relation.name }};
+    }
+
+    public void set{{ relation.name.firstToUpperCase }}({{{ relationTargetTypeDefinitionForCreateRequest relation }}} {{ safeName relation.name }}) {
+        this.{{ safeName relation.name }} = {{ safeName relation.name }};
+    }
+    {{ else }}
+    private {{{ relationTargetTypeDefinitionForRequest relation }}} {{ safeName relation.name }};
+
+    public {{{ relationTargetTypeDefinitionForRequest relation }}} get{{ relation.name.firstToUpperCase }}() {
+        return this.{{ safeName relation.name }};
+    }
+
+    public void set{{ relation.name.firstToUpperCase }}({{{ relationTargetTypeDefinitionForRequest relation  }}} {{ safeName relation.name }}) {
+        this.{{ safeName relation.name }} = {{ safeName relation.name }};
+    }
+    {{/ if }}
+    {{/ each }}
+
+    {{# each self.attributes as | attribute | }}
+    {{# unless (isRequestAttribute attribute) }}
+
+    private {{{ attributeTargetTypeDefinition attribute }}} {{ safeName attribute.name }};
+
+    @io.swagger.v3.oas.annotations.media.Schema(name = "{{ attribute.name }}"{{# if attribute.required }}, required = true{{/ if }})
+    public {{{ attributeTargetTypeDefinition attribute }}} get{{ attribute.name.firstToUpperCase }}() {
+        return this.{{ safeName attribute.name }};
+    };
+    public void set{{ attribute.name.firstToUpperCase }}({{{ attributeTargetTypeDefinition attribute }}} {{ safeName attribute.name }}) {
+        this.{{ safeName attribute.name }} = {{ safeName attribute.name }};
+    };
+
+    {{/ unless }}
+    {{/ each }}
+}
