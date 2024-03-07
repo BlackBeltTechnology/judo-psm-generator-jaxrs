@@ -144,6 +144,10 @@ public class JavaNamespaceHelper extends StaticMethodValueResolver {
         return fqName(transferObjectType.getNamespace(), ".", false) + '.' + transferObjectType.getName();
     }
 
+    public static String logicalFullName(TransferObjectType transferObjectType) {
+        return Arrays.stream(classifierAsmFqName(transferObjectType).split("\\.")).map(s -> StringUtils.capitalize(s)).collect(Collectors.joining());
+    }
+
     public static String attributeAsmFqName(TransferAttribute transferAttribute) {
         TransferObjectType transferObjectType = (TransferObjectType) transferAttribute.eContainer();
         NamedElement namedElement = transferObjectType;

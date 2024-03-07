@@ -34,6 +34,7 @@ import hu.blackbelt.judo.psm.generator.jaxrs.api.StoredVariableHelper;
 import java.util.Optional;
 
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaNamespaceHelper.*;
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.isRangeInputType;
 
 @TemplateHelper
 public class JavaApiHelper extends StaticMethodValueResolver {
@@ -81,6 +82,7 @@ public class JavaApiHelper extends StaticMethodValueResolver {
     public static String className(NamedElement namedElement) {
         return StringUtils.capitalize(safeName(namedElement.getName()));
     }
+
 
     public static String firstToLower(String input) {
         return StringUtils.uncapitalize(safeName(input));

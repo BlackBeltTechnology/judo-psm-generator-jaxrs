@@ -2,27 +2,16 @@
 
 package {{ namedElementApiRestPackageName self }};
 
+@javax.ws.rs.Path("/")
 public interface {{ self.className }} {
+    {{> rest/api/rest.service.constants.fragment.hbs }};
 
     public void __bindDispatcher(hu.blackbelt.judo.dispatcher.api.Dispatcher dispatcher);
 
     public void __unbindDispatcher(hu.blackbelt.judo.dispatcher.api.Dispatcher dispatcher);
     {{# each self.operations as | operation | }}
 
-    public javax.ws.rs.core.Response {{ safeName operation.name }}(
-    @javax.ws.rs.core.Context javax.ws.rs.core.SecurityContext securityContext
-    , @javax.ws.rs.HeaderParam("X-Judo-CountRecords") java.lang.String __countRecords
-    {{# if operation.isBoundOperation }}
-    , @javax.ws.rs.HeaderParam("X-Judo-SignedIdentifier") java.lang.String __signedIdentifier
-    {{/ if }}
-    {{# if operation.input }}
-    {{# if operation.input.isMany }}
-    , java.util.List<java.util.Map<java.lang.String, java.lang.Object>> {{ safeName operation.input.name.firstToLower }}
-    {{ else }}
-    , java.util.Map<java.lang.String, java.lang.Object> {{ safeName operation.input.name.firstToLower }}
-    {{/ if }}
-    {{/ if }}
-    );
+    {{> rest/api/rest.service.operation.fragment.hbs }};
     {{/ each }}
 
 }
