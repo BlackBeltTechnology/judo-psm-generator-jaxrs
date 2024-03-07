@@ -57,7 +57,9 @@ public javax.ws.rs.core.Response {{ safeName operation.name }}(
     @javax.ws.rs.core.Context
     javax.ws.rs.core.SecurityContext securityContext,
     @javax.ws.rs.HeaderParam("X-Judo-CountRecords")
-    java.lang.String __countRecords
+    java.lang.String __countRecords,
+    @javax.ws.rs.HeaderParam("X-Judo-Mask")
+    java.lang.String __mask
     {{# if operation.isBoundOperation }}
     , @javax.ws.rs.HeaderParam("X-Judo-SignedIdentifier")
     java.lang.String __signedIdentifier

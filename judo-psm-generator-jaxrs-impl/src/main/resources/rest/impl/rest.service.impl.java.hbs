@@ -29,6 +29,10 @@ public class {{ implClassName self }} implements {{ namedElementApiRestFqName se
         if (__countRecords != null && __countRecords.trim().length() > 0) {
             parameters.put("__countRecords", Boolean.TRUE);
         }
+        if (__mask != null && __mask.trim().length() > 0) {
+            parameters.put("__mask", __mask);
+        }
+
         {{# if operation.isBoundOperation }}
         parameters.put("__signedIdentifier", __signedIdentifier);
         {{/ if }}
