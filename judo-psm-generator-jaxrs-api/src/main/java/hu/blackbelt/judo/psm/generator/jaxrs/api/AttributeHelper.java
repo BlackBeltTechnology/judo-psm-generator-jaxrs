@@ -37,6 +37,18 @@ public class AttributeHelper extends StaticMethodValueResolver {
                 || isDataProperty(transferAttribute);
     }
 
+    public static boolean isRequestAttribute(TransferAttribute transferAttribute) {
+        return (isParametrizedAttribute(transferAttribute)
+                || hasQueryWithoutParamAnnotation(transferAttribute)
+                || hasDefaultValueAnnotation(transferAttribute))
+                || isDefaultValueAttribute(transferAttribute);
+    }
+
+    public static boolean isResponseAttribute(TransferAttribute transferAttribute) {
+        return (isParametrizedAttribute(transferAttribute)
+                || hasDefaultValueAnnotation(transferAttribute))
+                || isDefaultValueAttribute(transferAttribute);
+    }
 
     public static boolean isParametrizedAttribute(TransferAttribute transferAttribute) {
         return transferAttribute.getBinding() != null

@@ -20,11 +20,13 @@ package hu.blackbelt.judo.psm.generator.jaxrs.api;
  * #L%
  */
 
+import com.github.jknack.handlebars.internal.lang3.StringUtils;
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
 import hu.blackbelt.judo.meta.psm.accesspoint.AbstractActorType;
 import hu.blackbelt.judo.meta.psm.data.EntityType;
 import hu.blackbelt.judo.meta.psm.namespace.Model;
+import hu.blackbelt.judo.meta.psm.namespace.NamedElement;
 import hu.blackbelt.judo.meta.psm.service.*;
 import hu.blackbelt.judo.psm.generator.jaxrs.api.OperationHelper;
 
@@ -32,6 +34,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaNamespaceHelper.logicalFullName;
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaNamespaceHelper.safeName;
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.ModelHelper.*;
 
 @TemplateHelper
@@ -83,4 +87,66 @@ public class ObjectTypeHelper extends StaticMethodValueResolver {
                                 && o.getInput().getType().equals(transferObjectType)
                 );
     }
+
+    public static String classNameForCreateRequestPostfix(TransferObjectType transferObjectType) {
+        if (!transferObjectType.isQueryCustomizer() && !isRangeInputType(transferObjectType)) {
+            return "CreateRequest";
+        } else if (!transferObjectType.isQueryCustomizer()) {
+            return "Request";
+        }
+        return "";
+    }
+
+    public static String classNameForRangeRequestPostfix(TransferObjectType transferObjectType) {
+        if (!transferObjectType.isQueryCustomizer()) {
+            return "RangeRequest";
+        } else if (transferObjectType.isQueryCustomizer()) {
+            return "Request";
+        }
+        return "";
+    }
+
+    public static String classNameForRequestPostfix(TransferObjectType transferObjectType) {
+        if (!transferObjectType.isQueryCustomizer()) {
+            return  "Request";
+        }
+        return "";
+    }
+
+    public static String classNameForResponsePostfix(TransferObjectType transferObjectType) {
+        return  "Response";
+    }
+
+    public static String classNameForCreateRequest(TransferObjectType transferObjectType) {
+        return StringUtils.capitalize(safeName(transferObjectType.getName()) + classNameForCreateRequestPostfix(transferObjectType));
+    }
+
+    public static String classNameForRangeRequest(TransferObjectType transferObjectType) {
+        return StringUtils.capitalize(safeName(transferObjectType.getName() + classNameForRangeRequestPostfix(transferObjectType)));
+    }
+
+    public static String classNameForRequest(TransferObjectType transferObjectType) {
+        return StringUtils.capitalize(safeName(transferObjectType.getName() + classNameForRequestPostfix(transferObjectType)));
+    }
+
+    public static String classNameForResponse(TransferObjectType transferObjectType) {
+        return StringUtils.capitalize(safeName(transferObjectType.getName() + classNameForResponsePostfix(transferObjectType)));
+    }
+
+    public static String classNameLogicalFullNameForRangeRequest(TransferObjectType transferObjectType) {
+        return logicalFullName(transferObjectType) + classNameForRangeRequestPostfix(transferObjectType);
+    }
+
+    public static String classNameLogicalFullNameForRequest(TransferObjectType transferObjectType) {
+        return logicalFullName(transferObjectType) + classNameForRequestPostfix(transferObjectType);
+    }
+
+    public static String classNameLogicalFullNameForCreateRequest(TransferObjectType transferObjectType) {
+        return logicalFullName(transferObjectType) + classNameForCreateRequestPostfix(transferObjectType);
+    }
+
+    public static String classNameLogicalFullNameForResponse(TransferObjectType transferObjectType) {
+        return logicalFullName(transferObjectType) + classNameForResponsePostfix(transferObjectType);
+    }
+
 }
