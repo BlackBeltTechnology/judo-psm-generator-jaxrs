@@ -49,11 +49,11 @@
         <surefire-version>3.0.0-M5</surefire-version>
 
         <judo-dao-api-version>1.0.4.20240129_105710_5ca64071_develop</judo-dao-api-version>
-        <judo-sdk-common-version>1.0.4.20240314_040548_8e0c5d0b_develop</judo-sdk-common-version>
+        <judo-sdk-common-version>1.0.4.20240314_090753_5177c66f_develop</judo-sdk-common-version>
 
         <judo-meta-psm-version>1.3.0.20240127_122224_4f1de775_develop</judo-meta-psm-version>
         <judo-generator-commons-version>1.0.0.20231009_184136_321053b3_develop</judo-generator-commons-version>
-        <structured-map-proxy-version>2.0.0.20240304_134724_72ade506_develop</structured-map-proxy-version>
+        <structured-map-proxy-version>2.0.0.20240314_085447_62d6e6d2_develop</structured-map-proxy-version>
 
         <judo-dispatcher-api-version>1.0.3.20230826_230134_1ce94d88_develop</judo-dispatcher-api-version>
         <cxf-jaxrs-application-manager-version>0.7.1.20230914_110111_1c9ad225_develop</cxf-jaxrs-application-manager-version>
