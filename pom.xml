@@ -49,7 +49,7 @@
         <surefire-version>3.0.0-M5</surefire-version>
 
         <judo-dao-api-version>1.0.4.20240129_105710_5ca64071_develop</judo-dao-api-version>
-        <judo-sdk-common-version>1.0.4.20240320_040555_d36b41a6_develop</judo-sdk-common-version>
+        <judo-sdk-common-version>1.0.4.20240321_194633_f96a8cce_feature_JNG_5638_ModelNameRemovedFromType</judo-sdk-common-version>
 
         <judo-meta-psm-version>1.3.0.20240127_122224_4f1de775_develop</judo-meta-psm-version>
         <judo-generator-commons-version>1.0.0.20231009_184136_321053b3_develop</judo-generator-commons-version>
