@@ -21,6 +21,9 @@ package hu.blackbelt.judo.psm.generator.jaxrs.api;
  */
 
 import com.github.jknack.handlebars.internal.lang3.StringUtils;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
 import hu.blackbelt.judo.meta.psm.accesspoint.AbstractActorType;
@@ -33,6 +36,7 @@ import hu.blackbelt.judo.psm.generator.jaxrs.api.OperationHelper;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ExecutionException;
 
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaNamespaceHelper.logicalFullName;
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaNamespaceHelper.safeName;
@@ -59,14 +63,53 @@ public class ObjectTypeHelper extends StaticMethodValueResolver {
         return actorType.getRealm();
     }
 
+
+    private static CacheLoader<TransferObjectType, EntityType> getEntityCacheLoader = new CacheLoader<>() {
+        @Override
+        public EntityType load(TransferObjectType key) {
+            return getEntityForCache(key);
+        }
+    };
+
+    private static LoadingCache<TransferObjectType, EntityType> getEntityLoadingCache =
+            CacheBuilder.newBuilder()
+                    .build(getEntityCacheLoader);
+
     public static EntityType getEntity(TransferObjectType transferObjectType) {
+        try {
+            return getEntityLoadingCache.get(transferObjectType);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static EntityType getEntityForCache(TransferObjectType transferObjectType) {
         Model model = getSpecifiedContainer(transferObjectType, Model.class);
         return modelWrapper(model).getStreamOfPsmDataEntityType()
                 .filter(e -> e.getDefaultRepresentation() == transferObjectType).findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Entity representation not found: " + transferObjectType.getName()));
     }
 
+    private static CacheLoader<TransferObjectType, Boolean> isEntityCacheLoader = new CacheLoader<>() {
+        @Override
+        public Boolean load(TransferObjectType key) {
+            return isEntityForCache(key);
+        }
+    };
+
+    private static LoadingCache<TransferObjectType, Boolean> isEntityLoadingCache =
+            CacheBuilder.newBuilder()
+                    .build(isEntityCacheLoader);
+
     public static boolean isEntity(TransferObjectType transferObjectType) {
+        try {
+            return isEntityLoadingCache.get(transferObjectType);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static boolean isEntityForCache(TransferObjectType transferObjectType) {
         Model model = getSpecifiedContainer(transferObjectType, Model.class);
         return modelWrapper(model).getStreamOfPsmDataEntityType()
                 .filter(e -> e.getDefaultRepresentation() == transferObjectType).findFirst().isPresent();
