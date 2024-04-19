@@ -55,7 +55,7 @@
         <judo-generator-commons-version>1.0.0.20231009_184136_321053b3_develop</judo-generator-commons-version>
 
         <judo-dispatcher-api-version>1.0.3.20230826_230134_1ce94d88_develop</judo-dispatcher-api-version>
-        <cxf-jaxrs-application-manager-version>0.7.1.20230914_110111_1c9ad225_develop</cxf-jaxrs-application-manager-version>
+        <cxf-jaxrs-application-manager-version>0.7.1.20240419_083256_873ee246_develop</cxf-jaxrs-application-manager-version>
 
         <!-- Code Quality-->
         <sonar-maven-plugin-version>3.9.1.2184</sonar-maven-plugin-version>
