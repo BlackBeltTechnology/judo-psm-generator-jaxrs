@@ -61,7 +61,7 @@ public class {{ applicationOsgiClassName self }} {
 
     @org.osgi.service.component.annotations.Reference(
         policyOption = org.osgi.service.component.annotations.ReferencePolicyOption.GREEDY,
-        cardinality = org.osgi.service.component.annotations.ReferenceCardinality.OPTIONAL,
+        cardinality = org.osgi.service.component.annotations.ReferenceCardinality.MANDATORY,
         target = "(judo.model.name={{ model.name }})",
         bind = "setContext"
     )
