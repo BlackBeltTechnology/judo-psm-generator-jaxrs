@@ -52,7 +52,16 @@ public class {{ implClassName self }} implements {{ namedElementApiRestFqName se
         java.io.File file = new java.io.File(tmpdir, java.util.UUID.randomUUID().toString() + ".xlsx");
         file.deleteOnExit();
 
-        try(java.io.InputStream is = ((java.io.InputStream) result.get("output")); java.io.OutputStream os = new java.io.FileOutputStream(file)) {
+        java.util.Map<String, Object> exportResult = (java.util.Map<String, Object>) result.get("output");
+        java.io.InputStream exportStream = (java.io.InputStream) exportResult.get("stream");
+        String extension = (String) exportResult.get("extension");
+        String name = (String) exportResult.get("name");
+        Boolean inline = (Boolean) exportResult.get("inline");
+        if (inline == null) {
+            inline = false;
+        }
+
+        try (java.io.InputStream is = exportStream; java.io.OutputStream os = new java.io.FileOutputStream(file)) {
             is.transferTo(os);
         } catch (java.io.IOException e) {
             throw new java.lang.RuntimeException(e);
@@ -60,7 +69,7 @@ public class {{ implClassName self }} implements {{ namedElementApiRestFqName se
 
         javax.ws.rs.core.Response.ResponseBuilder responseBuilder = javax.ws.rs.core.Response.ok(file, javax.ws.rs.core.MediaType.APPLICATION_OCTET_STREAM)
             .header("Access-Control-Expose-Headers", "Content-Disposition")
-            .header("Content-Disposition", "attachment; filename=\"" + file.getName() + "\"");
+            .header("Content-Disposition", (inline ? "inline;" : "attachment;") + "filename=\"" + name + "." + extension + "\"");
         {{ else }}
         javax.ws.rs.core.Response.ResponseBuilder responseBuilder = result != null && result.containsKey("{{ operation.output.name }}") ? javax.ws.rs.core.Response.ok(result.get("{{ operation.output.name }}")) : javax.ws.rs.core.Response.ok();
         {{/ if }}
