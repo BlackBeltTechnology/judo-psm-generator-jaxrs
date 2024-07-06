@@ -17,6 +17,63 @@ public class {{ applicationOsgiClassName self }} {
     private volatile {{ applicationImplFqName self }} impl;
     private volatile hu.blackbelt.jaxrs.CxfContext context = null;
 
+    @org.osgi.service.component.annotations.Reference(
+        policyOption = org.osgi.service.component.annotations.ReferencePolicyOption.GREEDY,
+        cardinality = org.osgi.service.component.annotations.ReferenceCardinality.MANDATORY,
+        target = "(&(judo.model.name={{ model.name }})(interceptor.direction=out)(component.name=hu.blackbelt.jaxrs.interceptors.ExchangeIdResponseWriter))"
+    )
+    org.apache.cxf.interceptor.Interceptor exchangeIdResponseWriterOut;
+
+    @org.osgi.service.component.annotations.Reference(
+        policyOption = org.osgi.service.component.annotations.ReferencePolicyOption.GREEDY,
+        cardinality = org.osgi.service.component.annotations.ReferenceCardinality.MANDATORY,
+        target = "(&(judo.model.name={{ model.name }})(interceptor.direction=fault)(component.name=hu.blackbelt.jaxrs.interceptors.ExchangeIdResponseWriter))"
+    )
+    org.apache.cxf.interceptor.Interceptor exchangeIdResponseWriterFault;
+
+    @org.osgi.service.component.annotations.Reference(
+        policyOption = org.osgi.service.component.annotations.ReferencePolicyOption.GREEDY,
+        cardinality = org.osgi.service.component.annotations.ReferenceCardinality.MANDATORY,
+        target = "(&(judo.model.name={{ model.name }})(interceptor.direction=in)(component.name=hu.blackbelt.jaxrs.interceptors.ExchangeIdDecorator))"
+    )
+    org.apache.cxf.interceptor.Interceptor exchangeIdDecorator;
+
+    @org.osgi.service.component.annotations.Reference(
+        policyOption = org.osgi.service.component.annotations.ReferencePolicyOption.GREEDY,
+        cardinality = org.osgi.service.component.annotations.ReferenceCardinality.MANDATORY,
+        target = "(&(judo.model.name={{ model.name }})(component.name=hu.blackbelt.judo.services.security.keycloak.cxf.osgi.component.KeycloakLoginInterceptorComponent))"
+    )
+    org.apache.cxf.interceptor.Interceptor keycloakLoginInterceptor;
+
+    @org.osgi.service.component.annotations.Reference(
+        policyOption = org.osgi.service.component.annotations.ReferencePolicyOption.GREEDY,
+        cardinality = org.osgi.service.component.annotations.ReferenceCardinality.MANDATORY,
+        target = "(&(judo.model.name={{ model.name }})(component.name=hu.blackbelt.judo.services.cxf.osgi.component.FaultInterceptorComponent))"
+    )
+    org.apache.cxf.interceptor.Interceptor faultInterceptorComponent;
+
+    @org.osgi.service.component.annotations.Reference(
+        policyOption = org.osgi.service.component.annotations.ReferencePolicyOption.GREEDY,
+        cardinality = org.osgi.service.component.annotations.ReferenceCardinality.MANDATORY,
+        target = "(&(judo.model.name={{ model.name }})(component.name=hu.blackbelt.judo.services.security.cxf.osgi.component.JudoAuthorizingInterceptorComponent))"
+    )
+    org.apache.cxf.interceptor.Interceptor judoAuthorizingInterceptorComponent;
+
+    @org.osgi.service.component.annotations.Reference(
+        policyOption = org.osgi.service.component.annotations.ReferencePolicyOption.GREEDY,
+        cardinality = org.osgi.service.component.annotations.ReferenceCardinality.MANDATORY,
+        target = "(&(judo.model.name={{ model.name }})(component.name=hu.blackbelt.judo.services.cxf.osgi.component.ClientExceptionMapperComponent))"
+    )
+    javax.ws.rs.ext.ExceptionMapper clientExceptionMapperComponent;
+
+    @org.osgi.service.component.annotations.Reference(
+        policyOption = org.osgi.service.component.annotations.ReferencePolicyOption.GREEDY,
+        cardinality = org.osgi.service.component.annotations.ReferenceCardinality.MANDATORY,
+        target = "(&(judo.model.name={{ model.name }})(component.name=hu.blackbelt.judo.services.cxf.osgi.component.RuntimeExceptionMapperComponent))"
+    )
+    javax.ws.rs.ext.ExceptionMapper runtimeExceptionMapperComponent;
+
+
 
     private org.osgi.framework.ServiceRegistration serviceRegistration = null;
 
