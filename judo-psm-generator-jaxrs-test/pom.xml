@@ -210,90 +210,6 @@
                     </execution>
 
                     <execution>
-                        <id>execute-psm-test-model-from-artifact-BinaryTypeTest</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/BinaryTypeTest-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jaxrs/BinaryTypeTest</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-ParameterizedQueryTest</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/ParameterizedQueryTest-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jaxrs/ParameterizedQueryTest</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-FormsTest</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/FormsTest-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jaxrs/FormsTest</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-CardsAndLabelsTest</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/CardsAndLabelsTest-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jaxrs/CardsAndLabelsTest</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-ApplicationSelectionTest</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/ApplicationSelectionTest-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jaxrs/ApplicationSelectionTest</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>execute-psm-test-model-from-artifact-AuthenticationTest</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <psm>
-                                ${basedir}/src/test/resources/model/AuthenticationTest-psm.model
-                            </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jaxrs/AuthenticationTest</destination>
-                        </configuration>
-                    </execution>
-
-                    <execution>
                         <id>execute-psm-test-model-from-artifact-ActionGroupTest</id>
                         <phase>generate-sources</phase>
                         <goals>
@@ -304,6 +220,62 @@
                                 ${basedir}/src/test/resources/model/ActionGroupTest-psm.model
                             </psm>
                             <destination>${basedir}/target/generated-sources/psm/jaxrs/ActionGroupTest</destination>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>execute-psm-test-model-from-artifact-CRUDActionsTest</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <psm>
+                                ${basedir}/src/test/resources/model/CRUDActionsTest-psm.model
+                            </psm>
+                            <destination>${basedir}/target/generated-sources/psm/jaxrs/CRUDActionsTest-psm.model</destination>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>execute-psm-test-model-from-artifact-DebateTest</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <psm>
+                                ${basedir}/src/test/resources/model/DebateTest-psm.model
+                            </psm>
+                            <destination>${basedir}/target/generated-sources/psm/jaxrs/DebateTest</destination>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>execute-psm-test-model-from-artifact-OperationParametersTest</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <psm>
+                                ${basedir}/src/test/resources/model/OperationParametersTest-psm.model
+                            </psm>
+                            <destination>${basedir}/target/generated-sources/psm/jaxrs/OperationParametersTest</destination>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>execute-psm-test-model-from-artifact-RelationTest</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <psm>
+                                ${basedir}/src/test/resources/model/RelationTest-psm.model
+                            </psm>
+                            <destination>${basedir}/target/generated-sources/psm/jaxrs/RelationTest</destination>
                         </configuration>
                     </execution>
             </executions>
