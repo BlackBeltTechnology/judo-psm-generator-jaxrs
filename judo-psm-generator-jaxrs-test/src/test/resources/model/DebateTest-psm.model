@@ -1,0 +1,1124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<namespace:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:accesspoint="http://blackbelt.hu/judo/meta/psm/accesspoint" xmlns:data="http://blackbelt.hu/judo/meta/psm/data" xmlns:measure="http://blackbelt.hu/judo/meta/psm/measure" xmlns:namespace="http://blackbelt.hu/judo/meta/psm/namespace" xmlns:service="http://blackbelt.hu/judo/meta/psm/service" xmlns:type="http://blackbelt.hu/judo/meta/psm/type" xsi:schemaLocation="http://blackbelt.hu/judo/meta/psm/accesspoint http://blackbelt.hu/judo/meta/psm#//accesspoint http://blackbelt.hu/judo/meta/psm/data http://blackbelt.hu/judo/meta/psm#//data http://blackbelt.hu/judo/meta/psm/measure http://blackbelt.hu/judo/meta/psm#//measure http://blackbelt.hu/judo/meta/psm/namespace http://blackbelt.hu/judo/meta/psm#//namespace http://blackbelt.hu/judo/meta/psm/service http://blackbelt.hu/judo/meta/psm#//service http://blackbelt.hu/judo/meta/psm/type http://blackbelt.hu/judo/meta/psm#//type" xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/Model" name="DebateTest" version="1.0.0.20240815_124718_SNAPSHOT">
+  <elements xsi:type="data:EntityType" xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/EntityType" name="Debate" defaultRepresentation="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+    <attributes xmi:id="(esm/_cd44a4j0Ee2u0fVmwtP5bA)/Attribute" name="title" dataType="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/StringType" required="true"/>
+    <attributes xmi:id="(esm/_cd44bYj0Ee2u0fVmwtP5bA)/Attribute" name="description" dataType="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/StringType" required="true"/>
+    <relations xsi:type="data:AssociationEnd" xmi:id="(esm/_cd44Y4j0Ee2u0fVmwtP5bA)/AssociationEndWithoutPartner" name="arguments" target="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/EntityType">
+      <cardinality xmi:id="(esm/_cd44Y4j0Ee2u0fVmwtP5bA)/CardinalityForReferenceTypedElement" upper="-1"/>
+    </relations>
+    <navigationProperties xmi:id="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/NavigationPropertyForTransferObjectRelationBinding" name="_pros_DebateTest_DebateTO" target="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/EntityType">
+      <cardinality xmi:id="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/CardinalityForTransferObjectRelationBinding" upper="-1"/>
+      <getterExpression xmi:id="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/GetterExpressionForTransferObjectRelationBinding" expression="self.arguments!asCollection(DebateTest::Pro)"/>
+    </navigationProperties>
+    <navigationProperties xmi:id="(esm/_reInoIj4Ee2u0fVmwtP5bA)/NavigationPropertyForTransferObjectRelationBinding" name="_cons_DebateTest_DebateTO" target="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/EntityType">
+      <cardinality xmi:id="(esm/_reInoIj4Ee2u0fVmwtP5bA)/CardinalityForTransferObjectRelationBinding" upper="-1"/>
+      <getterExpression xmi:id="(esm/_reInoIj4Ee2u0fVmwtP5bA)/GetterExpressionForTransferObjectRelationBinding" expression="self.arguments!asCollection(DebateTest::Con)"/>
+    </navigationProperties>
+    <operations xmi:id="(esm/_ZKoQgIj3Ee2u0fVmwtP5bA)/BoundOperation" name="createArgument" instanceRepresentation="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+      <input xmi:id="(esm/_chamIIj3Ee2u0fVmwtP5bA)/Parameter" name="input" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+        <cardinality xmi:id="(esm/_chamIIj3Ee2u0fVmwtP5bA)/CardinalityForParameter" lower="1"/>
+      </input>
+      <implementation xmi:id="(esm/_ZKoQgIj3Ee2u0fVmwtP5bA)/OperationBody" stateful="true" body="if (input.type == DebateTest::CreateArgumentInputType#CON) {&#xA;&#x9;this.arguments += new DebateTest::Con(title = input.title, description = input.description);&#xA;}&#xA;if (input.type == DebateTest::CreateArgumentInputType#PRO) {&#xA;&#x9;this.arguments += new DebateTest::Pro(title = input.title, description = input.description);&#xA;}&#xA;"/>
+    </operations>
+    <operations xmi:id="(esm/_cd44Y4j0Ee2u0fVmwtP5bA)/ListOperationForRelation" name="_listArgumentsForDebateTest_Debate" instanceRepresentation="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+      <output xmi:id="(esm/_cd44Y4j0Ee2u0fVmwtP5bA)/ListOperationForRelation/Output" name="output" type="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+        <cardinality xmi:id="(esm/_cd44Y4j0Ee2u0fVmwtP5bA)/ListOperationForRelation/Output/Cardinality" upper="-1"/>
+      </output>
+      <input xmi:id="(esm/_cd44Y4j0Ee2u0fVmwtP5bA)/ListOperationForRelation/Input" name="input" type="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_cd44Y4j0Ee2u0fVmwtP5bA)/ListOperationForRelation/Input/Cardinality"/>
+      </input>
+    </operations>
+    <operations xmi:id="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/ListOperationForRelation" name="_listProsForDebateTest_DebateTO" instanceRepresentation="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+      <output xmi:id="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/ListOperationForRelation/Output" name="output" type="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/ListOperationForRelation/Output/Cardinality" upper="-1"/>
+      </output>
+      <input xmi:id="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/ListOperationForRelation/Input" name="input" type="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/ListOperationForRelation/Input/Cardinality"/>
+      </input>
+    </operations>
+    <operations xmi:id="(esm/_reInoIj4Ee2u0fVmwtP5bA)/ListOperationForRelation" name="_listConsForDebateTest_DebateTO" instanceRepresentation="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+      <output xmi:id="(esm/_reInoIj4Ee2u0fVmwtP5bA)/ListOperationForRelation/Output" name="output" type="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_reInoIj4Ee2u0fVmwtP5bA)/ListOperationForRelation/Output/Cardinality" upper="-1"/>
+      </output>
+      <input xmi:id="(esm/_reInoIj4Ee2u0fVmwtP5bA)/ListOperationForRelation/Input" name="input" type="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_reInoIj4Ee2u0fVmwtP5bA)/ListOperationForRelation/Input/Cardinality"/>
+      </input>
+    </operations>
+    <operations xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType" name="_refreshInstanceForDebateTest_Debate" instanceRepresentation="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+      <output xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Output" name="output" type="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+        <cardinality xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Input" name="input" type="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Input/Cardinality"/>
+      </input>
+    </operations>
+    <operations xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType" name="_refreshInstanceForDebateTest_DebateTO" instanceRepresentation="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+      <output xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Output" name="output" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Input" name="input" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Input/Cardinality"/>
+      </input>
+    </operations>
+    <operations xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/UpdateOperationForTransferObjectType" name="_updateInstanceForDebateTest_DebateTO" instanceRepresentation="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+      <output xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/UpdateOperationForTransferObjectType/Output" name="output" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/UpdateOperationForTransferObjectType/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/UpdateOperationForTransferObjectType/Input" name="input" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/UpdateOperationForTransferObjectType/Input/Cardinality" lower="1"/>
+      </input>
+    </operations>
+    <operations xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/ValidateUpdateOperationForTransferObjectType" name="_validateUpdateInstanceForDebateTest_DebateTO" instanceRepresentation="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+      <output xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/ValidateUpdateOperationForTransferObjectType/Output" name="output" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/ValidateUpdateOperationForTransferObjectType/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/ValidateUpdateOperationForTransferObjectType/Input" name="input" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/ValidateUpdateOperationForTransferObjectType/Input/Cardinality" lower="1"/>
+      </input>
+    </operations>
+    <operations xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/DeleteOperationForTransferObjectType" name="_deleteInstanceForDebateTest_DebateTO" instanceRepresentation="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType"/>
+  </elements>
+  <elements xsi:type="data:EntityType" xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/EntityType" name="Pro" superEntityTypes="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/EntityType" defaultRepresentation="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+    <navigationProperties xmi:id="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/NavigationPropertyForTransferObjectRelationBinding" name="_pros_DebateTest_ProTO" target="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/EntityType">
+      <cardinality xmi:id="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/CardinalityForTransferObjectRelationBinding" upper="-1"/>
+      <getterExpression xmi:id="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/GetterExpressionForTransferObjectRelationBinding" expression="self.arguments!asCollection(DebateTest::Pro)"/>
+    </navigationProperties>
+    <navigationProperties xmi:id="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/NavigationPropertyForTransferObjectRelationBinding" name="_cons_DebateTest_ProTO" target="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/EntityType">
+      <cardinality xmi:id="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/CardinalityForTransferObjectRelationBinding" upper="-1"/>
+      <getterExpression xmi:id="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/GetterExpressionForTransferObjectRelationBinding" expression="self.arguments!asCollection(DebateTest::Con)"/>
+    </navigationProperties>
+    <operations xmi:id="(esm/_d6B-4Ij3Ee2u0fVmwtP5bA)/BoundOperation" name="createArgument" instanceRepresentation="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+      <input xmi:id="(esm/_ja9Q0Ij3Ee2u0fVmwtP5bA)/Parameter" name="input" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+        <cardinality xmi:id="(esm/_ja9Q0Ij3Ee2u0fVmwtP5bA)/CardinalityForParameter" lower="1"/>
+      </input>
+      <implementation xmi:id="(esm/_d6B-4Ij3Ee2u0fVmwtP5bA)/OperationBody" stateful="true" body="if (input.type == DebateTest::CreateArgumentInputType#CON) {&#xA;&#x9;this.arguments += new DebateTest::Con(title = input.title, description = input.description);&#xA;}&#xA;if (input.type == DebateTest::CreateArgumentInputType#PRO) {&#xA;&#x9;this.arguments += new DebateTest::Pro(title = input.title, description = input.description);&#xA;}&#xA;"/>
+    </operations>
+    <operations xmi:id="(esm/_8vDyUIj3Ee2u0fVmwtP5bA)/BoundOperation" name="voteUp" instanceRepresentation="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+      <implementation xmi:id="(esm/_8vDyUIj3Ee2u0fVmwtP5bA)/OperationBody" stateful="true" body="this.voteUpCount = this.voteUpCount + 1;"/>
+    </operations>
+    <operations xmi:id="(esm/_94MkoIj3Ee2u0fVmwtP5bA)/BoundOperation" name="voteDown" instanceRepresentation="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+      <implementation xmi:id="(esm/_94MkoIj3Ee2u0fVmwtP5bA)/OperationBody" stateful="true" body="this.voteDownCount = this.voteDownCount + 1;"/>
+    </operations>
+    <operations xmi:id="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/ListOperationForRelation" name="_listProsForDebateTest_ProTO" instanceRepresentation="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+      <output xmi:id="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/ListOperationForRelation/Output" name="output" type="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/ListOperationForRelation/Output/Cardinality" upper="-1"/>
+      </output>
+      <input xmi:id="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/ListOperationForRelation/Input" name="input" type="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/ListOperationForRelation/Input/Cardinality"/>
+      </input>
+    </operations>
+    <operations xmi:id="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/ListOperationForRelation" name="_listConsForDebateTest_ProTO" instanceRepresentation="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+      <output xmi:id="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/ListOperationForRelation/Output" name="output" type="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/ListOperationForRelation/Output/Cardinality" upper="-1"/>
+      </output>
+      <input xmi:id="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/ListOperationForRelation/Input" name="input" type="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/ListOperationForRelation/Input/Cardinality"/>
+      </input>
+    </operations>
+    <operations xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType" name="_refreshInstanceForDebateTest_Pro" instanceRepresentation="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+      <output xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Output" name="output" type="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+        <cardinality xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Input" name="input" type="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Input/Cardinality"/>
+      </input>
+    </operations>
+    <operations xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType" name="_refreshInstanceForDebateTest_ProTO" instanceRepresentation="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+      <output xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Output" name="output" type="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Input" name="input" type="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Input/Cardinality"/>
+      </input>
+    </operations>
+  </elements>
+  <elements xsi:type="data:EntityType" xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/EntityType" name="Argument" defaultRepresentation="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+    <attributes xmi:id="(esm/_ceBbSYj0Ee2u0fVmwtP5bA)/Attribute" name="title" dataType="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/StringType" required="true"/>
+    <attributes xmi:id="(esm/_ceBbS4j0Ee2u0fVmwtP5bA)/Attribute" name="description" dataType="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/StringType" required="true"/>
+    <attributes xmi:id="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/Attribute" name="voteUpCount" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType"/>
+    <attributes xmi:id="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/Attribute" name="voteDownCount" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType"/>
+    <relations xsi:type="data:Containment" xmi:id="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/Containment" name="arguments" target="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/EntityType">
+      <cardinality xmi:id="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/CardinalityForReferenceTypedElement" upper="-1"/>
+    </relations>
+    <dataProperties xmi:id="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/DataPropertyForTransferAttributeDefaultValue" name="_voteUpCount_default_DebateTest_Argument" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType">
+      <getterExpression xmi:id="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/GetterExpressionForTransferAttributeDefaultValue" expression="0"/>
+    </dataProperties>
+    <dataProperties xmi:id="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/DataPropertyForTransferAttributeDefaultValue" name="_voteDownCount_default_DebateTest_Argument" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType">
+      <getterExpression xmi:id="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/GetterExpressionForTransferAttributeDefaultValue" expression="0"/>
+    </dataProperties>
+    <operations xmi:id="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListOperationForRelation" name="_listArgumentsForDebateTest_Argument" instanceRepresentation="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+      <output xmi:id="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListOperationForRelation/Output" name="output" type="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+        <cardinality xmi:id="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListOperationForRelation/Output/Cardinality" upper="-1"/>
+      </output>
+      <input xmi:id="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListOperationForRelation/Input" name="input" type="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListOperationForRelation/Input/Cardinality"/>
+      </input>
+    </operations>
+    <operations xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType" name="_refreshInstanceForDebateTest_Argument" instanceRepresentation="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+      <output xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Output" name="output" type="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+        <cardinality xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Input" name="input" type="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Input/Cardinality"/>
+      </input>
+    </operations>
+  </elements>
+  <elements xsi:type="data:EntityType" xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/EntityType" name="Con" superEntityTypes="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/EntityType" defaultRepresentation="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+    <navigationProperties xmi:id="(esm/_48GooIj4Ee2u0fVmwtP5bA)/NavigationPropertyForTransferObjectRelationBinding" name="_cons_DebateTest_ConTO" target="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/EntityType">
+      <cardinality xmi:id="(esm/_48GooIj4Ee2u0fVmwtP5bA)/CardinalityForTransferObjectRelationBinding" upper="-1"/>
+      <getterExpression xmi:id="(esm/_48GooIj4Ee2u0fVmwtP5bA)/GetterExpressionForTransferObjectRelationBinding" expression="self.arguments!asCollection(DebateTest::Con)"/>
+    </navigationProperties>
+    <navigationProperties xmi:id="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/NavigationPropertyForTransferObjectRelationBinding" name="_pros_DebateTest_ConTO" target="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/EntityType">
+      <cardinality xmi:id="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/CardinalityForTransferObjectRelationBinding" upper="-1"/>
+      <getterExpression xmi:id="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/GetterExpressionForTransferObjectRelationBinding" expression="self.arguments!asCollection(DebateTest::Pro)"/>
+    </navigationProperties>
+    <operations xmi:id="(esm/_g228YIj3Ee2u0fVmwtP5bA)/BoundOperation" name="createArgument" instanceRepresentation="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+      <input xmi:id="(esm/_kzz6IIj3Ee2u0fVmwtP5bA)/Parameter" name="input" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+        <cardinality xmi:id="(esm/_kzz6IIj3Ee2u0fVmwtP5bA)/CardinalityForParameter" lower="1"/>
+      </input>
+      <implementation xmi:id="(esm/_g228YIj3Ee2u0fVmwtP5bA)/OperationBody" stateful="true" body="if (input.type == DebateTest::CreateArgumentInputType#CON) {&#xA;&#x9;this.arguments += new DebateTest::Con(title = input.title, description = input.description);&#xA;}&#xA;if (input.type == DebateTest::CreateArgumentInputType#PRO) {&#xA;&#x9;this.arguments += new DebateTest::Pro(title = input.title, description = input.description);&#xA;}&#xA;"/>
+    </operations>
+    <operations xmi:id="(esm/__Sy6YIj3Ee2u0fVmwtP5bA)/BoundOperation" name="voteUp" instanceRepresentation="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+      <implementation xmi:id="(esm/__Sy6YIj3Ee2u0fVmwtP5bA)/OperationBody" stateful="true" body="this.voteUpCount = this.voteUpCount + 1;"/>
+    </operations>
+    <operations xmi:id="(esm/_AUavcIj4Ee2u0fVmwtP5bA)/BoundOperation" name="voteDown" instanceRepresentation="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+      <implementation xmi:id="(esm/_AUavcIj4Ee2u0fVmwtP5bA)/OperationBody" stateful="true" body="this.voteDownCount = this.voteDownCount + 1;"/>
+    </operations>
+    <operations xmi:id="(esm/_48GooIj4Ee2u0fVmwtP5bA)/ListOperationForRelation" name="_listConsForDebateTest_ConTO" instanceRepresentation="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+      <output xmi:id="(esm/_48GooIj4Ee2u0fVmwtP5bA)/ListOperationForRelation/Output" name="output" type="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_48GooIj4Ee2u0fVmwtP5bA)/ListOperationForRelation/Output/Cardinality" upper="-1"/>
+      </output>
+      <input xmi:id="(esm/_48GooIj4Ee2u0fVmwtP5bA)/ListOperationForRelation/Input" name="input" type="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_48GooIj4Ee2u0fVmwtP5bA)/ListOperationForRelation/Input/Cardinality"/>
+      </input>
+    </operations>
+    <operations xmi:id="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/ListOperationForRelation" name="_listProsForDebateTest_ConTO" instanceRepresentation="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+      <output xmi:id="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/ListOperationForRelation/Output" name="output" type="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/ListOperationForRelation/Output/Cardinality" upper="-1"/>
+      </output>
+      <input xmi:id="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/ListOperationForRelation/Input" name="input" type="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/ListOperationForRelation/Input/Cardinality"/>
+      </input>
+    </operations>
+    <operations xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType" name="_refreshInstanceForDebateTest_Con" instanceRepresentation="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+      <output xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Output" name="output" type="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+        <cardinality xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Input" name="input" type="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Input/Cardinality"/>
+      </input>
+    </operations>
+    <operations xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType" name="_refreshInstanceForDebateTest_ConTO" instanceRepresentation="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+      <output xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Output" name="output" type="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Input" name="input" type="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType/Input/Cardinality"/>
+      </input>
+    </operations>
+  </elements>
+  <elements xsi:type="type:EnumerationType" xmi:id="(esm/_Tu4ZgIj3Ee2u0fVmwtP5bA)/EnumerationType" name="CreateArgumentInputType">
+    <members xmi:id="(esm/_Tu4ZgYj3Ee2u0fVmwtP5bA)/EnumerationMember" name="PRO" ordinal="1"/>
+    <members xmi:id="(esm/_Tu4Zgoj3Ee2u0fVmwtP5bA)/EnumerationMember" name="CON" ordinal="2"/>
+  </elements>
+  <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType" name="ProTO" entityType="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/EntityType">
+    <relations xmi:id="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/TransferObjectRelationFromRelationOrProperty" name="pros" binding="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/NavigationPropertyForTransferObjectRelationBinding" target="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType" embedded="true">
+      <cardinality xmi:id="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/CardinalityForReferenceTypedElement" upper="-1"/>
+    </relations>
+    <relations xmi:id="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/TransferObjectRelationFromRelationOrProperty" name="cons" binding="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/NavigationPropertyForTransferObjectRelationBinding" target="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType" embedded="true">
+      <cardinality xmi:id="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/CardinalityForReferenceTypedElement" upper="-1"/>
+    </relations>
+    <attributes xmi:id="(esm/_PV3nUIj2Ee2u0fVmwtP5bA)/TransferAttributeFromBound" name="title" required="true" dataType="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/StringType" binding="(esm/_ceBbSYj0Ee2u0fVmwtP5bA)/Attribute"/>
+    <attributes xmi:id="(esm/_PV6qoIj2Ee2u0fVmwtP5bA)/TransferAttributeFromBound" name="description" required="true" dataType="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/StringType" binding="(esm/_ceBbS4j0Ee2u0fVmwtP5bA)/Attribute"/>
+    <attributes xmi:id="(esm/_PV9G4Ij2Ee2u0fVmwtP5bA)/TransferAttributeFromBound" name="voteUpCount" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType" binding="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/Attribute"/>
+    <attributes xmi:id="(esm/_PV-8EIj2Ee2u0fVmwtP5bA)/TransferAttributeFromBound" name="voteDownCount" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType" binding="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/Attribute"/>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_UmwKwIj5Ee2u0fVmwtP5bA)/BoundTransferOperation" name="createArgument" binding="(esm/_d6B-4Ij3Ee2u0fVmwtP5bA)/BoundOperation">
+      <input xmi:id="(esm/_Umx_8Ij5Ee2u0fVmwtP5bA)/Parameter" name="input" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+        <cardinality xmi:id="(esm/_Umx_8Ij5Ee2u0fVmwtP5bA)/CardinalityForParameter" lower="1"/>
+      </input>
+    </operations>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_UmynAIj5Ee2u0fVmwtP5bA)/BoundTransferOperation" name="voteDown" binding="(esm/_94MkoIj3Ee2u0fVmwtP5bA)/BoundOperation"/>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_UmzOEIj5Ee2u0fVmwtP5bA)/BoundTransferOperation" name="voteUp" binding="(esm/_8vDyUIj3Ee2u0fVmwtP5bA)/BoundOperation"/>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/ListTransferOperationForRelation" name="_listPros" binding="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/ListOperationForRelation">
+      <output xmi:id="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output" name="output" type="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output/Cardinality" upper="-1"/>
+      </output>
+      <input xmi:id="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input" name="input" type="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input/Cardinality"/>
+      </input>
+      <behaviour xmi:id="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Behaviour" behaviourType="LIST" owner="(esm/_yy4AkIj4Ee2u0fVmwtP5bA)/TransferObjectRelationFromRelationOrProperty"/>
+    </operations>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/ListTransferOperationForRelation" name="_listCons" binding="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/ListOperationForRelation">
+      <output xmi:id="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output" name="output" type="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output/Cardinality" upper="-1"/>
+      </output>
+      <input xmi:id="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input" name="input" type="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input/Cardinality"/>
+      </input>
+      <behaviour xmi:id="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Behaviour" behaviourType="LIST" owner="(esm/_Mjoo4Ij5Ee2u0fVmwtP5bA)/TransferObjectRelationFromRelationOrProperty"/>
+    </operations>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType" name="_refreshInstanceDebateTest_ProTO" binding="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType">
+      <output xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Output" name="output" type="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Input" name="input" type="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Input/Cardinality"/>
+      </input>
+      <behaviour xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Behaviour" behaviourType="REFRESH" owner="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType"/>
+    </operations>
+    <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_UmwKwIj5Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation" name="_validateOperationInputForCreateArgument">
+      <output xmi:id="(esm/_UmwKwIj5Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Output" name="output" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+        <cardinality xmi:id="(esm/_UmwKwIj5Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_UmwKwIj5Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Input" name="input" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+        <cardinality xmi:id="(esm/_UmwKwIj5Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Input/Cardinality" lower="1"/>
+      </input>
+      <behaviour xmi:id="(esm/_UmwKwIj5Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Behaviour" behaviourType="VALIDATE_OPERATION_INPUT" owner="(esm/_UmwKwIj5Ee2u0fVmwtP5bA)/BoundTransferOperation"/>
+    </operations>
+  </elements>
+  <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType" name="ConTO" entityType="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/EntityType">
+    <relations xmi:id="(esm/_48GooIj4Ee2u0fVmwtP5bA)/TransferObjectRelationFromRelationOrProperty" name="cons" binding="(esm/_48GooIj4Ee2u0fVmwtP5bA)/NavigationPropertyForTransferObjectRelationBinding" target="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType" embedded="true">
+      <cardinality xmi:id="(esm/_48GooIj4Ee2u0fVmwtP5bA)/CardinalityForReferenceTypedElement" upper="-1"/>
+    </relations>
+    <relations xmi:id="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/TransferObjectRelationFromRelationOrProperty" name="pros" binding="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/NavigationPropertyForTransferObjectRelationBinding" target="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType" embedded="true">
+      <cardinality xmi:id="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/CardinalityForReferenceTypedElement" upper="-1"/>
+    </relations>
+    <attributes xmi:id="(esm/_SSrWsIj2Ee2u0fVmwtP5bA)/TransferAttributeFromBound" name="title" required="true" dataType="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/StringType" binding="(esm/_ceBbSYj0Ee2u0fVmwtP5bA)/Attribute"/>
+    <attributes xmi:id="(esm/_SSuaAIj2Ee2u0fVmwtP5bA)/TransferAttributeFromBound" name="description" required="true" dataType="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/StringType" binding="(esm/_ceBbS4j0Ee2u0fVmwtP5bA)/Attribute"/>
+    <attributes xmi:id="(esm/_SSxdUIj2Ee2u0fVmwtP5bA)/TransferAttributeFromBound" name="voteUpCount" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType" binding="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/Attribute"/>
+    <attributes xmi:id="(esm/_SSz5kIj2Ee2u0fVmwtP5bA)/TransferAttributeFromBound" name="voteDownCount" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType" binding="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/Attribute"/>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_WTy7YIj5Ee2u0fVmwtP5bA)/BoundTransferOperation" name="createArgument" binding="(esm/_g228YIj3Ee2u0fVmwtP5bA)/BoundOperation">
+      <input xmi:id="(esm/_WT0JgIj5Ee2u0fVmwtP5bA)/Parameter" name="input" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+        <cardinality xmi:id="(esm/_WT0JgIj5Ee2u0fVmwtP5bA)/CardinalityForParameter" lower="1"/>
+      </input>
+    </operations>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_WT0wkIj5Ee2u0fVmwtP5bA)/BoundTransferOperation" name="voteDown" binding="(esm/_AUavcIj4Ee2u0fVmwtP5bA)/BoundOperation"/>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_WT1-sIj5Ee2u0fVmwtP5bA)/BoundTransferOperation" name="voteUp" binding="(esm/__Sy6YIj3Ee2u0fVmwtP5bA)/BoundOperation"/>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_48GooIj4Ee2u0fVmwtP5bA)/ListTransferOperationForRelation" name="_listCons" binding="(esm/_48GooIj4Ee2u0fVmwtP5bA)/ListOperationForRelation">
+      <output xmi:id="(esm/_48GooIj4Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output" name="output" type="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_48GooIj4Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output/Cardinality" upper="-1"/>
+      </output>
+      <input xmi:id="(esm/_48GooIj4Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input" name="input" type="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_48GooIj4Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input/Cardinality"/>
+      </input>
+      <behaviour xmi:id="(esm/_48GooIj4Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Behaviour" behaviourType="LIST" owner="(esm/_48GooIj4Ee2u0fVmwtP5bA)/TransferObjectRelationFromRelationOrProperty"/>
+    </operations>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/ListTransferOperationForRelation" name="_listPros" binding="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/ListOperationForRelation">
+      <output xmi:id="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output" name="output" type="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output/Cardinality" upper="-1"/>
+      </output>
+      <input xmi:id="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input" name="input" type="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input/Cardinality"/>
+      </input>
+      <behaviour xmi:id="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Behaviour" behaviourType="LIST" owner="(esm/_GVUFcIj5Ee2u0fVmwtP5bA)/TransferObjectRelationFromRelationOrProperty"/>
+    </operations>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType" name="_refreshInstanceDebateTest_ConTO" binding="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType">
+      <output xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Output" name="output" type="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Input" name="input" type="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Input/Cardinality"/>
+      </input>
+      <behaviour xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Behaviour" behaviourType="REFRESH" owner="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType"/>
+    </operations>
+    <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_WTy7YIj5Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation" name="_validateOperationInputForCreateArgument">
+      <output xmi:id="(esm/_WTy7YIj5Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Output" name="output" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+        <cardinality xmi:id="(esm/_WTy7YIj5Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_WTy7YIj5Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Input" name="input" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+        <cardinality xmi:id="(esm/_WTy7YIj5Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Input/Cardinality" lower="1"/>
+      </input>
+      <behaviour xmi:id="(esm/_WTy7YIj5Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Behaviour" behaviourType="VALIDATE_OPERATION_INPUT" owner="(esm/_WTy7YIj5Ee2u0fVmwtP5bA)/BoundTransferOperation"/>
+    </operations>
+  </elements>
+  <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType" name="DebateTO" entityType="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/EntityType">
+    <relations xmi:id="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/TransferObjectRelationFromRelationOrProperty" name="pros" binding="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/NavigationPropertyForTransferObjectRelationBinding" target="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType" embedded="true">
+      <cardinality xmi:id="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/CardinalityForReferenceTypedElement" upper="-1"/>
+    </relations>
+    <relations xmi:id="(esm/_reInoIj4Ee2u0fVmwtP5bA)/TransferObjectRelationFromRelationOrProperty" name="cons" binding="(esm/_reInoIj4Ee2u0fVmwtP5bA)/NavigationPropertyForTransferObjectRelationBinding" target="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType" embedded="true">
+      <cardinality xmi:id="(esm/_reInoIj4Ee2u0fVmwtP5bA)/CardinalityForReferenceTypedElement" upper="-1"/>
+    </relations>
+    <attributes xmi:id="(esm/_VhfcEIj2Ee2u0fVmwtP5bA)/TransferAttributeFromBound" name="title" required="true" dataType="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/StringType" binding="(esm/_cd44a4j0Ee2u0fVmwtP5bA)/Attribute"/>
+    <attributes xmi:id="(esm/_VhifYIj2Ee2u0fVmwtP5bA)/TransferAttributeFromBound" name="description" required="true" dataType="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/StringType" binding="(esm/_cd44bYj0Ee2u0fVmwtP5bA)/Attribute"/>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_cJj_cIj6Ee2u0fVmwtP5bA)/BoundTransferOperation" name="createArgument" binding="(esm/_ZKoQgIj3Ee2u0fVmwtP5bA)/BoundOperation">
+      <input xmi:id="(esm/_cJlNkIj6Ee2u0fVmwtP5bA)/Parameter" name="input" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+        <cardinality xmi:id="(esm/_cJlNkIj6Ee2u0fVmwtP5bA)/CardinalityForParameter" lower="1"/>
+      </input>
+    </operations>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/ListTransferOperationForRelation" name="_listPros" binding="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/ListOperationForRelation">
+      <output xmi:id="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output" name="output" type="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output/Cardinality" upper="-1"/>
+      </output>
+      <input xmi:id="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input" name="input" type="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input/Cardinality"/>
+      </input>
+      <behaviour xmi:id="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Behaviour" behaviourType="LIST" owner="(esm/_iMK-8Ij2Ee2u0fVmwtP5bA)/TransferObjectRelationFromRelationOrProperty"/>
+    </operations>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_reInoIj4Ee2u0fVmwtP5bA)/ListTransferOperationForRelation" name="_listCons" binding="(esm/_reInoIj4Ee2u0fVmwtP5bA)/ListOperationForRelation">
+      <output xmi:id="(esm/_reInoIj4Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output" name="output" type="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_reInoIj4Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output/Cardinality" upper="-1"/>
+      </output>
+      <input xmi:id="(esm/_reInoIj4Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input" name="input" type="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_reInoIj4Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input/Cardinality"/>
+      </input>
+      <behaviour xmi:id="(esm/_reInoIj4Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Behaviour" behaviourType="LIST" owner="(esm/_reInoIj4Ee2u0fVmwtP5bA)/TransferObjectRelationFromRelationOrProperty"/>
+    </operations>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType" name="_refreshInstanceDebateTest_DebateTO" binding="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType">
+      <output xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Output" name="output" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Input" name="input" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Input/Cardinality"/>
+      </input>
+      <behaviour xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Behaviour" behaviourType="REFRESH" owner="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType"/>
+    </operations>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/UpdateTransferOperationForTransferObjectType" name="_updateInstanceDebateTest_DebateTO" binding="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/UpdateOperationForTransferObjectType">
+      <output xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/UpdateTransferOperationForTransferObjectType/Output" name="output" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/UpdateTransferOperationForTransferObjectType/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/UpdateTransferOperationForTransferObjectType/Input" name="input" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/UpdateTransferOperationForTransferObjectType/Input/Cardinality" lower="1"/>
+      </input>
+      <behaviour xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/UpdateTransferOperationForTransferObjectType/Behaviour" behaviourType="UPDATE_INSTANCE" owner="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType"/>
+    </operations>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/ValidateUpdateTransferOperationForTransferObjectType" name="_validateUpdateInstanceDebateTest_DebateTO" binding="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/ValidateUpdateOperationForTransferObjectType">
+      <output xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/ValidateUpdateTransferOperationForTransferObjectType/Output" name="output" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/ValidateUpdateTransferOperationForTransferObjectType/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/ValidateUpdateTransferOperationForTransferObjectType/Input" name="input" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/ValidateUpdateTransferOperationForTransferObjectType/Input/Cardinality" lower="1"/>
+      </input>
+      <behaviour xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/ValidateUpdateTransferOperationForTransferObjectType/Behaviour" behaviourType="VALIDATE_UPDATE" owner="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType"/>
+    </operations>
+    <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/DeleteTransferOperationForTransferObjectType" name="_deleteInstanceDebateTest_DebateTO" binding="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/DeleteOperationForTransferObjectType">
+      <behaviour xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/DeleteTransferOperationForTransferObjectType/Behaviour" behaviourType="DELETE_INSTANCE" owner="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType"/>
+    </operations>
+    <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/GetTemplateTransferOperation" name="_getTemplateDebateTO" immutable="true">
+      <output xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/GetTemplateTransferOperation/Output" name="output" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/GetTemplateTransferOperation/Output/Cardinality"/>
+      </output>
+      <behaviour xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/GetTemplateTransferOperation/Behaviour" owner="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType"/>
+    </operations>
+    <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_cJj_cIj6Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation" name="_validateOperationInputForCreateArgument">
+      <output xmi:id="(esm/_cJj_cIj6Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Output" name="output" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+        <cardinality xmi:id="(esm/_cJj_cIj6Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_cJj_cIj6Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Input" name="input" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+        <cardinality xmi:id="(esm/_cJj_cIj6Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Input/Cardinality" lower="1"/>
+      </input>
+      <behaviour xmi:id="(esm/_cJj_cIj6Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Behaviour" behaviourType="VALIDATE_OPERATION_INPUT" owner="(esm/_cJj_cIj6Ee2u0fVmwtP5bA)/BoundTransferOperation"/>
+    </operations>
+  </elements>
+  <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType" name="CreateArgumentInput">
+    <attributes xmi:id="(esm/_V3j9QYj3Ee2u0fVmwtP5bA)/TransferAttributeFromAttribute" name="type" dataType="(esm/_Tu4ZgIj3Ee2u0fVmwtP5bA)/EnumerationType"/>
+    <attributes xmi:id="(esm/_V3j9Q4j3Ee2u0fVmwtP5bA)/TransferAttributeFromAttribute" name="title" dataType="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/StringType"/>
+    <attributes xmi:id="(esm/_V3j9RYj3Ee2u0fVmwtP5bA)/TransferAttributeFromAttribute" name="description" dataType="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/StringType"/>
+    <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/GetTemplateTransferOperation" name="_getTemplateCreateArgumentInput" immutable="true">
+      <output xmi:id="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/GetTemplateTransferOperation/Output" name="output" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+        <cardinality xmi:id="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/GetTemplateTransferOperation/Output/Cardinality"/>
+      </output>
+      <behaviour xmi:id="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/GetTemplateTransferOperation/Behaviour" owner="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType"/>
+    </operations>
+  </elements>
+  <elements xsi:type="accesspoint:ActorType" xmi:id="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/ActorTypeWithoutPrincipal" name="Actor">
+    <relations xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/AccessTransferObjectRelationWithoutBinding" name="debates" target="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true" access="true">
+      <cardinality xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/CardinalityForReferenceTypedElement" upper="-1"/>
+    </relations>
+    <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/GetMetadataOperationForActorType" name="_metadata">
+      <output xmi:id="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/GetMetadataOperationOutputParameterForActorType" name="output" type="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/MetadataType">
+        <cardinality xmi:id="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/GetMetadataOperationOutputParameterForActorType/Cardinality"/>
+      </output>
+      <behaviour xmi:id="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/GetMetadataOperationForActorType/Behaviour" behaviourType="GET_METADATA" owner="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/ActorTypeWithoutPrincipal"/>
+    </operations>
+    <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/ListUnboundOperation" name="_listDebates" deleteOnResult="true" updateOnResult="true">
+      <output xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/ListUnboundOperation/Output" name="output" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/ListUnboundOperation/Output/Cardinality" upper="-1"/>
+      </output>
+      <input xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/ListUnboundOperation/Input" name="input" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/ListUnboundOperation/Input/Cardinality"/>
+      </input>
+      <behaviour xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/ListUnboundOperation/Behaviour" behaviourType="LIST" owner="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/AccessTransferObjectRelationWithoutBinding"/>
+    </operations>
+    <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/CreateUnboundOperationForAccess" name="_createInstanceDebates" deleteOnResult="true" updateOnResult="true">
+      <output xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/CreateUnboundOperationForAccess/Output" name="output" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/CreateUnboundOperationForAccess/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/CreateUnboundOperationForAccess/Input" name="input" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/CreateUnboundOperationForAccess/Input/Cardinality" lower="1"/>
+      </input>
+      <behaviour xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/CreateUnboundOperationForAccess/Behaviour" behaviourType="CREATE_INSTANCE" owner="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/AccessTransferObjectRelationWithoutBinding"/>
+    </operations>
+    <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/ValidateCreateUnboundOperationForAccess" name="_validateCreateInstanceDebates">
+      <output xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/ValidateCreateUnboundOperationForAccess/Output" name="output" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/ValidateCreateUnboundOperationForAccess/Output/Cardinality" lower="1"/>
+      </output>
+      <input xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/ValidateCreateUnboundOperationForAccess/Input" name="input" type="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/ValidateCreateUnboundOperationForAccess/Input/Cardinality" lower="1"/>
+      </input>
+      <behaviour xmi:id="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/ValidateCreateUnboundOperationForAccess/Behaviour" behaviourType="VALIDATE_CREATE" owner="(esm/_hjSSoIj5Ee2u0fVmwtP5bA)/AccessTransferObjectRelationWithoutBinding"/>
+    </operations>
+  </elements>
+  <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/MetadataType" name="_MetadataForActor">
+    <relations xmi:id="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/MetadataType/Security" name="security" target="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/MetadataSecurityType" embedded="true">
+      <cardinality xmi:id="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/MetadataType/Security/Cardinality" upper="-1"/>
+    </relations>
+  </elements>
+  <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/MetadataSecurityType" name="_MetadataSecurityForActor">
+    <attributes xmi:id="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/MetadataSecurityType/Name" name="name" required="true" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+    <attributes xmi:id="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/MetadataSecurityType/OpenIdConfigurationUrl" name="openIdConfigurationUrl" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+    <attributes xmi:id="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/Actor/Issuer" name="issuer" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+    <attributes xmi:id="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/MetadataSecurityType/AuthEndpoint" name="authEndpoint" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+    <attributes xmi:id="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/MetadataSecurityType/TokenEndpoint" name="tokenEndpoint" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+    <attributes xmi:id="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/MetadataSecurityType/LogoutEndpoint" name="logoutEndpoint" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+    <attributes xmi:id="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/MetadataSecurityType/ClientId" name="clientId" required="true" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+    <attributes xmi:id="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/MetadataSecurityType/ClientBaseUrl" name="clientBaseUrl" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+    <attributes xmi:id="(esm/_gCcK8Ij5Ee2u0fVmwtP5bA)/MetadataSecurityType/DefaultScopes" name="defaultScopes" required="true" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+  </elements>
+  <packages xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/_default_transferobjecttypes" name="_default_transferobjecttypes">
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity" name="Debate" entityType="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/EntityType">
+      <relations xmi:id="(esm/_cd44Y4j0Ee2u0fVmwtP5bA)/TransferObjectRelationForDefaultTransferObjectTypeFromOneWayRelationMemberNotContainment" name="arguments" binding="(esm/_cd44Y4j0Ee2u0fVmwtP5bA)/AssociationEndWithoutPartner" target="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+        <cardinality xmi:id="(esm/_cd44Y4j0Ee2u0fVmwtP5bA)/CardinalityOfTransferObjectRelationForDefaultTransferObjectType" upper="-1"/>
+      </relations>
+      <attributes xmi:id="(esm/_cd44a4j0Ee2u0fVmwtP5bA)/TransferAttributeFromAttributeForDefaultTransferObjectType" name="title" required="true" dataType="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/StringType" binding="(esm/_cd44a4j0Ee2u0fVmwtP5bA)/Attribute"/>
+      <attributes xmi:id="(esm/_cd44bYj0Ee2u0fVmwtP5bA)/TransferAttributeFromAttributeForDefaultTransferObjectType" name="description" required="true" dataType="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/StringType" binding="(esm/_cd44bYj0Ee2u0fVmwtP5bA)/Attribute"/>
+      <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_ZKoQgIj3Ee2u0fVmwtP5bA)/BoundTransferOperationInDefaultTransferObjectType" name="createArgument" binding="(esm/_ZKoQgIj3Ee2u0fVmwtP5bA)/BoundOperation">
+        <input xmi:id="(esm/_ZKoQgIj3Ee2u0fVmwtP5bA)/BoundTransferOperationInDefaultTransferObjectType/Input" name="input" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+          <cardinality xmi:id="(esm/_ZKoQgIj3Ee2u0fVmwtP5bA)/BoundTransferOperationInDefaultTransferObjectType/Input/Cardinality" lower="1"/>
+        </input>
+      </operations>
+      <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_cd44Y4j0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation" name="_listArguments" binding="(esm/_cd44Y4j0Ee2u0fVmwtP5bA)/ListOperationForRelation">
+        <output xmi:id="(esm/_cd44Y4j0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output" name="output" type="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+          <cardinality xmi:id="(esm/_cd44Y4j0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output/Cardinality" upper="-1"/>
+        </output>
+        <input xmi:id="(esm/_cd44Y4j0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input" name="input" type="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryCustomizerType">
+          <cardinality xmi:id="(esm/_cd44Y4j0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input/Cardinality"/>
+        </input>
+        <behaviour xmi:id="(esm/_cd44Y4j0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Behaviour" behaviourType="LIST" owner="(esm/_cd44Y4j0Ee2u0fVmwtP5bA)/TransferObjectRelationForDefaultTransferObjectTypeFromOneWayRelationMemberNotContainment"/>
+      </operations>
+      <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType" name="_refreshInstanceDebateTest_Debate" binding="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType">
+        <output xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Output" name="output" type="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+          <cardinality xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Output/Cardinality" lower="1"/>
+        </output>
+        <input xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Input" name="input" type="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QueryCustomizerType">
+          <cardinality xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Input/Cardinality"/>
+        </input>
+        <behaviour xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Behaviour" behaviourType="REFRESH" owner="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity"/>
+      </operations>
+      <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_ZKoQgIj3Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation" name="_validateOperationInputForCreateArgument">
+        <output xmi:id="(esm/_ZKoQgIj3Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Output" name="output" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+          <cardinality xmi:id="(esm/_ZKoQgIj3Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Output/Cardinality" lower="1"/>
+        </output>
+        <input xmi:id="(esm/_ZKoQgIj3Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Input" name="input" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+          <cardinality xmi:id="(esm/_ZKoQgIj3Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Input/Cardinality" lower="1"/>
+        </input>
+        <behaviour xmi:id="(esm/_ZKoQgIj3Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Behaviour" behaviourType="VALIDATE_OPERATION_INPUT" owner="(esm/_ZKoQgIj3Ee2u0fVmwtP5bA)/BoundTransferOperationInDefaultTransferObjectType"/>
+      </operations>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity" name="Argument" entityType="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/EntityType">
+      <relations xmi:id="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/TransferObjectRelationForDefaultTransferObjectTypeFromOneWayRelationMemberContainment" name="arguments" binding="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/Containment" target="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
+        <cardinality xmi:id="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/CardinalityOfTransferObjectRelationForDefaultTransferObjectType" upper="-1"/>
+      </relations>
+      <attributes xmi:id="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/TransferAttributeForDefaultValue" name="_voteUpCount_default_DebateTest_Argument" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType" binding="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/DataPropertyForTransferAttributeDefaultValue"/>
+      <attributes xmi:id="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/TransferAttributeForDefaultValue" name="_voteDownCount_default_DebateTest_Argument" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType" binding="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/DataPropertyForTransferAttributeDefaultValue"/>
+      <attributes xmi:id="(esm/_ceBbSYj0Ee2u0fVmwtP5bA)/TransferAttributeFromAttributeForDefaultTransferObjectType" name="title" required="true" dataType="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/StringType" binding="(esm/_ceBbSYj0Ee2u0fVmwtP5bA)/Attribute"/>
+      <attributes xmi:id="(esm/_ceBbS4j0Ee2u0fVmwtP5bA)/TransferAttributeFromAttributeForDefaultTransferObjectType" name="description" required="true" dataType="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/StringType" binding="(esm/_ceBbS4j0Ee2u0fVmwtP5bA)/Attribute"/>
+      <attributes xmi:id="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/TransferAttributeFromAttributeForDefaultTransferObjectType" name="voteUpCount" defaultValue="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/DataPropertyForTransferAttributeDefaultValue" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType" binding="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/Attribute"/>
+      <attributes xmi:id="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/TransferAttributeFromAttributeForDefaultTransferObjectType" name="voteDownCount" defaultValue="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/DataPropertyForTransferAttributeDefaultValue" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType" binding="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/Attribute"/>
+      <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation" name="_listArguments" binding="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListOperationForRelation">
+        <output xmi:id="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output" name="output" type="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+          <cardinality xmi:id="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output/Cardinality" upper="-1"/>
+        </output>
+        <input xmi:id="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input" name="input" type="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryCustomizerType">
+          <cardinality xmi:id="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input/Cardinality"/>
+        </input>
+        <behaviour xmi:id="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Behaviour" behaviourType="LIST" owner="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/TransferObjectRelationForDefaultTransferObjectTypeFromOneWayRelationMemberContainment"/>
+      </operations>
+      <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType" name="_refreshInstanceDebateTest_Argument" binding="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType">
+        <output xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Output" name="output" type="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+          <cardinality xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Output/Cardinality" lower="1"/>
+        </output>
+        <input xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Input" name="input" type="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryCustomizerType">
+          <cardinality xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Input/Cardinality"/>
+        </input>
+        <behaviour xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Behaviour" behaviourType="REFRESH" owner="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity"/>
+      </operations>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity" name="Pro" entityType="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/EntityType">
+      <relations xmi:id="((esm/_ceBbQYj0Ee2u0fVmwtP5bA)/TransferObjectRelationForDefaultTransferObjectTypeFromOneWayRelationMemberContainment)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="arguments" binding="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/Containment" target="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
+        <cardinality xmi:id="((esm/_ceBbQYj0Ee2u0fVmwtP5bA)/CardinalityOfTransferObjectRelationForDefaultTransferObjectType)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" upper="-1"/>
+      </relations>
+      <attributes xmi:id="((esm/_AW_NMIj2Ee2u0fVmwtP5bA)/TransferAttributeForDefaultValue)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="_voteUpCount_default_DebateTest_Argument" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType" binding="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/DataPropertyForTransferAttributeDefaultValue"/>
+      <attributes xmi:id="((esm/_CeHRwIj2Ee2u0fVmwtP5bA)/TransferAttributeForDefaultValue)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="_voteDownCount_default_DebateTest_Argument" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType" binding="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/DataPropertyForTransferAttributeDefaultValue"/>
+      <attributes xmi:id="((esm/_ceBbSYj0Ee2u0fVmwtP5bA)/TransferAttributeFromAttributeForDefaultTransferObjectType)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="title" required="true" dataType="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/StringType" binding="(esm/_ceBbSYj0Ee2u0fVmwtP5bA)/Attribute"/>
+      <attributes xmi:id="((esm/_ceBbS4j0Ee2u0fVmwtP5bA)/TransferAttributeFromAttributeForDefaultTransferObjectType)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="description" required="true" dataType="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/StringType" binding="(esm/_ceBbS4j0Ee2u0fVmwtP5bA)/Attribute"/>
+      <attributes xmi:id="((esm/_AW_NMIj2Ee2u0fVmwtP5bA)/TransferAttributeFromAttributeForDefaultTransferObjectType)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="voteUpCount" defaultValue="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/DataPropertyForTransferAttributeDefaultValue" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType" binding="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/Attribute"/>
+      <attributes xmi:id="((esm/_CeHRwIj2Ee2u0fVmwtP5bA)/TransferAttributeFromAttributeForDefaultTransferObjectType)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="voteDownCount" defaultValue="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/DataPropertyForTransferAttributeDefaultValue" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType" binding="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/Attribute"/>
+      <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_d6B-4Ij3Ee2u0fVmwtP5bA)/BoundTransferOperationInDefaultTransferObjectType" name="createArgument" binding="(esm/_d6B-4Ij3Ee2u0fVmwtP5bA)/BoundOperation">
+        <input xmi:id="(esm/_d6B-4Ij3Ee2u0fVmwtP5bA)/BoundTransferOperationInDefaultTransferObjectType/Input" name="input" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+          <cardinality xmi:id="(esm/_d6B-4Ij3Ee2u0fVmwtP5bA)/BoundTransferOperationInDefaultTransferObjectType/Input/Cardinality" lower="1"/>
+        </input>
+      </operations>
+      <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_8vDyUIj3Ee2u0fVmwtP5bA)/BoundTransferOperationInDefaultTransferObjectType" name="voteUp" binding="(esm/_8vDyUIj3Ee2u0fVmwtP5bA)/BoundOperation"/>
+      <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_94MkoIj3Ee2u0fVmwtP5bA)/BoundTransferOperationInDefaultTransferObjectType" name="voteDown" binding="(esm/_94MkoIj3Ee2u0fVmwtP5bA)/BoundOperation"/>
+      <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType" name="_refreshInstanceDebateTest_Pro" binding="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType">
+        <output xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Output" name="output" type="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+          <cardinality xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Output/Cardinality" lower="1"/>
+        </output>
+        <input xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Input" name="input" type="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryCustomizerType">
+          <cardinality xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Input/Cardinality"/>
+        </input>
+        <behaviour xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Behaviour" behaviourType="REFRESH" owner="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity"/>
+      </operations>
+      <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_d6B-4Ij3Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation" name="_validateOperationInputForCreateArgument">
+        <output xmi:id="(esm/_d6B-4Ij3Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Output" name="output" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+          <cardinality xmi:id="(esm/_d6B-4Ij3Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Output/Cardinality" lower="1"/>
+        </output>
+        <input xmi:id="(esm/_d6B-4Ij3Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Input" name="input" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+          <cardinality xmi:id="(esm/_d6B-4Ij3Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Input/Cardinality" lower="1"/>
+        </input>
+        <behaviour xmi:id="(esm/_d6B-4Ij3Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Behaviour" behaviourType="VALIDATE_OPERATION_INPUT" owner="(esm/_d6B-4Ij3Ee2u0fVmwtP5bA)/BoundTransferOperationInDefaultTransferObjectType"/>
+      </operations>
+      <operations xsi:type="service:BoundTransferOperation" xmi:id="((esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="_listArguments" binding="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListOperationForRelation">
+        <output xmi:id="((esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="output" type="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+          <cardinality xmi:id="((esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output/Cardinality)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" upper="-1"/>
+        </output>
+        <input xmi:id="((esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="input" type="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryCustomizerType">
+          <cardinality xmi:id="((esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input/Cardinality)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)"/>
+        </input>
+        <behaviour xmi:id="((esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Behaviour)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" behaviourType="LIST" owner="((esm/_ceBbQYj0Ee2u0fVmwtP5bA)/TransferObjectRelationForDefaultTransferObjectTypeFromOneWayRelationMemberContainment)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)"/>
+      </operations>
+    </elements>
+    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity" name="Con" entityType="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/EntityType">
+      <relations xmi:id="((esm/_ceBbQYj0Ee2u0fVmwtP5bA)/TransferObjectRelationForDefaultTransferObjectTypeFromOneWayRelationMemberContainment)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="arguments" binding="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/Containment" target="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
+        <cardinality xmi:id="((esm/_ceBbQYj0Ee2u0fVmwtP5bA)/CardinalityOfTransferObjectRelationForDefaultTransferObjectType)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" upper="-1"/>
+      </relations>
+      <attributes xmi:id="((esm/_AW_NMIj2Ee2u0fVmwtP5bA)/TransferAttributeForDefaultValue)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="_voteUpCount_default_DebateTest_Argument" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType" binding="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/DataPropertyForTransferAttributeDefaultValue"/>
+      <attributes xmi:id="((esm/_CeHRwIj2Ee2u0fVmwtP5bA)/TransferAttributeForDefaultValue)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="_voteDownCount_default_DebateTest_Argument" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType" binding="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/DataPropertyForTransferAttributeDefaultValue"/>
+      <attributes xmi:id="((esm/_ceBbSYj0Ee2u0fVmwtP5bA)/TransferAttributeFromAttributeForDefaultTransferObjectType)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="title" required="true" dataType="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/StringType" binding="(esm/_ceBbSYj0Ee2u0fVmwtP5bA)/Attribute"/>
+      <attributes xmi:id="((esm/_ceBbS4j0Ee2u0fVmwtP5bA)/TransferAttributeFromAttributeForDefaultTransferObjectType)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="description" required="true" dataType="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/StringType" binding="(esm/_ceBbS4j0Ee2u0fVmwtP5bA)/Attribute"/>
+      <attributes xmi:id="((esm/_AW_NMIj2Ee2u0fVmwtP5bA)/TransferAttributeFromAttributeForDefaultTransferObjectType)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="voteUpCount" defaultValue="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/DataPropertyForTransferAttributeDefaultValue" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType" binding="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/Attribute"/>
+      <attributes xmi:id="((esm/_CeHRwIj2Ee2u0fVmwtP5bA)/TransferAttributeFromAttributeForDefaultTransferObjectType)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="voteDownCount" defaultValue="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/DataPropertyForTransferAttributeDefaultValue" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType" binding="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/Attribute"/>
+      <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_g228YIj3Ee2u0fVmwtP5bA)/BoundTransferOperationInDefaultTransferObjectType" name="createArgument" binding="(esm/_g228YIj3Ee2u0fVmwtP5bA)/BoundOperation">
+        <input xmi:id="(esm/_g228YIj3Ee2u0fVmwtP5bA)/BoundTransferOperationInDefaultTransferObjectType/Input" name="input" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+          <cardinality xmi:id="(esm/_g228YIj3Ee2u0fVmwtP5bA)/BoundTransferOperationInDefaultTransferObjectType/Input/Cardinality" lower="1"/>
+        </input>
+      </operations>
+      <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/__Sy6YIj3Ee2u0fVmwtP5bA)/BoundTransferOperationInDefaultTransferObjectType" name="voteUp" binding="(esm/__Sy6YIj3Ee2u0fVmwtP5bA)/BoundOperation"/>
+      <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_AUavcIj4Ee2u0fVmwtP5bA)/BoundTransferOperationInDefaultTransferObjectType" name="voteDown" binding="(esm/_AUavcIj4Ee2u0fVmwtP5bA)/BoundOperation"/>
+      <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType" name="_refreshInstanceDebateTest_Con" binding="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/RefreshOperationForTransferObjectType">
+        <output xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Output" name="output" type="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+          <cardinality xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Output/Cardinality" lower="1"/>
+        </output>
+        <input xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Input" name="input" type="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryCustomizerType">
+          <cardinality xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Input/Cardinality"/>
+        </input>
+        <behaviour xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/RefreshTransferOperationForTransferObjectType/Behaviour" behaviourType="REFRESH" owner="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity"/>
+      </operations>
+      <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_g228YIj3Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation" name="_validateOperationInputForCreateArgument">
+        <output xmi:id="(esm/_g228YIj3Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Output" name="output" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+          <cardinality xmi:id="(esm/_g228YIj3Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Output/Cardinality" lower="1"/>
+        </output>
+        <input xmi:id="(esm/_g228YIj3Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Input" name="input" type="(esm/_V3j9QIj3Ee2u0fVmwtP5bA)/UnmappedTransferObjectType">
+          <cardinality xmi:id="(esm/_g228YIj3Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Input/Cardinality" lower="1"/>
+        </input>
+        <behaviour xmi:id="(esm/_g228YIj3Ee2u0fVmwtP5bA)/CreateValidateUnboundOperationForOperation/Behaviour" behaviourType="VALIDATE_OPERATION_INPUT" owner="(esm/_g228YIj3Ee2u0fVmwtP5bA)/BoundTransferOperationInDefaultTransferObjectType"/>
+      </operations>
+      <operations xsi:type="service:BoundTransferOperation" xmi:id="((esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="_listArguments" binding="(esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListOperationForRelation">
+        <output xmi:id="((esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="output" type="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity">
+          <cardinality xmi:id="((esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Output/Cardinality)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" upper="-1"/>
+        </output>
+        <input xmi:id="((esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" name="input" type="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryCustomizerType">
+          <cardinality xmi:id="((esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Input/Cardinality)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)"/>
+        </input>
+        <behaviour xmi:id="((esm/_ceBbQYj0Ee2u0fVmwtP5bA)/ListTransferOperationForRelation/Behaviour)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)" behaviourType="LIST" owner="((esm/_ceBbQYj0Ee2u0fVmwtP5bA)/TransferObjectRelationForDefaultTransferObjectTypeFromOneWayRelationMemberContainment)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity)"/>
+      </operations>
+    </elements>
+  </packages>
+  <packages xmi:id="(esm/_Tsf7QYj0Ee2u0fVmwtP5bA)/Package" name="types">
+    <elements xsi:type="type:StringType" xmi:id="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/StringType" name="String" maxLength="255"/>
+    <elements xsi:type="type:StringType" xmi:id="(esm/_Tsf7S4j0Ee2u0fVmwtP5bA)/StringType" name="Phone" maxLength="20"/>
+    <elements xsi:type="type:StringType" xmi:id="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/StringType" name="Text" maxLength="250"/>
+    <elements xsi:type="type:StringType" xmi:id="(esm/_Tsf7TYj0Ee2u0fVmwtP5bA)/StringType" name="URL" maxLength="1024"/>
+    <elements xsi:type="type:StringType" xmi:id="(esm/_Tsf7Toj0Ee2u0fVmwtP5bA)/StringType" name="Email" maxLength="255" regExp="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*(\.[A-Za-z]{2,})$"/>
+    <elements xsi:type="type:NumericType" xmi:id="(esm/_Tsf7Q4j0Ee2u0fVmwtP5bA)/NumericType" name="Long" precision="18"/>
+    <elements xsi:type="type:NumericType" xmi:id="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType" name="Integer" precision="9"/>
+    <elements xsi:type="type:NumericType" xmi:id="(esm/_Tsf7RYj0Ee2u0fVmwtP5bA)/NumericType" name="Double" precision="15" scale="4"/>
+    <elements xsi:type="type:NumericType" xmi:id="(esm/_Tsf7Roj0Ee2u0fVmwtP5bA)/NumericType" name="Float" precision="7" scale="4"/>
+    <elements xsi:type="type:BooleanType" xmi:id="(esm/_Tsf7R4j0Ee2u0fVmwtP5bA)/BooleanType" name="Boolean"/>
+    <elements xsi:type="type:DateType" xmi:id="(esm/_Tsf7SIj0Ee2u0fVmwtP5bA)/DateType" name="Date"/>
+    <elements xsi:type="type:TimestampType" xmi:id="(esm/_Tsf7SYj0Ee2u0fVmwtP5bA)/TimestampType" name="Timestamp"/>
+    <elements xsi:type="type:TimeType" xmi:id="(esm/_Tsf7Soj0Ee2u0fVmwtP5bA)/TimeType" name="Time"/>
+  </packages>
+  <packages xmi:id="(esm/_TsgiUIj0Ee2u0fVmwtP5bA)/Package" name="measures">
+    <elements xsi:type="measure:Measure" xmi:id="(esm/_TsgiUYj0Ee2u0fVmwtP5bA)/Measure" name="Mass">
+      <units xmi:id="(esm/_TsgiUoj0Ee2u0fVmwtP5bA)/Unit" name="milligram" rateDividend="1.0E-6" symbol="mg"/>
+      <units xmi:id="(esm/_TsgiU4j0Ee2u0fVmwtP5bA)/Unit" name="gram" rateDividend="0.001" symbol="g"/>
+      <units xmi:id="(esm/_TsgiVIj0Ee2u0fVmwtP5bA)/Unit" name="dekagram" rateDividend="0.01" symbol="dkg"/>
+      <units xmi:id="(esm/_TsgiVYj0Ee2u0fVmwtP5bA)/Unit" name="kilogram" symbol="kg"/>
+      <units xmi:id="(esm/_TsgiVoj0Ee2u0fVmwtP5bA)/Unit" name="quintal" rateDividend="100.0" symbol="q"/>
+      <units xmi:id="(esm/_TsgiV4j0Ee2u0fVmwtP5bA)/Unit" name="tonne" rateDividend="1000.0" symbol="t"/>
+    </elements>
+    <elements xsi:type="measure:Measure" xmi:id="(esm/_TsgiWIj0Ee2u0fVmwtP5bA)/Measure" name="Time">
+      <units xsi:type="measure:DurationUnit" xmi:id="(esm/_TsgiWYj0Ee2u0fVmwtP5bA)/DurationUnit" name="millisecond" rateDividend="0.001" symbol="ms" unitType="millisecond"/>
+      <units xsi:type="measure:DurationUnit" xmi:id="(esm/_TsgiWoj0Ee2u0fVmwtP5bA)/DurationUnit" name="second" symbol="s" unitType="second"/>
+      <units xsi:type="measure:DurationUnit" xmi:id="(esm/_TsgiW4j0Ee2u0fVmwtP5bA)/DurationUnit" name="minute" rateDividend="60.0" symbol="min" unitType="minute"/>
+      <units xsi:type="measure:DurationUnit" xmi:id="(esm/_TsgiXIj0Ee2u0fVmwtP5bA)/DurationUnit" name="hour" rateDividend="3600.0" symbol="h" unitType="hour"/>
+      <units xsi:type="measure:DurationUnit" xmi:id="(esm/_TsgiXYj0Ee2u0fVmwtP5bA)/DurationUnit" name="day" rateDividend="86400.0" symbol="" unitType="day"/>
+      <units xsi:type="measure:DurationUnit" xmi:id="(esm/_TsgiXoj0Ee2u0fVmwtP5bA)/DurationUnit" name="week" rateDividend="604800.0" symbol="" unitType="week"/>
+    </elements>
+    <elements xsi:type="measure:Measure" xmi:id="(esm/_TsgiX4j0Ee2u0fVmwtP5bA)/Measure" name="Length">
+      <units xmi:id="(esm/_TsgiYIj0Ee2u0fVmwtP5bA)/Unit" name="nanometre" rateDividend="1.0E-9" symbol="nm"/>
+      <units xmi:id="(esm/_TsgiYYj0Ee2u0fVmwtP5bA)/Unit" name="micrometre" rateDividend="1.0E-6" symbol="μm"/>
+      <units xmi:id="(esm/_TsgiYoj0Ee2u0fVmwtP5bA)/Unit" name="millimetre" rateDividend="0.001" symbol="mm"/>
+      <units xmi:id="(esm/_TsgiY4j0Ee2u0fVmwtP5bA)/Unit" name="centimetre" rateDividend="0.01" symbol="cm"/>
+      <units xmi:id="(esm/_TsgiZIj0Ee2u0fVmwtP5bA)/Unit" name="decimetre" rateDividend="0.1" symbol="dm"/>
+      <units xmi:id="(esm/_TsgiZYj0Ee2u0fVmwtP5bA)/Unit" name="metre" symbol="m"/>
+      <units xmi:id="(esm/_TsgiZoj0Ee2u0fVmwtP5bA)/Unit" name="kilometre" rateDividend="1000.0" symbol="km"/>
+      <units xmi:id="(esm/_TsgiZ4j0Ee2u0fVmwtP5bA)/Unit" name="inch" rateDividend="0.0254" symbol="&quot;"/>
+      <units xmi:id="(esm/_TsgiaIj0Ee2u0fVmwtP5bA)/Unit" name="foot" rateDividend="0.3048" symbol="ft"/>
+      <units xmi:id="(esm/_TsgiaYj0Ee2u0fVmwtP5bA)/Unit" name="mile" rateDividend="1609.344" symbol="mi"/>
+    </elements>
+    <elements xsi:type="measure:Measure" xmi:id="(esm/_Tsgiaoj0Ee2u0fVmwtP5bA)/Measure" name="Temperature">
+      <units xmi:id="(esm/_Tsgia4j0Ee2u0fVmwtP5bA)/Unit" name="celsius" symbol="°C"/>
+    </elements>
+    <elements xsi:type="measure:Measure" xmi:id="(esm/_Tsgiroj0Ee2u0fVmwtP5bA)/Measure" name="ElectricCurrent">
+      <units xmi:id="(esm/_Tsgir4j0Ee2u0fVmwtP5bA)/Unit" name="milliampere" rateDividend="0.001" symbol="mA"/>
+      <units xmi:id="(esm/_TsgisIj0Ee2u0fVmwtP5bA)/Unit" name="ampere" symbol="A"/>
+    </elements>
+    <elements xsi:type="measure:Measure" xmi:id="(esm/_TsgisYj0Ee2u0fVmwtP5bA)/Measure" name="ThermodynamicTemperature">
+      <units xmi:id="(esm/_Tsgisoj0Ee2u0fVmwtP5bA)/Unit" name="kelvin" symbol="K"/>
+    </elements>
+    <elements xsi:type="measure:Measure" xmi:id="(esm/_Tsgis4j0Ee2u0fVmwtP5bA)/Measure" name="AmountOfSubstance">
+      <units xmi:id="(esm/_TsgitIj0Ee2u0fVmwtP5bA)/Unit" name="mol" symbol="mol"/>
+    </elements>
+    <elements xsi:type="measure:Measure" xmi:id="(esm/_TsgitYj0Ee2u0fVmwtP5bA)/Measure" name="LuminousIntensity">
+      <units xmi:id="(esm/_Tsgitoj0Ee2u0fVmwtP5bA)/Unit" name="candela" symbol="cd"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_TsgibIj0Ee2u0fVmwtP5bA)/DerivedMeasure" name="Area">
+      <units xmi:id="(esm/_TsgibYj0Ee2u0fVmwtP5bA)/Unit" name="squareMillimetre" rateDividend="1.0E-6" symbol="mm²"/>
+      <units xmi:id="(esm/_Tsgiboj0Ee2u0fVmwtP5bA)/Unit" name="squareCentimetre" rateDividend="1.0E-4" symbol="cm²"/>
+      <units xmi:id="(esm/_Tsgib4j0Ee2u0fVmwtP5bA)/Unit" name="squareDecimetre" rateDividend="0.01" symbol="dm²"/>
+      <units xmi:id="(esm/_TsgicIj0Ee2u0fVmwtP5bA)/Unit" name="squareMetre" symbol="m²"/>
+      <units xmi:id="(esm/_TsgicYj0Ee2u0fVmwtP5bA)/Unit" name="hectare" rateDividend="10000.0" symbol="ha"/>
+      <units xmi:id="(esm/_Tsgicoj0Ee2u0fVmwtP5bA)/Unit" name="squareKilometre" rateDividend="1000000.0" symbol="km²"/>
+      <terms xmi:id="(esm/_Tsgic4j0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" exponent="2" unit="(esm/_TsgiZYj0Ee2u0fVmwtP5bA)/Unit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_TsgidIj0Ee2u0fVmwtP5bA)/DerivedMeasure" name="Volume">
+      <units xmi:id="(esm/_TsgidYj0Ee2u0fVmwtP5bA)/Unit" name="cubicMillimetre" rateDividend="1.0E-9" symbol="mm³"/>
+      <units xmi:id="(esm/_Tsgidoj0Ee2u0fVmwtP5bA)/Unit" name="cubicCentimetre" rateDividend="1.0E-6" symbol="cm³"/>
+      <units xmi:id="(esm/_Tsgid4j0Ee2u0fVmwtP5bA)/Unit" name="cubicDecimetre" rateDividend="0.001" symbol="dm³"/>
+      <units xmi:id="(esm/_TsgieIj0Ee2u0fVmwtP5bA)/Unit" name="cubicMetre" symbol="m³"/>
+      <units xmi:id="(esm/_TsgieYj0Ee2u0fVmwtP5bA)/Unit" name="millilitre" rateDividend="1.0E-6" symbol="ml"/>
+      <units xmi:id="(esm/_Tsgieoj0Ee2u0fVmwtP5bA)/Unit" name="centilitre" rateDividend="1.0E-5" symbol="cl"/>
+      <units xmi:id="(esm/_Tsgie4j0Ee2u0fVmwtP5bA)/Unit" name="decilitre" rateDividend="1.0E-4" symbol="dl"/>
+      <units xmi:id="(esm/_TsgifIj0Ee2u0fVmwtP5bA)/Unit" name="litre" rateDividend="0.001" symbol="l"/>
+      <units xmi:id="(esm/_TsgifYj0Ee2u0fVmwtP5bA)/Unit" name="hectolitre" rateDividend="0.1" symbol="hl"/>
+      <terms xmi:id="(esm/_Tsgifoj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" exponent="3" unit="(esm/_TsgiZYj0Ee2u0fVmwtP5bA)/Unit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_Tsgif4j0Ee2u0fVmwtP5bA)/DerivedMeasure" name="Velocity">
+      <units xmi:id="(esm/_TsgigIj0Ee2u0fVmwtP5bA)/Unit" name="kilometrePerHour" rateDivisor="3.6" symbol="km/h"/>
+      <units xmi:id="(esm/_TsgigYj0Ee2u0fVmwtP5bA)/Unit" name="metrePerSecond" symbol="m/s"/>
+      <terms xmi:id="(esm/_Tsgigoj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_TsgiZYj0Ee2u0fVmwtP5bA)/Unit"/>
+      <terms xmi:id="(esm/_Tsgig4j0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" exponent="-1" unit="(esm/_TsgiWoj0Ee2u0fVmwtP5bA)/DurationUnit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_TsgihIj0Ee2u0fVmwtP5bA)/DerivedMeasure" name="Acceleration">
+      <units xmi:id="(esm/_TsgihYj0Ee2u0fVmwtP5bA)/Unit" name="metrePerSecondSquared" symbol="m/s²"/>
+      <terms xmi:id="(esm/_Tsgihoj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_TsgigYj0Ee2u0fVmwtP5bA)/Unit"/>
+      <terms xmi:id="(esm/_Tsgih4j0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" exponent="-1" unit="(esm/_TsgiWoj0Ee2u0fVmwtP5bA)/DurationUnit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_TsgiiIj0Ee2u0fVmwtP5bA)/DerivedMeasure" name="Momentum">
+      <units xmi:id="(esm/_TsgiiYj0Ee2u0fVmwtP5bA)/Unit" name="kilogramMetrePerSecond" symbol="kg*m/s"/>
+      <terms xmi:id="(esm/_Tsgiioj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_TsgiVYj0Ee2u0fVmwtP5bA)/Unit"/>
+      <terms xmi:id="(esm/_Tsgii4j0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_TsgigYj0Ee2u0fVmwtP5bA)/Unit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_TsgijIj0Ee2u0fVmwtP5bA)/DerivedMeasure" name="Force">
+      <units xmi:id="(esm/_TsgijYj0Ee2u0fVmwtP5bA)/Unit" name="newton" symbol="N"/>
+      <terms xmi:id="(esm/_Tsgijoj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_TsgiVYj0Ee2u0fVmwtP5bA)/Unit"/>
+      <terms xmi:id="(esm/_Tsgij4j0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_TsgihYj0Ee2u0fVmwtP5bA)/Unit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_TsgikIj0Ee2u0fVmwtP5bA)/DerivedMeasure" name="Work">
+      <units xmi:id="(esm/_TsgikYj0Ee2u0fVmwtP5bA)/Unit" name="joule" symbol="J"/>
+      <units xmi:id="(esm/_Tsgikoj0Ee2u0fVmwtP5bA)/Unit" name="kilojoule" rateDividend="1000.0" symbol="kJ"/>
+      <units xmi:id="(esm/_Tsgik4j0Ee2u0fVmwtP5bA)/Unit" name="megajoule" rateDividend="1000000.0" symbol="MJ"/>
+      <units xmi:id="(esm/_TsgilIj0Ee2u0fVmwtP5bA)/Unit" name="watthour" rateDividend="3600.0"/>
+      <units xmi:id="(esm/_TsgilYj0Ee2u0fVmwtP5bA)/Unit" name="kilowatthour" rateDividend="3600000.0" symbol="kWh"/>
+      <terms xmi:id="(esm/_Tsgiloj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_TsgijYj0Ee2u0fVmwtP5bA)/Unit"/>
+      <terms xmi:id="(esm/_Tsgil4j0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_TsgiZYj0Ee2u0fVmwtP5bA)/Unit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_TsgimIj0Ee2u0fVmwtP5bA)/DerivedMeasure" name="Power">
+      <units xmi:id="(esm/_TsgimYj0Ee2u0fVmwtP5bA)/Unit" name="watt" symbol="W"/>
+      <units xmi:id="(esm/_Tsgimoj0Ee2u0fVmwtP5bA)/Unit" name="kilowatt" rateDividend="1000.0" symbol="kW"/>
+      <units xmi:id="(esm/_Tsgim4j0Ee2u0fVmwtP5bA)/Unit" name="megawatt" rateDividend="1000000.0" symbol="MW"/>
+      <terms xmi:id="(esm/_TsginIj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_TsgikYj0Ee2u0fVmwtP5bA)/Unit"/>
+      <terms xmi:id="(esm/_TsginYj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" exponent="-1" unit="(esm/_TsgiWoj0Ee2u0fVmwtP5bA)/DurationUnit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_Tsginoj0Ee2u0fVmwtP5bA)/DerivedMeasure" name="Frequency">
+      <units xmi:id="(esm/_Tsgin4j0Ee2u0fVmwtP5bA)/Unit" name="hertz" symbol="Hz"/>
+      <units xmi:id="(esm/_TsgioIj0Ee2u0fVmwtP5bA)/Unit" name="kilohertz" rateDividend="1000.0" symbol="kHz"/>
+      <units xmi:id="(esm/_TsgioYj0Ee2u0fVmwtP5bA)/Unit" name="megahertz" rateDividend="1000000.0" symbol="Mhz"/>
+      <units xmi:id="(esm/_Tsgiooj0Ee2u0fVmwtP5bA)/Unit" name="gigahertz" rateDividend="1.0E9" symbol="Ghz"/>
+      <terms xmi:id="(esm/_Tsgio4j0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" exponent="-1" unit="(esm/_TsgiWoj0Ee2u0fVmwtP5bA)/DurationUnit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_TsgipIj0Ee2u0fVmwtP5bA)/DerivedMeasure" name="Pressure">
+      <units xmi:id="(esm/_TsgipYj0Ee2u0fVmwtP5bA)/Unit" name="pascal" symbol="Pa"/>
+      <units xmi:id="(esm/_Tsgipoj0Ee2u0fVmwtP5bA)/Unit" name="hectopascal" rateDividend="100.0" symbol="hPa"/>
+      <terms xmi:id="(esm/_Tsgip4j0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_TsgijYj0Ee2u0fVmwtP5bA)/Unit"/>
+      <terms xmi:id="(esm/_TsgiqIj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" exponent="-1" unit="(esm/_TsgicIj0Ee2u0fVmwtP5bA)/Unit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_TsgiqYj0Ee2u0fVmwtP5bA)/DerivedMeasure" name="Density">
+      <units xmi:id="(esm/_Tsgiqoj0Ee2u0fVmwtP5bA)/Unit" name="kilogramPerCubicMetre" symbol="kg/m³"/>
+      <units xmi:id="(esm/_Tsgiq4j0Ee2u0fVmwtP5bA)/Unit" name="gramPerCubicCentimetre" rateDividend="1000.0" symbol="g/cm³"/>
+      <terms xmi:id="(esm/_TsgirIj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_TsgiVYj0Ee2u0fVmwtP5bA)/Unit"/>
+      <terms xmi:id="(esm/_TsgirYj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" exponent="-1" unit="(esm/_TsgieIj0Ee2u0fVmwtP5bA)/Unit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_Tsgit4j0Ee2u0fVmwtP5bA)/DerivedMeasure" name="ElectricCharge">
+      <units xmi:id="(esm/_TsgiuIj0Ee2u0fVmwtP5bA)/Unit" name="coulomb" symbol="C"/>
+      <terms xmi:id="(esm/_TsgiuYj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_TsgisIj0Ee2u0fVmwtP5bA)/Unit"/>
+      <terms xmi:id="(esm/_Tsgiuoj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_TsgiWoj0Ee2u0fVmwtP5bA)/DurationUnit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_Tsgiu4j0Ee2u0fVmwtP5bA)/DerivedMeasure" name="ElectricPotential">
+      <units xmi:id="(esm/_TsgivIj0Ee2u0fVmwtP5bA)/Unit" name="volt" symbol="V"/>
+      <units xmi:id="(esm/_TsgivYj0Ee2u0fVmwtP5bA)/Unit" name="kilovolt" rateDividend="1000.0" symbol="kV"/>
+      <terms xmi:id="(esm/_Tsgivoj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_TsgikYj0Ee2u0fVmwtP5bA)/Unit"/>
+      <terms xmi:id="(esm/_Tsgiv4j0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" exponent="-1" unit="(esm/_TsgiuIj0Ee2u0fVmwtP5bA)/Unit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_TsgiwIj0Ee2u0fVmwtP5bA)/DerivedMeasure" name="Capacitance">
+      <units xmi:id="(esm/_TsgiwYj0Ee2u0fVmwtP5bA)/Unit" name="pikofarad" rateDividend="1.0E-12" symbol="pF"/>
+      <units xmi:id="(esm/_Tsgiwoj0Ee2u0fVmwtP5bA)/Unit" name="nanofarad" rateDividend="1.0E-9" symbol="nF"/>
+      <units xmi:id="(esm/_Tsgiw4j0Ee2u0fVmwtP5bA)/Unit" name="microfarad" rateDividend="1.0E-6" symbol="μF"/>
+      <units xmi:id="(esm/_TsgixIj0Ee2u0fVmwtP5bA)/Unit" name="farad" symbol="F"/>
+      <terms xmi:id="(esm/_TsgixYj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_TsgiuIj0Ee2u0fVmwtP5bA)/Unit"/>
+      <terms xmi:id="(esm/_Tsgixoj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" exponent="-1" unit="(esm/_TsgivIj0Ee2u0fVmwtP5bA)/Unit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_Tsgix4j0Ee2u0fVmwtP5bA)/DerivedMeasure" name="ElectricalResistance">
+      <units xmi:id="(esm/_TsgiyIj0Ee2u0fVmwtP5bA)/Unit" name="microohm" rateDividend="1.0E-6" symbol="μΩ"/>
+      <units xmi:id="(esm/_TsgiyYj0Ee2u0fVmwtP5bA)/Unit" name="milliohm" rateDividend="0.001" symbol="mΩ"/>
+      <units xmi:id="(esm/_Tsgiyoj0Ee2u0fVmwtP5bA)/Unit" name="ohm" symbol="Ω"/>
+      <terms xmi:id="(esm/_Tsgiy4j0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_TsgivIj0Ee2u0fVmwtP5bA)/Unit"/>
+      <terms xmi:id="(esm/_TsgizIj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" exponent="-1" unit="(esm/_TsgisIj0Ee2u0fVmwtP5bA)/Unit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_TsgizYj0Ee2u0fVmwtP5bA)/DerivedMeasure" name="ElectricalConductance">
+      <units xmi:id="(esm/_Tsgizoj0Ee2u0fVmwtP5bA)/Unit" name="siemens" symbol="S"/>
+      <terms xmi:id="(esm/_Tsgiz4j0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" exponent="-1" unit="(esm/_Tsgiyoj0Ee2u0fVmwtP5bA)/Unit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_Tsgi0Ij0Ee2u0fVmwtP5bA)/DerivedMeasure" name="MagneticFlux">
+      <units xmi:id="(esm/_Tsgi0Yj0Ee2u0fVmwtP5bA)/Unit" name="weber" symbol="Wb"/>
+      <terms xmi:id="(esm/_Tsgi0oj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_TsgivIj0Ee2u0fVmwtP5bA)/Unit"/>
+      <terms xmi:id="(esm/_Tsgi04j0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_TsgiWoj0Ee2u0fVmwtP5bA)/DurationUnit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_Tsgi1Ij0Ee2u0fVmwtP5bA)/DerivedMeasure" name="MagneticFluxDensity">
+      <units xmi:id="(esm/_Tsgi1Yj0Ee2u0fVmwtP5bA)/Unit" name="tesla" symbol="T"/>
+      <terms xmi:id="(esm/_Tsgi1oj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_Tsgi0Yj0Ee2u0fVmwtP5bA)/Unit"/>
+      <terms xmi:id="(esm/_Tsgi14j0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" exponent="-1" unit="(esm/_TsgicIj0Ee2u0fVmwtP5bA)/Unit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_Tsgi2Ij0Ee2u0fVmwtP5bA)/DerivedMeasure" name="Inductance">
+      <units xmi:id="(esm/_Tsgi2Yj0Ee2u0fVmwtP5bA)/Unit" name="henry" symbol="H"/>
+      <terms xmi:id="(esm/_Tsgi2oj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_Tsgi0Yj0Ee2u0fVmwtP5bA)/Unit"/>
+      <terms xmi:id="(esm/_Tsgi24j0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" exponent="-1" unit="(esm/_TsgisIj0Ee2u0fVmwtP5bA)/Unit"/>
+    </elements>
+    <elements xsi:type="measure:DerivedMeasure" xmi:id="(esm/_Tsgi3Ij0Ee2u0fVmwtP5bA)/DerivedMeasure" name="Illuminance">
+      <units xmi:id="(esm/_Tsgi3Yj0Ee2u0fVmwtP5bA)/Unit" name="lux" symbol="lx"/>
+      <terms xmi:id="(esm/_Tsgi3oj0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" unit="(esm/_Tsgitoj0Ee2u0fVmwtP5bA)/Unit"/>
+      <terms xmi:id="(esm/_Tsgi34j0Ee2u0fVmwtP5bA)/MeasureDefinitionTerm" exponent="-1" unit="(esm/_TsgicIj0Ee2u0fVmwtP5bA)/Unit"/>
+    </elements>
+  </packages>
+  <packages xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/ExtensionPackage" name="_extension">
+    <elements xsi:type="type:EnumerationType" xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QueryOrderingEnumeration" name="_OrderingAttributeDebate">
+      <members xmi:id="(esm/_cd44a4j0Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember" name="title"/>
+      <members xmi:id="(esm/_cd44bYj0Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember" name="description" ordinal="1"/>
+    </elements>
+    <elements xsi:type="type:BooleanType" xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedBooleanType" name="_BooleanType"/>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QueryOrderingType" name="_OrderingTypeDebate" queryCustomizer="true">
+      <attributes xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QueryOrderingType/Attribute" name="attribute" required="true" dataType="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QueryOrderingEnumeration"/>
+      <attributes xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QueryOrderingType/Descending" name="descending" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedBooleanType"/>
+    </elements>
+    <elements xsi:type="type:NumericType" xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedIntegerType" name="_IntegerType" precision="9"/>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QuerySeekingType" name="_SeekDebate" queryCustomizer="true">
+      <relations xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
+        <cardinality xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QuerySeekingType/LastItem/Cardinality"/>
+      </relations>
+      <attributes xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedIntegerType"/>
+      <attributes xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QuerySeekingType/Offset" name="offset" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedIntegerType"/>
+      <attributes xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QuerySeekingType/Reverse" name="reverse" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedBooleanType"/>
+    </elements>
+    <elements xsi:type="type:StringType" xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType" name="_StringType" maxLength="65536"/>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QueryCustomizerType" name="_QueryCustomizerDebate" queryCustomizer="true">
+      <relations xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/OrderBy" name="_orderBy" target="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QueryOrderingType" embedded="true">
+        <cardinality xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/OrderBy/Cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/Seek" name="_seek" target="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QuerySeekingType" embedded="true">
+        <cardinality xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/Seek/Cardinality"/>
+      </relations>
+      <relations xmi:id="(esm/_cd44a4j0Ee2u0fVmwtP5bA)/QueryCustomizerAttribute" name="title" target="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="(esm/_cd44a4j0Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(esm/_cd44bYj0Ee2u0fVmwtP5bA)/QueryCustomizerAttribute" name="description" target="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="(esm/_cd44bYj0Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality" upper="-1"/>
+      </relations>
+      <attributes xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/Mask" name="_mask" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+      <attributes xmi:id="(esm/_cd44YIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/InstanceId" name="_identifier" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+    </elements>
+    <elements xsi:type="type:EnumerationType" xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryOrderingEnumeration" name="_OrderingAttributePro">
+      <members xmi:id="((esm/_ceBbSYj0Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryOrderingEnumeration)" name="title"/>
+      <members xmi:id="((esm/_ceBbS4j0Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryOrderingEnumeration)" name="description" ordinal="1"/>
+      <members xmi:id="((esm/_AW_NMIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryOrderingEnumeration)" name="voteUpCount" ordinal="2"/>
+      <members xmi:id="((esm/_CeHRwIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryOrderingEnumeration)" name="voteDownCount" ordinal="3"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryOrderingType" name="_OrderingTypePro" queryCustomizer="true">
+      <attributes xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryOrderingType/Attribute" name="attribute" required="true" dataType="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryOrderingEnumeration"/>
+      <attributes xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryOrderingType/Descending" name="descending" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedBooleanType"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QuerySeekingType" name="_SeekPro" queryCustomizer="true">
+      <relations xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
+        <cardinality xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QuerySeekingType/LastItem/Cardinality"/>
+      </relations>
+      <attributes xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedIntegerType"/>
+      <attributes xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QuerySeekingType/Offset" name="offset" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedIntegerType"/>
+      <attributes xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QuerySeekingType/Reverse" name="reverse" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedBooleanType"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryCustomizerType" name="_QueryCustomizerPro" queryCustomizer="true">
+      <relations xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/OrderBy" name="_orderBy" target="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryOrderingType" embedded="true">
+        <cardinality xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/OrderBy/Cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/Seek" name="_seek" target="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QuerySeekingType" embedded="true">
+        <cardinality xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/Seek/Cardinality"/>
+      </relations>
+      <relations xmi:id="((esm/_ceBbSYj0Ee2u0fVmwtP5bA)/QueryCustomizerAttribute)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryCustomizerType)" name="title" target="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="((esm/_ceBbSYj0Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryCustomizerType)" upper="-1"/>
+      </relations>
+      <relations xmi:id="((esm/_ceBbS4j0Ee2u0fVmwtP5bA)/QueryCustomizerAttribute)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryCustomizerType)" name="description" target="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="((esm/_ceBbS4j0Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryCustomizerType)" upper="-1"/>
+      </relations>
+      <relations xmi:id="((esm/_AW_NMIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryCustomizerType)" name="voteUpCount" target="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="((esm/_AW_NMIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryCustomizerType)" upper="-1"/>
+      </relations>
+      <relations xmi:id="((esm/_CeHRwIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryCustomizerType)" name="voteDownCount" target="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="((esm/_CeHRwIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality)_((esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryCustomizerType)" upper="-1"/>
+      </relations>
+      <attributes xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/Mask" name="_mask" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+      <attributes xmi:id="(esm/_cd_mEIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/InstanceId" name="_identifier" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+    </elements>
+    <elements xsi:type="type:EnumerationType" xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryOrderingEnumeration" name="_OrderingAttributeArgument">
+      <members xmi:id="(esm/_ceBbSYj0Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember" name="title"/>
+      <members xmi:id="(esm/_ceBbS4j0Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember" name="description" ordinal="1"/>
+      <members xmi:id="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember" name="voteUpCount" ordinal="2"/>
+      <members xmi:id="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember" name="voteDownCount" ordinal="3"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryOrderingType" name="_OrderingTypeArgument" queryCustomizer="true">
+      <attributes xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryOrderingType/Attribute" name="attribute" required="true" dataType="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryOrderingEnumeration"/>
+      <attributes xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryOrderingType/Descending" name="descending" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedBooleanType"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QuerySeekingType" name="_SeekArgument" queryCustomizer="true">
+      <relations xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
+        <cardinality xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QuerySeekingType/LastItem/Cardinality"/>
+      </relations>
+      <attributes xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedIntegerType"/>
+      <attributes xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QuerySeekingType/Offset" name="offset" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedIntegerType"/>
+      <attributes xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QuerySeekingType/Reverse" name="reverse" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedBooleanType"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryCustomizerType" name="_QueryCustomizerArgument" queryCustomizer="true">
+      <relations xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/OrderBy" name="_orderBy" target="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryOrderingType" embedded="true">
+        <cardinality xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/OrderBy/Cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/Seek" name="_seek" target="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QuerySeekingType" embedded="true">
+        <cardinality xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/Seek/Cardinality"/>
+      </relations>
+      <relations xmi:id="(esm/_ceBbSYj0Ee2u0fVmwtP5bA)/QueryCustomizerAttribute" name="title" target="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="(esm/_ceBbSYj0Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(esm/_ceBbS4j0Ee2u0fVmwtP5bA)/QueryCustomizerAttribute" name="description" target="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="(esm/_ceBbS4j0Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute" name="voteUpCount" target="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="(esm/_AW_NMIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute" name="voteDownCount" target="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="(esm/_CeHRwIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality" upper="-1"/>
+      </relations>
+      <attributes xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/Mask" name="_mask" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+      <attributes xmi:id="(esm/_ceBbQIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/InstanceId" name="_identifier" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+    </elements>
+    <elements xsi:type="type:EnumerationType" xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryOrderingEnumeration" name="_OrderingAttributeCon">
+      <members xmi:id="((esm/_ceBbSYj0Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryOrderingEnumeration)" name="title"/>
+      <members xmi:id="((esm/_ceBbS4j0Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryOrderingEnumeration)" name="description" ordinal="1"/>
+      <members xmi:id="((esm/_AW_NMIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryOrderingEnumeration)" name="voteUpCount" ordinal="2"/>
+      <members xmi:id="((esm/_CeHRwIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryOrderingEnumeration)" name="voteDownCount" ordinal="3"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryOrderingType" name="_OrderingTypeCon" queryCustomizer="true">
+      <attributes xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryOrderingType/Attribute" name="attribute" required="true" dataType="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryOrderingEnumeration"/>
+      <attributes xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryOrderingType/Descending" name="descending" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedBooleanType"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QuerySeekingType" name="_SeekCon" queryCustomizer="true">
+      <relations xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
+        <cardinality xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QuerySeekingType/LastItem/Cardinality"/>
+      </relations>
+      <attributes xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedIntegerType"/>
+      <attributes xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QuerySeekingType/Offset" name="offset" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedIntegerType"/>
+      <attributes xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QuerySeekingType/Reverse" name="reverse" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedBooleanType"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryCustomizerType" name="_QueryCustomizerCon" queryCustomizer="true">
+      <relations xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/OrderBy" name="_orderBy" target="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryOrderingType" embedded="true">
+        <cardinality xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/OrderBy/Cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/Seek" name="_seek" target="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QuerySeekingType" embedded="true">
+        <cardinality xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/Seek/Cardinality"/>
+      </relations>
+      <relations xmi:id="((esm/_ceBbSYj0Ee2u0fVmwtP5bA)/QueryCustomizerAttribute)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryCustomizerType)" name="title" target="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="((esm/_ceBbSYj0Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryCustomizerType)" upper="-1"/>
+      </relations>
+      <relations xmi:id="((esm/_ceBbS4j0Ee2u0fVmwtP5bA)/QueryCustomizerAttribute)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryCustomizerType)" name="description" target="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="((esm/_ceBbS4j0Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryCustomizerType)" upper="-1"/>
+      </relations>
+      <relations xmi:id="((esm/_AW_NMIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryCustomizerType)" name="voteUpCount" target="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="((esm/_AW_NMIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryCustomizerType)" upper="-1"/>
+      </relations>
+      <relations xmi:id="((esm/_CeHRwIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryCustomizerType)" name="voteDownCount" target="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="((esm/_CeHRwIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality)_((esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryCustomizerType)" upper="-1"/>
+      </relations>
+      <attributes xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/Mask" name="_mask" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+      <attributes xmi:id="(esm/_ceEekIj0Ee2u0fVmwtP5bA)/QueryCustomizerType/InstanceId" name="_identifier" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+    </elements>
+    <elements xsi:type="type:EnumerationType" xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumeration" name="_OrderingAttributeProTO">
+      <members xmi:id="(esm/_PV3nUIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember" name="title"/>
+      <members xmi:id="(esm/_PV6qoIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember" name="description" ordinal="1"/>
+      <members xmi:id="(esm/_PV9G4Ij2Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember" name="voteUpCount" ordinal="2"/>
+      <members xmi:id="(esm/_PV-8EIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember" name="voteDownCount" ordinal="3"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryOrderingType" name="_OrderingTypeProTO" queryCustomizer="true">
+      <attributes xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryOrderingType/Attribute" name="attribute" required="true" dataType="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumeration"/>
+      <attributes xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryOrderingType/Descending" name="descending" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedBooleanType"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QuerySeekingType" name="_SeekProTO" queryCustomizer="true">
+      <relations xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType" embedded="true">
+        <cardinality xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QuerySeekingType/LastItem/Cardinality"/>
+      </relations>
+      <attributes xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedIntegerType"/>
+      <attributes xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QuerySeekingType/Offset" name="offset" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedIntegerType"/>
+      <attributes xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QuerySeekingType/Reverse" name="reverse" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedBooleanType"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryCustomizerType" name="_QueryCustomizerProTO" queryCustomizer="true">
+      <relations xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryCustomizerType/OrderBy" name="_orderBy" target="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryOrderingType" embedded="true">
+        <cardinality xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryCustomizerType/OrderBy/Cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryCustomizerType/Seek" name="_seek" target="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QuerySeekingType" embedded="true">
+        <cardinality xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryCustomizerType/Seek/Cardinality"/>
+      </relations>
+      <relations xmi:id="(esm/_PV3nUIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute" name="title" target="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="(esm/_PV3nUIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(esm/_PV6qoIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute" name="description" target="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="(esm/_PV6qoIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(esm/_PV9G4Ij2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute" name="voteUpCount" target="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="(esm/_PV9G4Ij2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(esm/_PV-8EIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute" name="voteDownCount" target="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="(esm/_PV-8EIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality" upper="-1"/>
+      </relations>
+      <attributes xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryCustomizerType/Mask" name="_mask" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+      <attributes xmi:id="(esm/_PVqzAIj2Ee2u0fVmwtP5bA)/QueryCustomizerType/InstanceId" name="_identifier" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+    </elements>
+    <elements xsi:type="type:EnumerationType" xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumeration" name="_OrderingAttributeConTO">
+      <members xmi:id="(esm/_SSrWsIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember" name="title"/>
+      <members xmi:id="(esm/_SSuaAIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember" name="description" ordinal="1"/>
+      <members xmi:id="(esm/_SSxdUIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember" name="voteUpCount" ordinal="2"/>
+      <members xmi:id="(esm/_SSz5kIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember" name="voteDownCount" ordinal="3"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryOrderingType" name="_OrderingTypeConTO" queryCustomizer="true">
+      <attributes xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryOrderingType/Attribute" name="attribute" required="true" dataType="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumeration"/>
+      <attributes xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryOrderingType/Descending" name="descending" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedBooleanType"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QuerySeekingType" name="_SeekConTO" queryCustomizer="true">
+      <relations xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType" embedded="true">
+        <cardinality xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QuerySeekingType/LastItem/Cardinality"/>
+      </relations>
+      <attributes xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedIntegerType"/>
+      <attributes xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QuerySeekingType/Offset" name="offset" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedIntegerType"/>
+      <attributes xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QuerySeekingType/Reverse" name="reverse" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedBooleanType"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryCustomizerType" name="_QueryCustomizerConTO" queryCustomizer="true">
+      <relations xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryCustomizerType/OrderBy" name="_orderBy" target="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryOrderingType" embedded="true">
+        <cardinality xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryCustomizerType/OrderBy/Cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryCustomizerType/Seek" name="_seek" target="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QuerySeekingType" embedded="true">
+        <cardinality xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryCustomizerType/Seek/Cardinality"/>
+      </relations>
+      <relations xmi:id="(esm/_SSrWsIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute" name="title" target="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="(esm/_SSrWsIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(esm/_SSuaAIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute" name="description" target="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="(esm/_SSuaAIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(esm/_SSxdUIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute" name="voteUpCount" target="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="(esm/_SSxdUIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(esm/_SSz5kIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute" name="voteDownCount" target="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="(esm/_SSz5kIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality" upper="-1"/>
+      </relations>
+      <attributes xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryCustomizerType/Mask" name="_mask" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+      <attributes xmi:id="(esm/_SSfJcIj2Ee2u0fVmwtP5bA)/QueryCustomizerType/InstanceId" name="_identifier" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+    </elements>
+    <elements xsi:type="type:EnumerationType" xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumeration" name="_OrderingAttributeDebateTO">
+      <members xmi:id="(esm/_VhfcEIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember" name="title"/>
+      <members xmi:id="(esm/_VhifYIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumerationMember" name="description" ordinal="1"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QueryOrderingType" name="_OrderingTypeDebateTO" queryCustomizer="true">
+      <attributes xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QueryOrderingType/Attribute" name="attribute" required="true" dataType="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QueryOrderingEnumeration"/>
+      <attributes xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QueryOrderingType/Descending" name="descending" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedBooleanType"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QuerySeekingType" name="_SeekDebateTO" queryCustomizer="true">
+      <relations xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/MappedTransferObjectType" embedded="true">
+        <cardinality xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QuerySeekingType/LastItem/Cardinality"/>
+      </relations>
+      <attributes xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedIntegerType"/>
+      <attributes xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QuerySeekingType/Offset" name="offset" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedIntegerType"/>
+      <attributes xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QuerySeekingType/Reverse" name="reverse" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedBooleanType"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QueryCustomizerType" name="_QueryCustomizerDebateTO" queryCustomizer="true">
+      <relations xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QueryCustomizerType/OrderBy" name="_orderBy" target="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QueryOrderingType" embedded="true">
+        <cardinality xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QueryCustomizerType/OrderBy/Cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QueryCustomizerType/Seek" name="_seek" target="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QuerySeekingType" embedded="true">
+        <cardinality xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QueryCustomizerType/Seek/Cardinality"/>
+      </relations>
+      <relations xmi:id="(esm/_VhfcEIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute" name="title" target="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="(esm/_VhfcEIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality" upper="-1"/>
+      </relations>
+      <relations xmi:id="(esm/_VhifYIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute" name="description" target="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/QueryFilterType" embedded="true">
+        <cardinality xmi:id="(esm/_VhifYIj2Ee2u0fVmwtP5bA)/QueryCustomizerAttribute/Cardinality" upper="-1"/>
+      </relations>
+      <attributes xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QueryCustomizerType/Mask" name="_mask" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+      <attributes xmi:id="(esm/_VhRZoIj2Ee2u0fVmwtP5bA)/QueryCustomizerType/InstanceId" name="_identifier" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/AutoGeneratedStringType"/>
+    </elements>
+    <elements xsi:type="type:EnumerationType" xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/StringOperationEnumeration" name="_StringOperation">
+      <members xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/StringOperationEnumeration/LessThan" name="lessThan"/>
+      <members xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/StringOperationEnumeration/GreaterThan" name="greaterThan" ordinal="1"/>
+      <members xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/StringOperationEnumeration/LessOrEqual" name="lessOrEqual" ordinal="2"/>
+      <members xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/StringOperationEnumeration/GreaterOrEqual" name="greaterOrEqual" ordinal="3"/>
+      <members xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/StringOperationEnumeration/Equal" name="equal" ordinal="4"/>
+      <members xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/StringOperationEnumeration/NotEqual" name="notEqual" ordinal="5"/>
+      <members xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/StringOperationEnumeration/Matches" name="matches" ordinal="6"/>
+      <members xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/StringOperationEnumeration/Like" name="like" ordinal="7"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/QueryFilterType" name="_FilterByString" queryCustomizer="true">
+      <attributes xmi:id="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/QueryFilterType/Operator" name="operator" required="true" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/StringOperationEnumeration"/>
+      <attributes xmi:id="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/QueryFilterType/Value" name="value" required="true" dataType="(esm/_Tsf7Qoj0Ee2u0fVmwtP5bA)/StringType"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/QueryFilterType" name="_FilterByText" queryCustomizer="true">
+      <attributes xmi:id="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/QueryFilterType/Operator" name="operator" required="true" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/StringOperationEnumeration"/>
+      <attributes xmi:id="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/QueryFilterType/Value" name="value" required="true" dataType="(esm/_Tsf7TIj0Ee2u0fVmwtP5bA)/StringType"/>
+    </elements>
+    <elements xsi:type="type:EnumerationType" xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/NumericOperationEnumeration" name="_NumericOperation">
+      <members xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/NumericOperationEnumeration/LessThan" name="lessThan"/>
+      <members xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/NumericOperationEnumeration/GreaterThan" name="greaterThan" ordinal="1"/>
+      <members xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/NumericOperationEnumeration/LessOrEqual" name="lessOrEqual" ordinal="2"/>
+      <members xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/NumericOperationEnumeration/GreaterOrEqual" name="greaterOrEqual" ordinal="3"/>
+      <members xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/NumericOperationEnumeration/Equal" name="equal" ordinal="4"/>
+      <members xmi:id="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/NumericOperationEnumeration/NotEqual" name="notEqual" ordinal="5"/>
+    </elements>
+    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/QueryFilterType" name="_FilterByInteger" queryCustomizer="true">
+      <attributes xmi:id="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/QueryFilterType/Operator" name="operator" required="true" dataType="(esm/_Tsf7QIj0Ee2u0fVmwtP5bA)/NumericOperationEnumeration"/>
+      <attributes xmi:id="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/QueryFilterType/Value" name="value" required="true" dataType="(esm/_Tsf7RIj0Ee2u0fVmwtP5bA)/NumericType"/>
+    </elements>
+  </packages>
+</namespace:Model>
