@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<namespace:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:accesspoint="http://blackbelt.hu/judo/meta/psm/accesspoint" xmlns:data="http://blackbelt.hu/judo/meta/psm/data" xmlns:derived="http://blackbelt.hu/judo/meta/psm/derived" xmlns:measure="http://blackbelt.hu/judo/meta/psm/measure" xmlns:namespace="http://blackbelt.hu/judo/meta/psm/namespace" xmlns:service="http://blackbelt.hu/judo/meta/psm/service" xmlns:type="http://blackbelt.hu/judo/meta/psm/type" xsi:schemaLocation="http://blackbelt.hu/judo/meta/psm/accesspoint http://blackbelt.hu/judo/meta/psm#//accesspoint http://blackbelt.hu/judo/meta/psm/data http://blackbelt.hu/judo/meta/psm#//data http://blackbelt.hu/judo/meta/psm/derived http://blackbelt.hu/judo/meta/psm#//derived http://blackbelt.hu/judo/meta/psm/measure http://blackbelt.hu/judo/meta/psm#//measure http://blackbelt.hu/judo/meta/psm/namespace http://blackbelt.hu/judo/meta/psm#//namespace http://blackbelt.hu/judo/meta/psm/service http://blackbelt.hu/judo/meta/psm#//service http://blackbelt.hu/judo/meta/psm/type http://blackbelt.hu/judo/meta/psm#//type" xmi:id="(esm/_JYjAEOq1EemUZMITjXqp8w)/Model" name="northwind" version="1.1.0.20230412_152959_SNAPSHOT">
+<namespace:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:accesspoint="http://blackbelt.hu/judo/meta/psm/accesspoint" xmlns:data="http://blackbelt.hu/judo/meta/psm/data" xmlns:derived="http://blackbelt.hu/judo/meta/psm/derived" xmlns:measure="http://blackbelt.hu/judo/meta/psm/measure" xmlns:namespace="http://blackbelt.hu/judo/meta/psm/namespace" xmlns:service="http://blackbelt.hu/judo/meta/psm/service" xmlns:type="http://blackbelt.hu/judo/meta/psm/type" xsi:schemaLocation="http://blackbelt.hu/judo/meta/psm/accesspoint http://blackbelt.hu/judo/meta/psm#//accesspoint http://blackbelt.hu/judo/meta/psm/data http://blackbelt.hu/judo/meta/psm#//data http://blackbelt.hu/judo/meta/psm/derived http://blackbelt.hu/judo/meta/psm#//derived http://blackbelt.hu/judo/meta/psm/measure http://blackbelt.hu/judo/meta/psm#//measure http://blackbelt.hu/judo/meta/psm/namespace http://blackbelt.hu/judo/meta/psm#//namespace http://blackbelt.hu/judo/meta/psm/service http://blackbelt.hu/judo/meta/psm#//service http://blackbelt.hu/judo/meta/psm/type http://blackbelt.hu/judo/meta/psm#//type" xmi:id="(esm/_JYjAEOq1EemUZMITjXqp8w)/Model" name="northwind" version="1.1.0.20240815_131512_SNAPSHOT">
   <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_sRGxO_KfEeqHK7TZJcAcOA)/MappedTransferObjectType" name="AuthInternalAP" actorType="(esm/_CCO9J_0SEeqnGJV9BO3mwA)/MappedActorType" entityType="(esm/_JYmqgOq1EemUZMITjXqp8w)/EntityType">
     <relations xmi:id="(esm/_CCOWGP0SEeqnGJV9BO3mwA)/TransferObjectRelationFromRelationOrProperty" name="allInternationalOrders" binding="(esm/_CCOWGP0SEeqnGJV9BO3mwA)/NavigationPropertyForTransferObjectRelationBinding" target="(esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType" embeddedUpdate="true" embeddedDelete="true">
       <cardinality xmi:id="(esm/_CCOWGP0SEeqnGJV9BO3mwA)/CardinalityForReferenceTypedElement" upper="-1"/>
@@ -269,6 +269,15 @@
         <cardinality xmi:id="(esm/_CCO9Kv0SEeqnGJV9BO3mwA)/ValidateCreateUnboundOperationForAccess/Input/Cardinality" lower="1"/>
       </input>
       <behaviour xmi:id="(esm/_CCO9Kv0SEeqnGJV9BO3mwA)/ValidateCreateUnboundOperationForAccess/Behaviour" behaviourType="VALIDATE_CREATE" owner="(esm/_CCO9Kv0SEeqnGJV9BO3mwA)/AccessTransferObjectRelationWithoutBinding"/>
+    </operations>
+    <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_CCO9Kf0SEeqnGJV9BO3mwA)/ExportUnboundOperation" name="_exportAllInternationalOrders">
+      <output xmi:id="(esm/_CCO9Kf0SEeqnGJV9BO3mwA)/ExportUnboundOperation/Output" name="output" type="(esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType">
+        <cardinality xmi:id="(esm/_CCO9Kf0SEeqnGJV9BO3mwA)/ExportUnboundOperation/Output/Cardinality" upper="-1"/>
+      </output>
+      <input xmi:id="(esm/_CCO9Kf0SEeqnGJV9BO3mwA)/ExportUnboundOperation/Input" name="input" type="(esm/_s8DTzP8MEem4dONaAfrVDg)/QueryCustomizerType">
+        <cardinality xmi:id="(esm/_CCO9Kf0SEeqnGJV9BO3mwA)/ExportUnboundOperation/Input/Cardinality"/>
+      </input>
+      <behaviour xmi:id="(esm/_CCO9Kf0SEeqnGJV9BO3mwA)/ExportUnboundOperation/Behaviour" behaviourType="EXPORT" owner="(esm/_CCO9Kf0SEeqnGJV9BO3mwA)/AccessTransferObjectRelationWithoutBinding"/>
     </operations>
   </elements>
   <elements xsi:type="accesspoint:MappedActorType" xmi:id="(esm/_CCO9MP0SEeqnGJV9BO3mwA)/MappedActorType" name="Admin" transferObjectType="(esm/_sRGKK_KfEeqHK7TZJcAcOA)/MappedTransferObjectType" realm="sandbox" kind="HUMAN" entityType="(esm/_JYmqgOq1EemUZMITjXqp8w)/EntityType" managed="true">
@@ -1284,6 +1293,22 @@
           <cardinality xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/ListOperationForRelation/Input/Cardinality"/>
         </input>
       </operations>
+      <operations xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/CreateOperationForRelationFeature" name="_createInstanceCategoryForNorthwind_services_ProductInfo" instanceRepresentation="(esm/_s8D6-P8MEem4dONaAfrVDg)/MappedTransferObjectType">
+        <output xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/CreateOperationForRelationFeature/Output" name="output" type="(esm/_JYpGxeq1EemUZMITjXqp8w)/MappedTransferObjectType">
+          <cardinality xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/CreateOperationForRelationFeature/Output/Cardinality" lower="1"/>
+        </output>
+        <input xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/CreateOperationForRelationFeature/Input" name="input" type="(esm/_JYpGxeq1EemUZMITjXqp8w)/MappedTransferObjectType">
+          <cardinality xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/CreateOperationForRelationFeature/Input/Cardinality" lower="1"/>
+        </input>
+      </operations>
+      <operations xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/ValidateCreateOperationForRelationFeature" name="_validateCreateInstanceCategoryForNorthwind_services_ProductInfo" instanceRepresentation="(esm/_s8D6-P8MEem4dONaAfrVDg)/MappedTransferObjectType">
+        <output xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/ValidateCreateOperationForRelationFeature/Output" name="output" type="(esm/_JYpGxeq1EemUZMITjXqp8w)/MappedTransferObjectType">
+          <cardinality xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/ValidateCreateOperationForRelationFeature/Output/Cardinality" lower="1"/>
+        </output>
+        <input xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/ValidateCreateOperationForRelationFeature/Input" name="input" type="(esm/_JYpGxeq1EemUZMITjXqp8w)/MappedTransferObjectType">
+          <cardinality xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/ValidateCreateOperationForRelationFeature/Input/Cardinality" lower="1"/>
+        </input>
+      </operations>
       <operations xmi:id="(esm/_JYofpOq1EemUZMITjXqp8w)/RefreshOperationForTransferObjectType" name="_refreshInstanceForNorthwind_entities_Product" instanceRepresentation="(esm/_JYofpOq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity">
         <output xmi:id="(esm/_JYofpOq1EemUZMITjXqp8w)/RefreshOperationForTransferObjectType/Output" name="output" type="(esm/_JYofpOq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity">
           <cardinality xmi:id="(esm/_JYofpOq1EemUZMITjXqp8w)/RefreshOperationForTransferObjectType/Output/Cardinality" lower="1"/>
@@ -2020,6 +2045,15 @@
           </input>
           <behaviour xmi:id="(esm/_JYnRrOq1EemUZMITjXqp8w)/RefreshTransferOperationForTransferObjectType/Behaviour" behaviourType="REFRESH" owner="(esm/_JYnRrOq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity"/>
         </operations>
+        <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation" name="_validateOperationInputForChangeShipment">
+          <output xmi:id="(esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Output" name="output" type="(esm/_s8Eh_f8MEem4dONaAfrVDg)/UnmappedTransferObjectType">
+            <cardinality xmi:id="(esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Output/Cardinality" lower="1"/>
+          </output>
+          <input xmi:id="(esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Input" name="input" type="(esm/_s8Eh_f8MEem4dONaAfrVDg)/UnmappedTransferObjectType">
+            <cardinality xmi:id="(esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Input/Cardinality" lower="1"/>
+          </input>
+          <behaviour xmi:id="(esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Behaviour" behaviourType="VALIDATE_OPERATION_INPUT" owner="(esm/_sRB4vvKfEeqHK7TZJcAcOA)/BoundTransferOperationInDefaultTransferObjectType"/>
+        </operations>
       </elements>
       <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYnRjeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" name="InternationalOrder" entityType="(esm/_JYnRjeq1EemUZMITjXqp8w)/EntityType">
         <relations xmi:id="((esm/_JYnRsOq1EemUZMITjXqp8w)/TransferObjectRelationForDefaultTransferObjectTypeFromOneWayRelationMemberContainment)_((esm/_JYnRjeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" name="shipAddress" binding="(esm/_JYnRsOq1EemUZMITjXqp8w)/Containment" target="(esm/_JYmDYeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
@@ -2063,8 +2097,8 @@
           <behaviour xmi:id="(esm/_JYnRjeq1EemUZMITjXqp8w)/RefreshTransferOperationForTransferObjectType/Behaviour" behaviourType="REFRESH" owner="(esm/_JYnRjeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity"/>
         </operations>
         <operations xsi:type="service:BoundTransferOperation" xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/BoundTransferOperationInDefaultTransferObjectType)_((esm/_JYnRjeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" name="changeShipment" binding="(esm/_sRB4vvKfEeqHK7TZJcAcOA)/BoundOperation">
-          <faults xmi:id="_IbpD8dk2Ee2RAqY6GR8zuw" name="fault" type="(esm/_oWVh0CgLEeyt0OOGdqq6_A)/UnmappedTransferObjectType">
-            <cardinality xmi:id="_IbpD8tk2Ee2RAqY6GR8zuw" lower="1"/>
+          <faults xmi:id="_pdIAgVr3Ee-Hh7g63esTHQ" name="fault" type="(esm/_oWVh0CgLEeyt0OOGdqq6_A)/UnmappedTransferObjectType">
+            <cardinality xmi:id="_pdIAglr3Ee-Hh7g63esTHQ" lower="1"/>
           </faults>
           <output xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/BoundTransferOperationInDefaultTransferObjectType/Output)_((esm/_JYnRjeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" name="output" type="(esm/_s8FI9f8MEem4dONaAfrVDg)/MappedTransferObjectType">
             <cardinality xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/BoundTransferOperationInDefaultTransferObjectType/Output/Cardinality)_((esm/_JYnRjeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" lower="1"/>
@@ -2145,6 +2179,15 @@
           </input>
           <behaviour xmi:id="((esm/_JYnRs-q1EemUZMITjXqp8w)/ValidateCreateTransferOperationForRelationFeature/Behaviour)_((esm/_JYnRjeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" behaviourType="VALIDATE_CREATE" owner="((esm/_JYnRs-q1EemUZMITjXqp8w)/TransferObjectRelationForDefaultTransferObjectTypeFromOneWayRelationMemberContainment)_((esm/_JYnRjeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)"/>
         </operations>
+        <operations xsi:type="service:UnboundOperation" xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation)_((esm/_JYnRjeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" name="_validateOperationInputForChangeShipment">
+          <output xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Output)_((esm/_JYnRjeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" name="output" type="(esm/_s8Eh_f8MEem4dONaAfrVDg)/UnmappedTransferObjectType">
+            <cardinality xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Output/Cardinality)_((esm/_JYnRjeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" lower="1"/>
+          </output>
+          <input xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Input)_((esm/_JYnRjeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" name="input" type="(esm/_s8Eh_f8MEem4dONaAfrVDg)/UnmappedTransferObjectType">
+            <cardinality xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Input/Cardinality)_((esm/_JYnRjeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" lower="1"/>
+          </input>
+          <behaviour xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Behaviour)_((esm/_JYnRjeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" behaviourType="VALIDATE_OPERATION_INPUT" owner="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/BoundTransferOperationInDefaultTransferObjectType)_((esm/_JYnRjeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)"/>
+        </operations>
       </elements>
       <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYnRl-q1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" name="MailingList" entityType="(esm/_JYnRl-q1EemUZMITjXqp8w)/EntityType">
         <relations xmi:id="(esm/_JYnRmOq1EemUZMITjXqp8w)/TransferObjectRelationForDefaultTransferObjectTypeFromOneWayRelationMemberNotContainment" name="person" binding="(esm/_JYnRmOq1EemUZMITjXqp8w)/AssociationEndWithoutPartner" target="(esm/_JYn4v-q1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity">
@@ -2210,8 +2253,8 @@
           <behaviour xmi:id="(esm/_JYnRpeq1EemUZMITjXqp8w)/RefreshTransferOperationForTransferObjectType/Behaviour" behaviourType="REFRESH" owner="(esm/_JYnRpeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity"/>
         </operations>
         <operations xsi:type="service:BoundTransferOperation" xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/BoundTransferOperationInDefaultTransferObjectType)_((esm/_JYnRpeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" name="changeShipment" binding="(esm/_sRB4vvKfEeqHK7TZJcAcOA)/BoundOperation">
-          <faults xmi:id="_IcGW8dk2Ee2RAqY6GR8zuw" name="fault" type="(esm/_oWVh0CgLEeyt0OOGdqq6_A)/UnmappedTransferObjectType">
-            <cardinality xmi:id="_IcGW8tk2Ee2RAqY6GR8zuw" lower="1"/>
+          <faults xmi:id="_pdlTgVr3Ee-Hh7g63esTHQ" name="fault" type="(esm/_oWVh0CgLEeyt0OOGdqq6_A)/UnmappedTransferObjectType">
+            <cardinality xmi:id="_pdlTglr3Ee-Hh7g63esTHQ" lower="1"/>
           </faults>
           <output xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/BoundTransferOperationInDefaultTransferObjectType/Output)_((esm/_JYnRpeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" name="output" type="(esm/_s8FI9f8MEem4dONaAfrVDg)/MappedTransferObjectType">
             <cardinality xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/BoundTransferOperationInDefaultTransferObjectType/Output/Cardinality)_((esm/_JYnRpeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" lower="1"/>
@@ -2292,6 +2335,15 @@
           </input>
           <behaviour xmi:id="((esm/_JYnRs-q1EemUZMITjXqp8w)/ValidateCreateTransferOperationForRelationFeature/Behaviour)_((esm/_JYnRpeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" behaviourType="VALIDATE_CREATE" owner="((esm/_JYnRs-q1EemUZMITjXqp8w)/TransferObjectRelationForDefaultTransferObjectTypeFromOneWayRelationMemberContainment)_((esm/_JYnRpeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)"/>
         </operations>
+        <operations xsi:type="service:UnboundOperation" xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation)_((esm/_JYnRpeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" name="_validateOperationInputForChangeShipment">
+          <output xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Output)_((esm/_JYnRpeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" name="output" type="(esm/_s8Eh_f8MEem4dONaAfrVDg)/UnmappedTransferObjectType">
+            <cardinality xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Output/Cardinality)_((esm/_JYnRpeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" lower="1"/>
+          </output>
+          <input xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Input)_((esm/_JYnRpeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" name="input" type="(esm/_s8Eh_f8MEem4dONaAfrVDg)/UnmappedTransferObjectType">
+            <cardinality xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Input/Cardinality)_((esm/_JYnRpeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" lower="1"/>
+          </input>
+          <behaviour xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Behaviour)_((esm/_JYnRpeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" behaviourType="VALIDATE_OPERATION_INPUT" owner="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/BoundTransferOperationInDefaultTransferObjectType)_((esm/_JYnRpeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)"/>
+        </operations>
       </elements>
       <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYnRneq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" name="OnlineInternationalOrder" entityType="(esm/_JYnRneq1EemUZMITjXqp8w)/EntityType">
         <relations xmi:id="((esm/_JYnRsOq1EemUZMITjXqp8w)/TransferObjectRelationForDefaultTransferObjectTypeFromOneWayRelationMemberContainment)_((esm/_JYnRneq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" name="shipAddress" binding="(esm/_JYnRsOq1EemUZMITjXqp8w)/Containment" target="(esm/_JYmDYeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
@@ -2337,8 +2389,8 @@
           <behaviour xmi:id="(esm/_JYnRneq1EemUZMITjXqp8w)/RefreshTransferOperationForTransferObjectType/Behaviour" behaviourType="REFRESH" owner="(esm/_JYnRneq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity"/>
         </operations>
         <operations xsi:type="service:BoundTransferOperation" xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/BoundTransferOperationInDefaultTransferObjectType)_((esm/_JYnRneq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" name="changeShipment" binding="(esm/_sRB4vvKfEeqHK7TZJcAcOA)/BoundOperation">
-          <faults xmi:id="_IbNmIdk2Ee2RAqY6GR8zuw" name="fault" type="(esm/_oWVh0CgLEeyt0OOGdqq6_A)/UnmappedTransferObjectType">
-            <cardinality xmi:id="_IbNmItk2Ee2RAqY6GR8zuw" lower="1"/>
+          <faults xmi:id="_pcuX4Vr3Ee-Hh7g63esTHQ" name="fault" type="(esm/_oWVh0CgLEeyt0OOGdqq6_A)/UnmappedTransferObjectType">
+            <cardinality xmi:id="_pcuX4lr3Ee-Hh7g63esTHQ" lower="1"/>
           </faults>
           <output xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/BoundTransferOperationInDefaultTransferObjectType/Output)_((esm/_JYnRneq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" name="output" type="(esm/_s8FI9f8MEem4dONaAfrVDg)/MappedTransferObjectType">
             <cardinality xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/BoundTransferOperationInDefaultTransferObjectType/Output/Cardinality)_((esm/_JYnRneq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" lower="1"/>
@@ -2419,6 +2471,15 @@
           </input>
           <behaviour xmi:id="((esm/_JYnRs-q1EemUZMITjXqp8w)/ValidateCreateTransferOperationForRelationFeature/Behaviour)_((esm/_JYnRneq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" behaviourType="VALIDATE_CREATE" owner="((esm/_JYnRs-q1EemUZMITjXqp8w)/TransferObjectRelationForDefaultTransferObjectTypeFromOneWayRelationMemberContainment)_((esm/_JYnRneq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)"/>
         </operations>
+        <operations xsi:type="service:UnboundOperation" xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation)_((esm/_JYnRneq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" name="_validateOperationInputForChangeShipment">
+          <output xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Output)_((esm/_JYnRneq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" name="output" type="(esm/_s8Eh_f8MEem4dONaAfrVDg)/UnmappedTransferObjectType">
+            <cardinality xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Output/Cardinality)_((esm/_JYnRneq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" lower="1"/>
+          </output>
+          <input xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Input)_((esm/_JYnRneq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" name="input" type="(esm/_s8Eh_f8MEem4dONaAfrVDg)/UnmappedTransferObjectType">
+            <cardinality xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Input/Cardinality)_((esm/_JYnRneq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" lower="1"/>
+          </input>
+          <behaviour xmi:id="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Behaviour)_((esm/_JYnRneq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)" behaviourType="VALIDATE_OPERATION_INPUT" owner="((esm/_sRB4vvKfEeqHK7TZJcAcOA)/BoundTransferOperationInDefaultTransferObjectType)_((esm/_JYnRneq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity)"/>
+        </operations>
       </elements>
       <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYn4nuq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" name="OrderDetail" entityType="(esm/_JYn4nuq1EemUZMITjXqp8w)/EntityType">
         <relations xmi:id="(esm/_JYn4n-q1EemUZMITjXqp8w)/TransferObjectRelationForDefaultTransferObjectTypeFromOneWayRelationMemberNotContainment" name="product" binding="(esm/_JYn4n-q1EemUZMITjXqp8w)/AssociationEndWithoutPartner" target="(esm/_JYofpOq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity">
@@ -2489,7 +2550,7 @@
           <behaviour xmi:id="(esm/_JYn4n-q1EemUZMITjXqp8w)/SetReferenceTransferOperationForRelationFeature/Behaviour" behaviourType="SET_REFERENCE" owner="(esm/_JYn4n-q1EemUZMITjXqp8w)/TransferObjectRelationForDefaultTransferObjectTypeFromOneWayRelationMemberNotContainment"/>
         </operations>
         <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_JYn4nuq1EemUZMITjXqp8w)/GetTemplateTransferOperation" name="_getTemplateOrderDetail" immutable="true">
-          <output xmi:id="(esm/_JYn4nuq1EemUZMITjXqp8w)/GetTemplateTransferOperation/Output" name="output" type="(esm/_JYn4nuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
+          <output xmi:id="(esm/_JYn4nuq1EemUZMITjXqp8w)/GetTemplateTransferOperation/Output" name="output" type="(esm/_JYn4nuq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity">
             <cardinality xmi:id="(esm/_JYn4nuq1EemUZMITjXqp8w)/GetTemplateTransferOperation/Output/Cardinality"/>
           </output>
           <behaviour xmi:id="(esm/_JYn4nuq1EemUZMITjXqp8w)/GetTemplateTransferOperation/Behaviour" owner="(esm/_JYn4nuq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity"/>
@@ -2655,7 +2716,7 @@
           <behaviour xmi:id="(esm/_JYofpeq1EemUZMITjXqp8w)/RemoveReferenceTransferOperationForRelationFeature/Behaviour" behaviourType="REMOVE_REFERENCE" owner="(esm/_JYofpeq1EemUZMITjXqp8w)/TransferObjectRelationForDefaultTransferObjectTypeFromTwoWayRelationMember"/>
         </operations>
         <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_JYofpOq1EemUZMITjXqp8w)/GetTemplateTransferOperation" name="_getTemplateProduct" immutable="true">
-          <output xmi:id="(esm/_JYofpOq1EemUZMITjXqp8w)/GetTemplateTransferOperation/Output" name="output" type="(esm/_JYofpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
+          <output xmi:id="(esm/_JYofpOq1EemUZMITjXqp8w)/GetTemplateTransferOperation/Output" name="output" type="(esm/_JYofpOq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity">
             <cardinality xmi:id="(esm/_JYofpOq1EemUZMITjXqp8w)/GetTemplateTransferOperation/Output/Cardinality"/>
           </output>
           <behaviour xmi:id="(esm/_JYofpOq1EemUZMITjXqp8w)/GetTemplateTransferOperation/Behaviour" owner="(esm/_JYofpOq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity"/>
@@ -3183,7 +3244,7 @@
         <behaviour xmi:id="(esm/_sRDt4PKfEeqHK7TZJcAcOA)/GetRangeReferenceTransferOperationForRelationFeature/Behaviour" behaviourType="GET_RANGE" owner="(esm/_sRDt4PKfEeqHK7TZJcAcOA)/TransferObjectRelationFromBoundToTwoWayRelationMember"/>
       </operations>
       <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_JYpGxeq1EemUZMITjXqp8w)/GetTemplateTransferOperation" name="_getTemplateCategoryInfo" immutable="true">
-        <output xmi:id="(esm/_JYpGxeq1EemUZMITjXqp8w)/GetTemplateTransferOperation/Output" name="output" type="(esm/_JYpGxeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
+        <output xmi:id="(esm/_JYpGxeq1EemUZMITjXqp8w)/GetTemplateTransferOperation/Output" name="output" type="(esm/_JYpGxeq1EemUZMITjXqp8w)/MappedTransferObjectType">
           <cardinality xmi:id="(esm/_JYpGxeq1EemUZMITjXqp8w)/GetTemplateTransferOperation/Output/Cardinality"/>
         </output>
         <behaviour xmi:id="(esm/_JYpGxeq1EemUZMITjXqp8w)/GetTemplateTransferOperation/Behaviour" owner="(esm/_JYpGxeq1EemUZMITjXqp8w)/MappedTransferObjectType"/>
@@ -3261,15 +3322,15 @@
         <behaviour xmi:id="(esm/_s8DTzP8MEem4dONaAfrVDg)/DeleteTransferOperationForTransferObjectType/Behaviour" behaviourType="DELETE_INSTANCE" owner="(esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType"/>
       </operations>
       <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_s8DTzP8MEem4dONaAfrVDg)/GetTemplateTransferOperation" name="_getTemplateInternationalOrderInfo" immutable="true">
-        <output xmi:id="(esm/_s8DTzP8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Output" name="output" type="(esm/_s8DTzP8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType">
+        <output xmi:id="(esm/_s8DTzP8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Output" name="output" type="(esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType">
           <cardinality xmi:id="(esm/_s8DTzP8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Output/Cardinality"/>
         </output>
         <behaviour xmi:id="(esm/_s8DTzP8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Behaviour" owner="(esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType"/>
       </operations>
       <operations xsi:type="service:BoundTransferOperation" xmi:id="((esm/_sRFjEvKfEeqHK7TZJcAcOA)/BoundTransferOperation)_((esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType)" name="ship" binding="(esm/_sRB4vPKfEeqHK7TZJcAcOA)/BoundOperation"/>
       <operations xsi:type="service:BoundTransferOperation" xmi:id="((esm/_sRFjFPKfEeqHK7TZJcAcOA)/BoundTransferOperation)_((esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType)" name="changeShipment" binding="(esm/_sRB4vvKfEeqHK7TZJcAcOA)/BoundOperation">
-        <faults xmi:id="_IcuCAdk2Ee2RAqY6GR8zuw" name="fault" type="(esm/_oWVh0CgLEeyt0OOGdqq6_A)/UnmappedTransferObjectType">
-          <cardinality xmi:id="_IcuCAtk2Ee2RAqY6GR8zuw" lower="1"/>
+        <faults xmi:id="_peHfAVr3Ee-Hh7g63esTHQ" name="fault" type="(esm/_oWVh0CgLEeyt0OOGdqq6_A)/UnmappedTransferObjectType">
+          <cardinality xmi:id="_peHfAlr3Ee-Hh7g63esTHQ" lower="1"/>
         </faults>
         <output xmi:id="((esm/_sRFjFvKfEeqHK7TZJcAcOA)/Parameter)_((esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType)" name="output" type="(esm/_s8FI9f8MEem4dONaAfrVDg)/MappedTransferObjectType">
           <cardinality xmi:id="((esm/_sRFjFvKfEeqHK7TZJcAcOA)/CardinalityForParameter)_((esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType)" lower="1"/>
@@ -3345,10 +3406,19 @@
         <output xmi:id="((esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeReferenceTransferOperationForRelationFeature/Output)_((esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType)" name="output" type="(esm/_s8EiBv8MEem4dONaAfrVDg)/MappedTransferObjectType">
           <cardinality xmi:id="((esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeReferenceTransferOperationForRelationFeature/Output/Cardinality)_((esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType)" upper="-1"/>
         </output>
-        <input xmi:id="((esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeReferenceTransferOperationForRelationFeature/Input)_((esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType)" name="input" type="((esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeInputType)_((esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeInputType/Owner)_northwind_services_InternationalOrderInfo">
+        <input xmi:id="((esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeReferenceTransferOperationForRelationFeature/Input)_((esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType)" name="input" type="(esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeInputType">
           <cardinality xmi:id="((esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeReferenceTransferOperationForRelationFeature/Input/Cardinality)_((esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType)"/>
         </input>
         <behaviour xmi:id="((esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeReferenceTransferOperationForRelationFeature/Behaviour)_((esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType)" behaviourType="GET_RANGE" owner="((esm/_s8FI-_8MEem4dONaAfrVDg)/TransferObjectRelationFromBoundToTwoWayRelationMember)_((esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType)"/>
+      </operations>
+      <operations xsi:type="service:UnboundOperation" xmi:id="((esm/_sRFjFPKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation)_((esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType)" name="_validateOperationInputForChangeShipment">
+        <output xmi:id="((esm/_sRFjFPKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Output)_((esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType)" name="output" type="(esm/_s8Eh_f8MEem4dONaAfrVDg)/UnmappedTransferObjectType">
+          <cardinality xmi:id="((esm/_sRFjFPKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Output/Cardinality)_((esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType)" lower="1"/>
+        </output>
+        <input xmi:id="((esm/_sRFjFPKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Input)_((esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType)" name="input" type="(esm/_s8Eh_f8MEem4dONaAfrVDg)/UnmappedTransferObjectType">
+          <cardinality xmi:id="((esm/_sRFjFPKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Input/Cardinality)_((esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType)" lower="1"/>
+        </input>
+        <behaviour xmi:id="((esm/_sRFjFPKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Behaviour)_((esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType)" behaviourType="VALIDATE_OPERATION_INPUT" owner="((esm/_sRFjFPKfEeqHK7TZJcAcOA)/BoundTransferOperation)_((esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType)"/>
       </operations>
     </elements>
     <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_s8D6-P8MEem4dONaAfrVDg)/MappedTransferObjectType" name="ProductInfo" entityType="(esm/_JYofpOq1EemUZMITjXqp8w)/EntityType">
@@ -3370,6 +3440,24 @@
           <cardinality xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/ListTransferOperationForRelation/Input/Cardinality"/>
         </input>
         <behaviour xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/ListTransferOperationForRelation/Behaviour" behaviourType="LIST" owner="(esm/_s8D6-f8MEem4dONaAfrVDg)/TransferObjectRelationFromBoundToTwoWayRelationMember"/>
+      </operations>
+      <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/CreateTransferOperationForRelationFeature" name="_createInstanceCategory" deleteOnResult="true" updateOnResult="true" binding="(esm/_s8D6-f8MEem4dONaAfrVDg)/CreateOperationForRelationFeature">
+        <output xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/CreateTransferOperationForRelationFeature/Output" name="output" type="(esm/_JYpGxeq1EemUZMITjXqp8w)/MappedTransferObjectType">
+          <cardinality xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/CreateTransferOperationForRelationFeature/Output/Cardinality" lower="1"/>
+        </output>
+        <input xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/CreateTransferOperationForRelationFeature/Input" name="input" type="(esm/_JYpGxeq1EemUZMITjXqp8w)/MappedTransferObjectType">
+          <cardinality xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/CreateTransferOperationForRelationFeature/Input/Cardinality" lower="1"/>
+        </input>
+        <behaviour xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/CreateTransferOperationForRelationFeature/Behaviour" behaviourType="CREATE_INSTANCE" owner="(esm/_s8D6-f8MEem4dONaAfrVDg)/TransferObjectRelationFromBoundToTwoWayRelationMember"/>
+      </operations>
+      <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/ValidateCreateTransferOperationForRelationFeature" name="_validateCreateInstanceCategory" binding="(esm/_s8D6-f8MEem4dONaAfrVDg)/ValidateCreateOperationForRelationFeature">
+        <output xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/ValidateCreateTransferOperationForRelationFeature/Output" name="output" type="(esm/_JYpGxeq1EemUZMITjXqp8w)/MappedTransferObjectType">
+          <cardinality xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/ValidateCreateTransferOperationForRelationFeature/Output/Cardinality" lower="1"/>
+        </output>
+        <input xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/ValidateCreateTransferOperationForRelationFeature/Input" name="input" type="(esm/_JYpGxeq1EemUZMITjXqp8w)/MappedTransferObjectType">
+          <cardinality xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/ValidateCreateTransferOperationForRelationFeature/Input/Cardinality" lower="1"/>
+        </input>
+        <behaviour xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/ValidateCreateTransferOperationForRelationFeature/Behaviour" behaviourType="VALIDATE_CREATE" owner="(esm/_s8D6-f8MEem4dONaAfrVDg)/TransferObjectRelationFromBoundToTwoWayRelationMember"/>
       </operations>
       <operations xsi:type="service:BoundTransferOperation" xmi:id="(esm/_s8D6-P8MEem4dONaAfrVDg)/RefreshTransferOperationForTransferObjectType" name="_refreshInstanceNorthwind_services_ProductInfo" binding="(esm/_s8D6-P8MEem4dONaAfrVDg)/RefreshOperationForTransferObjectType">
         <output xmi:id="(esm/_s8D6-P8MEem4dONaAfrVDg)/RefreshTransferOperationForTransferObjectType/Output" name="output" type="(esm/_s8D6-P8MEem4dONaAfrVDg)/MappedTransferObjectType">
@@ -3423,7 +3511,7 @@
         <behaviour xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/GetRangeReferenceTransferOperationForRelationFeature/Behaviour" behaviourType="GET_RANGE" owner="(esm/_s8D6-f8MEem4dONaAfrVDg)/TransferObjectRelationFromBoundToTwoWayRelationMember"/>
       </operations>
       <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_s8D6-P8MEem4dONaAfrVDg)/GetTemplateTransferOperation" name="_getTemplateProductInfo" immutable="true">
-        <output xmi:id="(esm/_s8D6-P8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Output" name="output" type="(esm/_s8D6-P8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType">
+        <output xmi:id="(esm/_s8D6-P8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Output" name="output" type="(esm/_s8D6-P8MEem4dONaAfrVDg)/MappedTransferObjectType">
           <cardinality xmi:id="(esm/_s8D6-P8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Output/Cardinality"/>
         </output>
         <behaviour xmi:id="(esm/_s8D6-P8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Behaviour" owner="(esm/_s8D6-P8MEem4dONaAfrVDg)/MappedTransferObjectType"/>
@@ -3462,7 +3550,7 @@
         <behaviour xmi:id="(esm/_s8EiBv8MEem4dONaAfrVDg)/DeleteTransferOperationForTransferObjectType/Behaviour" behaviourType="DELETE_INSTANCE" owner="(esm/_s8EiBv8MEem4dONaAfrVDg)/MappedTransferObjectType"/>
       </operations>
       <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_s8EiBv8MEem4dONaAfrVDg)/GetTemplateTransferOperation" name="_getTemplateShipperInfo" immutable="true">
-        <output xmi:id="(esm/_s8EiBv8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Output" name="output" type="(esm/_s8EiBv8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType">
+        <output xmi:id="(esm/_s8EiBv8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Output" name="output" type="(esm/_s8EiBv8MEem4dONaAfrVDg)/MappedTransferObjectType">
           <cardinality xmi:id="(esm/_s8EiBv8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Output/Cardinality"/>
         </output>
         <behaviour xmi:id="(esm/_s8EiBv8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Behaviour" owner="(esm/_s8EiBv8MEem4dONaAfrVDg)/MappedTransferObjectType"/>
@@ -3614,6 +3702,15 @@
         </input>
         <behaviour xmi:id="(esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeReferenceTransferOperationForRelationFeature/Behaviour" behaviourType="GET_RANGE" owner="(esm/_s8FI-_8MEem4dONaAfrVDg)/TransferObjectRelationFromBoundToTwoWayRelationMember"/>
       </operations>
+      <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_sRFjFPKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation" name="_validateOperationInputForChangeShipment">
+        <output xmi:id="(esm/_sRFjFPKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Output" name="output" type="(esm/_s8Eh_f8MEem4dONaAfrVDg)/UnmappedTransferObjectType">
+          <cardinality xmi:id="(esm/_sRFjFPKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Output/Cardinality" lower="1"/>
+        </output>
+        <input xmi:id="(esm/_sRFjFPKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Input" name="input" type="(esm/_s8Eh_f8MEem4dONaAfrVDg)/UnmappedTransferObjectType">
+          <cardinality xmi:id="(esm/_sRFjFPKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Input/Cardinality" lower="1"/>
+        </input>
+        <behaviour xmi:id="(esm/_sRFjFPKfEeqHK7TZJcAcOA)/CreateValidateUnboundOperationForOperation/Behaviour" behaviourType="VALIDATE_OPERATION_INPUT" owner="(esm/_sRFjFPKfEeqHK7TZJcAcOA)/BoundTransferOperation"/>
+      </operations>
     </elements>
     <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_s8FwAv8MEem4dONaAfrVDg)/MappedTransferObjectType" name="OrderItem" entityType="(esm/_JYn4nuq1EemUZMITjXqp8w)/EntityType">
       <relations xmi:id="(esm/_sRFjS_KfEeqHK7TZJcAcOA)/RangeTransferObjectRelation" name="_product_range_northwind_services_OrderItem" binding="(esm/_sRFjS_KfEeqHK7TZJcAcOA)/NavigationPropertyForTransferObjectRelationRange" target="(esm/_s8D6-P8MEem4dONaAfrVDg)/MappedTransferObjectType">
@@ -3697,7 +3794,7 @@
         <behaviour xmi:id="(esm/_sRFjS_KfEeqHK7TZJcAcOA)/GetRangeReferenceTransferOperationForRelationFeature/Behaviour" behaviourType="GET_RANGE" owner="(esm/_sRFjS_KfEeqHK7TZJcAcOA)/TransferObjectRelationFromBoundToStoredOneWayRelationMember"/>
       </operations>
       <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_s8FwAv8MEem4dONaAfrVDg)/GetTemplateTransferOperation" name="_getTemplateOrderItem" immutable="true">
-        <output xmi:id="(esm/_s8FwAv8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Output" name="output" type="(esm/_s8FwAv8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType">
+        <output xmi:id="(esm/_s8FwAv8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Output" name="output" type="(esm/_s8FwAv8MEem4dONaAfrVDg)/MappedTransferObjectType">
           <cardinality xmi:id="(esm/_s8FwAv8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Output/Cardinality"/>
         </output>
         <behaviour xmi:id="(esm/_s8FwAv8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Behaviour" owner="(esm/_s8FwAv8MEem4dONaAfrVDg)/MappedTransferObjectType"/>
@@ -3730,7 +3827,7 @@
       <attributes xmi:id="(esm/_s8Eh_v8MEem4dONaAfrVDg)/TransferAttributeFromAttribute" name="shipperName" required="true" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType"/>
       <attributes xmi:id="(esm/_s8EiAv8MEem4dONaAfrVDg)/TransferAttributeFromAttribute" name="orderDate" dataType="(esm/_Z9J8IIN1EeiLE-B2bbL0fg)/TimestampType"/>
       <operations xsi:type="service:UnboundOperation" xmi:id="(esm/_s8Eh_f8MEem4dONaAfrVDg)/GetTemplateTransferOperation" name="_getTemplateShipmentChange" immutable="true">
-        <output xmi:id="(esm/_s8Eh_f8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Output" name="output" type="(esm/_s8Eh_f8MEem4dONaAfrVDg)/OptionalUnmappedTransferObjectType">
+        <output xmi:id="(esm/_s8Eh_f8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Output" name="output" type="(esm/_s8Eh_f8MEem4dONaAfrVDg)/UnmappedTransferObjectType">
           <cardinality xmi:id="(esm/_s8Eh_f8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Output/Cardinality"/>
         </output>
         <behaviour xmi:id="(esm/_s8Eh_f8MEem4dONaAfrVDg)/GetTemplateTransferOperation/Behaviour" owner="(esm/_s8Eh_f8MEem4dONaAfrVDg)/UnmappedTransferObjectType"/>
@@ -3761,7 +3858,7 @@
   <packages xmi:id="(esm/_JYjAEOq1EemUZMITjXqp8w)/ExtensionPackage" name="_extension">
     <elements xsi:type="type:BooleanType" xmi:id="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType" name="_BooleanType"/>
     <elements xsi:type="type:NumericType" xmi:id="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType" name="_IntegerType" precision="9"/>
-    <elements xsi:type="type:StringType" xmi:id="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedStringType" name="_StringType" maxLength="2048"/>
+    <elements xsi:type="type:StringType" xmi:id="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedStringType" name="_StringType" maxLength="65536"/>
     <elements xsi:type="type:EnumerationType" xmi:id="(esm/_sRGxO_KfEeqHK7TZJcAcOA)/QueryOrderingEnumeration" name="_OrderingAttributeAuthInternalAP">
       <members xmi:id="(esm/_sRGxQPKfEeqHK7TZJcAcOA)/QueryOrderingEnumerationMember" name="email"/>
       <members xmi:id="(esm/_sRGxQfKfEeqHK7TZJcAcOA)/QueryOrderingEnumerationMember" name="firstName" ordinal="1"/>
@@ -3773,7 +3870,7 @@
       <attributes xmi:id="(esm/_sRGxO_KfEeqHK7TZJcAcOA)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
     </elements>
     <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_sRGxO_KfEeqHK7TZJcAcOA)/QuerySeekingType" name="_SeekAuthInternalAP" queryCustomizer="true">
-      <relations xmi:id="(esm/_sRGxO_KfEeqHK7TZJcAcOA)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_sRGxO_KfEeqHK7TZJcAcOA)/OptionalMappedTransferObjectType" embedded="true">
+      <relations xmi:id="(esm/_sRGxO_KfEeqHK7TZJcAcOA)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_sRGxO_KfEeqHK7TZJcAcOA)/MappedTransferObjectType" embedded="true">
         <cardinality xmi:id="(esm/_sRGxO_KfEeqHK7TZJcAcOA)/QuerySeekingType/LastItem/Cardinality"/>
       </relations>
       <attributes xmi:id="(esm/_sRGxO_KfEeqHK7TZJcAcOA)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -3893,7 +3990,7 @@
         <attributes xmi:id="(esm/_JYmDYeq1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYmDYeq1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekAddress" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYmDYeq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYmDYeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYmDYeq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYmDYeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYmDYeq1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYmDYeq1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -3928,7 +4025,7 @@
         <attributes xmi:id="(esm/_JYmDcOq1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYmDcOq1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekCategory" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYmDcOq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYmDcOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYmDcOq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYmDcOq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYmDcOq1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYmDcOq1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -3959,7 +4056,7 @@
         <attributes xmi:id="(esm/_JYmDfuq1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYmDfuq1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekCity" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYmDfuq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYmDfuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYmDfuq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYmDfuq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYmDfuq1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYmDfuq1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -3991,7 +4088,7 @@
         <attributes xmi:id="(esm/_JYmDhOq1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYmDhOq1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekCompany" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYmDhOq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYmDhOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYmDhOq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYmDhOq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYmDhOq1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYmDhOq1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4024,7 +4121,7 @@
         <attributes xmi:id="(esm/_JYmDhOq1EemUZMITjXqp8w)/QueryCustomizerType/InstanceId" name="_identifier" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedStringType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYmqeeq1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekCustomer" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYmqeeq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYmqeeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYmqeeq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYmqeeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYmqeeq1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYmqeeq1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4050,13 +4147,14 @@
         <members xmi:id="(esm/_sRAqnPKfEeqHK7TZJcAcOA)/QueryOrderingEnumerationMember" name="isAdmin" ordinal="8"/>
         <members xmi:id="((esm/_JYn4wOq1EemUZMITjXqp8w)/QueryOrderingEnumerationMember)_((esm/_JYmqgOq1EemUZMITjXqp8w)/QueryOrderingEnumeration)" name="firstName" ordinal="9"/>
         <members xmi:id="((esm/_JYn4w-q1EemUZMITjXqp8w)/QueryOrderingEnumerationMember)_((esm/_JYmqgOq1EemUZMITjXqp8w)/QueryOrderingEnumeration)" name="lastName" ordinal="10"/>
+        <members xmi:id="((esm/_JYn4xuq1EemUZMITjXqp8w)/QueryOrderingEnumerationMember)_((esm/_JYmqgOq1EemUZMITjXqp8w)/QueryOrderingEnumeration)" name="title" ordinal="11"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYmqgOq1EemUZMITjXqp8w)/QueryOrderingType" name="_OrderingTypeEmployee" queryCustomizer="true">
         <attributes xmi:id="(esm/_JYmqgOq1EemUZMITjXqp8w)/QueryOrderingType/Attribute" name="attribute" required="true" dataType="(esm/_JYmqgOq1EemUZMITjXqp8w)/QueryOrderingEnumeration"/>
         <attributes xmi:id="(esm/_JYmqgOq1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYmqgOq1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekEmployee" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYmqgOq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYmqgOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYmqgOq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYmqgOq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYmqgOq1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYmqgOq1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4113,13 +4211,14 @@
         <members xmi:id="(esm/_JYmqpeq1EemUZMITjXqp8w)/QueryOrderingEnumerationMember" name="phone"/>
         <members xmi:id="((esm/_JYn4wOq1EemUZMITjXqp8w)/QueryOrderingEnumerationMember)_((esm/_JYmqpOq1EemUZMITjXqp8w)/QueryOrderingEnumeration)" name="firstName" ordinal="1"/>
         <members xmi:id="((esm/_JYn4w-q1EemUZMITjXqp8w)/QueryOrderingEnumerationMember)_((esm/_JYmqpOq1EemUZMITjXqp8w)/QueryOrderingEnumeration)" name="lastName" ordinal="2"/>
+        <members xmi:id="((esm/_JYn4xuq1EemUZMITjXqp8w)/QueryOrderingEnumerationMember)_((esm/_JYmqpOq1EemUZMITjXqp8w)/QueryOrderingEnumeration)" name="title" ordinal="3"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYmqpOq1EemUZMITjXqp8w)/QueryOrderingType" name="_OrderingTypeIndividual" queryCustomizer="true">
         <attributes xmi:id="(esm/_JYmqpOq1EemUZMITjXqp8w)/QueryOrderingType/Attribute" name="attribute" required="true" dataType="(esm/_JYmqpOq1EemUZMITjXqp8w)/QueryOrderingEnumeration"/>
         <attributes xmi:id="(esm/_JYmqpOq1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYmqpOq1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekIndividual" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYmqpOq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYmqpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYmqpOq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYmqpOq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYmqpOq1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYmqpOq1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4149,16 +4248,17 @@
         <attributes xmi:id="(esm/_JYmqpOq1EemUZMITjXqp8w)/QueryCustomizerType/InstanceId" name="_identifier" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedStringType"/>
       </elements>
       <elements xsi:type="type:EnumerationType" xmi:id="(esm/_JYnRhuq1EemUZMITjXqp8w)/QueryOrderingEnumeration" name="_OrderingAttributeInternationalAddress">
-        <members xmi:id="((esm/_JYmDZeq1EemUZMITjXqp8w)/QueryOrderingEnumerationMember)_((esm/_JYnRhuq1EemUZMITjXqp8w)/QueryOrderingEnumeration)" name="address"/>
-        <members xmi:id="((esm/_JYmDaOq1EemUZMITjXqp8w)/QueryOrderingEnumerationMember)_((esm/_JYnRhuq1EemUZMITjXqp8w)/QueryOrderingEnumeration)" name="region" ordinal="1"/>
-        <members xmi:id="((esm/_JYmDa-q1EemUZMITjXqp8w)/QueryOrderingEnumerationMember)_((esm/_JYnRhuq1EemUZMITjXqp8w)/QueryOrderingEnumeration)" name="postalCode" ordinal="2"/>
+        <members xmi:id="(esm/_JYnRh-q1EemUZMITjXqp8w)/QueryOrderingEnumerationMember" name="country"/>
+        <members xmi:id="((esm/_JYmDZeq1EemUZMITjXqp8w)/QueryOrderingEnumerationMember)_((esm/_JYnRhuq1EemUZMITjXqp8w)/QueryOrderingEnumeration)" name="address" ordinal="1"/>
+        <members xmi:id="((esm/_JYmDaOq1EemUZMITjXqp8w)/QueryOrderingEnumerationMember)_((esm/_JYnRhuq1EemUZMITjXqp8w)/QueryOrderingEnumeration)" name="region" ordinal="2"/>
+        <members xmi:id="((esm/_JYmDa-q1EemUZMITjXqp8w)/QueryOrderingEnumerationMember)_((esm/_JYnRhuq1EemUZMITjXqp8w)/QueryOrderingEnumeration)" name="postalCode" ordinal="3"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYnRhuq1EemUZMITjXqp8w)/QueryOrderingType" name="_OrderingTypeInternationalAddress" queryCustomizer="true">
         <attributes xmi:id="(esm/_JYnRhuq1EemUZMITjXqp8w)/QueryOrderingType/Attribute" name="attribute" required="true" dataType="(esm/_JYnRhuq1EemUZMITjXqp8w)/QueryOrderingEnumeration"/>
         <attributes xmi:id="(esm/_JYnRhuq1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYnRhuq1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekInternationalAddress" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYnRhuq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYnRhuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYnRhuq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYnRhuq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYnRhuq1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYnRhuq1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4206,7 +4306,7 @@
         <attributes xmi:id="(esm/_JYnRjeq1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYnRjeq1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekInternationalOrder" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYnRjeq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYnRjeq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYnRjeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYnRjeq1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYnRjeq1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4260,7 +4360,7 @@
         <attributes xmi:id="(esm/_JYnRjeq1EemUZMITjXqp8w)/QueryCustomizerType/InstanceId" name="_identifier" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedStringType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYnRl-q1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekMailingList" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYnRl-q1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYnRl-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYnRl-q1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYnRl-q1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYnRl-q1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYnRl-q1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4295,7 +4395,7 @@
         <attributes xmi:id="(esm/_JYnRneq1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYnRneq1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekOnlineInternationalOrder" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYnRneq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYnRneq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYnRneq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYnRneq1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYnRneq1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4372,7 +4472,7 @@
         <attributes xmi:id="(esm/_JYnRpeq1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYnRpeq1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekOnlineOrder" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYnRpeq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYnRpeq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYnRpeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYnRpeq1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYnRpeq1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4439,7 +4539,7 @@
         <attributes xmi:id="(esm/_JYnRrOq1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYnRrOq1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekOrder" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYnRrOq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYnRrOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYnRrOq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYnRrOq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYnRrOq1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYnRrOq1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4500,7 +4600,7 @@
         <attributes xmi:id="(esm/_JYn4nuq1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYn4nuq1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekOrderDetail" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYn4nuq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYn4nuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYn4nuq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYn4nuq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYn4nuq1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYn4nuq1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4539,7 +4639,7 @@
         <attributes xmi:id="(esm/_JYn4nuq1EemUZMITjXqp8w)/QueryCustomizerType/InstanceId" name="_identifier" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedStringType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYn4ueq1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekPaymentList" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYn4ueq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYn4ueq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYn4ueq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYn4ueq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYn4ueq1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYn4ueq1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4556,13 +4656,14 @@
       <elements xsi:type="type:EnumerationType" xmi:id="(esm/_JYn4v-q1EemUZMITjXqp8w)/QueryOrderingEnumeration" name="_OrderingAttributePerson">
         <members xmi:id="(esm/_JYn4wOq1EemUZMITjXqp8w)/QueryOrderingEnumerationMember" name="firstName"/>
         <members xmi:id="(esm/_JYn4w-q1EemUZMITjXqp8w)/QueryOrderingEnumerationMember" name="lastName" ordinal="1"/>
+        <members xmi:id="(esm/_JYn4xuq1EemUZMITjXqp8w)/QueryOrderingEnumerationMember" name="title" ordinal="2"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYn4v-q1EemUZMITjXqp8w)/QueryOrderingType" name="_OrderingTypePerson" queryCustomizer="true">
         <attributes xmi:id="(esm/_JYn4v-q1EemUZMITjXqp8w)/QueryOrderingType/Attribute" name="attribute" required="true" dataType="(esm/_JYn4v-q1EemUZMITjXqp8w)/QueryOrderingEnumeration"/>
         <attributes xmi:id="(esm/_JYn4v-q1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYn4v-q1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekPerson" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYn4v-q1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYn4v-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYn4v-q1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYn4v-q1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYn4v-q1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYn4v-q1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4603,7 +4704,7 @@
         <attributes xmi:id="(esm/_JYofpOq1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYofpOq1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekProduct" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYofpOq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYofpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYofpOq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYofpOq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYofpOq1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYofpOq1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4652,7 +4753,7 @@
         <attributes xmi:id="(esm/_JYofw-q1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYofw-q1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekRegion" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYofw-q1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYofw-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYofw-q1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYofw-q1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYofw-q1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYofw-q1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4684,7 +4785,7 @@
         <attributes xmi:id="(esm/_JYofyuq1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYofyuq1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekShipper" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYofyuq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYofyuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYofyuq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYofyuq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYofyuq1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYofyuq1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4717,7 +4818,7 @@
         <attributes xmi:id="(esm/_JYofyuq1EemUZMITjXqp8w)/QueryCustomizerType/InstanceId" name="_identifier" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedStringType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYof0Oq1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekStore" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYof0Oq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYof0Oq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYof0Oq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYof0Oq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYof0Oq1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYof0Oq1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4744,7 +4845,7 @@
         <attributes xmi:id="(esm/_JYpGs-q1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYpGs-q1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekSupplier" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYpGs-q1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYpGs-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYpGs-q1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYpGs-q1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYpGs-q1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYpGs-q1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4787,7 +4888,7 @@
         <attributes xmi:id="(esm/_JYpGu-q1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYpGu-q1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekTerritory" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYpGu-q1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYpGu-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYpGu-q1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYpGu-q1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" embedded="true">
           <cardinality xmi:id="(esm/_JYpGu-q1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYpGu-q1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4817,7 +4918,7 @@
         <attributes xmi:id="(esm/_JYpGxeq1EemUZMITjXqp8w)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_JYpGxeq1EemUZMITjXqp8w)/QuerySeekingType" name="_SeekCategoryInfo" queryCustomizer="true">
-        <relations xmi:id="(esm/_JYpGxeq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYpGxeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_JYpGxeq1EemUZMITjXqp8w)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_JYpGxeq1EemUZMITjXqp8w)/MappedTransferObjectType" embedded="true">
           <cardinality xmi:id="(esm/_JYpGxeq1EemUZMITjXqp8w)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_JYpGxeq1EemUZMITjXqp8w)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4853,7 +4954,7 @@
         <attributes xmi:id="(esm/_s8DTzP8MEem4dONaAfrVDg)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_s8DTzP8MEem4dONaAfrVDg)/QuerySeekingType" name="_SeekInternationalOrderInfo" queryCustomizer="true">
-        <relations xmi:id="(esm/_s8DTzP8MEem4dONaAfrVDg)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_s8DTzP8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_s8DTzP8MEem4dONaAfrVDg)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType" embedded="true">
           <cardinality xmi:id="(esm/_s8DTzP8MEem4dONaAfrVDg)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_s8DTzP8MEem4dONaAfrVDg)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4907,7 +5008,7 @@
         <attributes xmi:id="(esm/_s8D6-P8MEem4dONaAfrVDg)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_s8D6-P8MEem4dONaAfrVDg)/QuerySeekingType" name="_SeekProductInfo" queryCustomizer="true">
-        <relations xmi:id="(esm/_s8D6-P8MEem4dONaAfrVDg)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_s8D6-P8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_s8D6-P8MEem4dONaAfrVDg)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_s8D6-P8MEem4dONaAfrVDg)/MappedTransferObjectType" embedded="true">
           <cardinality xmi:id="(esm/_s8D6-P8MEem4dONaAfrVDg)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_s8D6-P8MEem4dONaAfrVDg)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4941,7 +5042,7 @@
         <attributes xmi:id="(esm/_s8EiBv8MEem4dONaAfrVDg)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_s8EiBv8MEem4dONaAfrVDg)/QuerySeekingType" name="_SeekShipperInfo" queryCustomizer="true">
-        <relations xmi:id="(esm/_s8EiBv8MEem4dONaAfrVDg)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_s8EiBv8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_s8EiBv8MEem4dONaAfrVDg)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_s8EiBv8MEem4dONaAfrVDg)/MappedTransferObjectType" embedded="true">
           <cardinality xmi:id="(esm/_s8EiBv8MEem4dONaAfrVDg)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_s8EiBv8MEem4dONaAfrVDg)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -4975,7 +5076,7 @@
         <attributes xmi:id="(esm/_s8FI9f8MEem4dONaAfrVDg)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_s8FI9f8MEem4dONaAfrVDg)/QuerySeekingType" name="_SeekOrderInfo" queryCustomizer="true">
-        <relations xmi:id="(esm/_s8FI9f8MEem4dONaAfrVDg)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_s8FI9f8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_s8FI9f8MEem4dONaAfrVDg)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_s8FI9f8MEem4dONaAfrVDg)/MappedTransferObjectType" embedded="true">
           <cardinality xmi:id="(esm/_s8FI9f8MEem4dONaAfrVDg)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_s8FI9f8MEem4dONaAfrVDg)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -5026,7 +5127,7 @@
         <attributes xmi:id="(esm/_s8FwAv8MEem4dONaAfrVDg)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_s8FwAv8MEem4dONaAfrVDg)/QuerySeekingType" name="_SeekOrderItem" queryCustomizer="true">
-        <relations xmi:id="(esm/_s8FwAv8MEem4dONaAfrVDg)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_s8FwAv8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_s8FwAv8MEem4dONaAfrVDg)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_s8FwAv8MEem4dONaAfrVDg)/MappedTransferObjectType" embedded="true">
           <cardinality xmi:id="(esm/_s8FwAv8MEem4dONaAfrVDg)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_s8FwAv8MEem4dONaAfrVDg)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -5071,7 +5172,7 @@
         <attributes xmi:id="(esm/_sRGKK_KfEeqHK7TZJcAcOA)/QueryOrderingType/Descending" name="descending" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedBooleanType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_sRGKK_KfEeqHK7TZJcAcOA)/QuerySeekingType" name="_SeekAdminAP" queryCustomizer="true">
-        <relations xmi:id="(esm/_sRGKK_KfEeqHK7TZJcAcOA)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_sRGKK_KfEeqHK7TZJcAcOA)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_sRGKK_KfEeqHK7TZJcAcOA)/QuerySeekingType/LastItem" name="lastItem" target="(esm/_sRGKK_KfEeqHK7TZJcAcOA)/MappedTransferObjectType" embedded="true">
           <cardinality xmi:id="(esm/_sRGKK_KfEeqHK7TZJcAcOA)/QuerySeekingType/LastItem/Cardinality"/>
         </relations>
         <attributes xmi:id="(esm/_sRGKK_KfEeqHK7TZJcAcOA)/QuerySeekingType/Limit" name="limit" required="true" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedIntegerType"/>
@@ -5098,7 +5199,7 @@
         <attributes xmi:id="(esm/_sRGKK_KfEeqHK7TZJcAcOA)/QueryCustomizerType/InstanceId" name="_identifier" dataType="(esm/_JYjAEOq1EemUZMITjXqp8w)/AutoGeneratedStringType"/>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_sRDt4PKfEeqHK7TZJcAcOA)/GetRangeInputType" name="_GetRangeInputCategoryInfoProducts">
-        <relations xmi:id="(esm/_sRDt4PKfEeqHK7TZJcAcOA)/GetRangeInputType/Owner" name="owner" target="(esm/_JYpGxeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_sRDt4PKfEeqHK7TZJcAcOA)/GetRangeInputType/Owner" name="owner" target="(esm/_JYpGxeq1EemUZMITjXqp8w)/MappedTransferObjectType" embedded="true">
           <cardinality xmi:id="(esm/_sRDt4PKfEeqHK7TZJcAcOA)/GetRangeInputType/Owner/Cardinality"/>
         </relations>
         <relations xmi:id="(esm/_sRDt4PKfEeqHK7TZJcAcOA)/GetRangeInputType/QueryCustomizer" name="queryCustomizer" target="(esm/_s8D6-P8MEem4dONaAfrVDg)/QueryCustomizerType" embedded="true">
@@ -5106,7 +5207,7 @@
         </relations>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/GetRangeInputType" name="_GetRangeInputProductInfoCategory">
-        <relations xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/GetRangeInputType/Owner" name="owner" target="(esm/_s8D6-P8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/GetRangeInputType/Owner" name="owner" target="(esm/_s8D6-P8MEem4dONaAfrVDg)/MappedTransferObjectType" embedded="true">
           <cardinality xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/GetRangeInputType/Owner/Cardinality"/>
         </relations>
         <relations xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/GetRangeInputType/QueryCustomizer" name="queryCustomizer" target="(esm/_JYpGxeq1EemUZMITjXqp8w)/QueryCustomizerType" embedded="true">
@@ -5114,7 +5215,7 @@
         </relations>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeInputType" name="_GetRangeInputOrderInfoShipper">
-        <relations xmi:id="(esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeInputType/Owner" name="owner" target="(esm/_s8FI9f8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeInputType/Owner" name="owner" target="(esm/_s8FI9f8MEem4dONaAfrVDg)/MappedTransferObjectType" embedded="true">
           <cardinality xmi:id="(esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeInputType/Owner/Cardinality"/>
         </relations>
         <relations xmi:id="(esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeInputType/QueryCustomizer" name="queryCustomizer" target="(esm/_s8EiBv8MEem4dONaAfrVDg)/QueryCustomizerType" embedded="true">
@@ -5122,461 +5223,12 @@
         </relations>
       </elements>
       <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_sRFjS_KfEeqHK7TZJcAcOA)/GetRangeInputType" name="_GetRangeInputOrderItemProduct">
-        <relations xmi:id="(esm/_sRFjS_KfEeqHK7TZJcAcOA)/GetRangeInputType/Owner" name="owner" target="(esm/_s8FwAv8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" embedded="true">
+        <relations xmi:id="(esm/_sRFjS_KfEeqHK7TZJcAcOA)/GetRangeInputType/Owner" name="owner" target="(esm/_s8FwAv8MEem4dONaAfrVDg)/MappedTransferObjectType" embedded="true">
           <cardinality xmi:id="(esm/_sRFjS_KfEeqHK7TZJcAcOA)/GetRangeInputType/Owner/Cardinality"/>
         </relations>
         <relations xmi:id="(esm/_sRFjS_KfEeqHK7TZJcAcOA)/GetRangeInputType/QueryCustomizer" name="queryCustomizer" target="(esm/_s8D6-P8MEem4dONaAfrVDg)/QueryCustomizerType" embedded="true">
           <cardinality xmi:id="(esm/_sRFjS_KfEeqHK7TZJcAcOA)/GetRangeInputType/QueryCustomizer/Cardinality"/>
         </relations>
-      </elements>
-      <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="((esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeInputType)_((esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeInputType/Owner)_northwind_services_InternationalOrderInfo" name="_GetRangeInputInternationalOrderInfoShipper">
-        <relations xmi:id="((esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeInputType/Owner)_((esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeInputType/Owner)_northwind_services_InternationalOrderInfo" name="owner" target="(esm/_s8DTzP8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" embedded="true">
-          <cardinality xmi:id="((esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeInputType/Owner/Cardinality)_((esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeInputType/Owner)_northwind_services_InternationalOrderInfo"/>
-        </relations>
-        <relations xmi:id="((esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeInputType/QueryCustomizer)_((esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeInputType/Owner)_northwind_services_InternationalOrderInfo" name="queryCustomizer" target="(esm/_s8EiBv8MEem4dONaAfrVDg)/QueryCustomizerType" embedded="true">
-          <cardinality xmi:id="((esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeInputType/QueryCustomizer/Cardinality)_((esm/_s8FI-_8MEem4dONaAfrVDg)/GetRangeInputType/Owner)_northwind_services_InternationalOrderInfo"/>
-        </relations>
-      </elements>
-    </packages>
-  </packages>
-  <packages xmi:id="(esm/_JYjAEOq1EemUZMITjXqp8w)/OptionalTransferObjectTypeRootPackage" name="_optional_transferobjecttypes">
-    <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_sRGxO_KfEeqHK7TZJcAcOA)/OptionalMappedTransferObjectType" name="AuthInternalAP" optional="true" override="(esm/_sRGxO_KfEeqHK7TZJcAcOA)/MappedTransferObjectType" entityType="(esm/_JYmqgOq1EemUZMITjXqp8w)/EntityType">
-      <attributes xmi:id="(esm/_sRGxQPKfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromMappedAttribute" name="email" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_sRAqkvKfEeqHK7TZJcAcOA)/Attribute"/>
-      <attributes xmi:id="(esm/_sRGxQfKfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromMappedAttribute" name="firstName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4wOq1EemUZMITjXqp8w)/Attribute"/>
-      <attributes xmi:id="(esm/_sRGxQ_KfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromMappedAttribute" name="lastName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4w-q1EemUZMITjXqp8w)/Attribute"/>
-      <attributes xmi:id="(esm/_s5zPUB3VEeuA6bcKQY8GcQ)/OptionalTransferAttributeFromMappedAttribute" name="isAdmin" dataType="(esm/_Xos1AIUcEeipmMyz9cMCRA)/BooleanType" binding="(esm/_sRAqnPKfEeqHK7TZJcAcOA)/Attribute"/>
-    </elements>
-    <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_sRGxNfKfEeqHK7TZJcAcOA)/OptionalUnmappedTransferObjectType" name="AuthExternalAP" optional="true" override="(esm/_sRGxNfKfEeqHK7TZJcAcOA)/UnmappedTransferObjectType">
-      <attributes xmi:id="(esm/_sRGxOvKfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromTransientAttribute" name="email" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType"/>
-    </elements>
-    <packages xmi:id="(esm/_JYmDYOq1EemUZMITjXqp8w)/OptionalTransferObjectTypePackage" name="entities">
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYmDYeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="Address" optional="true" override="(esm/_JYmDYeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYmDYeq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_JYmDYuq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment" name="city" binding="(esm/_JYmDYuq1EemUZMITjXqp8w)/AssociationEndWithoutPartner" target="(esm/_JYmDfuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embeddedDelete="true">
-          <cardinality xmi:id="(esm/_JYmDYuq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement"/>
-        </relations>
-        <attributes xmi:id="(esm/_JYmDZeq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="address" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmDZeq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYmDaOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="region" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmDaOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYmDa-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="postalCode" dataType="(esm/_Lw4a8IOGEeiLE-B2bbL0fg)/StringType" binding="(esm/_JYmDa-q1EemUZMITjXqp8w)/Attribute"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYmDcOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="Category" optional="true" override="(esm/_JYmDcOq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYmDcOq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_JYmDceq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="products" binding="(esm/_JYmDceq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYofpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
-          <cardinality xmi:id="(esm/_JYmDceq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-        <relations xmi:id="(esm/_JYmDcuq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="owner" binding="(esm/_JYmDcuq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYmqgOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYmDcuq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement"/>
-        </relations>
-        <attributes xmi:id="(esm/_JYmDc-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="categoryName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmDc-q1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYmDduq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="description" dataType="(esm/_tXQUoIOGEeiLE-B2bbL0fg)/StringType" binding="(esm/_JYmDduq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYmDeeq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="picture" dataType="(esm/_j-zrcINuEeiLE-B2bbL0fg)/BinaryType" binding="(esm/_JYmDeeq1EemUZMITjXqp8w)/Attribute"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYmDfuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="City" optional="true" override="(esm/_JYmDfuq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYmDfuq1EemUZMITjXqp8w)/EntityType">
-        <attributes xmi:id="(esm/_JYmDf-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="name" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmDf-q1EemUZMITjXqp8w)/Attribute"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYmDhOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="Company" optional="true" override="(esm/_JYmDhOq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYmDhOq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_JYmDheq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="manufacturedProducts" binding="(esm/_JYmDheq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYofpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYmDheq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-        <relations xmi:id="((esm/_JYmqe-q1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment)_((esm/_JYmDhOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="addresses" binding="(esm/_JYmqe-q1EemUZMITjXqp8w)/Containment" target="(esm/_JYmDYeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
-          <cardinality xmi:id="((esm/_JYmqe-q1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYmDhOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" upper="-1"/>
-        </relations>
-        <relations xmi:id="((esm/_JYmqeuq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember)_((esm/_JYmDhOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="orders" binding="(esm/_JYmqeuq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYnRrOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="((esm/_JYmqeuq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYmDhOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" upper="-1"/>
-        </relations>
-        <attributes xmi:id="(esm/_JYmDhuq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="companyName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmDhuq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYmDieq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="contactName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmDieq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYmDjOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="contactTitle" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmDjOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYmqcOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="phone" dataType="(esm/_Lw4a8IOGEeiLE-B2bbL0fg)/StringType" binding="(esm/_JYmqcOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYmqc-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="fax" dataType="(esm/_Lw4a8IOGEeiLE-B2bbL0fg)/StringType" binding="(esm/_JYmqc-q1EemUZMITjXqp8w)/Attribute"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYmqeeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="Customer" optional="true" override="(esm/_JYmqeeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYmqeeq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_JYmqe-q1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment" name="addresses" binding="(esm/_JYmqe-q1EemUZMITjXqp8w)/Containment" target="(esm/_JYmDYeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
-          <cardinality xmi:id="(esm/_JYmqe-q1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-        <relations xmi:id="(esm/_JYmqeuq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="orders" binding="(esm/_JYmqeuq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYnRrOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYmqeuq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYmqgOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="Employee" optional="true" override="(esm/_JYmqgOq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYmqgOq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_JYmqguq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment" name="address" binding="(esm/_JYmqguq1EemUZMITjXqp8w)/Containment" target="(esm/_JYmDYeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
-          <cardinality xmi:id="(esm/_JYmqguq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement"/>
-        </relations>
-        <relations xmi:id="(esm/_JYmqgeq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="orders" binding="(esm/_JYmqgeq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYnRrOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYmqgeq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-        <relations xmi:id="(esm/_JYmqheq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="reportsTo" binding="(esm/_JYmqheq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYmqgOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYmqheq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement"/>
-        </relations>
-        <relations xmi:id="(esm/_JYmqhuq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="employees" binding="(esm/_JYmqhuq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYmqgOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYmqhuq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-        <relations xmi:id="(esm/_JYmqh-q1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="territory" binding="(esm/_JYmqh-q1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYpGu-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYmqh-q1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement"/>
-        </relations>
-        <relations xmi:id="(esm/_JYmqiOq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="category" binding="(esm/_JYmqiOq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYmDcOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYmqiOq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-        <attributes xmi:id="(esm/_sRAqkvKfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromStoredAttribute" name="email" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_sRAqkvKfEeqHK7TZJcAcOA)/Attribute"/>
-        <attributes xmi:id="(esm/_JYmqieq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="titleOfCourtesy" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmqieq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYmqjOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="birthDate" dataType="(esm/_YoqOYIN1EeiLE-B2bbL0fg)/DateType" binding="(esm/_JYmqjOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYmqj-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="hireDate" dataType="(esm/_YoqOYIN1EeiLE-B2bbL0fg)/DateType" binding="(esm/_JYmqj-q1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYmqkuq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="homePhone" dataType="(esm/_Lw4a8IOGEeiLE-B2bbL0fg)/StringType" binding="(esm/_JYmqkuq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYmqleq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="extension" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmqleq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYmqmOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="photo" dataType="(esm/_j-zrcINuEeiLE-B2bbL0fg)/BinaryType" binding="(esm/_JYmqmOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYmqm-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="notes" dataType="(esm/_tXQUoIOGEeiLE-B2bbL0fg)/StringType" binding="(esm/_JYmqm-q1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYmqnuq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="photoPath" dataType="(esm/_tXQUoIOGEeiLE-B2bbL0fg)/StringType" binding="(esm/_JYmqnuq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_sRAqnPKfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromStoredAttribute" name="isAdmin" dataType="(esm/_Xos1AIUcEeipmMyz9cMCRA)/BooleanType" binding="(esm/_sRAqnPKfEeqHK7TZJcAcOA)/Attribute"/>
-        <attributes xmi:id="((esm/_JYn4wOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYmqgOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="firstName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4wOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYn4w-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYmqgOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="lastName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4w-q1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYn4xuq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYmqgOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="title" dataType="(esm/_hJ-K0I57EeioH6CUzUrG0Q)/EnumerationType" binding="(esm/_JYn4xuq1EemUZMITjXqp8w)/Attribute"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYmqpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="Individual" optional="true" override="(esm/_JYmqpOq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYmqpOq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="((esm/_JYmqe-q1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment)_((esm/_JYmqpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="addresses" binding="(esm/_JYmqe-q1EemUZMITjXqp8w)/Containment" target="(esm/_JYmDYeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
-          <cardinality xmi:id="((esm/_JYmqe-q1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYmqpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" upper="-1"/>
-        </relations>
-        <relations xmi:id="((esm/_JYmqeuq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember)_((esm/_JYmqpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="orders" binding="(esm/_JYmqeuq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYnRrOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="((esm/_JYmqeuq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYmqpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" upper="-1"/>
-        </relations>
-        <attributes xmi:id="(esm/_JYmqpeq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="phone" dataType="(esm/_Lw4a8IOGEeiLE-B2bbL0fg)/StringType" binding="(esm/_JYmqpeq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYn4wOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYmqpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="firstName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4wOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYn4w-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYmqpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="lastName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4w-q1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYn4xuq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYmqpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="title" dataType="(esm/_hJ-K0I57EeioH6CUzUrG0Q)/EnumerationType" binding="(esm/_JYn4xuq1EemUZMITjXqp8w)/Attribute"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYnRhuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="InternationalAddress" optional="true" override="(esm/_JYnRhuq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYnRhuq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="((esm/_JYmDYuq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment)_((esm/_JYnRhuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="city" binding="(esm/_JYmDYuq1EemUZMITjXqp8w)/AssociationEndWithoutPartner" target="(esm/_JYmDfuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embeddedDelete="true">
-          <cardinality xmi:id="((esm/_JYmDYuq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYnRhuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)"/>
-        </relations>
-        <attributes xmi:id="(esm/_JYnRh-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="country" dataType="(esm/_G2wVsI57EeioH6CUzUrG0Q)/EnumerationType" binding="(esm/_JYnRh-q1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYmDZeq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRhuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="address" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmDZeq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYmDaOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRhuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="region" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmDaOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYmDa-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRhuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="postalCode" dataType="(esm/_Lw4a8IOGEeiLE-B2bbL0fg)/StringType" binding="(esm/_JYmDa-q1EemUZMITjXqp8w)/Attribute"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="InternationalOrder" optional="true" override="(esm/_JYnRjeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYnRjeq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="((esm/_JYnRsOq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="shipAddress" binding="(esm/_JYnRsOq1EemUZMITjXqp8w)/Containment" target="(esm/_JYmDYeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
-          <cardinality xmi:id="((esm/_JYnRsOq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" upper="-1"/>
-        </relations>
-        <relations xmi:id="((esm/_JYnRs-q1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="orderDetails" binding="(esm/_JYnRs-q1EemUZMITjXqp8w)/Containment" target="(esm/_JYn4nuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
-          <cardinality xmi:id="((esm/_JYnRs-q1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" upper="-1"/>
-        </relations>
-        <relations xmi:id="((esm/_JYnRreq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="customer" binding="(esm/_JYnRreq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYmqeeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="((esm/_JYnRreq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)"/>
-        </relations>
-        <relations xmi:id="((esm/_JYnRruq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="employee" binding="(esm/_JYnRruq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYmqgOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="((esm/_JYnRruq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)"/>
-        </relations>
-        <relations xmi:id="((esm/_JYnRr-q1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="shipper" binding="(esm/_JYnRr-q1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYofyuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="((esm/_JYnRr-q1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)"/>
-        </relations>
-        <attributes xmi:id="(esm/_JYnRjuq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="customsDescription" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYnRjuq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYnRkeq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="exciseTax" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYnRkeq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYnRueq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="orderDate" dataType="(esm/_Z9J8IIN1EeiLE-B2bbL0fg)/TimestampType" binding="(esm/_JYnRueq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYnRvOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="requiredDate" dataType="(esm/_Z9J8IIN1EeiLE-B2bbL0fg)/TimestampType" binding="(esm/_JYnRvOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYn4kOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="shippedDate" dataType="(esm/_Z9J8IIN1EeiLE-B2bbL0fg)/TimestampType" binding="(esm/_JYn4kOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYn4k-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="freight" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYn4k-q1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYn4luq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="shipName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4luq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_oOTloFEoEeyqFMmuSyIevQ)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="deliveryFrom" dataType="(esm/_Z9JxIIN1EeiLE-B2bbL0fg)/TimeType" binding="(esm/_oOTloFEoEeyqFMmuSyIevQ)/Attribute"/>
-        <attributes xmi:id="((esm/_rlhZEFEoEeyqFMmuSyIevQ)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="deliveryTo" dataType="(esm/_Z9JxIIN1EeiLE-B2bbL0fg)/TimeType" binding="(esm/_rlhZEFEoEeyqFMmuSyIevQ)/Attribute"/>
-        <attributes xmi:id="((esm/_JYn4meq1EemUZMITjXqp8w)/TransferAttributeFromFromDerivedAttributeOfEntityType)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="shipperName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4meq1EemUZMITjXqp8w)/DataProperty"/>
-        <attributes xmi:id="((esm/_sRB4uPKfEeqHK7TZJcAcOA)/TransferAttributeFromFromDerivedAttributeOfEntityType)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="totalPrice" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_sRB4uPKfEeqHK7TZJcAcOA)/DataProperty"/>
-        <attributes xmi:id="((esm/_sRB4uvKfEeqHK7TZJcAcOA)/TransferAttributeFromFromDerivedAttributeOfEntityType)_((esm/_JYnRjeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="totalWeight" dataType="(esm/_h2iYkB1XEemwg4NgOjaKeA)/MeasuredType" binding="(esm/_sRB4uvKfEeqHK7TZJcAcOA)/DataProperty"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYnRl-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="MailingList" optional="true" override="(esm/_JYnRl-q1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYnRl-q1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_JYnRmOq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment" name="person" binding="(esm/_JYnRmOq1EemUZMITjXqp8w)/AssociationEndWithoutPartner" target="(esm/_JYn4v-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYnRmOq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="OnlineInternationalOrder" optional="true" override="(esm/_JYnRneq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYnRneq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="((esm/_JYnRsOq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="shipAddress" binding="(esm/_JYnRsOq1EemUZMITjXqp8w)/Containment" target="(esm/_JYmDYeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
-          <cardinality xmi:id="((esm/_JYnRsOq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" upper="-1"/>
-        </relations>
-        <relations xmi:id="((esm/_JYnRs-q1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="orderDetails" binding="(esm/_JYnRs-q1EemUZMITjXqp8w)/Containment" target="(esm/_JYn4nuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
-          <cardinality xmi:id="((esm/_JYnRs-q1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" upper="-1"/>
-        </relations>
-        <relations xmi:id="((esm/_JYnRreq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="customer" binding="(esm/_JYnRreq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYmqeeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="((esm/_JYnRreq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)"/>
-        </relations>
-        <relations xmi:id="((esm/_JYnRruq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="employee" binding="(esm/_JYnRruq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYmqgOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="((esm/_JYnRruq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)"/>
-        </relations>
-        <relations xmi:id="((esm/_JYnRr-q1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="shipper" binding="(esm/_JYnRr-q1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYofyuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="((esm/_JYnRr-q1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)"/>
-        </relations>
-        <attributes xmi:id="(esm/_JYnRnuq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="onlineTrackingNumber" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYnRnuq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYnRjuq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="customsDescription" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYnRjuq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYnRkeq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="exciseTax" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYnRkeq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYnRpuq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="webshopUrl" dataType="(esm/_A5EFMIN4EeiLE-B2bbL0fg)/StringType" binding="(esm/_JYnRpuq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYnRueq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="orderDate" dataType="(esm/_Z9J8IIN1EeiLE-B2bbL0fg)/TimestampType" binding="(esm/_JYnRueq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYnRvOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="requiredDate" dataType="(esm/_Z9J8IIN1EeiLE-B2bbL0fg)/TimestampType" binding="(esm/_JYnRvOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYn4kOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="shippedDate" dataType="(esm/_Z9J8IIN1EeiLE-B2bbL0fg)/TimestampType" binding="(esm/_JYn4kOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYn4k-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="freight" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYn4k-q1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYn4luq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="shipName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4luq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_oOTloFEoEeyqFMmuSyIevQ)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="deliveryFrom" dataType="(esm/_Z9JxIIN1EeiLE-B2bbL0fg)/TimeType" binding="(esm/_oOTloFEoEeyqFMmuSyIevQ)/Attribute"/>
-        <attributes xmi:id="((esm/_rlhZEFEoEeyqFMmuSyIevQ)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="deliveryTo" dataType="(esm/_Z9JxIIN1EeiLE-B2bbL0fg)/TimeType" binding="(esm/_rlhZEFEoEeyqFMmuSyIevQ)/Attribute"/>
-        <attributes xmi:id="((esm/_JYn4meq1EemUZMITjXqp8w)/TransferAttributeFromFromDerivedAttributeOfEntityType)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="shipperName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4meq1EemUZMITjXqp8w)/DataProperty"/>
-        <attributes xmi:id="((esm/_sRB4uPKfEeqHK7TZJcAcOA)/TransferAttributeFromFromDerivedAttributeOfEntityType)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="totalPrice" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_sRB4uPKfEeqHK7TZJcAcOA)/DataProperty"/>
-        <attributes xmi:id="((esm/_sRB4uvKfEeqHK7TZJcAcOA)/TransferAttributeFromFromDerivedAttributeOfEntityType)_((esm/_JYnRneq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="totalWeight" dataType="(esm/_h2iYkB1XEemwg4NgOjaKeA)/MeasuredType" binding="(esm/_sRB4uvKfEeqHK7TZJcAcOA)/DataProperty"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="OnlineOrder" optional="true" override="(esm/_JYnRpeq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYnRpeq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="((esm/_JYnRsOq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="shipAddress" binding="(esm/_JYnRsOq1EemUZMITjXqp8w)/Containment" target="(esm/_JYmDYeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
-          <cardinality xmi:id="((esm/_JYnRsOq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" upper="-1"/>
-        </relations>
-        <relations xmi:id="((esm/_JYnRs-q1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="orderDetails" binding="(esm/_JYnRs-q1EemUZMITjXqp8w)/Containment" target="(esm/_JYn4nuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
-          <cardinality xmi:id="((esm/_JYnRs-q1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" upper="-1"/>
-        </relations>
-        <relations xmi:id="((esm/_JYnRreq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="customer" binding="(esm/_JYnRreq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYmqeeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="((esm/_JYnRreq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)"/>
-        </relations>
-        <relations xmi:id="((esm/_JYnRruq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="employee" binding="(esm/_JYnRruq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYmqgOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="((esm/_JYnRruq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)"/>
-        </relations>
-        <relations xmi:id="((esm/_JYnRr-q1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="shipper" binding="(esm/_JYnRr-q1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYofyuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="((esm/_JYnRr-q1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)"/>
-        </relations>
-        <attributes xmi:id="(esm/_JYnRpuq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="webshopUrl" dataType="(esm/_A5EFMIN4EeiLE-B2bbL0fg)/StringType" binding="(esm/_JYnRpuq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYnRueq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="orderDate" dataType="(esm/_Z9J8IIN1EeiLE-B2bbL0fg)/TimestampType" binding="(esm/_JYnRueq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYnRvOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="requiredDate" dataType="(esm/_Z9J8IIN1EeiLE-B2bbL0fg)/TimestampType" binding="(esm/_JYnRvOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYn4kOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="shippedDate" dataType="(esm/_Z9J8IIN1EeiLE-B2bbL0fg)/TimestampType" binding="(esm/_JYn4kOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYn4k-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="freight" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYn4k-q1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYn4luq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="shipName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4luq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_oOTloFEoEeyqFMmuSyIevQ)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="deliveryFrom" dataType="(esm/_Z9JxIIN1EeiLE-B2bbL0fg)/TimeType" binding="(esm/_oOTloFEoEeyqFMmuSyIevQ)/Attribute"/>
-        <attributes xmi:id="((esm/_rlhZEFEoEeyqFMmuSyIevQ)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="deliveryTo" dataType="(esm/_Z9JxIIN1EeiLE-B2bbL0fg)/TimeType" binding="(esm/_rlhZEFEoEeyqFMmuSyIevQ)/Attribute"/>
-        <attributes xmi:id="((esm/_JYn4meq1EemUZMITjXqp8w)/TransferAttributeFromFromDerivedAttributeOfEntityType)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="shipperName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4meq1EemUZMITjXqp8w)/DataProperty"/>
-        <attributes xmi:id="((esm/_sRB4uPKfEeqHK7TZJcAcOA)/TransferAttributeFromFromDerivedAttributeOfEntityType)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="totalPrice" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_sRB4uPKfEeqHK7TZJcAcOA)/DataProperty"/>
-        <attributes xmi:id="((esm/_sRB4uvKfEeqHK7TZJcAcOA)/TransferAttributeFromFromDerivedAttributeOfEntityType)_((esm/_JYnRpeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="totalWeight" dataType="(esm/_h2iYkB1XEemwg4NgOjaKeA)/MeasuredType" binding="(esm/_sRB4uvKfEeqHK7TZJcAcOA)/DataProperty"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYnRrOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="Order" optional="true" override="(esm/_JYnRrOq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYnRrOq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_JYnRsOq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment" name="shipAddress" binding="(esm/_JYnRsOq1EemUZMITjXqp8w)/Containment" target="(esm/_JYmDYeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
-          <cardinality xmi:id="(esm/_JYnRsOq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-        <relations xmi:id="(esm/_JYnRs-q1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment" name="orderDetails" binding="(esm/_JYnRs-q1EemUZMITjXqp8w)/Containment" target="(esm/_JYn4nuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
-          <cardinality xmi:id="(esm/_JYnRs-q1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-        <relations xmi:id="(esm/_JYnRreq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="customer" binding="(esm/_JYnRreq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYmqeeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYnRreq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement"/>
-        </relations>
-        <relations xmi:id="(esm/_JYnRruq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="employee" binding="(esm/_JYnRruq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYmqgOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYnRruq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement"/>
-        </relations>
-        <relations xmi:id="(esm/_JYnRr-q1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="shipper" binding="(esm/_JYnRr-q1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYofyuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYnRr-q1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement"/>
-        </relations>
-        <attributes xmi:id="(esm/_JYnRueq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="orderDate" dataType="(esm/_Z9J8IIN1EeiLE-B2bbL0fg)/TimestampType" binding="(esm/_JYnRueq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYnRvOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="requiredDate" dataType="(esm/_Z9J8IIN1EeiLE-B2bbL0fg)/TimestampType" binding="(esm/_JYnRvOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYn4kOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="shippedDate" dataType="(esm/_Z9J8IIN1EeiLE-B2bbL0fg)/TimestampType" binding="(esm/_JYn4kOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYn4k-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="freight" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYn4k-q1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYn4luq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="shipName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4luq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_oOTloFEoEeyqFMmuSyIevQ)/OptionalTransferAttributeFromStoredAttribute" name="deliveryFrom" dataType="(esm/_Z9JxIIN1EeiLE-B2bbL0fg)/TimeType" binding="(esm/_oOTloFEoEeyqFMmuSyIevQ)/Attribute"/>
-        <attributes xmi:id="(esm/_rlhZEFEoEeyqFMmuSyIevQ)/OptionalTransferAttributeFromStoredAttribute" name="deliveryTo" dataType="(esm/_Z9JxIIN1EeiLE-B2bbL0fg)/TimeType" binding="(esm/_rlhZEFEoEeyqFMmuSyIevQ)/Attribute"/>
-        <attributes xmi:id="(esm/_JYn4meq1EemUZMITjXqp8w)/TransferAttributeFromFromDerivedAttributeOfEntityType" name="shipperName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4meq1EemUZMITjXqp8w)/DataProperty"/>
-        <attributes xmi:id="(esm/_sRB4uPKfEeqHK7TZJcAcOA)/TransferAttributeFromFromDerivedAttributeOfEntityType" name="totalPrice" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_sRB4uPKfEeqHK7TZJcAcOA)/DataProperty"/>
-        <attributes xmi:id="(esm/_sRB4uvKfEeqHK7TZJcAcOA)/TransferAttributeFromFromDerivedAttributeOfEntityType" name="totalWeight" dataType="(esm/_h2iYkB1XEemwg4NgOjaKeA)/MeasuredType" binding="(esm/_sRB4uvKfEeqHK7TZJcAcOA)/DataProperty"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYn4nuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="OrderDetail" optional="true" override="(esm/_JYn4nuq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYn4nuq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_JYn4n-q1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment" name="product" binding="(esm/_JYn4n-q1EemUZMITjXqp8w)/AssociationEndWithoutPartner" target="(esm/_JYofpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYn4n-q1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement"/>
-        </relations>
-        <attributes xmi:id="(esm/_JYn4peq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="unitPrice" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYn4peq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYn4qOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="quantity" dataType="(esm/_TXtg8IUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYn4qOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYn4q-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="discount" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYn4q-q1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYn4ruq1EemUZMITjXqp8w)/TransferAttributeFromFromDerivedAttributeOfEntityType" name="productName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4ruq1EemUZMITjXqp8w)/DataProperty"/>
-        <attributes xmi:id="(esm/_JYn4seq1EemUZMITjXqp8w)/TransferAttributeFromFromDerivedAttributeOfEntityType" name="categoryName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4seq1EemUZMITjXqp8w)/DataProperty"/>
-        <attributes xmi:id="(esm/_JYn4tOq1EemUZMITjXqp8w)/TransferAttributeFromFromDerivedAttributeOfEntityType" name="price" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYn4tOq1EemUZMITjXqp8w)/DataProperty"/>
-        <attributes xmi:id="(esm/_sRB4yvKfEeqHK7TZJcAcOA)/TransferAttributeFromFromDerivedAttributeOfEntityType" name="weight" dataType="(esm/_h2iYkB1XEemwg4NgOjaKeA)/MeasuredType" binding="(esm/_sRB4yvKfEeqHK7TZJcAcOA)/DataProperty"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYn4ueq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="PaymentList" optional="true" override="(esm/_JYn4ueq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYn4ueq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_JYn4uuq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment" name="employees" binding="(esm/_JYn4uuq1EemUZMITjXqp8w)/AssociationEndWithoutPartner" target="(esm/_JYmqgOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYn4uuq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYn4v-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="Person" optional="true" override="(esm/_JYn4v-q1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYn4v-q1EemUZMITjXqp8w)/EntityType">
-        <attributes xmi:id="(esm/_JYn4wOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="firstName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4wOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYn4w-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="lastName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4w-q1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYn4xuq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="title" dataType="(esm/_hJ-K0I57EeioH6CUzUrG0Q)/EnumerationType" binding="(esm/_JYn4xuq1EemUZMITjXqp8w)/Attribute"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYofpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="Product" optional="true" override="(esm/_JYofpOq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYofpOq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_JYofpeq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="manufacturers" binding="(esm/_JYofpeq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYmDhOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYofpeq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-        <relations xmi:id="(esm/_JYofpuq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="category" binding="(esm/_JYofpuq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYmDcOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYofpuq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement"/>
-        </relations>
-        <relations xmi:id="(esm/_JYofp-q1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="supplier" binding="(esm/_JYofp-q1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYpGs-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYofp-q1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement"/>
-        </relations>
-        <relations xmi:id="(esm/_JYofqOq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="store" binding="(esm/_JYofqOq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYof0Oq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYofqOq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement"/>
-        </relations>
-        <attributes xmi:id="(esm/_JYofqeq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="productName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYofqeq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYofrOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="quantityPerUnit" dataType="(esm/_TXtg8IUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYofrOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYofr-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="unitPrice" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYofr-q1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYofsuq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="unitsInStock" dataType="(esm/_TXtg8IUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYofsuq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYofteq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="unitsOnOrder" dataType="(esm/_TXtg8IUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYofteq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYofuOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="reorderLevel" dataType="(esm/_TXtg8IUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYofuOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYofu-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="discounted" dataType="(esm/_Xos1AIUcEeipmMyz9cMCRA)/BooleanType" binding="(esm/_JYofu-q1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_JYofvuq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="weight" dataType="(esm/_h2iYkB1XEemwg4NgOjaKeA)/MeasuredType" binding="(esm/_JYofvuq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_FLDWUBYkEeyrEqoniqcPkA)/OptionalTransferAttributeFromStoredAttribute" name="photo" dataType="(esm/_j-zrcINuEeiLE-B2bbL0fg)/BinaryType" binding="(esm/_FLDWUBYkEeyrEqoniqcPkA)/Attribute"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYofw-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="Region" optional="true" override="(esm/_JYofw-q1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYofw-q1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_JYofxOq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="territories" binding="(esm/_JYofxOq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYpGu-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYofxOq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-        <attributes xmi:id="(esm/_JYofxeq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="regionDescription" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYofxeq1EemUZMITjXqp8w)/Attribute"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYofyuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="Shipper" optional="true" override="(esm/_JYofyuq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYofyuq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_JYofy-q1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="shipperOrders" binding="(esm/_JYofy-q1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYnRrOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYofy-q1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-        <relations xmi:id="(esm/_JYofzOq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="territory" binding="(esm/_JYofzOq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYpGu-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYofzOq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement"/>
-        </relations>
-        <relations xmi:id="((esm/_JYmDheq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember)_((esm/_JYofyuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="manufacturedProducts" binding="(esm/_JYmDheq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYofpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="((esm/_JYmDheq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYofyuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" upper="-1"/>
-        </relations>
-        <relations xmi:id="((esm/_JYmqe-q1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment)_((esm/_JYofyuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="addresses" binding="(esm/_JYmqe-q1EemUZMITjXqp8w)/Containment" target="(esm/_JYmDYeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
-          <cardinality xmi:id="((esm/_JYmqe-q1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYofyuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" upper="-1"/>
-        </relations>
-        <relations xmi:id="((esm/_JYmqeuq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember)_((esm/_JYofyuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="orders" binding="(esm/_JYmqeuq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYnRrOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="((esm/_JYmqeuq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYofyuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" upper="-1"/>
-        </relations>
-        <attributes xmi:id="((esm/_JYmDhuq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYofyuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="companyName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmDhuq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYmDieq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYofyuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="contactName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmDieq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYmDjOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYofyuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="contactTitle" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmDjOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYmqcOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYofyuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="phone" dataType="(esm/_Lw4a8IOGEeiLE-B2bbL0fg)/StringType" binding="(esm/_JYmqcOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYmqc-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYofyuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="fax" dataType="(esm/_Lw4a8IOGEeiLE-B2bbL0fg)/StringType" binding="(esm/_JYmqc-q1EemUZMITjXqp8w)/Attribute"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYof0Oq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="Store" optional="true" override="(esm/_JYof0Oq1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYof0Oq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_JYpGsOq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="products" binding="(esm/_JYpGsOq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYofpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYpGsOq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYpGs-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="Supplier" optional="true" override="(esm/_JYpGs-q1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYpGs-q1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_JYpGtOq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="suppliedProducts" binding="(esm/_JYpGtOq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYofpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYpGtOq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-        <relations xmi:id="((esm/_JYmDheq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember)_((esm/_JYpGs-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="manufacturedProducts" binding="(esm/_JYmDheq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYofpOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="((esm/_JYmDheq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYpGs-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" upper="-1"/>
-        </relations>
-        <relations xmi:id="((esm/_JYmqe-q1EemUZMITjXqp8w)/OptionalTransferObjectRelationForOptionalEntityTypeFromContainment)_((esm/_JYpGs-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="addresses" binding="(esm/_JYmqe-q1EemUZMITjXqp8w)/Containment" target="(esm/_JYmDYeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true">
-          <cardinality xmi:id="((esm/_JYmqe-q1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYpGs-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" upper="-1"/>
-        </relations>
-        <relations xmi:id="((esm/_JYmqeuq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember)_((esm/_JYpGs-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="orders" binding="(esm/_JYmqeuq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYnRrOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="((esm/_JYmqeuq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement)_((esm/_JYpGs-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" upper="-1"/>
-        </relations>
-        <attributes xmi:id="(esm/_JYpGteq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="homePage" dataType="(esm/_A5EFMIN4EeiLE-B2bbL0fg)/StringType" binding="(esm/_JYpGteq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYmDhuq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYpGs-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="companyName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmDhuq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYmDieq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYpGs-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="contactName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmDieq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYmDjOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYpGs-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="contactTitle" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmDjOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYmqcOq1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYpGs-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="phone" dataType="(esm/_Lw4a8IOGEeiLE-B2bbL0fg)/StringType" binding="(esm/_JYmqcOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_JYmqc-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute)_((esm/_JYpGs-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType)" name="fax" dataType="(esm/_Lw4a8IOGEeiLE-B2bbL0fg)/StringType" binding="(esm/_JYmqc-q1EemUZMITjXqp8w)/Attribute"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYpGu-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="Territory" optional="true" override="(esm/_JYpGu-q1EemUZMITjXqp8w)/DefaultMappedTransferObjectTypeForEntity" entityType="(esm/_JYpGu-q1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_JYpGvOq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="employees" binding="(esm/_JYpGvOq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYmqgOq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYpGvOq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-        <relations xmi:id="(esm/_JYpGveq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="region" binding="(esm/_JYpGveq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYofw-q1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYpGveq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement"/>
-        </relations>
-        <relations xmi:id="(esm/_JYpGvuq1EemUZMITjXqp8w)/OptionalTransferObjectRelationForForOptionalEntityTypeFromTwoWayRelationMember" name="shipper" binding="(esm/_JYpGvuq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYofyuq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType">
-          <cardinality xmi:id="(esm/_JYpGvuq1EemUZMITjXqp8w)/CardinalityForOptionalReferenceTypedElement"/>
-        </relations>
-        <attributes xmi:id="(esm/_JYpGv-q1EemUZMITjXqp8w)/OptionalTransferAttributeFromStoredAttribute" name="territoryDescription" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYpGv-q1EemUZMITjXqp8w)/Attribute"/>
-      </elements>
-    </packages>
-    <packages xmi:id="(esm/_JYpGxOq1EemUZMITjXqp8w)/OptionalTransferObjectTypePackage" name="services">
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_JYpGxeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" name="CategoryInfo" optional="true" override="(esm/_JYpGxeq1EemUZMITjXqp8w)/MappedTransferObjectType" entityType="(esm/_JYmDcOq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_sRDt4PKfEeqHK7TZJcAcOA)/OptionalTransferObjectRelationFromBoundToTwoWayRelationMember" name="products" binding="(esm/_JYmDceq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_s8D6-P8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
-          <cardinality xmi:id="(esm/_sRDt4PKfEeqHK7TZJcAcOA)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-        <attributes xmi:id="(esm/_s8Csvv8MEem4dONaAfrVDg)/OptionalTransferAttributeFromMappedAttribute" name="categoryName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmDc-q1EemUZMITjXqp8w)/Attribute"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_s8DTzP8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" name="InternationalOrderInfo" optional="true" override="(esm/_s8DTzP8MEem4dONaAfrVDg)/MappedTransferObjectType" entityType="(esm/_JYnRjeq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="((esm/_s8FJBf8MEem4dONaAfrVDg)/OptionalTransferObjectRelationFromRelationOrProperty)_((esm/_s8DTzP8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType)" name="comments" target="(esm/_s8CsxP8MEem4dONaAfrVDg)/OptionalUnmappedTransferObjectType" embedded="true">
-          <cardinality xmi:id="((esm/_s8FJBf8MEem4dONaAfrVDg)/CardinalityForOptionalReferenceTypedElement)_((esm/_s8DTzP8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType)" upper="-1"/>
-        </relations>
-        <relations xmi:id="((esm/_s8FI9v8MEem4dONaAfrVDg)/OptionalTransferObjectRelationFromBoundToOneWayRelationMember)_((esm/_s8DTzP8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType)" name="items" binding="(esm/_JYnRs-q1EemUZMITjXqp8w)/Containment" target="(esm/_s8FwAv8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" embedded="true" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
-          <cardinality xmi:id="((esm/_s8FI9v8MEem4dONaAfrVDg)/CardinalityForOptionalReferenceTypedElement)_((esm/_s8DTzP8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType)" upper="-1"/>
-        </relations>
-        <relations xmi:id="((esm/_s8FI-_8MEem4dONaAfrVDg)/OptionalTransferObjectRelationFromBoundToTwoWayRelationMember)_((esm/_s8DTzP8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType)" name="shipper" binding="(esm/_JYnRr-q1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_s8EiBv8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" embedded="true">
-          <cardinality xmi:id="((esm/_s8FI-_8MEem4dONaAfrVDg)/CardinalityForOptionalReferenceTypedElement)_((esm/_s8DTzP8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType)"/>
-        </relations>
-        <attributes xmi:id="(esm/_s8DT3_8MEem4dONaAfrVDg)/OptionalTransferAttributeFromMappedAttribute" name="customsDescription" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYnRjuq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_s8DT4_8MEem4dONaAfrVDg)/OptionalTransferAttributeFromMappedAttribute" name="exciseTax" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYnRkeq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_s8FJCv8MEem4dONaAfrVDg)/OptionalTransferAttributeFromMappedAttribute)_((esm/_s8DTzP8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType)" name="orderDate" dataType="(esm/_Z9J8IIN1EeiLE-B2bbL0fg)/TimestampType" binding="(esm/_JYnRueq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="((esm/_s8FJDv8MEem4dONaAfrVDg)/OptionalTransferAttributeFromMappedAttribute)_((esm/_s8DTzP8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType)" name="shipperName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4meq1EemUZMITjXqp8w)/DataProperty"/>
-        <attributes xmi:id="((esm/_sRE8M_KfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromMappedAttribute)_((esm/_s8DTzP8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType)" name="totalPrice" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_sRB4uPKfEeqHK7TZJcAcOA)/DataProperty"/>
-        <attributes xmi:id="((esm/_sRFjEPKfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromMappedAttribute)_((esm/_s8DTzP8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType)" name="totalWeight" dataType="(esm/_h2iYkB1XEemwg4NgOjaKeA)/MeasuredType" binding="(esm/_sRB4uvKfEeqHK7TZJcAcOA)/DataProperty"/>
-        <attributes xmi:id="((esm/_s8FJCx8MEem4dONaAfrVDg)/OptionalTransferAttributeFromMappedAttribute)_((esm/_s8DTzP8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType)" name="deliveryFrom" dataType="(esm/_Z9JxIIN1EeiLE-B2bbL0fg)/TimeType" binding="(esm/_oOTloFEoEeyqFMmuSyIevQ)/Attribute"/>
-        <attributes xmi:id="((esm/_s8FJCy8MEem4dONaAfrVDg)/OptionalTransferAttributeFromMappedAttribute)_((esm/_s8DTzP8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType)" name="deliveryTo" dataType="(esm/_Z9JxIIN1EeiLE-B2bbL0fg)/TimeType" binding="(esm/_rlhZEFEoEeyqFMmuSyIevQ)/Attribute"/>
-        <attributes xmi:id="((esm/_fEUeADy-EeyCvetv08d6fA)/OptionalTransferAttributeFromDerivedAttribute)_((esm/_s8DTzP8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType)" name="hasMoreProductsThan" dataType="(esm/_Xos1AIUcEeipmMyz9cMCRA)/BooleanType" binding="(esm/_fEUeADy-EeyCvetv08d6fA)/DataPropertyForTransferAttributeBinding"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_s8D6-P8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" name="ProductInfo" optional="true" override="(esm/_s8D6-P8MEem4dONaAfrVDg)/MappedTransferObjectType" entityType="(esm/_JYofpOq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/OptionalTransferObjectRelationFromBoundToTwoWayRelationMember" name="category" binding="(esm/_JYofpuq1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_JYpGxeq1EemUZMITjXqp8w)/OptionalMappedTransferObjectType" embedded="true" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
-          <cardinality xmi:id="(esm/_s8D6-f8MEem4dONaAfrVDg)/CardinalityForOptionalReferenceTypedElement"/>
-        </relations>
-        <attributes xmi:id="(esm/_s8Eh4_8MEem4dONaAfrVDg)/OptionalTransferAttributeFromMappedAttribute" name="unitPrice" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYofr-q1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_s8Eh5_8MEem4dONaAfrVDg)/OptionalTransferAttributeFromMappedAttribute" name="productName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYofqeq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_sREVL_KfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromMappedAttribute" name="weight" dataType="(esm/_h2iYkB1XEemwg4NgOjaKeA)/MeasuredType" binding="(esm/_JYofvuq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_NvXgwBYkEeyrEqoniqcPkA)/OptionalTransferAttributeFromMappedAttribute" name="photo" dataType="(esm/_j-zrcINuEeiLE-B2bbL0fg)/BinaryType" binding="(esm/_FLDWUBYkEeyrEqoniqcPkA)/Attribute"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_s8EiBv8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" name="ShipperInfo" optional="true" override="(esm/_s8EiBv8MEem4dONaAfrVDg)/MappedTransferObjectType" entityType="(esm/_JYofyuq1EemUZMITjXqp8w)/EntityType">
-        <attributes xmi:id="(esm/_s8EiB_8MEem4dONaAfrVDg)/OptionalTransferAttributeFromMappedAttribute" name="companyName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYmDhuq1EemUZMITjXqp8w)/Attribute"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_s8FI9f8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" name="OrderInfo" optional="true" override="(esm/_s8FI9f8MEem4dONaAfrVDg)/MappedTransferObjectType" entityType="(esm/_JYnRrOq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_s8FJBf8MEem4dONaAfrVDg)/OptionalTransferObjectRelationFromRelationOrProperty" name="comments" target="(esm/_s8CsxP8MEem4dONaAfrVDg)/OptionalUnmappedTransferObjectType" embedded="true">
-          <cardinality xmi:id="(esm/_s8FJBf8MEem4dONaAfrVDg)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-        <relations xmi:id="(esm/_s8FI9v8MEem4dONaAfrVDg)/OptionalTransferObjectRelationFromBoundToOneWayRelationMember" name="items" binding="(esm/_JYnRs-q1EemUZMITjXqp8w)/Containment" target="(esm/_s8FwAv8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" embedded="true" embeddedCreate="true" embeddedUpdate="true" embeddedDelete="true">
-          <cardinality xmi:id="(esm/_s8FI9v8MEem4dONaAfrVDg)/CardinalityForOptionalReferenceTypedElement" upper="-1"/>
-        </relations>
-        <relations xmi:id="(esm/_s8FI-_8MEem4dONaAfrVDg)/OptionalTransferObjectRelationFromBoundToTwoWayRelationMember" name="shipper" binding="(esm/_JYnRr-q1EemUZMITjXqp8w)/AssociationEndWithPartner" target="(esm/_s8EiBv8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" embedded="true">
-          <cardinality xmi:id="(esm/_s8FI-_8MEem4dONaAfrVDg)/CardinalityForOptionalReferenceTypedElement"/>
-        </relations>
-        <attributes xmi:id="(esm/_s8FJCv8MEem4dONaAfrVDg)/OptionalTransferAttributeFromMappedAttribute" name="orderDate" dataType="(esm/_Z9J8IIN1EeiLE-B2bbL0fg)/TimestampType" binding="(esm/_JYnRueq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_s8FJDv8MEem4dONaAfrVDg)/OptionalTransferAttributeFromMappedAttribute" name="shipperName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4meq1EemUZMITjXqp8w)/DataProperty"/>
-        <attributes xmi:id="(esm/_sRE8M_KfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromMappedAttribute" name="totalPrice" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_sRB4uPKfEeqHK7TZJcAcOA)/DataProperty"/>
-        <attributes xmi:id="(esm/_sRFjEPKfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromMappedAttribute" name="totalWeight" dataType="(esm/_h2iYkB1XEemwg4NgOjaKeA)/MeasuredType" binding="(esm/_sRB4uvKfEeqHK7TZJcAcOA)/DataProperty"/>
-        <attributes xmi:id="(esm/_s8FJCx8MEem4dONaAfrVDg)/OptionalTransferAttributeFromMappedAttribute" name="deliveryFrom" dataType="(esm/_Z9JxIIN1EeiLE-B2bbL0fg)/TimeType" binding="(esm/_oOTloFEoEeyqFMmuSyIevQ)/Attribute"/>
-        <attributes xmi:id="(esm/_s8FJCy8MEem4dONaAfrVDg)/OptionalTransferAttributeFromMappedAttribute" name="deliveryTo" dataType="(esm/_Z9JxIIN1EeiLE-B2bbL0fg)/TimeType" binding="(esm/_rlhZEFEoEeyqFMmuSyIevQ)/Attribute"/>
-        <attributes xmi:id="(esm/_fEUeADy-EeyCvetv08d6fA)/OptionalTransferAttributeFromDerivedAttribute" name="hasMoreProductsThan" dataType="(esm/_Xos1AIUcEeipmMyz9cMCRA)/BooleanType" binding="(esm/_fEUeADy-EeyCvetv08d6fA)/DataPropertyForTransferAttributeBinding"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_s8FwAv8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" name="OrderItem" optional="true" override="(esm/_s8FwAv8MEem4dONaAfrVDg)/MappedTransferObjectType" entityType="(esm/_JYn4nuq1EemUZMITjXqp8w)/EntityType">
-        <relations xmi:id="(esm/_sRFjS_KfEeqHK7TZJcAcOA)/OptionalTransferObjectRelationFromBoundToOneWayRelationMember" name="product" binding="(esm/_JYn4n-q1EemUZMITjXqp8w)/AssociationEndWithoutPartner" target="(esm/_s8D6-P8MEem4dONaAfrVDg)/OptionalMappedTransferObjectType" embedded="true">
-          <cardinality xmi:id="(esm/_sRFjS_KfEeqHK7TZJcAcOA)/CardinalityForOptionalReferenceTypedElement"/>
-        </relations>
-        <attributes xmi:id="(esm/_sRFjT_KfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromMappedAttribute" name="unitPrice" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYn4peq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_sRFjUfKfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromMappedAttribute" name="quantity" dataType="(esm/_TXtg8IUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYn4qOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_sRFjU_KfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromMappedAttribute" name="discount" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYn4q-q1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_sRFjVfKfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromMappedAttribute" name="productName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4ruq1EemUZMITjXqp8w)/DataProperty"/>
-        <attributes xmi:id="(esm/_sRFjV_KfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromMappedAttribute" name="categoryName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4seq1EemUZMITjXqp8w)/DataProperty"/>
-        <attributes xmi:id="(esm/_sRFjWfKfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromMappedAttribute" name="price" dataType="(esm/_VDVVQIUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_JYn4tOq1EemUZMITjXqp8w)/DataProperty"/>
-      </elements>
-      <elements xsi:type="service:MappedTransferObjectType" xmi:id="(esm/_sRGKK_KfEeqHK7TZJcAcOA)/OptionalMappedTransferObjectType" name="AdminAP" optional="true" override="(esm/_sRGKK_KfEeqHK7TZJcAcOA)/MappedTransferObjectType" entityType="(esm/_JYmqgOq1EemUZMITjXqp8w)/EntityType">
-        <attributes xmi:id="(esm/_sRGKNvKfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromMappedAttribute" name="email" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_sRAqkvKfEeqHK7TZJcAcOA)/Attribute"/>
-        <attributes xmi:id="(esm/_sRGKN_KfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromMappedAttribute" name="firstName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4wOq1EemUZMITjXqp8w)/Attribute"/>
-        <attributes xmi:id="(esm/_sRGKOfKfEeqHK7TZJcAcOA)/OptionalTransferAttributeFromMappedAttribute" name="lastName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType" binding="(esm/_JYn4w-q1EemUZMITjXqp8w)/Attribute"/>
-      </elements>
-      <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_s8CsxP8MEem4dONaAfrVDg)/OptionalUnmappedTransferObjectType" name="Comment" optional="true" override="(esm/_s8CsxP8MEem4dONaAfrVDg)/UnmappedTransferObjectType">
-        <attributes xmi:id="(esm/_s8DTwP8MEem4dONaAfrVDg)/OptionalTransferAttributeFromTransientAttribute" name="note" dataType="(esm/_tXQUoIOGEeiLE-B2bbL0fg)/StringType"/>
-        <attributes xmi:id="(esm/_s8DTxP8MEem4dONaAfrVDg)/OptionalTransferAttributeFromTransientAttribute" name="author" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType"/>
-        <attributes xmi:id="(esm/_s8DTyP8MEem4dONaAfrVDg)/OptionalTransferAttributeFromTransientAttribute" name="timestamp" dataType="(esm/_Z9J8IIN1EeiLE-B2bbL0fg)/TimestampType"/>
-      </elements>
-      <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_s8Eh_f8MEem4dONaAfrVDg)/OptionalUnmappedTransferObjectType" name="ShipmentChange" optional="true" override="(esm/_s8Eh_f8MEem4dONaAfrVDg)/UnmappedTransferObjectType">
-        <attributes xmi:id="(esm/_s8Eh_v8MEem4dONaAfrVDg)/OptionalTransferAttributeFromTransientAttribute" name="shipperName" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType"/>
-        <attributes xmi:id="(esm/_s8EiAv8MEem4dONaAfrVDg)/OptionalTransferAttributeFromTransientAttribute" name="orderDate" dataType="(esm/_Z9J8IIN1EeiLE-B2bbL0fg)/TimestampType"/>
-      </elements>
-      <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_oWVh0CgLEeyt0OOGdqq6_A)/OptionalUnmappedTransferObjectType" name="AlreadyShipped" optional="true" override="(esm/_oWVh0CgLEeyt0OOGdqq6_A)/UnmappedTransferObjectType">
-        <attributes xmi:id="(esm/_uMKswCgLEeyt0OOGdqq6_A)/OptionalTransferAttributeFromTransientAttribute" name="message" dataType="(esm/_Nppx8IUcEeipmMyz9cMCRA)/StringType"/>
-      </elements>
-      <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_qbPjMDGrEeycj4Di8JAXGw)/OptionalUnmappedTransferObjectType" name="TimestampQueryParameter" optional="true" override="(esm/_qbPjMDGrEeycj4Di8JAXGw)/UnmappedTransferObjectType">
-        <attributes xmi:id="(esm/_tEZ90DGrEeycj4Di8JAXGw)/OptionalTransferAttributeFromTransientAttribute" name="timestamp" dataType="(esm/_Z9J8IIN1EeiLE-B2bbL0fg)/TimestampType"/>
-      </elements>
-      <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_MrxNIDGsEeycj4Di8JAXGw)/OptionalUnmappedTransferObjectType" name="WeightQueryParameter" optional="true" override="(esm/_MrxNIDGsEeycj4Di8JAXGw)/UnmappedTransferObjectType">
-        <attributes xmi:id="(esm/_PJJOgDGsEeycj4Di8JAXGw)/OptionalTransferAttributeFromTransientAttribute" name="weight" dataType="(esm/_h2iYkB1XEemwg4NgOjaKeA)/MeasuredType"/>
-      </elements>
-      <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_HFXccDy8EeyCvetv08d6fA)/OptionalUnmappedTransferObjectType" name="Stats" optional="true" override="(esm/_HFXccDy8EeyCvetv08d6fA)/UnmappedTransferObjectType">
-        <attributes xmi:id="(esm/_o-er8Dy8EeyCvetv08d6fA)/OptionalTransferAttributeFromDerivedAttribute" name="numberOfOrdersWithDiscount" dataType="(esm/_TXtg8IUcEeipmMyz9cMCRA)/NumericType" binding="(esm/_o-er8Dy8EeyCvetv08d6fA)/StaticDataForTransferAttributeBinding"/>
-      </elements>
-      <elements xsi:type="service:UnmappedTransferObjectType" xmi:id="(esm/_hNzk8Dy8EeyCvetv08d6fA)/OptionalUnmappedTransferObjectType" name="IntegerQueryParameter" optional="true" override="(esm/_hNzk8Dy8EeyCvetv08d6fA)/UnmappedTransferObjectType">
-        <attributes xmi:id="(esm/_i8JWEDy8EeyCvetv08d6fA)/OptionalTransferAttributeFromTransientAttribute" name="value" dataType="(esm/_TXtg8IUcEeipmMyz9cMCRA)/NumericType"/>
       </elements>
     </packages>
   </packages>
