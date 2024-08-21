@@ -233,7 +233,7 @@
                             <psm>
                                 ${basedir}/src/test/resources/model/CRUDActionsTest-psm.model
                             </psm>
-                            <destination>${basedir}/target/generated-sources/psm/jaxrs/CRUDActionsTest-psm.model</destination>
+                            <destination>${basedir}/target/generated-sources/psm/jaxrs/CRUDActionsTest</destination>
                         </configuration>
                     </execution>
 
@@ -316,13 +316,11 @@
                             <sources>
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/Northwind-Esm</source>
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/Northwind</source>
-                                <source>${basedir}/target/generated-sources/psm/jaxrs/BinaryTypeTest</source>
-                                <source>${basedir}/target/generated-sources/psm/jaxrs/ParameterizedQueryTest</source>
-                                <source>${basedir}/target/generated-sources/psm/jaxrs/FormsTest</source>
-                                <source>${basedir}/target/generated-sources/psm/jaxrs/CardsAndLabelsTest</source>
-                                <source>${basedir}/target/generated-sources/psm/jaxrs/AuthenticationTest</source>
-                                <source>${basedir}/target/generated-sources/psm/jaxrs/ApplicationSelectionTest</source>
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/ActionGroupTest</source>
+                                <source>${basedir}/target/generated-sources/psm/jaxrs/CRUDActionsTest</source>
+                                <source>${basedir}/target/generated-sources/psm/jaxrs/DebateTest</source>
+                                <source>${basedir}/target/generated-sources/psm/jaxrs/OperationParametersTest</source>
+                                <source>${basedir}/target/generated-sources/psm/jaxrs/RelationTest</source>
                             </sources>
                         </configuration>
                     </execution>
