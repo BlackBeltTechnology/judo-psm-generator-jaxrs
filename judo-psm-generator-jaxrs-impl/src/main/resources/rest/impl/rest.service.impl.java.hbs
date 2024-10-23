@@ -32,6 +32,14 @@ public class {{ implClassName self }} implements {{ namedElementApiRestFqName se
         if (__mask != null && __mask.trim().length() > 0) {
             parameters.put("__mask", __mask);
         }
+        if (httpHeaders != null &&
+            httpHeaders.getAcceptableLanguages() != null &&
+            httpHeaders.getAcceptableLanguages().size() > 0) {
+                java.util.Locale locale = httpHeaders.getAcceptableLanguages().get(0);
+                if (locale != null) {
+                    parameters.put("__locale", locale);
+                }
+        }
 
         {{# if operation.isBoundOperation }}
         parameters.put("__signedIdentifier", __signedIdentifier);
