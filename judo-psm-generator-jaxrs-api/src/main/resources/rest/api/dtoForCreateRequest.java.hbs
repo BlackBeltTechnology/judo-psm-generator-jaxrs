@@ -6,14 +6,18 @@ package {{ namedElementApiPackageName self }};
  */
 {{/ if  }}
 @com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+{{# if generateOpenApiAnnotations }}
 @io.swagger.v3.oas.annotations.media.Schema(name = "{{ classNameLogicalFullNameForCreateRequest self }}")
+{{/ if }}
 public class {{ classNameForCreateRequest self }} {
 
 {{# if (isMapped self) }}
 
     private String __referenceId;
 
+    {{# if generateOpenApiAnnotations }}
     @io.swagger.v3.oas.annotations.media.Schema(name = "__referenceId")
+    {{/ if }}
     public String get__referenceId() {
         return this.__referenceId;
     }
@@ -24,7 +28,9 @@ public class {{ classNameForCreateRequest self }} {
 {{/ if }}
 
     {{# each (allEmbeddedOrMappedRelationForCreate self) as | relation | }}
+    {{# if generateOpenApiAnnotations }}
     @io.swagger.v3.oas.annotations.media.Schema(name = "{{ relation.name }}"{{# if relation.required }}, required = true{{/ if }})
+    {{/ if }}
     {{# if (mappedRelationIsAssociation relation)}}
     private {{{ relationTargetTypeDefinitionForCreateRequest relation}}} {{ safeName relation.name }};
 
@@ -53,7 +59,9 @@ public class {{ classNameForCreateRequest self }} {
 
     private {{{ attributeTargetTypeDefinition attribute }}} {{ safeName attribute.name }};
 
+    {{# if generateOpenApiAnnotations }}
     @io.swagger.v3.oas.annotations.media.Schema(name = "{{ attribute.name }}"{{# if attribute.required }}, required = true{{/ if }})
+    {{/ if }}
     public {{{ attributeTargetTypeDefinition attribute }}} get{{ attribute.name.firstToUpperCase }}() {
         return this.{{ safeName attribute.name }};
     };

@@ -8,7 +8,9 @@ package {{ namedElementApiPackageName self }};
  */
 {{/ if  }}
 @com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+{{# if generateOpenApiAnnotations }}
 @io.swagger.v3.oas.annotations.media.Schema(name = "{{ classNameLogicalFullNameForResponse self }}")
+{{/ if }}
 public class {{ classNameForResponse self }} {
 
 {{# if (isMapped self) }}
@@ -19,7 +21,9 @@ public class {{ classNameForResponse self }} {
 
     private {{{ relationTargetTypeDefinitionForResponse relation }}} {{ safeName relation.name }};
 
+    {{# if generateOpenApiAnnotations }}
     @io.swagger.v3.oas.annotations.media.Schema(name = "{{ attribute.name }}"{{# if relation.required }}, required = true{{/ if }})
+    {{/ if }}
     public {{{ relationTargetTypeDefinitionForResponse relation }}} get{{ safeName relation.name.firstToUpperCase }}() {
         return this.{{ safeName relation.name }};
     }
@@ -34,7 +38,9 @@ public class {{ classNameForResponse self }} {
     {{# unless (isResponseAttribute attribute) }}
     private {{{ attributeTargetTypeDefinition attribute }}} {{ safeName attribute.name }};
 
+    {{# if generateOpenApiAnnotations }}
     @io.swagger.v3.oas.annotations.media.Schema(name = "{{ attribute.name }}"{{# if attribute.required }}, required = true{{/ if }})
+    {{/ if }}
     public {{{ attributeTargetTypeDefinition attribute }}} get{{ attribute.name.firstToUpperCase }}() {
         return this.{{ safeName attribute.name }};
     };
@@ -48,7 +54,9 @@ public class {{ classNameForResponse self }} {
 
     private Boolean __deleteable;
 
+    {{# if generateOpenApiAnnotations }}
     @io.swagger.v3.oas.annotations.media.Schema(name = "__deleteable")
+    {{/ if }}
     public Boolean get__deleteable() {
         return this.__deleteable;
     }
@@ -59,7 +67,9 @@ public class {{ classNameForResponse self }} {
 
     private Boolean __updateable;
 
+    {{# if generateOpenApiAnnotations }}
     @io.swagger.v3.oas.annotations.media.Schema(name = "__updateable")
+    {{/ if }}
     public Boolean get__updateable() {
         return this.__updateable;
     }
@@ -70,7 +80,9 @@ public class {{ classNameForResponse self }} {
 
     private String __entityType;
 
+    {{# if generateOpenApiAnnotations }}
     @io.swagger.v3.oas.annotations.media.Schema(name = "__entityType")
+    {{/ if }}
     public String get__entityType() {
         return this.__entityType;
     }
@@ -81,7 +93,9 @@ public class {{ classNameForResponse self }} {
 
     private String __identifier;
 
+    {{# if generateOpenApiAnnotations }}
     @io.swagger.v3.oas.annotations.media.Schema(name = "__identifier")
+    {{/ if }}
     public String get__identifier() {
         return this.__identifier;
     }
@@ -92,7 +106,9 @@ public class {{ classNameForResponse self }} {
 
     private String __signedIdentifier;
 
+    {{# if generateOpenApiAnnotations }}
     @io.swagger.v3.oas.annotations.media.Schema(name = "__signedIdentifier")
+    {{/ if }}
     public String get__signedIdentifier() {
         return this.__signedIdentifier;
     }
@@ -103,7 +119,9 @@ public class {{ classNameForResponse self }} {
 
     private Integer __version;
 
+    {{# if generateOpenApiAnnotations }}
     @io.swagger.v3.oas.annotations.media.Schema(name = "__version")
+    {{/ if }}
     public Integer get__version() {
         return this.__version;
     }
@@ -114,7 +132,9 @@ public class {{ classNameForResponse self }} {
 
     private String __referenceId;
 
+    {{# if generateOpenApiAnnotations }}
     @io.swagger.v3.oas.annotations.media.Schema(name = "__referenceId")
+    {{/ if }}
     public String get__referenceId() {
         return this.__referenceId;
     }
