@@ -56,5 +56,9 @@ public class StoredVariableHelper extends StaticMethodValueResolver {
         return Boolean.parseBoolean((String) ThreadLocalContextHolder.getVariable("generateOpenApiAnnotations"));
     }
 
+    public static synchronized String getBaseUri() {
+        return (String) ThreadLocalContextHolder.getVariable("baseUri");
+    }
+
 
 }

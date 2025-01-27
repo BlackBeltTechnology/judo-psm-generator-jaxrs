@@ -2,6 +2,35 @@
 
 package {{ namedElementApiPackageName self }};
 
+{{# if generateOpenApiAnnotations }}
+@io.swagger.v3.oas.annotations.OpenAPIDefinition(
+    info = @io.swagger.v3.oas.annotations.info.Info(
+        title = "{{ model.name }} API",
+        version = "1.0.0"
+    ),
+    servers = {
+    {{# each (allAccessPointActor model) as |actor| }}
+        @io.swagger.v3.oas.annotations.servers.Server(
+            description = "{{ actor.name }}",
+            url = "https://tatami-tests.judo.technology/api/{{ namedElementRestPath actor }}/{{ className actor }}"
+        ),
+    {{/ each }}
+    }
+)
+{{# if (isActorType self) }}
+    {{# if (getRealm self) }}
+        @io.swagger.v3.oas.annotations.security.SecuritySchemes(
+            value = {
+                @io.swagger.v3.oas.annotations.security.SecurityScheme(
+                    type = io.swagger.v3.oas.annotations.enums.SecuritySchemeType.OPENIDCONNECT,
+                    name = "{{ getRealmLowerCase self }}",
+                    openIdConnectUrl = "{{ getBaseUri }}/auth/realms/{{ getRealm self }}/.well-known/openid-configuration"
+                ),
+            }
+        )
+    {{/ if }}
+{{/ if }}
+{{/ if }}
 public interface {{ self.applicationClassName }} {
 
     public java.util.Map<java.lang.String, java.lang.Object> getProperties();

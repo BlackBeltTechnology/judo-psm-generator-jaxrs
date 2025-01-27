@@ -8,12 +8,16 @@ package {{ namedElementApiPackageName self }};
  */
 {{/ if  }}
 @com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+{{# if generateOpenApiAnnotations }}
 @io.swagger.v3.oas.annotations.media.Schema(name = "{{ classNameLogicalFullNameForRequest self }}")
+{{/ if }}
 public class {{ classNameForRequest self }} {
 
     {{# each (allEmbeddedOrMappedRelation self) as | relation | }}
     {{# unless (mappedRelationIsAssociation relation)}}
+    {{# if generateOpenApiAnnotations }}
     @io.swagger.v3.oas.annotations.media.Schema(name = "{{ relation.name }}"{{# if relation.required }}, required = true{{/ if }})
+    {{/ if }}
     private {{{ relationTargetTypeDefinitionForRequest relation }}} {{ safeName relation.name }};
 
     public {{{ relationTargetTypeDefinitionForRequest relation  }}} get{{ relation.name.firstToUpperCase }}() {
@@ -31,7 +35,9 @@ public class {{ classNameForRequest self }} {
 
     private {{{ attributeTargetTypeDefinition attribute }}} {{ safeName attribute.name }};
 
+    {{# if generateOpenApiAnnotations }}
     @io.swagger.v3.oas.annotations.media.Schema(name = "{{ attribute.name }}"{{# if attribute.required }}, required = true{{/ if }})
+    {{/ if }}
     public {{{ attributeTargetTypeDefinition attribute }}} get{{ attribute.name.firstToUpperCase }}() {
         return this.{{ safeName attribute.name }};
     };
@@ -47,7 +53,9 @@ public class {{ classNameForRequest self }} {
 
     private String __identifier;
 
+    {{# if generateOpenApiAnnotations }}
     @io.swagger.v3.oas.annotations.media.Schema(name = "__identifier")
+    {{/ if }}
     public String get__identifier() {
         return this.__identifier;
     }
@@ -58,7 +66,9 @@ public class {{ classNameForRequest self }} {
 
     private String __signedIdentifier;
 
+    {{# if generateOpenApiAnnotations }}
     @io.swagger.v3.oas.annotations.media.Schema(name = "__signedIdentifier")
+    {{/ if }}
     public String get__signedIdentifier() {
         return this.__signedIdentifier;
     }
@@ -69,7 +79,9 @@ public class {{ classNameForRequest self }} {
 
     private String __referenceId;
 
+    {{# if generateOpenApiAnnotations }}
     @io.swagger.v3.oas.annotations.media.Schema(name = "__referenceId")
+    {{/ if }}
     public String get__referenceId() {
         return this.__referenceId;
     }
