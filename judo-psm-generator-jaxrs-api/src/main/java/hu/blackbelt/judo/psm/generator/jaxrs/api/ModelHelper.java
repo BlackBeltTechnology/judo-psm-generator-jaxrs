@@ -24,17 +24,25 @@ import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
 import hu.blackbelt.judo.meta.psm.accesspoint.AbstractActorType;
 import hu.blackbelt.judo.meta.psm.derived.ReferenceAccessor;
-import hu.blackbelt.judo.meta.psm.namespace.*;
-import hu.blackbelt.judo.meta.psm.service.*;
+import hu.blackbelt.judo.meta.psm.namespace.Model;
+import hu.blackbelt.judo.meta.psm.namespace.NamedElement;
+import hu.blackbelt.judo.meta.psm.service.MappedTransferObjectType;
+import hu.blackbelt.judo.meta.psm.service.TransferObjectRelation;
+import hu.blackbelt.judo.meta.psm.service.TransferObjectType;
+import hu.blackbelt.judo.meta.psm.service.TransferOperation;
 import hu.blackbelt.judo.meta.psm.support.PsmModelResourceSupport;
-import hu.blackbelt.judo.meta.psm.type.*;
+import hu.blackbelt.judo.meta.psm.type.EnumerationType;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import java.util.*;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
-import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.*;
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.getRealm;
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.isRangeInputType;
 
 @TemplateHelper
 public class ModelHelper extends StaticMethodValueResolver {
@@ -81,8 +89,7 @@ public class ModelHelper extends StaticMethodValueResolver {
         return (transferObjectType instanceof MappedTransferObjectType);
     }
 
-    public static Set<TransferObjectType> getAllExposedTransferObjectTypesFromAccessPoint(
-            final TransferObjectType accessPoint) {
+    public static Set<TransferObjectType> getAllExposedTransferObjectTypesFromAccessPoint(final TransferObjectType accessPoint) {
 
         final Set<TransferObjectType> foundTransferObjectTypes = new HashSet<>();
         if (!accessPoint.getOperations().isEmpty()) {

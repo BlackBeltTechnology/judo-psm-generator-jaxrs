@@ -224,6 +224,20 @@
                     </execution>
 
                     <execution>
+                        <id>execute-psm-test-model-from-artifact-ApplicationSelectionTest</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <psm>
+                                ${basedir}/src/test/resources/model/ApplicationSelectionTest-psm.model
+                            </psm>
+                            <destination>${basedir}/target/generated-sources/psm/jaxrs/ApplicationSelectionTest</destination>
+                        </configuration>
+                    </execution>
+
+                    <execution>
                         <id>execute-psm-test-model-from-artifact-CRUDActionsTest</id>
                         <phase>generate-sources</phase>
                         <goals>
@@ -321,6 +335,7 @@
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/DebateTest</source>
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/OperationParametersTest</source>
                                 <source>${basedir}/target/generated-sources/psm/jaxrs/RelationTest</source>
+                                <source>${basedir}/target/generated-sources/psm/jaxrs/ApplicationSelectionTest</source>
                             </sources>
                         </configuration>
                     </execution>

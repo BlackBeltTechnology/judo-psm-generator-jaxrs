@@ -8,7 +8,12 @@
 @javax.ws.rs.Path("/{{ toJAXRSPath operation model }}")
 @hu.blackbelt.judo.dispatcher.api.JudoOperation("{{ operation.operationAsmFqName }}")
 {{# if generateOpenApiAnnotations }}
-@io.swagger.v3.oas.annotations.Operation(operationId = "{{ operation.operationAsmFqName }}", tags = {"{{ operation.getOperationTagName }}"})
+@io.swagger.v3.oas.annotations.Operation(operationId = "{{ operation.operationAsmFqName }}",
+                                        tags = {"{{ operation.getOperationTagName }}"}, security = {
+                                    {{# each (getRealmsOfOperationLowerCase model operation) as |realm| }}
+                                        @io.swagger.v3.oas.annotations.security.SecurityRequirement(name = "{{ realm }}"),
+                                    {{/ each }}
+})
 {{# if operation.output }}
 {{# if operation.output.isMany }}
 @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Successful operation",
