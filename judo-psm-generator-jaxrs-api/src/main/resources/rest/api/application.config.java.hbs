@@ -12,7 +12,7 @@ package {{ namedElementApiPackageName self }};
     {{# each (allAccessPointActor model) as |actor| }}
         @io.swagger.v3.oas.annotations.servers.Server(
             description = "{{ actor.name }}",
-            url = "{{ getBaseUri }}/api/{{ namedElementRestPath actor }}/{{ className actor }}"
+            url = "{{ getBaseUrl }}/api/{{ namedElementRestPath actor }}/{{ className actor }}"
         ),
     {{/ each }}
     }
@@ -24,7 +24,7 @@ package {{ namedElementApiPackageName self }};
                 @io.swagger.v3.oas.annotations.security.SecurityScheme(
                     type = io.swagger.v3.oas.annotations.enums.SecuritySchemeType.OPENIDCONNECT,
                     name = "{{ getRealmLowerCase self }}",
-                    openIdConnectUrl = "{{ getBaseUri }}/auth/realms/{{ getRealm self }}/.well-known/openid-configuration"
+                    openIdConnectUrl = "{{ getAuthenticationUrl }}/auth/realms/{{ getRealm self }}/.well-known/openid-configuration"
                 ),
             }
         )
