@@ -12,7 +12,7 @@ package {{ namedElementApiPackageName self }};
     {{# each (allAccessPointActor model) as |actor| }}
         @io.swagger.v3.oas.annotations.servers.Server(
             description = "{{ actor.name }}",
-            url = "https://tatami-tests.judo.technology/api/{{ namedElementRestPath actor }}/{{ className actor }}"
+            url = "{{ getBaseUri }}/api/{{ namedElementRestPath actor }}/{{ className actor }}"
         ),
     {{/ each }}
     }
