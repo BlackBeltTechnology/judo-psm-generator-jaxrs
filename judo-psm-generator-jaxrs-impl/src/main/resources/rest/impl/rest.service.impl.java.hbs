@@ -3,8 +3,6 @@
 package {{ namedElementImplRestPackageName self }};
 
 public class {{ implClassName self }} implements {{ namedElementApiRestFqName self }} {
-    {{> rest/api/rest.service.constants.fragment.hbs }};
-
 
     java.util.Optional<hu.blackbelt.judo.dispatcher.api.Dispatcher> __dispatcher = java.util.Optional.empty();
 

@@ -63,6 +63,10 @@ public class ObjectTypeHelper extends StaticMethodValueResolver {
         return actorType.getRealm();
     }
 
+    public static String getRealmLowerCase(AbstractActorType actorType) {
+        return getRealm(actorType).toLowerCase();
+    }
+
 
     private static CacheLoader<TransferObjectType, EntityType> getEntityCacheLoader = new CacheLoader<>() {
         @Override
