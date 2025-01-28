@@ -92,7 +92,9 @@ The `generateOpenApiAnnotations` template parameter determines whether the annot
 
 The `baseUrl` template parameter specifies the prefix of the URL of the application in the OpenAPI documentation. In the OpenAPI documentation, the URL is constructed as follows: `{baseUrl}/api/{model-name}/{actor-name}/{actor-name}`.
 
-The `authenticationUrl` template parameter defines the prefix of the openIdConnectUrl in the OpenAPI documentation. In the OpenAPI documentation, the openIdConnectUrl is structured as follows: `{authenticationUrl}/auth/realms/{realm-name}/.well-known/openid-configuration`.
+The `authenticationUrl` template parameter defines the prefix of the openIdConnectUrl in the OpenAPI documentation. In the OpenAPI documentation, the openIdConnectUrl is structured as follows: `{authenticationUrl}/auth/realms/{realm-name}/.well-known/openid-configuration.
+
+If the `generateOpenApiAnnotations` parameter is set to false or not specified, the `baseUrl` and `authenticationUrl` parameters will not be considered.
 
 The `judo-psm-generator-maven-plugin` documentation is placed inside
 the plugin documentation itself. https://github.com/BlackBeltTechnology/judo-meta-psm
