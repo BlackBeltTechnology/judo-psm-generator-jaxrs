@@ -21,23 +21,21 @@ package hu.blackbelt.judo.psm.generator.jaxrs.api;
  */
 
 
-import com.github.jknack.handlebars.internal.lang3.StringUtils;
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
-
-import hu.blackbelt.judo.meta.psm.data.AssociationEnd;
-import hu.blackbelt.judo.meta.psm.data.EntityType;
-import hu.blackbelt.judo.meta.psm.data.Relation;
+import hu.blackbelt.judo.meta.psm.accesspoint.AbstractActorType;
 import hu.blackbelt.judo.meta.psm.namespace.Model;
 import hu.blackbelt.judo.meta.psm.namespace.NamedElement;
 import hu.blackbelt.judo.meta.psm.namespace.Namespace;
 import hu.blackbelt.judo.meta.psm.service.*;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
+import java.util.List;
 
-import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaApiHelper.*;
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaApiHelper.className;
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaApiHelper.namedElementApiParentPath;
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaNamespaceHelper.*;
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.ModelHelper.getAllExposedTransferObjectTypesFromAccessPoint;
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.ModelHelper.modelWrapper;
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.*;
 
 @TemplateHelper
@@ -240,6 +238,24 @@ public class OperationHelper extends StaticMethodValueResolver {
     public static String getOperationTagName(TransferOperation transferOperation) {
         TransferObjectType transferObjectType = (TransferObjectType) transferOperation.eContainer();
         return logicalFullName(transferObjectType);
+    }
+
+    public static List<AbstractActorType> getActorsOfOperation(Model model, TransferOperation transferOperation) {
+        return modelWrapper(model)
+                .getStreamOfPsmAccesspointAbstractActorType()
+                .filter(actor -> actor.getRealm() != null)
+                .filter(actor -> getAllExposedTransferObjectTypesFromAccessPoint(actor)
+                        .stream()
+                        .flatMap(to -> to.getOperations().stream())
+                        .anyMatch(operation -> operation.equals(transferOperation)))
+                .toList();
+    }
+
+    public static List<String> getRealmsOfOperationLowerCase(Model model, TransferOperation transferOperation) {
+        return getActorsOfOperation(model, transferOperation)
+                .stream()
+                .map(actor -> actor.getRealm().toLowerCase())
+                .toList();
     }
 
 }
