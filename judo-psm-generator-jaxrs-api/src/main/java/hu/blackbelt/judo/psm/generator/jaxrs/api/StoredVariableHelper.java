@@ -64,5 +64,9 @@ public class StoredVariableHelper extends StaticMethodValueResolver {
         return (String) ThreadLocalContextHolder.getVariable("authenticationUrl");
     }
 
+    public static synchronized String getSpecificationVersionNumber() {
+        return (String) ThreadLocalContextHolder.getVariable("specificationVersionNumber");
+    }
+
 
 }

@@ -6,7 +6,7 @@ package {{ namedElementApiPackageName self }};
 @io.swagger.v3.oas.annotations.OpenAPIDefinition(
     info = @io.swagger.v3.oas.annotations.info.Info(
         title = "{{ model.name }} API",
-        version = "1.0.0"
+        version = "{{ getSpecificationVersionNumber }}"
     ),
     servers = {
     {{# each (allAccessPointActor model) as |actor| }}

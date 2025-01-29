@@ -164,6 +164,7 @@
                             <generateOptionalTypes>true</generateOptionalTypes>
                             <generatePayloadValidator>true</generatePayloadValidator>
                             <generateOpenApiAnnotations>true</generateOpenApiAnnotations>
+                            <specificationVersionNumber>1.0.0</specificationVersionNumber>
                         </templateParameters>
                     </configuration>
                     <dependencies>
