@@ -67,6 +67,4 @@ public class StoredVariableHelper extends StaticMethodValueResolver {
     public static synchronized String getSpecificationVersionNumber() {
         return (String) ThreadLocalContextHolder.getVariable("specificationVersionNumber");
     }
-
-
 }
