@@ -62,6 +62,7 @@ It can be used as:
                                 <generateOpenApiAnnotations>true</generateOpenApiAnnotations>
                                 <baseUrl>base-url-of-your-application</baseUrl>
                                 <authenticationUrl>authentication-url</authenticationUrl>
+                                <specificationVersionNumber>version-number-of-your-specification</specificationVersionNumber>
                             </templateParameters>
                             <psm>
                                 mvn:your.psm.model.group.id:your.psm.model.artifact.id:your.psm.model.version!model-name-in-jar.model
