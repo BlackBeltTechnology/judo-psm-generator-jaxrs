@@ -16,7 +16,44 @@ public class {{ implClassName self }} implements {{ namedElementApiRestFqName se
         this.__dispatcher = java.util.Optional.empty();
     }
 
-{{# each self.operations as | operation | }}
+    private java.util.Map<String, String> __parseHeaderRequestParams(String requestParams) {
+
+        java.util.Map<String, String> paramMap = new java.util.HashMap<>();
+        if (requestParams == null || requestParams.isEmpty()) {
+            return paramMap;
+        }
+
+        String[] pairs = requestParams.split("&");
+        for (String pair : pairs) {
+            String[] keyValue = pair.split("=", 2); // Split into key and value (max 2 parts)
+            try {
+                String key = java.net.URLDecoder.decode(keyValue[0], java.nio.charset.StandardCharsets.UTF_8.name());
+                String value = keyValue.length > 1
+                                ? java.net.URLDecoder.decode(keyValue[1], java.nio.charset.StandardCharsets.UTF_8.name())
+                                : "";
+                paramMap.put(key, value);
+            } catch (java.io.UnsupportedEncodingException e) {
+                // Handle decode error (unlikely with UTF-8)
+                throw new java.lang.IllegalArgumentException("Error decoding parameter");
+            }
+        }
+        return paramMap;
+    }
+    private java.util.Map<String, String> __parseRequestParams(javax.ws.rs.core.UriInfo uriInfo) {
+        javax.ws.rs.core.MultivaluedMap<String, String> params = uriInfo.getQueryParameters();
+        java.util.Map<String, String> requestParameters = new java.util.HashMap<String, String>();
+        // Iterate through all parameters
+        for (java.util.Map.Entry<String, java.util.List<String>> entry : params.entrySet()) {
+            String paramName = entry.getKey();
+            java.util.List<String> paramValues = entry.getValue();
+            if (paramValues.size() > 0) {
+                requestParameters.put(paramName, paramValues.get(0));
+            }
+        }
+        return requestParameters;
+    }
+
+    {{# each self.operations as | operation | }}
 
     {{> rest/api/rest.service.operation.fragment.hbs }} {
         if (!__dispatcher.isPresent()) {
@@ -38,6 +75,18 @@ public class {{ implClassName self }} implements {{ namedElementApiRestFqName se
                     parameters.put("__locale", locale);
                 }
         }
+
+        java.util.Map<String, String> requestParameters = new java.util.HashMap<String, String>();
+
+        // Processing request parameters
+        requestParameters.putAll(__parseRequestParams(uriInfo));
+        // Processing header request parameters
+        try {
+            requestParameters.putAll(__parseHeaderRequestParams(__requestParameters));
+        } catch (IllegalArgumentException e) {
+            return javax.ws.rs.core.Response.status(javax.ws.rs.core.Response.Status.BAD_REQUEST).build();
+        }
+        parameters.put("__requestParameters", __parseHeaderRequestParams(__requestParameters));
 
         {{# if operation.isBoundOperation }}
         parameters.put("__signedIdentifier", __signedIdentifier);
