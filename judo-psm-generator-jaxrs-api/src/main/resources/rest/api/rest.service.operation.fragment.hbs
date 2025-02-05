@@ -63,10 +63,14 @@ public javax.ws.rs.core.Response {{ safeName operation.name }}(
     javax.ws.rs.core.HttpHeaders httpHeaders,
     @javax.ws.rs.core.Context
     javax.ws.rs.core.SecurityContext securityContext,
+    @javax.ws.rs.core.Context
+    javax.ws.rs.core.UriInfo uriInfo,
     @javax.ws.rs.HeaderParam("X-Judo-CountRecords")
     java.lang.String __countRecords,
     @javax.ws.rs.HeaderParam("X-Judo-Mask")
-    java.lang.String __mask
+    java.lang.String __mask,
+    @javax.ws.rs.HeaderParam("X-Judo-RequestParameters")
+    java.lang.String __requestParameters
     {{# if operation.isBoundOperation }}
     , @javax.ws.rs.HeaderParam("X-Judo-SignedIdentifier")
     java.lang.String __signedIdentifier
