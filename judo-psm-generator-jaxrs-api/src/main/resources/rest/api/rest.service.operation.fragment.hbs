@@ -71,6 +71,10 @@ public javax.ws.rs.core.Response {{ safeName operation.name }}(
     java.lang.String __mask,
     @javax.ws.rs.HeaderParam("X-Judo-RequestParameters")
     java.lang.String __requestParameters
+    {{# if operation.isRangeOperation }}
+    , @javax.ws.rs.HeaderParam("X-Judo-MarkSelectedRangeItems")
+    java.lang.String __markSelectedRangeItems
+    {{/ if }}
     {{# if operation.isBoundOperation }}
     , @javax.ws.rs.HeaderParam("X-Judo-SignedIdentifier")
     java.lang.String __signedIdentifier
