@@ -51,8 +51,8 @@
         <surefire-version>3.5.1</surefire-version>
         <jackson-version>2.17.2</jackson-version>
 
-        <judo-dao-api-version>1.0.4.20250120_142441_62642c3f_develop</judo-dao-api-version>
-        <judo-sdk-common-version>1.0.4.20250214_151201_4fc982c5_develop</judo-sdk-common-version>
+        <judo-dao-api-version>1.0.4.20250219_205836_af34d5ad_feature_JNG_6022_markSelectedRangeItemsInHttpHeader</judo-dao-api-version>
+        <judo-sdk-common-version>1.0.4.20250219_212454_76229f6e_feature_JNG_6022_markSelectedRangeItemsInHttpHeader</judo-sdk-common-version>
 
         <judo-meta-psm-version>1.3.0.20241202_042213_d30645b4_develop</judo-meta-psm-version>
         <judo-generator-commons-version>1.0.0.20241127_150150_30b65e30_develop</judo-generator-commons-version>

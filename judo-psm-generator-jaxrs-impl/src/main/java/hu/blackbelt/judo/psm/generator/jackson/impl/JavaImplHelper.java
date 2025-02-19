@@ -26,6 +26,7 @@ import hu.blackbelt.judo.generator.commons.ThreadLocalContextHolder;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
 import hu.blackbelt.judo.meta.psm.derived.StaticData;
 import hu.blackbelt.judo.meta.psm.derived.StaticNavigation;
+import hu.blackbelt.judo.meta.psm.namespace.Model;
 import hu.blackbelt.judo.meta.psm.namespace.NamedElement;
 import hu.blackbelt.judo.meta.psm.namespace.Namespace;
 import hu.blackbelt.judo.meta.psm.service.TransferObjectRelation;
@@ -86,6 +87,14 @@ public class JavaImplHelper extends StaticMethodValueResolver {
 
     public static String namedElementImplRestFqName(NamedElement namedElement) {
         return namedElementImplRestPackageName(namedElement) + "." + implClassName(namedElement);
+    }
+
+    public static String modelImplRestPackageName(Model model) {
+        return implPackageName() + REST + "." + (safeName(model.getName()).toLowerCase());
+    }
+
+    public static String modelImplRestParentPath(Model model) {
+        return implPackageName().replaceAll("\\.", "/") + REST + "/" + (safeName(model.getName()).toLowerCase());
     }
 
 }
