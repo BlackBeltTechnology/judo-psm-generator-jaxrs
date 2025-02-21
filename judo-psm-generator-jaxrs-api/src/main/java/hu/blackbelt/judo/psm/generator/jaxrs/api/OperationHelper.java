@@ -54,6 +54,13 @@ public class OperationHelper extends StaticMethodValueResolver {
         return fqName((Namespace) transferOperation.eContainer().eContainer(), ".", false) + '.' + ((TransferObjectType) transferOperation.eContainer()).getName() + "#" + transferOperation.getName();
     }
 
+    public static Boolean isRangeOperation(TransferOperation transferOperation) {
+        if (transferOperation.getBehaviour() == null) {
+            return false;
+        }
+        return transferOperation.getBehaviour().getBehaviourType() == TransferOperationBehaviourType.GET_RANGE;
+    }
+
     public static Boolean isStateful(TransferOperation transferOperation) {
         if (transferOperation.getImplementation() != null) {
             return transferOperation.getImplementation().isStateful();
