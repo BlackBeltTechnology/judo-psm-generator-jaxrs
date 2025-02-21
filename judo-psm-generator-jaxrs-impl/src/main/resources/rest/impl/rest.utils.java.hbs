@@ -1,0 +1,42 @@
+package {{ modelImplRestPackageName self }};
+
+public class RestUtils {
+
+    public static java.util.Map<String, String> parseHeaderRequestParams(String requestParams) {
+
+        java.util.Map<String, String> paramMap = new java.util.HashMap<>();
+        if (requestParams == null || requestParams.isEmpty()) {
+            return paramMap;
+        }
+
+        String[] pairs = requestParams.split("&");
+        for (String pair : pairs) {
+            String[] keyValue = pair.split("=", 2); // Split into key and value (max 2 parts)
+            try {
+                String key = java.net.URLDecoder.decode(keyValue[0], java.nio.charset.StandardCharsets.UTF_8.name());
+                String value = keyValue.length > 1
+                                ? java.net.URLDecoder.decode(keyValue[1], java.nio.charset.StandardCharsets.UTF_8.name())
+                                : "";
+                paramMap.put(key, value);
+            } catch (java.io.UnsupportedEncodingException e) {
+                // Handle decode error (unlikely with UTF-8)
+                throw new java.lang.IllegalArgumentException("Error decoding parameter");
+            }
+        }
+        return paramMap;
+    }
+
+    public static java.util.Map<String, String> parseRequestParams(javax.ws.rs.core.UriInfo uriInfo) {
+        javax.ws.rs.core.MultivaluedMap<String, String> params = uriInfo.getQueryParameters();
+        java.util.Map<String, String> requestParameters = new java.util.HashMap<String, String>();
+        // Iterate through all parameters
+        for (java.util.Map.Entry<String, java.util.List<String>> entry : params.entrySet()) {
+            String paramName = entry.getKey();
+            java.util.List<String> paramValues = entry.getValue();
+            if (paramValues.size() > 0) {
+                requestParameters.put(paramName, paramValues.get(0));
+            }
+        }
+        return requestParameters;
+    }
+}
