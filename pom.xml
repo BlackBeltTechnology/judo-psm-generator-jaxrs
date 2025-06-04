@@ -58,7 +58,7 @@
         <judo-generator-commons-version>1.0.0.20250604_005413_e4565e35_feature_JNG_6310_UpdateEpsilon</judo-generator-commons-version>
 
         <judo-dispatcher-api-version>1.0.3.20250604_005327_6d1e7640_feature_JNG_6310_UpdateEpsilon</judo-dispatcher-api-version>
-        <cxf-jaxrs-application-manager-version>0.7.1.20250604_005242_a7b34896_feature_JNG_6310_UpdateEpsilon</cxf-jaxrs-application-manager-version>
+        <cxf-jaxrs-application-manager-version>0.7.1.20250604_170551_2d228afb_feature_JNG_6310_UpdateEpsilon</cxf-jaxrs-application-manager-version>
 
         <!-- Code Quality-->
         <sonar-maven-plugin-version>3.9.1.2184</sonar-maven-plugin-version>
