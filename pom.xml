@@ -52,9 +52,9 @@
         <jackson-version>2.17.2</jackson-version>
 
         <judo-dao-api-version>1.0.4.20250604_005315_768f80d4_feature_JNG_6310_UpdateEpsilon</judo-dao-api-version>
-        <judo-sdk-common-version>1.0.4.20250604_125035_76fe3499_feature_JNG_6310_UpdateEpsilon</judo-sdk-common-version>
+        <judo-sdk-common-version>1.0.4.20250604_202210_54855a5c_feature_JNG_6310_UpdateEpsilon</judo-sdk-common-version>
 
-        <judo-meta-psm-version>1.3.0.20250604_124553_89a572bf_feature_JNG_6310_UpdateEpsilon</judo-meta-psm-version>
+        <judo-meta-psm-version>1.3.0.20250604_200526_5d077ac9_feature_JNG_6310_UpdateEpsilon</judo-meta-psm-version>
         <judo-generator-commons-version>1.0.0.20250604_005413_e4565e35_feature_JNG_6310_UpdateEpsilon</judo-generator-commons-version>
 
         <judo-dispatcher-api-version>1.0.3.20250604_005327_6d1e7640_feature_JNG_6310_UpdateEpsilon</judo-dispatcher-api-version>
