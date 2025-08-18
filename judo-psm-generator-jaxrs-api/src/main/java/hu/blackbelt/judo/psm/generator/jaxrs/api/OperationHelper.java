@@ -172,7 +172,7 @@ public class OperationHelper extends StaticMethodValueResolver {
     }
 
     public static Boolean isMany(Parameter parameter) {
-        return parameter.getCardinality().getUpper() == -1;
+        return parameter.getCardinality().getUpper() == -1 || parameter.getCardinality().getUpper() > 1 ;
     }
 
     public static Boolean operationOutputTypeDefined(TransferOperation transferOperation) {
