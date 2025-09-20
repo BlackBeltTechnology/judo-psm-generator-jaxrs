@@ -54,7 +54,7 @@
         <judo-dao-api-version>1.0.4.20250605_192947_c2e81b28_develop</judo-dao-api-version>
         <judo-sdk-common-version>1.0.4.20250820_075117_76987b7b_develop</judo-sdk-common-version>
 
-        <judo-meta-psm-version>1.3.0.20250820_074850_332f8d0f_develop</judo-meta-psm-version>
+        <judo-meta-psm-version>1.3.0.20250919_125549_76114348_develop</judo-meta-psm-version>
         <judo-generator-commons-version>1.0.0.20250605_191430_179b355a_develop</judo-generator-commons-version>
 
         <judo-dispatcher-api-version>1.0.3.20250605_191812_7164733f_develop</judo-dispatcher-api-version>
