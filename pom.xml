@@ -52,9 +52,9 @@
         <jackson-version>2.17.2</jackson-version>
 
         <judo-dao-api-version>1.0.4.20250605_192947_c2e81b28_develop</judo-dao-api-version>
-        <judo-sdk-common-version>1.0.4.20260126_044742_aaf075da_develop</judo-sdk-common-version>
+        <judo-sdk-common-version>1.0.4.20260128_042602_11dcb1d8_develop</judo-sdk-common-version>
 
-        <judo-meta-psm-version>1.3.0.20260126_044007_9f30891d_develop</judo-meta-psm-version>
+        <judo-meta-psm-version>1.3.0.20260116_092142_e5cf9fe4_feature_JNG_6354_CliUpdates</judo-meta-psm-version>
         <judo-generator-commons-version>1.0.0.20251205_002803_8f2ad582_develop</judo-generator-commons-version>
 
         <judo-dispatcher-api-version>1.0.3.20250605_191812_7164733f_develop</judo-dispatcher-api-version>
