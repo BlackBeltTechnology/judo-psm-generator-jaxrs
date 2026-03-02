@@ -38,7 +38,7 @@ gitGraph
     checkout develop
     merge feature/JNG-3 id: "merge-feat-3"
     merge release/1.0-beta1 id: "merge-release"
-    checkout main
+    checkout master
     merge release/1.0-beta1 id: "v1.0-beta1" tag: "v1.0-beta1"
 ```
 
