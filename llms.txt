@@ -26,6 +26,19 @@ Key facts:
 - [judo-psm-generator-jaxrs-osgi/pom.xml](judo-psm-generator-jaxrs-osgi/pom.xml): OSGi component wrappers with `@Component` declarations for service registration
 - [judo-psm-generator-jaxrs-test/pom.xml](judo-psm-generator-jaxrs-test/pom.xml): Unit tests for Jackson serialization with `Optional` types, validates DTO serialization contracts
 
+## Depends on
+
+- [judo-meta-psm](../../models/judo-meta-psm): models/judo-meta-psm
+- [cxf-jaxrs-application-manager](../../runtime/cxf-jaxrs-application-manager): runtime/cxf-jaxrs-application-manager
+- [judo-dao-api](../../runtime/judo-dao-api): runtime/judo-dao-api
+- [judo-dispatcher-api](../../runtime/judo-dispatcher-api): runtime/judo-dispatcher-api
+- [judo-generator-commons](../../runtime/judo-generator-commons): runtime/judo-generator-commons
+- [judo-sdk-common](../../runtime/judo-sdk-common): runtime/judo-sdk-common
+
+## Used by
+
+- [judo-platform](../../runtime/judo-platform): runtime/judo-platform
+
 ## Optional
 
 - [.github/workflows/build.yml](.github/workflows/build.yml): Main CI pipeline — build, deploy, tag, release
