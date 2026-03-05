@@ -28,16 +28,16 @@ Key facts:
 
 ## Depends on
 
-- [judo-meta-psm](../../models/judo-meta-psm): models/judo-meta-psm
-- [cxf-jaxrs-application-manager](../../runtime/cxf-jaxrs-application-manager): runtime/cxf-jaxrs-application-manager
-- [judo-dao-api](../../runtime/judo-dao-api): runtime/judo-dao-api
-- [judo-dispatcher-api](../../runtime/judo-dispatcher-api): runtime/judo-dispatcher-api
-- [judo-generator-commons](../../runtime/judo-generator-commons): runtime/judo-generator-commons
-- [judo-sdk-common](../../runtime/judo-sdk-common): runtime/judo-sdk-common
+- [judo-meta-psm](../../models/judo-meta-psm): PSM metamodel — foundational platform-specific data model
+- [cxf-jaxrs-application-manager](../../runtime/cxf-jaxrs-application-manager): JAX-RS application lifecycle management for OSGi with Apache CXF
+- [judo-dao-api](../../runtime/judo-dao-api): Core DAO interfaces for CRUD, query, navigation, and validation
+- [judo-dispatcher-api](../../runtime/judo-dispatcher-api): Dispatcher API contracts for routing API calls to runtime actions
+- [judo-generator-commons](../../runtime/judo-generator-commons): Handlebars template-based code generation framework
+- [judo-sdk-common](../../runtime/judo-sdk-common): Base classes for generated SDK — entity identity, DAO base, and query filters
 
 ## Used by
 
-- [judo-platform](../../runtime/judo-platform): runtime/judo-platform
+- [judo-platform](../../runtime/judo-platform): Model-driven OSGi runtime platform with REST APIs and Karaf deployment
 
 ## Optional
 
