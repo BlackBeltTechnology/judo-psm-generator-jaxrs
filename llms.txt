@@ -1,0 +1,46 @@
+# JUDO PSM Generator JAX-RS
+
+> Generates complete Jakarta RESTful Web Services (JAX-RS) Java code from JUDO Platform Specific Model (PSM) definitions, producing API interfaces, DTOs, service implementations, and OSGi component wrappers.
+
+Key facts:
+- Java 21, Maven 3.9.4 multi-module project (5 modules)
+- Uses Handlebars templates with `@TemplateHelper` Java classes for code generation
+- Template-to-model mapping configured declaratively in `psm-jaxrs.yaml` files using Spring Expression Language (SpEL)
+- Generates four layers: API interfaces/DTOs, service implementations, OSGi wrappers, and shared fragments
+- Supports optional OpenAPI/Swagger annotation generation and Java `Optional` type wrapping
+- OSGi bundle packaging via maven-bundle-plugin
+- License: Eclipse Public License 2.0 (EPL-2.0)
+
+## Docs
+
+- [README.md](README.md): Project overview, architecture diagrams, usage guide with Maven plugin configuration
+- [AGENTS.md](AGENTS.md): Developer guide with build commands, directory structure, helper class architecture, and coding conventions
+- [CONTRIBUTING.md](CONTRIBUTING.md): Development setup and contribution guidelines
+- [.github/CIFLOW.md](.github/CIFLOW.md): CI/CD workflow documentation with branch and versioning details
+
+## Modules
+
+- [judo-psm-generator-jaxrs-common/pom.xml](judo-psm-generator-jaxrs-common/pom.xml): Shared Handlebars template fragments (e.g., license headers) used by all layers
+- [judo-psm-generator-jaxrs-api/pom.xml](judo-psm-generator-jaxrs-api/pom.xml): API layer generation — REST service interfaces, request/response/create-request DTOs, enumerations, query customizers, range objects, error/detail classes
+- [judo-psm-generator-jaxrs-impl/pom.xml](judo-psm-generator-jaxrs-impl/pom.xml): Implementation layer — concrete service implementations, application config, REST utility classes
+- [judo-psm-generator-jaxrs-osgi/pom.xml](judo-psm-generator-jaxrs-osgi/pom.xml): OSGi component wrappers with `@Component` declarations for service registration
+- [judo-psm-generator-jaxrs-test/pom.xml](judo-psm-generator-jaxrs-test/pom.xml): Unit tests for Jackson serialization with `Optional` types, validates DTO serialization contracts
+
+## Depends on
+
+- [judo-meta-psm](../../models/judo-meta-psm): PSM metamodel — foundational platform-specific data model
+- [cxf-jaxrs-application-manager](../../runtime/cxf-jaxrs-application-manager): JAX-RS application lifecycle management for OSGi with Apache CXF
+- [judo-dao-api](../../runtime/judo-dao-api): Core DAO interfaces for CRUD, query, navigation, and validation
+- [judo-dispatcher-api](../../runtime/judo-dispatcher-api): Dispatcher API contracts for routing API calls to runtime actions
+- [judo-generator-commons](../../runtime/judo-generator-commons): Handlebars template-based code generation framework
+- [judo-sdk-common](../../runtime/judo-sdk-common): Base classes for generated SDK — entity identity, DAO base, and query filters
+
+## Used by
+
+- [judo-platform](../../runtime/judo-platform): Model-driven OSGi runtime platform with REST APIs and Karaf deployment
+
+## Optional
+
+- [.github/workflows/build.yml](.github/workflows/build.yml): Main CI pipeline — build, deploy, tag, release
+- [LICENSE.txt](LICENSE.txt): Eclipse Public License 2.0 full text
+- [logback-test.xml](logback-test.xml): Test logging configuration
