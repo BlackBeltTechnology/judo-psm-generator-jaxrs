@@ -51,14 +51,14 @@
         <surefire-version>3.5.1</surefire-version>
         <jackson-version>2.17.2</jackson-version>
 
-        <judo-dao-api-version>1.0.4.20250605_192947_c2e81b28_develop</judo-dao-api-version>
-        <judo-sdk-common-version>1.0.4.20260202_144500_9ef79c87_develop</judo-sdk-common-version>
+        <judo-dao-api-version>1.0.4.20260311_102800_7e7131d1_develop</judo-dao-api-version>
+        <judo-sdk-common-version>1.0.4.20260312_050505_e9d167cf_develop</judo-sdk-common-version>
 
-        <judo-meta-psm-version>1.3.0.20260220_043801_3057adf9_develop</judo-meta-psm-version>
-        <judo-generator-commons-version>1.0.0.20260219_192724_142f7c92_develop</judo-generator-commons-version>
+        <judo-meta-psm-version>1.3.0.20260312_045505_a2b65e27_develop</judo-meta-psm-version>
+        <judo-generator-commons-version>1.0.0.20260311_095819_caeda009_develop</judo-generator-commons-version>
 
-        <judo-dispatcher-api-version>1.0.3.20250605_191812_7164733f_develop</judo-dispatcher-api-version>
-        <cxf-jaxrs-application-manager-version>0.7.1.20251022_061156_c25d31f6_develop</cxf-jaxrs-application-manager-version>
+        <judo-dispatcher-api-version>1.0.3.20260311_104219_ef26bd53_develop</judo-dispatcher-api-version>
+        <cxf-jaxrs-application-manager-version>0.7.1.20260311_103821_9d3737e8_develop</cxf-jaxrs-application-manager-version>
 
         <!-- Code Quality-->
         <sonar-maven-plugin-version>3.9.1.2184</sonar-maven-plugin-version>
