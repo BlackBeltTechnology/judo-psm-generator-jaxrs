@@ -175,10 +175,10 @@ public class JavaApiHelper extends StaticMethodValueResolver {
     }
 
     public static String apiDefaultPathName(Model model) {
-        return StoredVariableHelper.getApiPrefixLocal().replaceAll("\\.", "/" ) + "/" + model.getName().toLowerCase();
+        return StoredVariableHelper.getApiPrefixLocal().replaceAll("\\.", "/" ) + "/" + JavaNamespaceHelper.safeName(model.getName().toLowerCase());
     }
 
     public static String apiDefaultPackageName(Model model) {
-        return StoredVariableHelper.getApiPrefixLocal() + "." + model.getName().toLowerCase();
+        return StoredVariableHelper.getApiPrefixLocal() + "." + JavaNamespaceHelper.safeName(model.getName().toLowerCase());
     }
 }

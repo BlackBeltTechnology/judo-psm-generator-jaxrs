@@ -52,6 +52,12 @@ public class JavaNamespaceHelper extends StaticMethodValueResolver {
     public static final String DEFAULT_TRANSFER_OBJECT_TYPES = "_default_transferobjecttypes";
 
     public static String safeName(String str) {
+        // Replace any character that is not a valid Java identifier part with '_'
+        // (handles dashes and other separators that may appear in model names).
+        // Preserve '.' so this function is safe to call with dotted FQNs too.
+        if (str != null) {
+            str = str.replaceAll("[^A-Za-z0-9_$.]", "_");
+        }
         if (Arrays.asList(
                 "abstract", "assert", "boolean", "break", "byte", "case", "catch", "char",
                 "continue", "default", "do", "double", "else", "enum", "exports", "extends",
