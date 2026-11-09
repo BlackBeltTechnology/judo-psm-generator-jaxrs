@@ -20,7 +20,7 @@ package hu.blackbelt.judo.psm.generator.jaxrs.api;
  * #L%
  */
 
-import com.github.jknack.handlebars.internal.lang3.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
 import hu.blackbelt.judo.meta.psm.PsmUtils;
@@ -35,7 +35,7 @@ import hu.blackbelt.judo.meta.psm.service.TransferObjectType;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static com.github.jknack.handlebars.internal.lang3.StringUtils.capitalize;
+import static org.apache.commons.lang3.StringUtils.capitalize;
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.ModelHelper.cached;
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.getEntity;
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.isEntity;

@@ -118,7 +118,27 @@ public class ModelHelper extends StaticMethodValueResolver {
             foundTransferObjectTypes.add(accessPoint);
         }
         addTransferObjectTypesExposedByTransferObjectType(accessPoint, foundTransferObjectTypes);
-        return foundTransferObjectTypes.stream().filter(t -> !t.getOperations().isEmpty()).collect(Collectors.toSet());
+        return inModelPathOrder(foundTransferObjectTypes.stream().filter(t -> !t.getOperations().isEmpty()));
+    }
+
+    /**
+     * Ordered by model path (names of the containers and the type): the sets are built from {@code HashSet}s of
+     * model objects, whose iteration order (identity hashes) changed between runs and reordered the generated
+     * application config. The key needs no template context, so it also works in factory expressions.
+     */
+    private static Set<TransferObjectType> inModelPathOrder(java.util.stream.Stream<TransferObjectType> types) {
+        return types.distinct()
+                .sorted(java.util.Comparator.comparing(ModelHelper::modelPath))
+                .collect(Collectors.toCollection(java.util.LinkedHashSet::new));
+    }
+
+    private static String modelPath(org.eclipse.emf.ecore.EObject element) {
+        StringBuilder path = new StringBuilder();
+        for (org.eclipse.emf.ecore.EObject e = element; e != null; e = e.eContainer()) {
+            String name = e instanceof hu.blackbelt.judo.meta.psm.namespace.NamedElement n ? n.getName() : e.eClass().getName();
+            path.insert(0, "::").insert(0, name);
+        }
+        return path.toString();
     }
 
     private static void addTransferObjectTypesExposedByTransferObjectType(final TransferObjectType type,
@@ -160,7 +180,7 @@ public class ModelHelper extends StaticMethodValueResolver {
     public static Set<TransferObjectType> allExposedTransferObjectWithOperation(Model model) {
         return modelWrapper(model).getStreamOfPsmAccesspointAbstractActorType()
                 .flatMap(access -> getAllExposedTransferObjectTypesFromAccessPoint(access).stream())
-                .collect(Collectors.toSet());
+                .collect(Collectors.collectingAndThen(Collectors.toList(), l -> inModelPathOrder(l.stream())));
     }
 
     public static List<AbstractActorType> allAccessPointActor(Model model) {

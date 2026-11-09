@@ -104,6 +104,13 @@
             <version>4.1.2</version>
         </dependency>
 
+        <!-- StringUtils for helpers: handlebars' shaded copy (handlebars.internal.lang3) is gone in handlebars 4.4.0 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.14.0</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-expression</artifactId>
