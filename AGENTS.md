@@ -246,3 +246,7 @@ When your reflex is the left column, run the right column instead:
 **Fall-through (explicit):** if the kb call returns nothing relevant, `rg` /
 source read is allowed — then add the missing directory `AGENTS.md` row per the
 WRITE discipline. kb does NOT replace grep; it goes first.
+
+## commons-lang3 (JNG-6430)
+
+Helpers use `org.apache.commons.lang3.StringUtils` (`capitalize`/`uncapitalize`); root `pom.xml` shared `<dependencies>` adds `commons-lang3:3.14.0` next to `handlebars`. Was handlebars' shaded `com.github.jknack.handlebars.internal.lang3`, absent in handlebars 4.4.0 → `NoClassDefFoundError` when a newer handlebars wins on the generator classpath.

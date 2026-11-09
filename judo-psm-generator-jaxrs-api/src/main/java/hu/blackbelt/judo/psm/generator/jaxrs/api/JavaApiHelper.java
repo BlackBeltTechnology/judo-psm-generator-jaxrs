@@ -20,7 +20,7 @@ package hu.blackbelt.judo.psm.generator.jaxrs.api;
  * #L%
  */
 
-import com.github.jknack.handlebars.internal.lang3.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
 import hu.blackbelt.judo.meta.psm.derived.DataProperty;

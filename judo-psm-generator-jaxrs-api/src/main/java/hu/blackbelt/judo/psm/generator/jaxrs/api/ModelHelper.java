@@ -20,6 +20,7 @@ package hu.blackbelt.judo.psm.generator.jaxrs.api;
  * #L%
  */
 
+import hu.blackbelt.judo.generator.commons.ModelCache;
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
 import hu.blackbelt.judo.meta.psm.accesspoint.AbstractActorType;
@@ -35,10 +36,13 @@ import hu.blackbelt.judo.meta.psm.type.EnumerationType;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.getRealm;
@@ -47,11 +51,29 @@ import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.isRange
 @TemplateHelper
 public class ModelHelper extends StaticMethodValueResolver {
 
-    public synchronized static PsmModelResourceSupport modelWrapper(Model model) {
-        PsmModelResourceSupport modelWrapper = PsmModelResourceSupport.psmModelResourceSupportBuilder()
-                .resourceSet(model.eResource().getResourceSet()).uri(model.eResource().getURI())
-                .build();
-        return modelWrapper;
+    /**
+     * Returns the resource support of the model's ResourceSet. Building it mutates the ResourceSet (URI handlers,
+     * resource creation), so it is built once per generation run (see {@link ModelCache}) and always under the
+     * class lock.
+     */
+    public static PsmModelResourceSupport modelWrapper(Model model) {
+        Resource resource = model.eResource();
+        return cached(model, Arrays.asList("jaxrs.modelWrapper", resource.getURI()), () -> {
+            synchronized (ModelHelper.class) {
+                return PsmModelResourceSupport.psmModelResourceSupportBuilder()
+                        .resourceSet(resource.getResourceSet()).uri(resource.getURI())
+                        .build();
+            }
+        });
+    }
+
+    /**
+     * Memoizes {@code loader} for the current generation run of the anchor's ResourceSet (see {@link ModelCache});
+     * outside a run the loader is called directly. Package-private: not a template helper.
+     */
+    static <T> T cached(EObject anchor, Object key, Supplier<T> loader) {
+        Resource resource = anchor == null ? null : anchor.eResource();
+        return ModelCache.get(resource == null ? null : resource.getResourceSet(), key, loader);
     }
 
     @SuppressWarnings("unchecked")
@@ -96,7 +118,27 @@ public class ModelHelper extends StaticMethodValueResolver {
             foundTransferObjectTypes.add(accessPoint);
         }
         addTransferObjectTypesExposedByTransferObjectType(accessPoint, foundTransferObjectTypes);
-        return foundTransferObjectTypes.stream().filter(t -> !t.getOperations().isEmpty()).collect(Collectors.toSet());
+        return inModelPathOrder(foundTransferObjectTypes.stream().filter(t -> !t.getOperations().isEmpty()));
+    }
+
+    /**
+     * Ordered by model path (names of the containers and the type): the sets are built from {@code HashSet}s of
+     * model objects, whose iteration order (identity hashes) changed between runs and reordered the generated
+     * application config. The key needs no template context, so it also works in factory expressions.
+     */
+    private static Set<TransferObjectType> inModelPathOrder(java.util.stream.Stream<TransferObjectType> types) {
+        return types.distinct()
+                .sorted(java.util.Comparator.comparing(ModelHelper::modelPath))
+                .collect(Collectors.toCollection(java.util.LinkedHashSet::new));
+    }
+
+    private static String modelPath(org.eclipse.emf.ecore.EObject element) {
+        StringBuilder path = new StringBuilder();
+        for (org.eclipse.emf.ecore.EObject e = element; e != null; e = e.eContainer()) {
+            String name = e instanceof hu.blackbelt.judo.meta.psm.namespace.NamedElement n ? n.getName() : e.eClass().getName();
+            path.insert(0, "::").insert(0, name);
+        }
+        return path.toString();
     }
 
     private static void addTransferObjectTypesExposedByTransferObjectType(final TransferObjectType type,
@@ -138,7 +180,7 @@ public class ModelHelper extends StaticMethodValueResolver {
     public static Set<TransferObjectType> allExposedTransferObjectWithOperation(Model model) {
         return modelWrapper(model).getStreamOfPsmAccesspointAbstractActorType()
                 .flatMap(access -> getAllExposedTransferObjectTypesFromAccessPoint(access).stream())
-                .collect(Collectors.toSet());
+                .collect(Collectors.collectingAndThen(Collectors.toList(), l -> inModelPathOrder(l.stream())));
     }
 
     public static List<AbstractActorType> allAccessPointActor(Model model) {

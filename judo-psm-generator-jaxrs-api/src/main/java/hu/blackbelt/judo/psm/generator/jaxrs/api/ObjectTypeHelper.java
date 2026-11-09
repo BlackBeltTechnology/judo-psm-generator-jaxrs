@@ -20,10 +20,7 @@ package hu.blackbelt.judo.psm.generator.jaxrs.api;
  * #L%
  */
 
-import com.github.jknack.handlebars.internal.lang3.StringUtils;
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
+import org.apache.commons.lang3.StringUtils;
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
 import hu.blackbelt.judo.meta.psm.accesspoint.AbstractActorType;
@@ -33,10 +30,12 @@ import hu.blackbelt.judo.meta.psm.namespace.NamedElement;
 import hu.blackbelt.judo.meta.psm.service.*;
 import hu.blackbelt.judo.psm.generator.jaxrs.api.OperationHelper;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.ExecutionException;
 
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaNamespaceHelper.logicalFullName;
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaNamespaceHelper.safeName;
@@ -68,55 +67,29 @@ public class ObjectTypeHelper extends StaticMethodValueResolver {
     }
 
 
-    private static CacheLoader<TransferObjectType, EntityType> getEntityCacheLoader = new CacheLoader<>() {
-        @Override
-        public EntityType load(TransferObjectType key) {
-            return getEntityForCache(key);
-        }
-    };
-
-    private static LoadingCache<TransferObjectType, EntityType> getEntityLoadingCache =
-            CacheBuilder.newBuilder()
-                    .build(getEntityCacheLoader);
-
     public static EntityType getEntity(TransferObjectType transferObjectType) {
-        try {
-            return getEntityLoadingCache.get(transferObjectType);
-        } catch (ExecutionException e) {
-            throw new RuntimeException(e);
+        EntityType entityType = entitiesByDefaultRepresentation(getSpecifiedContainer(transferObjectType, Model.class))
+                .get(transferObjectType);
+        if (entityType == null) {
+            throw new IllegalArgumentException("Entity representation not found: " + transferObjectType.getName());
         }
+        return entityType;
     }
-
-    private static EntityType getEntityForCache(TransferObjectType transferObjectType) {
-        Model model = getSpecifiedContainer(transferObjectType, Model.class);
-        return modelWrapper(model).getStreamOfPsmDataEntityType()
-                .filter(e -> e.getDefaultRepresentation() == transferObjectType).findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Entity representation not found: " + transferObjectType.getName()));
-    }
-
-    private static CacheLoader<TransferObjectType, Boolean> isEntityCacheLoader = new CacheLoader<>() {
-        @Override
-        public Boolean load(TransferObjectType key) {
-            return isEntityForCache(key);
-        }
-    };
-
-    private static LoadingCache<TransferObjectType, Boolean> isEntityLoadingCache =
-            CacheBuilder.newBuilder()
-                    .build(isEntityCacheLoader);
 
     public static boolean isEntity(TransferObjectType transferObjectType) {
-        try {
-            return isEntityLoadingCache.get(transferObjectType);
-        } catch (ExecutionException e) {
-            throw new RuntimeException(e);
-        }
+        return entitiesByDefaultRepresentation(getSpecifiedContainer(transferObjectType, Model.class))
+                .containsKey(transferObjectType);
     }
 
-    private static boolean isEntityForCache(TransferObjectType transferObjectType) {
-        Model model = getSpecifiedContainer(transferObjectType, Model.class);
-        return modelWrapper(model).getStreamOfPsmDataEntityType()
-                .filter(e -> e.getDefaultRepresentation() == transferObjectType).findFirst().isPresent();
+    /** Entity types by their default representation (first one wins, as findFirst did); computed once per run. */
+    private static Map<TransferObjectType, EntityType> entitiesByDefaultRepresentation(Model model) {
+        return cached(model, Arrays.asList("jaxrs.entitiesByDefaultRepresentation", model), () -> {
+            Map<TransferObjectType, EntityType> entities = new IdentityHashMap<>();
+            modelWrapper(model).getStreamOfPsmDataEntityType()
+                    .filter(e -> e.getDefaultRepresentation() != null)
+                    .forEach(e -> entities.putIfAbsent(e.getDefaultRepresentation(), e));
+            return entities;
+        });
     }
 
     public static boolean hasCustomOperation(TransferObjectType transferObjectType) {
@@ -124,15 +97,20 @@ public class ObjectTypeHelper extends StaticMethodValueResolver {
     }
 
     public static boolean isRangeInputType(TransferObjectType transferObjectType) {
-        Model model = getSpecifiedContainer(transferObjectType, Model.class);
-        return modelWrapper(model)
-                .getStreamOfPsmServiceTransferOperation()
-                .anyMatch(o ->
-                        o.getBehaviour() != null
-                                && o.getBehaviour().getBehaviourType() == TransferOperationBehaviourType.GET_RANGE
-                                && o.getInput() != null
-                                && o.getInput().getType().equals(transferObjectType)
-                );
+        return rangeInputTypes(getSpecifiedContainer(transferObjectType, Model.class)).contains(transferObjectType);
+    }
+
+    /** Input types of GET_RANGE operations; computed once per run. */
+    private static Set<TransferObjectType> rangeInputTypes(Model model) {
+        return cached(model, Arrays.asList("jaxrs.rangeInputTypes", model), () -> {
+            Set<TransferObjectType> types = Collections.newSetFromMap(new IdentityHashMap<>());
+            modelWrapper(model).getStreamOfPsmServiceTransferOperation()
+                    .filter(o -> o.getBehaviour() != null
+                            && o.getBehaviour().getBehaviourType() == TransferOperationBehaviourType.GET_RANGE
+                            && o.getInput() != null)
+                    .forEach(o -> types.add(o.getInput().getType()));
+            return types;
+        });
     }
 
     public static String classNameForCreateRequestPostfix(TransferObjectType transferObjectType) {
