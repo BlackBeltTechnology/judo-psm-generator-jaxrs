@@ -54,8 +54,8 @@
         <judo-dao-api-version>1.0.4.20260311_102800_7e7131d1_develop</judo-dao-api-version>
         <judo-sdk-common-version>1.0.4.20261107_063618_a340aaf9_develop</judo-sdk-common-version>
 
-        <judo-meta-psm-version>1.3.0.20261107_063402_482aa310_develop</judo-meta-psm-version>
-        <judo-generator-commons-version>1.0.0.20260311_095819_caeda009_develop</judo-generator-commons-version>
+        <judo-meta-psm-version>1.3.0.20261109_193945_ea3503d6_develop</judo-meta-psm-version>
+        <judo-generator-commons-version>1.0.0.20261109_192104_e02c7d98_develop</judo-generator-commons-version>
 
         <judo-dispatcher-api-version>1.0.3.20260311_104219_ef26bd53_develop</judo-dispatcher-api-version>
         <cxf-jaxrs-application-manager-version>0.7.1.20260311_103821_9d3737e8_develop</cxf-jaxrs-application-manager-version>
@@ -102,6 +102,13 @@
             <groupId>com.github.jknack</groupId>
             <artifactId>handlebars</artifactId>
             <version>4.1.2</version>
+        </dependency>
+
+        <!-- StringUtils for helpers: handlebars' shaded copy (handlebars.internal.lang3) is gone in handlebars 4.4.0 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.14.0</version>
         </dependency>
 
         <dependency>

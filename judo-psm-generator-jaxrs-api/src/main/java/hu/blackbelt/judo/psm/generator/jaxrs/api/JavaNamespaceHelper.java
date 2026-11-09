@@ -20,10 +20,7 @@ package hu.blackbelt.judo.psm.generator.jaxrs.api;
  * #L%
  */
 
-import com.github.jknack.handlebars.internal.lang3.StringUtils;
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
+import org.apache.commons.lang3.StringUtils;
 import hu.blackbelt.judo.generator.commons.StaticMethodValueResolver;
 import hu.blackbelt.judo.generator.commons.annotations.TemplateHelper;
 import hu.blackbelt.judo.meta.psm.PsmUtils;
@@ -34,15 +31,12 @@ import hu.blackbelt.judo.meta.psm.namespace.Package;
 import hu.blackbelt.judo.meta.psm.service.TransferAttribute;
 import hu.blackbelt.judo.meta.psm.service.TransferObjectRelation;
 import hu.blackbelt.judo.meta.psm.service.TransferObjectType;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
 
 import java.util.*;
-import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
-import static com.github.jknack.handlebars.internal.lang3.StringUtils.capitalize;
+import static org.apache.commons.lang3.StringUtils.capitalize;
+import static hu.blackbelt.judo.psm.generator.jaxrs.api.ModelHelper.cached;
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.getEntity;
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.ObjectTypeHelper.isEntity;
 
@@ -67,36 +61,9 @@ public class JavaNamespaceHelper extends StaticMethodValueResolver {
         }
     }
 
-    @Builder
-    @EqualsAndHashCode
-    @Getter
-    private static final class FqNameKey {
-        private Namespace namespace;
-        private String separator;
-        @Builder.Default
-        private Boolean safeName = false;
-    }
-
-    private static CacheLoader<FqNameKey, String> fqNameKeyStringCacheLoader = new CacheLoader<>() {
-        @Override
-        public String load(FqNameKey key) {
-            return fqNameForCache(key.getNamespace(), key.getSeparator(), key.getSafeName());
-        }
-    };
-
-    private static LoadingCache<FqNameKey, String> fqNameKeyStringLoadingCache =
-            CacheBuilder.newBuilder()
-                    .build(fqNameKeyStringCacheLoader);
     public static String fqName(final Namespace namespace, String separator, boolean safeName) {
-        try {
-            return fqNameKeyStringLoadingCache.get(FqNameKey.builder()
-                    .namespace(namespace)
-                    .separator(separator)
-                    .safeName(safeName)
-                    .build());
-        } catch (ExecutionException e) {
-            throw new RuntimeException(e);
-        }
+        return cached(namespace, Arrays.asList("jaxrs.fqName", namespace, separator, safeName),
+                () -> fqNameForCache(namespace, separator, safeName));
     }
 
     private static String fqNameForCache(final Namespace namespace, String separator, boolean safeName) {
@@ -174,23 +141,9 @@ public class JavaNamespaceHelper extends StaticMethodValueResolver {
         return safeName(StringUtils.uncapitalize(namedElement.getName()));
     }
 
-    private static CacheLoader<TransferObjectRelation, String> relationAsmFqNameCacheLoader = new CacheLoader<>() {
-        @Override
-        public String load(TransferObjectRelation key) {
-            return relationAsmFqNameForCache(key);
-        }
-    };
-
-    private static LoadingCache<TransferObjectRelation, String> relationAsmFqNameLoadingCache =
-            CacheBuilder.newBuilder()
-                    .build(relationAsmFqNameCacheLoader);
-
     public static String relationAsmFqName(TransferObjectRelation transferObjectRelation) {
-        try {
-            return relationAsmFqNameLoadingCache.get(transferObjectRelation);
-        } catch (ExecutionException e) {
-            throw new RuntimeException(e);
-        }
+        return cached(transferObjectRelation, Arrays.asList("jaxrs.relationAsmFqName", transferObjectRelation),
+                () -> relationAsmFqNameForCache(transferObjectRelation));
     }
 
     private static String relationAsmFqNameForCache(TransferObjectRelation transferObjectRelation) {
@@ -198,23 +151,9 @@ public class JavaNamespaceHelper extends StaticMethodValueResolver {
         return fqName(transferObjectType.getNamespace(), ".", false) + '.' + transferObjectType.getName() + "#" + transferObjectRelation.getName();
     }
 
-    private static CacheLoader<TransferObjectType, String> classifierAsmFqNameCacheLoader = new CacheLoader<>() {
-        @Override
-        public String load(TransferObjectType key) {
-            return classifierAsmFqNameForCache(key);
-        }
-    };
-
-    private static LoadingCache<TransferObjectType, String> classifierAsmFqNameLoadingCache =
-            CacheBuilder.newBuilder()
-                    .build(classifierAsmFqNameCacheLoader);
-
     public static String classifierAsmFqName(TransferObjectType transferObjectType) {
-        try {
-            return classifierAsmFqNameLoadingCache.get(transferObjectType);
-        } catch (ExecutionException e) {
-            throw new RuntimeException(e);
-        }
+        return cached(transferObjectType, Arrays.asList("jaxrs.classifierAsmFqName", transferObjectType),
+                () -> classifierAsmFqNameForCache(transferObjectType));
     }
 
     private static String classifierAsmFqNameForCache(TransferObjectType transferObjectType) {
