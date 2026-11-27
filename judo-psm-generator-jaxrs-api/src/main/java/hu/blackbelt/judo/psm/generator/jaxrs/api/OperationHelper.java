@@ -29,7 +29,13 @@ import hu.blackbelt.judo.meta.psm.namespace.NamedElement;
 import hu.blackbelt.judo.meta.psm.namespace.Namespace;
 import hu.blackbelt.judo.meta.psm.service.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaApiHelper.className;
 import static hu.blackbelt.judo.psm.generator.jaxrs.api.JavaApiHelper.namedElementApiParentPath;
@@ -248,14 +254,28 @@ public class OperationHelper extends StaticMethodValueResolver {
     }
 
     public static List<AbstractActorType> getActorsOfOperation(Model model, TransferOperation transferOperation) {
-        return modelWrapper(model)
-                .getStreamOfPsmAccesspointAbstractActorType()
-                .filter(actor -> actor.getRealm() != null)
-                .filter(actor -> getAllExposedTransferObjectTypesFromAccessPoint(actor)
-                        .stream()
-                        .flatMap(to -> to.getOperations().stream())
-                        .anyMatch(operation -> operation.equals(transferOperation)))
-                .toList();
+        return actorsByOperation(model).getOrDefault(transferOperation, List.of());
+    }
+
+    /**
+     * Actors with a realm per exposed operation, in actor (model) order; computed once per run. The former per-call
+     * filter computed the exposed graph of every actor for every operation.
+     */
+    private static Map<TransferOperation, List<AbstractActorType>> actorsByOperation(Model model) {
+        return ModelHelper.cached(model, Arrays.asList("jaxrs.actorsByOperation", model), () -> {
+            Map<TransferOperation, List<AbstractActorType>> result = new IdentityHashMap<>();
+            modelWrapper(model)
+                    .getStreamOfPsmAccesspointAbstractActorType()
+                    .filter(actor -> actor.getRealm() != null)
+                    .forEach(actor -> {
+                        Set<TransferOperation> operations = Collections.newSetFromMap(new IdentityHashMap<>());
+                        getAllExposedTransferObjectTypesFromAccessPoint(actor)
+                                .forEach(to -> operations.addAll(to.getOperations()));
+                        operations.forEach(operation -> result.computeIfAbsent(operation, o -> new ArrayList<>()).add(actor));
+                    });
+            result.replaceAll((operation, actors) -> List.copyOf(actors));
+            return result;
+        });
     }
 
     public static List<String> getRealmsOfOperationLowerCase(Model model, TransferOperation transferOperation) {
